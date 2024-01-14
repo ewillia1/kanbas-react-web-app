@@ -144,7 +144,8 @@
                         <option value="DUMMY3">Dummy 3</option>
                         <option value="DUMMY4">Dummy 4</option>
                     </select>
-                    <img src="question-mark-icon.png" alt="question mark icon" width="20px" height="20px"/>
+                    
+                    <a href="#" onclick="window.open('#', 'newName', 'width=300, height=250'); return false;"><img src="question-mark-icon.png" alt="question mark icon" width="20px" height="20px"/></a>
                 </td>
               </tr>
               <tr>
@@ -165,7 +166,7 @@
                     <option value="DUMMY3">Dummy 3</option>
                     <option value="DUMMY4">Dummy 4</option>
                   </select>
-                  <img src="question-mark-icon.png" alt="question mark icon" width="20px" height="20px"/><br/><br/>
+                  <a href="#" onclick="window.open('#', 'newName', 'width=300, height=250'); return false;"><img src="question-mark-icon.png" alt="question mark icon" width="20px" height="20px"/></a>
                   <input type="checkbox" value="COPYRIGHT" name="check-copyright" id="chkbox-copyright"/>
                   <label for="chkbox-copyright">Copyright and license information must be provided for files before they are published.</label>
                 </td>
@@ -205,8 +206,11 @@
           </table>
           
           <hr>
-          <p align="right">
+          <input type="button" value="Update Course Details" style="float: right" onclick="location.href='/Kanbas/Account/Settings/CourseDetails/screen.html';">
+
+          <!-- Another way to do the button -->
+          <!-- <p align="right">
             <button type="button">Update Course Details</button>     
-          </p>         
+          </p>          -->
     </body>
 </html>
