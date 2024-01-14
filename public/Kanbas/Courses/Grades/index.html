@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Grades</title>
+    </head>
+    <body>
+        <select>
+            <option selected value="GRADEBOOK">Gradebook</option>
+            <option value="DUMMY1">Dummy 1</option>
+            <option value="DUMMY2">Dummy 2</option>
+            <option value="DUMMY3">Dummy 3</option>
+            <option value="DUMMY4">Dummy 4</option>
+         </select>
+        <button type="button">Import</button>
+        <select>
+            <option selected value="EXPORT">Export</option>
+            <option value="DUMMY1">Dummy 1</option>
+            <option value="DUMMY2">Dummy 2</option>
+            <option value="DUMMY3">Dummy 3</option>
+            <option value="DUMMY4">Dummy 4</option>
+         </select>
+        <button type="button">Configure</button>
+
+        <form id="filter-fields">
+            <label for="filter-fields-student-names"><h3 style="margin-bottom: 0;" >Student Names</h3></label><br/>
+            <input type="text" id="filter-fields-student-names" placeholder="Search Students"/><br/>
+            <label for="filter-fields-assignment-names"><h3 style="margin-bottom: 0;">Assignment Names</h3></label><br/>
+            <input type="text" id="filter-fields-assignment-names" placeholder="Search Assignments"/><br/>
+         </form>
+
+         <button style="margin-top: 20px;" type="submit" form="filter-fields">Apply Filters</button>
+
+         <table style="margin-top: 20px;" border="1" width="100%">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>A1 SETUP<br>Out of 100</th>
+                    <th>A2 HTML<br>Out of 100</th>
+                    <th>A3 CSS<br>Out of 100</th>
+                    <th>A4 BOOTSTRAP<br>Out of 100</th>
+                    <th>A5 JAVASCRIPT<br>Out of 100</th>
+                    <th>A6 REACT<br>Out of 100</th>
+                    <th>A7 REDUX<br>Out of 100</th>
+                    <th>A8 NODE<br>Out of 100</th>
+                    <th>A9 MONGO<br>Out of 100</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alice Wonderland</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">98</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">89</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">87</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">90</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">89</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">94</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">88</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">87</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">100</td>
+                </tr>
+                <tr>
+                    <td>Prices Leia</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">98</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">80</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">87</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">86</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">100</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">94</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true"><span style="border: 1px solid black; padding-left: 15px; padding-right: 15px; border-radius: 4px;">85</span></td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">84</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">92</td>
+                </tr>
+                <tr>
+                    <td>Luke Skywalker</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true"><span style="border: 1px solid black; padding-left: 15px; padding-right: 15px; border-radius: 4px;">99</span></td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">88</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">97</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">82</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">96</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">93</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">95</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">100</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">93</td>
+                </tr>
+                <tr>
+                    <td>Han Solo</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">83</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">99</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">94</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">98</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">86</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">85</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true"><span style="border: 1px solid black; padding-left: 15px; padding-right: 15px; border-radius: 4px;">86</span></td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">80</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">84</td>
+                </tr>
+                <tr>
+                    <td>Lando Calresian</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">83</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true"><span style="border: 1px solid black; padding-left: 15px; padding-right: 15px; border-radius: 4px;">92</span></td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">80</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">80</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">92</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">92</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">94</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">87</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">95</td>
+                </tr>
+                <tr>
+                    <td>Boba Fet</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">85</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">89</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">94</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">83</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">83</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">84</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">91</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">87</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">96</td>
+                </tr>
+                <tr>
+                    <td>Darth Vader</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">81</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">81</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true"><span style="border: 1px solid black; padding-left: 15px; padding-right: 15px; border-radius: 4px;">96</span></td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">80</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">89</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">88</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">82</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">80</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">82</td>
+                </tr>
+                <tr>
+                    <td>Obi-Wan Kenobi</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true"><span style="border: 1px solid black; padding-left: 15px; padding-right: 15px; border-radius: 4px;">85</span></td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">99</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">87</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">82</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">88</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">83</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">88</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">92</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">80</td>
+                </tr>
+                <tr>
+                    <td>R2-D2</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">81</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true"><span style="border: 1px solid black; padding-left: 15px; padding-right: 15px; border-radius: 4px;">92</span></td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true"><span style="border: 1px solid black; padding-left: 15px; padding-right: 15px; border-radius: 4px;">82</span></td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">86</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">83</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true"><span style="border: 1px solid black; padding-left: 15px; padding-right: 15px; border-radius: 4px;">84</span></td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">98</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">85</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">96</td>
+                </tr>
+                <tr>
+                    <td>C-3PO</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">94</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">98</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">83</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">83</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">100</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">96</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">96</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">85</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">87</td>
+                </tr>
+                <tr>
+                    <td>Yoda</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">80</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">89</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">99</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">89</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">96</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">85</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">96</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">92</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">85</td>
+                </tr>
+                <tr>
+                    <td>Admiral Ackbar</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">82</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">88</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">95</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">100</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true"><span style="border: 1px solid black; padding-left: 15px; padding-right: 15px; border-radius: 4px;">93</span></td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">98</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">85</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">87</td>
+                    <td style="text-align: center; vertical-align: middle;" contenteditable="true">99</td>
+                </tr>
+            </tbody>
+         </table>
+    </body>
+</html>
