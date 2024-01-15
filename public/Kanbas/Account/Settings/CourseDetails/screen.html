@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Settings</title>
+        <title>Course Details</title>
     </head>
     <body>
         <table>
@@ -41,13 +41,215 @@
                         <li><a href="#">Outcomes</a></li>
                         <li><a href="#">Collaborations</a></li>
                         <li><a href="#">Syllabus</a></li>
-                        <li><a href="/Kanbas/Account/Settings/screen.html">Settings</a></li>
+                        <li><a href="/Kanbas/Account/Settings/CourseDetails/screen.html">Settings</a></li>
                     </ul>
                 </td>
 
                 <!-- Right Side Column -->
                 <td style="padding-top: 0; vertical-align: top;">
+                    <button type="button" onclick="window.location.href='/Kanbas/Account/Settings/CourseDetails/screen.html'">Course Details</button>
+                    <button type="button" onclick="window.location.href='#'">Sections</button>
+                    <button type="button" onclick="window.location.href='/Kanbas/Account/Settings/CourseNavigation/screen.html'">Navigation</button>
+                    <button type="button" onclick="window.location.href='#'">Apps</button>
+                    <button type="button" onclick="window.location.href='#'">Feature Options</button>
+                    <button type="button" onclick="window.location.href='#'">Integrations</button>
+                    <hr>
+        
+                    <h1>Course Details</h1>
                     
+                    <table width="100%">
+                        <tbody>
+                            <tr>
+                                <td><h4>Image:</h4></td>
+                                <td>
+                                    <div style="width: 120px; padding: 50px; border: 1px solid gray; margin: 0;">
+                                        <button style="display:block; width:120px; height:30px;" onclick="document.getElementById('getFile').click()">Choose Image</button>
+                                        <input type='file' id="getFile" style="display:none">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>Name:</h4></td>
+                                <td>CS4550 12631 Web Development SEC 01 Fall 2023 (BOS-1-TR)</td>
+                            </tr>
+                            <tr>
+                                <td><h4>Course Code:</h4></td>
+                                <td>CS4500.12631.202410</td>
+                            </tr>
+                            <tr>
+                                <td><h4>Blueprint Course:</h4></td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><h4>Course Template:</h4></td>
+                                <td>
+                                    <!-- Will need to use CSS to change the color of the label when the checkbox is clicked vs. not clicked. -->
+                                    <input type="checkbox" value="DRAMA" name="check-enable" id="chkbox-enable-template"/>
+                                    <label for="chkbox-enable-template" style="color: grey;">Enable course as a Course Template</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>Time Zone:</h4></td>
+                                <td>
+                                    <select id="select-one-time-zone">
+                                        <option selected value="EST">Eastern Time (US & Canada)(-05:00/-04:00)</option>
+                                        <option value="CST">Central Time (US & Canada)(-06:00/-05:00)</option>
+                                        <option value="MST">Mountain Time (US & Canada)(-07:00/-06:00)</option>
+                                        <option value="PST">Pacific Time (US & Canada)(-08:00/-07:00)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>SIS ID:</h4></td>
+                                <td>CS4500.12631.202410</td>
+                            </tr>
+                            <tr>
+                                <td><h4>Subaccount:</h4></td>
+                                <td><a style="text-decoration: none" href="#">CS Undergrad</a></td>
+                            </tr>
+                            <tr>
+                                <td><h4>Term:</h4></td>
+                                <td>202410_1 Fall 2023 Semester Full Term</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top: 0; vertical-align: top;"><h4 style="margin-top: 0;">Participation:</h4></td>
+                                <td>
+                                    <select id="select-one-participation">
+                                        <option selected value="TERM">Term</option>
+                                        <option value="DUMMY1">Dummy 1</option>
+                                        <option value="DUMMY2">Dummy 2</option>
+                                        <option value="DUMMY3">Dummy 3</option>
+                                        <option value="DUMMY4">Dummy 4</option>
+                                    </select>
+                                    <p>Course participation is limited to <b>term</b> start and end dates.</p>
+                                    <label for="text-fields-start-date"><h3>Start</h3></label>
+                                    <input type="date" id="text-fields-start-date"/><br/>
+                                    <label for="text-fields-end-date"><h3>End</h3></label>
+                                    <input type="date" id="text-fields-end-date"/><br/><br/>
+                
+                                    <input type="checkbox" value="RESTRICT_START" name="check-restrict" id="chkbox-restrict-start"/>
+                                    <label for="chkbox-restrict-start">Restrict students from viewing course before term start date</label><br/>
+                                    <input type="checkbox" value="RESTRICT_END" name="check-restrict" id="chkbox-restrict-end"/>
+                                    <label for="chkbox-restrict-end">Restrict studnets from view course after term end date</label><br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top: 0; vertical-align: top;"><h4 style="margin-top: 0;">Default due time:</h4></td>
+                                <td>
+                                    <select id="select-one-due-time">
+                                        <option selected value="DEFAULT">Account default (11:59pm)</option>
+                                        <option value="DUMMY1">Dummy 1</option>
+                                        <option value="DUMMY2">Dummy 2</option>
+                                        <option value="DUMMY3">Dummy 3</option>
+                                        <option value="DUMMY4">Dummy 4</option>
+                                    </select>
+                                    <p>This influences the user interface for setting due dates. It does not change the time due for any existing assignments.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top: 0; vertical-align: top;"><h4 style="margin-top: 0;">Language:</h4></td>
+                                <td>
+                                    <select id="select-one-language">
+                                        <option selected value="DEFAULT">Not set (user-configurable, defaults to English (Unit))</option>
+                                        <option value="DUMMY1">Dummy 1</option>
+                                        <option value="DUMMY2">Dummy 2</option>
+                                        <option value="DUMMY3">Dummy 3</option>
+                                        <option value="DUMMY4">Dummy 4</option>
+                                    </select>
+                                    <p>This will override any user/system language preferences. This is only recommended for foreign langauge courses.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>File Storage:</h4></td>
+                                <td>10000 megabytes</td>
+                            </tr>
+                            <tr>
+                                <td><h4>Large Course:</h4></td>
+                                <td>
+                                    <input type="checkbox" value="LARGE_COURSE" name="check-large" id="chkbox-large-course"/>
+                                    <label for="chkbox-large-course">Launch SpeedGrader Filtered by Student Group</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>Grading Sceme:</h4></td>
+                                <td>
+                                    <input type="checkbox" value="GRADING_SCHEME" name="check-grading" id="chkbox-large-grading-scheme"/>
+                                    <label for="chkbox-grading-scheme">Enable course grading scheme</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>License:</h4></td>
+                                <td>
+                                    <select id="select-one-license">
+                                        <option selected value="PRIVATE">Private (Copyrighted)</option>
+                                        <option value="DUMMY1">Dummy 1</option>
+                                        <option value="DUMMY2">Dummy 2</option>
+                                        <option value="DUMMY3">Dummy 3</option>
+                                        <option value="DUMMY4">Dummy 4</option>
+                                    </select>
+                                    
+                                    <a href="#" onclick="window.open('#', 'newName', 'width=300, height=250'); return false;"><img src="question-mark-icon.png" alt="question mark icon" width="20px" height="20px"/></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>File Copyright:</h4></td>
+                                <td>
+                                <input type="checkbox" value="COPYRIGHT" name="check-copyright" id="chkbox-copyright"/>
+                                <label for="chkbox-copyright">Copyright and license information must be provided for files before they are published.</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top: 0; vertical-align: top;"><h4 style="margin-top: 0;">Visibility:</h4></td>
+                                <td>
+                                <p>If you need to make your course public please contact your administrator/support.</p>
+                                <select id="select-one-visibility">
+                                    <option selected value="COURSE">Course</option>
+                                    <option value="DUMMY1">Dummy 1</option>
+                                    <option value="DUMMY2">Dummy 2</option>
+                                    <option value="DUMMY3">Dummy 3</option>
+                                    <option value="DUMMY4">Dummy 4</option>
+                                </select>
+                                <a href="#" onclick="window.open('#', 'newName', 'width=300, height=250'); return false;"><img src="question-mark-icon.png" alt="question mark icon" width="20px" height="20px"/></a>
+                                <input type="checkbox" value="COPYRIGHT" name="check-copyright" id="chkbox-copyright"/>
+                                <label for="chkbox-copyright">Copyright and license information must be provided for files before they are published.</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>Format:</h4></td>
+                                <td>
+                                <select id="select-one-format">
+                                    <option selected value="ONCAMPUS">On-Campus</option>
+                                    <option value="DUMMY1">Dummy 1</option>
+                                    <option value="DUMMY2">Dummy 2</option>
+                                    <option value="DUMMY3">Dummy 3</option>
+                                    <option value="DUMMY4">Dummy 4</option>
+                                </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>Mastery Paths:</h4></td>
+                                <td>
+                                <input type="checkbox" value="MASTERY_PATHS" name="check-mastery-paths" id="chkbox-mastery-paths"/>
+                                <label for="chkbox-mastery-paths">Enable individual learning paths for students based on assessment</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>Description:</h4></td>
+                                <td>
+                                <textarea cols="45" rows="10"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                <a style="text-decoration: none" href="#">more options</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                      
+                    <hr>
+                    <input type="button" value="Update Course Details" style="float: right; background-color: red; color: white; border-color: red; border-radius: 4px; padding: 5px;" onclick="location.href='/Kanbas/Account/Settings/CourseDetails/screen.html';">
                 </td>
               </tr>
             </tbody>
