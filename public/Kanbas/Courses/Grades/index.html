@@ -6,18 +6,15 @@
     <body>
         <select>
             <option selected value="GRADEBOOK">Gradebook</option>
-            <option value="DUMMY1">Dummy 1</option>
-            <option value="DUMMY2">Dummy 2</option>
-            <option value="DUMMY3">Dummy 3</option>
-            <option value="DUMMY4">Dummy 4</option>
+            <option value="CHANGE">Change Gradebook View</option>
+            <option value="TRAD">Traditional Gradebook</option>
+            <option value="INDVI">Individual Gradebook</option>
          </select>
         <button type="button">Import</button>
         <select>
             <option selected value="EXPORT">Export</option>
-            <option value="DUMMY1">Dummy 1</option>
-            <option value="DUMMY2">Dummy 2</option>
-            <option value="DUMMY3">Dummy 3</option>
-            <option value="DUMMY4">Dummy 4</option>
+            <option value="EXPCURR">Export Current Gradebook View</option>
+            <option value="EXPENTIRE">Export Entire Gradebook</option>
          </select>
         <button type="button">Configure</button>
 
@@ -26,11 +23,11 @@
             <input type="text" id="filter-fields-student-names" placeholder="Search Students"/><br/>
             <label for="filter-fields-assignment-names"><h3 style="margin-bottom: 0;">Assignment Names</h3></label><br/>
             <input type="text" id="filter-fields-assignment-names" placeholder="Search Assignments"/><br/>
-         </form>
+        </form>
 
-         <button style="margin-top: 20px;" type="submit" form="filter-fields">Apply Filters</button>
+        <button style="margin-top: 20px;" type="submit" form="filter-fields">Apply Filters</button>
 
-         <table style="margin-top: 20px;" border="1" width="100%">
+        <table style="margin-top: 20px;" border="1" width="100%">
             <thead>
                 <tr>
                     <th>Student Name</th>
