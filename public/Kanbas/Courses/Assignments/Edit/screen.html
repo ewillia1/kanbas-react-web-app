@@ -4,7 +4,7 @@
         <title>Edit</title>
     </head>
     <body>
-        <table width="100%">
+        <table>
             <tbody>
                 <tr>
                     <!-- Left Side Column -->
@@ -47,67 +47,69 @@
 
                     <!-- Right Side Column -->
                     <td style="padding-top: 0; vertical-align: top;">
-                        <select>
-                            <option selected value="SPEEDGRADER">SpeedGrader</option>
-                        </select>
-                        <hr/>
+                        <form action="/Kanbas/Courses/Assignments/screen.html">
+                            <select>
+                                <option selected value="SPEEDGRADER">SpeedGrader</option>
+                            </select>
+                            <hr/>
                 
-                        <h1>Assignment Name</h1>
-                        <input type="text" id="assignmentName" name="assignmentName" value="A1 - ENV + HTML"><br/><br/>
-                        <textarea cols="20" rows="2">This is the assignment description.</textarea><br/><br/>
+                            <h1>Assignment Name</h1>
+                            <input type="text" id="assignmentName" name="assignmentName" value="A1 - ENV + HTML"><br/><br/>
+                            <textarea cols="20" rows="2">This is the assignment description.</textarea><br/><br/>
                 
-                        <label for="points">Points</label><br/>
-                        <input type="text" id="points" name="points" value="100"><br/><br/>
+                            <label for="points">Points</label><br/>
+                            <input type="text" id="points" name="points" value="100"><br/><br/>
                 
-                        <label for="assignmentGroup">Assignment Group</label><br/>
-                        <select id="assignmentGroup" name="assignmentGroup">
-                            <option selected value="ASSIGNMENTS">ASSIGNMENTS</option>
-                            <option>QUIZZES</option>
-                            <option>EXAMS</option>
-                            <option>PROJECTS</option>
-                        </select><br/><br/>
+                            <label for="assignmentGroup">Assignment Group</label><br/>
+                            <select id="assignmentGroup" name="assignmentGroup">
+                                <option selected value="ASSIGNMENTS">ASSIGNMENTS</option>
+                                <option>QUIZZES</option>
+                                <option>EXAMS</option>
+                                <option>PROJECTS</option>
+                            </select><br/><br/>
                 
-                        <label for="displayGrade">Display Grade as</label><br/>
-                        <select id="displayGrade" name="displayGrade">
-                            <option selected value="PERCENTAGE">Percentage</option>
-                        </select><br/><br/>
+                            <label for="displayGrade">Display Grade as</label><br/>
+                            <select id="displayGrade" name="displayGrade">
+                                <option selected value="PERCENTAGE">Percentage</option>
+                            </select><br/><br/>
                 
-                        <label for="submissionType">Submission Type</label><br/>
-                        <select id="submissionType" name="submissionType">
-                            <option selected value="PERCENTAGE">Online</option>
-                        </select><br/><br/>
+                            <label for="submissionType">Submission Type</label><br/>
+                            <select id="submissionType" name="submissionType">
+                                <option selected value="PERCENTAGE">Online</option>
+                            </select><br/><br/>
                 
-                        <label>Online Entry Options</label><br/>
-                        <input type="checkbox" value="TEXTENTRY" name="check-online-entry-options" id="chkbox-textEntry"/>
-                        <label for="chkbox-textEntry">Text Entry</label><br/>
+                            <label>Online Entry Options</label><br/>
+                            <input type="checkbox" value="TEXTENTRY" name="check-online-entry-options" id="chkbox-textEntry"/>
+                            <label for="chkbox-textEntry">Text Entry</label><br/>
                 
-                        <input type="checkbox" value="WEBSITEURL" name="check-online-entry-options" id="chkbox-websiteURL"/>
-                        <label for="chkbox-websiteURL">Website URL</label><br/>
+                            <input type="checkbox" value="WEBSITEURL" name="check-online-entry-options" id="chkbox-websiteURL"/>
+                            <label for="chkbox-websiteURL">Website URL</label><br/>
                 
-                        <input type="checkbox" value="MEDIARECORDINGS" name="check-online-entry-options" id="chkbox-mediaRec"/>
-                        <label for="chkbox-mediaRec">Media Recordings</label><br/>
+                            <input type="checkbox" value="MEDIARECORDINGS" name="check-online-entry-options" id="chkbox-mediaRec"/>
+                            <label for="chkbox-mediaRec">Media Recordings</label><br/>
                 
-                        <input type="checkbox" value="STUDENTANNO" name="check-online-entry-options" id="chkbox-studentAnno"/>
-                        <label for="chkbox-studentAnno">Student Annotation</label><br/>
+                            <input type="checkbox" value="STUDENTANNO" name="check-online-entry-options" id="chkbox-studentAnno"/>
+                            <label for="chkbox-studentAnno">Student Annotation</label><br/>
                 
-                        <input type="checkbox" value="FILEUPLOADS" name="check-online-entry-options" id="chkbox-fileUploads"/>
-                        <label for="chkbox-fileUploads">File Uploads</label><br/><br/>
+                            <input type="checkbox" value="FILEUPLOADS" name="check-online-entry-options" id="chkbox-fileUploads"/>
+                            <label for="chkbox-fileUploads">File Uploads</label><br/><br/>
                 
-                        <label>Assign</label><br/>
-                        <label for="assignTo">Assign to</label><br/>
-                        <input type="text" id="assignTo" name="assignTo" value="Everyone"><br/><br/>
+                            <label>Assign</label><br/>
+                            <label for="assignTo">Assign to</label><br/>
+                            <input type="text" id="assignTo" name="assignTo" value="Everyone"><br/><br/>
                 
-                        <label for="text-fields-due-date">Due</label><br/>
-                        <input type="date" id="text-fields-due-date" value="2021-01-01"/><br/><br/>
+                            <label for="text-fields-due-date">Due</label><br/>
+                            <input type="date" id="text-fields-due-date" value="2021-01-01"/><br/><br/>
                 
-                        <label for="text-fields-available-from">Available from</label><br/>
-                        <input type="date" id="text-fields-available-from" value="2021-01-01"/><br/> <br/>
+                            <label for="text-fields-available-from">Available from</label><br/>
+                            <input type="date" id="text-fields-available-from" value="2021-01-01"/><br/> <br/>
                 
-                        <label for="text-fields-until">Until</label><br/>
-                        <input type="date" id="text-fields-until" value="2021-01-01"/><br/> <br/>
+                            <label for="text-fields-until">Until</label><br/>
+                            <input type="date" id="text-fields-until" value="2021-01-01"/><br/> <br/>
                 
-                        <button onclick="window.location.href='/Kanbas/Courses/Assignments/screen.html';" type="button" value="Cancel">Cancel</button>
-                        <button onclick="window.location.href='/Kanbas/Courses/Assignments/screen.html';" type="submit" value="Save">Save</button>
+                            <button>Cancel</button>
+                            <button>Save</button>
+                        </form>
                     </td>
                 </tr>
             </tbody>
