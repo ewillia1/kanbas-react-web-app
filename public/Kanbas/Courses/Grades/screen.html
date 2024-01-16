@@ -46,18 +46,22 @@
                 </td>
 
                 <!-- Right Side Column -->
-                <td style="padding-top: 0; vertical-align: top;">
+                <td style="padding-top: 0; vertical-align: top; padding-left: 20px;">
                     <select>
                         <option value="" disabled selected hidden>Gradebook</option>
-                        <option value="CHANGE">Change Gradebook View</option>
+                        <option value="CHANGE" disabled><b>Change Gradebook View</b></option>
                         <option value="TRAD">Traditional Gradebook</option>
                         <option value="INDVI">Individual Gradebook</option>
+                        <hr/>
+                        <option value="HISTORY">Gradebook History</option>
                      </select>
                     <button type="button">Import</button>
                     <select>
                         <option value="" disabled selected hidden>Export</option>
                         <option value="EXPCURR">Export Current Gradebook View</option>
                         <option value="EXPENTIRE">Export Entire Gradebook</option>
+                        <hr/>
+                        <option value="PREVIOUSEXPORT">Previous Export (Jan 10, 2024 at 11:25 am)</option>
                      </select>
                     <button type="button">Configure</button>
             
