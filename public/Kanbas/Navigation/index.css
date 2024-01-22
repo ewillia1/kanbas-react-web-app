@@ -8,6 +8,7 @@
 .wd-kanbas-navigation li {
     padding: 10px;     margin-bottom: 10px;
     font-size: 0.8em;  text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .wd-kanbas-navigation li.wd-active {
@@ -27,4 +28,24 @@
     color: red;
     font-size: 2em;
     margin-bottom: 5px;
-}  
+}
+
+.wd-kanbas-navigation li.wd-account a i {
+    color: white;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.wd-kanbas-navigation li.wd-account-active {
+    background-color: white;
+}
+
+.wd-kanbas-navigation li.wd-account-active a {
+    color: red;
+}
+
+.wd-kanbas-navigation li.wd-account-active a i {
+    color: grey;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
