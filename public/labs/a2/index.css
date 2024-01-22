@@ -188,7 +188,7 @@ color: black;
     left: 120px;
 }
 
-.wd pos-fixed {
+.wd-pos-fixed {
     position: fixed;
     right: 0px;
     bottom: 50%;
