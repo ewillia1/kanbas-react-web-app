@@ -1,0 +1,17 @@
+.wd-container {
+    /* position: relative; */
+    text-align: center;
+    color: white;
+}
+
+.wd-top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+p.wd-nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
