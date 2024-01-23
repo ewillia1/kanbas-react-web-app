@@ -6,9 +6,11 @@
 }
 
 .wd-kanbas-navigation li {
-    padding: 10px;     margin-bottom: 10px;
-    font-size: 0.8em;  text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    text-align: center;
+    font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .wd-kanbas-navigation li.wd-active {
@@ -48,4 +50,17 @@
     color: grey;
     font-size: 2em;
     margin-bottom: 5px;
+}
+
+.wd-pos-fixed {
+    position: fixed;
+}
+
+.wd-pos-fixed ul {
+    margin-top: 0; 
+    min-height: 100vh;
+}
+
+body.wd-nomargin {
+    margin: 0;
 }
