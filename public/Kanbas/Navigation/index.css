@@ -1,8 +1,19 @@
 .wd-kanbas-navigation {
     background-color: black;
     list-style: none;
-    padding: 0px;  margin: 0px;
+    padding: 0px;  
+    margin: 0px;
     width: 80px;
+    position: fixed;
+    overflow-y: auto;
+    height: 100%;
+}
+
+/* Get the Kanbas Navigation bar to be scrollable when the screen is too small to fit it. */
+@media (max-width: 800px) {
+    .wd-kanbas-navigation {
+      flex-direction: column;
+    }
 }
 
 .wd-kanbas-navigation li {
@@ -52,15 +63,12 @@
     margin-bottom: 5px;
 }
 
-.wd-pos-fixed {
-    position: fixed;
-}
-
-.wd-pos-fixed ul {
-    margin-top: 0; 
-    min-height: 100vh;
-}
-
 body.wd-nomargin {
     margin: 0;
+}
+
+@media screen and (max-width: 576px) {
+    .wd-xs-browser-display {
+      display: none;
+    }
 }
