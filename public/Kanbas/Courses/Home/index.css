@@ -1,0 +1,6 @@
+/* Used to adjust the size of the right most column, so the two navigation bars disappear together and do not overlap. */
+@media screen and (max-width: 669px) {
+    .wd-right-most-col {
+        width: 115px;
+    }
+}

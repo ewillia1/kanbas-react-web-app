@@ -62,13 +62,3 @@
     font-size: 2em;
     margin-bottom: 5px;
 }
-
-body.wd-nomargin {
-    margin: 0;
-}
-
-@media screen and (max-width: 576px) {
-    .wd-xs-browser-display {
-      display: none;
-    }
-}
