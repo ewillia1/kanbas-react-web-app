@@ -62,3 +62,10 @@
     font-size: 2em;
     margin-bottom: 5px;
 }
+
+/* Hide element on extra small window widths. */
+@media screen and (max-width: 576px) {
+    .wd-xs-browser-display {
+        display: none;
+    }
+}
