@@ -1,6 +1,157 @@
-/* Used to adjust the size of the right most column, so the two navigation bars disappear together and do not overlap. */
+/* Used to adjust the size of the right most column, so the two navigation bars disappear together and do not overlap.
 @media screen and (max-width: 669px) {
     .wd-right-most-col {
         width: 115px;
     }
+} */
+
+@media screen and (max-width: 1250px) {
+    .wd-right-most-col {
+        display: none;
+    }
+}
+
+.wd-float-right {
+    float: right;
+}
+
+.wd-float-done {
+    clear: both;
+}
+
+.wd-rounded-corners-all-around {
+    border-radius: 8px;
+    margin: 2px;
+}
+
+.wd-select {
+    -webkit-appearance: menulist-button;
+    height: 28px;
+    float: right; 
+    margin: 5px;
+    border-radius: 8px;
+    background-color: buttonface;
+    padding-block: 1px;
+    padding-inline: 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+    height: 30px;
+}
+
+.wd-hyperlinks {
+    text-decoration: none;
+    color: red;
+    padding: 0; 
+    margin: 0;
+    padding-left: 20px; 
+}
+
+.wd-coming-up-row {
+    margin: 0;
+}
+
+.wd-collapsible {
+    color: black;
+    background-color: buttonface;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin: 0;
+}
+
+.wd-content {
+    /* padding: 0 18px; */
+    /* display: none; */
+    /* overflow: hidden; */
+    background-color: white;
+    margin: 0;
+    width: 100%;
+}
+
+.wd-week-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.wd-week-row {
+    border-color: buttonborder;
+    border-width: 2px;
+}
+
+.wd-nonheader-for-week {
+    padding-left: 20px; 
+    margin: 0;
+}
+
+.wd-home-button:hover {
+    background-color: #cbcbcb;
+}
+
+.wd-course-status-button {
+    text-align: left;
+}
+
+.wd-subheader-coming-up {
+    padding-left: 20px; 
+    margin: 0;
+}
+
+.wd-subheader-to-do {
+    padding-left: 20px; 
+    margin: 0;
+}
+
+.wd-float-right {
+    float: right;
+}
+ 
+.wd-float-done {
+    clear: both;
+}
+
+.wd-modal {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.4s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.wd-content-nav {
+    position: absolute;
+    background: white;
+    width: 100%;
+    height: 100%;
+}
+
+.wd-content-nav a {
+    position: absolute;
+    color: red;
+    background-color: white;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.wd-modal:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.wd-box-close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    text-decoration: none;
 }
