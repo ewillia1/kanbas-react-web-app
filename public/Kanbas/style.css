@@ -10,9 +10,3 @@ body * {
 body.wd-nomargin {
     margin: 0;
 }
-
-@media screen and (max-width: 576px) {
-    .wd-xs-browser-display {
-      display: none;
-    }
-}
