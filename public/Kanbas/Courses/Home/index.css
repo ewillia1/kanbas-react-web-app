@@ -133,18 +133,31 @@
 }
 
 .wd-content-nav {
-    position: absolute;
-    background: white;
+    position: fixed;
+    background-color: white;
     width: 100%;
     height: 100%;
+    overflow-y: auto;
 }
 
 .wd-content-nav a {
-    position: absolute;
+    /* position: absolute; */
     color: red;
     background-color: white;
     text-decoration: none;
     margin: 5px;
+}
+
+ul.wd-no-bullets {
+    list-style-type: none;
+}
+
+ul.wd-no-bullets li {
+    margin: 10px;
+}
+
+ul.wd-content-nav {
+    margin: 10px;
 }
 
 .wd-modal:target {
@@ -187,6 +200,8 @@
     width: 100%;
 }
 
-ul.wd-kanbas-nav-list {
-    margin: 10px;
+.wd-flex-row-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

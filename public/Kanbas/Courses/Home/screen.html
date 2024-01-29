@@ -83,81 +83,215 @@
                             <div><a href="#wd-popup-kanbas-nav"><i class="fa-solid fa-bars" style="color: white;"></i></a></div>
                             <div><p style="text-align: center; font-size: 20px; margin: 0;">CS4500.12631.202410</p><p style="text-align: center; font-size: 18px; margin: 0;">Modules</p></div>
                             <div><i class="fa-solid fa-glasses"></i></div>
-                            <div><i class="fa-solid fa-caret-down"></i></div>
+                            <div><a href="#wd-popup-course-nav"><i class="fa-solid fa-caret-down" style="color: white;"></i></a></div>
+                            <!-- <div> -->
+                                <!-- <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+
+                                    // Drop-down menu when the caret down icon is clicked in the small screen.
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div> -->
+
+
+
+                                <!-- Button trigger modal -->
+                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                    Launch demo modal
+                                </button> -->
+                                
+                                <!-- Modal -->
+                                <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Testing</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div> -->
+
+
+
+                            <!-- </div> -->
                         </div>
 
+                        <!-- Pop-up when the three horizontal bars menu icon is clicked in the small screen. -->
                         <div id="wd-popup-kanbas-nav" class="wd-modal">
                             <div class="wd-content-nav">
-                                <ul class="wd-kanbas-nav-list">
-                                    <li><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i>Dashboard<a></li>
-                                    <li><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user" style="color: grey;"></i>Account<i class="fa-solid fa-chevron-right" style="color: grey;"></i></a></li>
-                                    <li><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-user-group"></i>Courses<i class="fa-solid fa-chevron-right" style="color: grey;"></i></a></li>
-                                    <li><a href="/Kanbas/Calendar/index.html"><i class="fa fa-calendar"></i>Calendar</a></li>
-                                    <li><a href="/Kanbas/Inbox/index.html"><i class="fa-solid fa-inbox"></i>Inbox</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-file-video"></i>Studio</a></li>
-                                    <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i>Commons</a></li>
-                                    <li><a href="#"><i class="fa-regular fa-clock"></i></i>History<i class="fa-solid fa-chevron-right" style="color: grey;"></i></a></li>
-                                    <li><a href="#"><i class="fa-solid fa-question"></i>Help<i class="fa-solid fa-chevron-right" style="color: grey;"></i></a></li>
+                                <ul class="wd-no-bullets">
+                                    <li>
+                                        <div class="wd-flex-row-container">
+                                            <div><p style="margin-bottom: 40px;"></p></div>
+                                            <div><a href="#" class="wd-box-close"><i class="fa-solid fa-x" style="color: grey;"></i></a></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
+                                            <div><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i>Dashboard<a></a></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
+                                            <div><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user" style="color: grey;"></i>Account</a></div>
+                                            <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
+                                            <div><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-user-group"></i>Courses</a></div>
+                                            <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="/Kanbas/Calendar/index.html"><i class="fa fa-calendar"></i>Calendar</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Kanbas/Inbox/index.html"><i class="fa-solid fa-inbox"></i>Inbox</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa-solid fa-file-video"></i>Studio</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa-solid fa-right-from-bracket"></i>Commons</a>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
+                                            <div><a href="#"><i class="fa-regular fa-clock"></i></i>History</a></div>
+                                            <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
+                                            <div><a href="#"><i class="fa-solid fa-question"></i>Help</a></div>
+                                            <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                        </div>
+                                    </li>
                                 </ul>
-                                <a href="#" class="wd-box-close"><i class="fa-solid fa-x" style="color: grey;"></i></a>
                             </div>
                         </div>
 
-
-
-                            <!-- <div class="row" style="background-color: black; color: white;">
-                                <div class="col"><a href="#wd-popup-kanbas-nav"><i class="fa-solid fa-bars" style="color: white; margin-left: 40px; margin-top: 20px;"></i></a></div>
-                                
-                                <div id="wd-popup-kanbas-nav" class="wd-modal">
-                                    <div class="wd-content-nav">
-                                        <ul>
-                                            <li style="margin: 10px;"><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i>Dashboard<a></li>
-                                            <li style="margin: 10px;"><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user" style="color: grey;"></i>Account<i class="fa-solid fa-chevron-right" style="color: grey;"></i></a></li>
-                                            <li style="margin: 10px;"><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-user-group"></i>Courses<i class="fa-solid fa-chevron-right" style="color: grey;"></i></a></li>
-                                            <li style="margin: 10px;"><a href="/Kanbas/Calendar/index.html"><i class="fa fa-calendar"></i>Calendar</a></li>
-                                            <li style="margin: 10px;"><a href="/Kanbas/Inbox/index.html"><i class="fa-solid fa-inbox"></i>Inbox</a></li>
-                                            <li style="margin: 10px;"><a href="#"><i class="fa-solid fa-file-video"></i>Studio</a></li>
-                                            <li style="margin: 10px;"><a href="#"><i class="fa-solid fa-right-from-bracket"></i>Commons</a></li>
-                                            <li style="margin: 10px;"><a href="#"><i class="fa-regular fa-clock"></i></i>History<i class="fa-solid fa-chevron-right" style="color: grey;"></i></a></li>
-                                            <li style="margin: 10px;"><a href="#"><i class="fa-solid fa-question"></i>Help<i class="fa-solid fa-chevron-right" style="color: grey;"></i></a></li>
-                                        </ul>
-                                        <a href="#" class="wd-box-close">×</a>
-                                    </div>
-                                </div>
-
-                                <div class="col"><p style="text-align: center; font-size: 20px; margin: 0;">CS4500.12631.202410</p><p style="text-align: center; font-size: 18px; margin: 0;">Modules</p></div>
-                                
-                                <div class="col" style="padding: 0;">
-                                    <div class="dropdown">
-                                        <button class="dropbtn" onclick="myFunction()" style="width: auto;">
-                                            <i class="fa-solid fa-caret-down" style="margin-top: 12px;"></i>
-                                        </button>
-                                        <div class="dropdown-content" id="myDropdown">
+                        <!-- Pop-up when the carot menu icon is clicked in the small screen. -->
+                        <div id="wd-popup-course-nav" class="wd-modal">
+                            <div class="wd-content-nav">
+                                <ul class="wd-no-bullets">
+                                    <li>
+                                        <div class="wd-flex-row-container">
+                                            <div><p style="margin-bottom: 40px;"></p></div>
+                                            <div><a href="#" class="wd-box-close"><i class="fa-solid fa-x" style="color: grey;"></i></a></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-house-user"></i> Home</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="/Kanbas/Courses/Modules/screen.html"><i class="fa-solid fa-group-arrows-rotate"></i> Modules</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="/Kanbas/Courses/Piazza/index.html"><i class="fa-solid fa-plug"></i> Piazza</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="#"><i class="fa-solid fa-plug"></i> Zoom Meetings</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="/Kanbas/Courses/Assignments/screen.html"><i class="fa-regular fa-file-lines"></i> Assignments</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="/Kanbas/Courses/Assignments/Quizzes/index.html"><i class="fa-solid fa-rocket"></i> Quizzes</a>
-                                            <a href="/Kanbas/Courses/Grades/screen.html"><i class="fa-regular fa-file-lines"></i> Grades</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
+                                            <a href="/Kanbas/Courses/Grades/screen.html"><i class="fa-solid fa-clipboard-check"></i> Grades</a>
+                                        </div>
+                                    </li>    
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="#"><i class="fa-solid fa-user-group"></i> People</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="#"><i class="fa-solid fa-plug"></i> Panopto Video</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="#"><i class="fa-regular fa-message"></i> Discussions</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="#"><i class="fa-solid fa-bullhorn"></i> Announcements</a>
-                                            <a href="#"><i class="fa-regular fa-file-lines"></i> Pages</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
+                                            <a href="#"><i class="fa-regular fa-newspaper"></i> Pages</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="#"><i class="fa-regular fa-folder"></i> Files</a>
-                                            <a href="#"><i class="fa-solid fa-clipboard-list"></i> Rubrics</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
+                                            <a href="#"><i class="fa-solid fa-clipboard-check"></i> Rubrics</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="#"><i class="fa-solid fa-bullseye"></i> Outcomes</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="#"><i class="fa-regular fa-circle"></i> Collaborations</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="#"><i class="fa-regular fa-file-lines"></i> Syllabus</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="#"><i class="fa-solid fa-plug"></i> Progress Reports (EAB Navigate)</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wd-flex-row-container">
                                             <a href="/Kanbas/Account/Settings/CourseDetails/screen.html"><i class="fa-solid fa-gear"></i> Settings</a>
                                         </div>
-                                    </div>
-
-                                    <i class="fa-solid fa-glasses wd-float-right" style="margin-top: 17px;"></i>
-                                </div>
-                            </div> -->
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Column 2 -->
@@ -174,7 +308,7 @@
                         <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px;">View Progress</button>
                         <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px;">Collapse All</button>
                         <div class="wd-float-done"></div>
-                        <hr/>
+                        <hr style="opacity: 0;"/>
 
                         <div class="wd-week-section">
                             <button draggable="true"  type="button" class="wd-collapsible border border-dark">
@@ -464,7 +598,7 @@
 
         <!-- JavaScript -->
         <!-- Reference: https://www.w3schools.com/howto/howto_js_dropdown.asp -->
-        <script>
+        <!-- <script>
             /* When the user clicks on the button, toggle between hiding and showing the dropdown content. */
             function myFunction() {
                 document.getElementById("myDropdown").classList.toggle("show");
@@ -479,6 +613,6 @@
                     }
                 }
             }
-        </script>
+        </script> -->
     </body>
 </html>
