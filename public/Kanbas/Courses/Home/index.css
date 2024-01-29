@@ -19,11 +19,6 @@
     clear: both;
 }
 
-.wd-rounded-corners-all-around {
-    border-radius: 8px;
-    margin: 2px;
-}
-
 .wd-select {
     -webkit-appearance: menulist-button;
     height: 28px;
@@ -40,15 +35,17 @@
     height: 30px;
 }
 
-.wd-hyperlinks {
-    text-decoration: none;
-    color: red;
-    padding: 0; 
+.wd-coming-up-row {
     margin: 0;
-    padding-left: 20px; 
 }
 
-.wd-coming-up-row {
+.wd-subheader-coming-up {
+    padding-left: 45px; 
+    margin: 0;
+}
+
+.wd-subheader-to-do {
+    padding-left: 45px; 
     margin: 0;
 }
 
@@ -84,9 +81,25 @@
     border-width: 2px;
 }
 
-.wd-nonheader-for-week {
-    padding-left: 20px; 
+.wd-week {
     margin: 0;
+    text-align: left;
+}
+
+.wd-icon-indentation-week {
+    padding-right: 30px;
+}
+
+.wd-hyperlinks {
+    text-decoration: none;
+    color: red;
+    padding: 0; 
+    margin: 0;
+}
+
+.wd-rounded-corners-all-around {
+    border-radius: 8px;
+    margin: 2px;
 }
 
 .wd-home-button:hover {
@@ -95,16 +108,6 @@
 
 .wd-course-status-button {
     text-align: left;
-}
-
-.wd-subheader-coming-up {
-    padding-left: 20px; 
-    margin: 0;
-}
-
-.wd-subheader-to-do {
-    padding-left: 20px; 
-    margin: 0;
 }
 
 .wd-float-right {
@@ -154,4 +157,10 @@
     top: 0;
     right: 15px;
     text-decoration: none;
+}
+
+.wd-nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

@@ -2,9 +2,14 @@
     background-color: white;
     list-style: none;
     padding: 0px;
-    width: 125px;
     margin: 0px;
-    margin-left: 20px;
+    width: 125px;
+    /* margin-left: 20px; */
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .wd-navigation li {
@@ -26,4 +31,13 @@
 .wd-navigation a {
     color: red;
     text-decoration: none;
+}
+
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: yellow;
+    padding: 50px;
+    font-size: 20px;
 }
