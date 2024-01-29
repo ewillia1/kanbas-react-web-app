@@ -69,3 +69,47 @@
         display: none;
     }
 }
+  
+/* Drop-down <div> section and button. */
+.dropdown .dropbtn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    padding-left: 10px; 
+    padding-top: 5px; 
+    padding-right: 5px; 
+    padding-bottom: 5px;
+    float: right;
+    text-align: center;
+}
+
+/* Drop-down content (hidden by default). */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Links inside the drop-down. */
+.dropdown-content a {
+    float: none;
+    color: red;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    padding: 12px 16px;
+}
+
+/* What happens to the links in the drop-down when a mouse hovers over them. */
+.dropdown-content a:hover {
+    text-decoration: underline;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button). */
+.show {
+    display: block;
+}

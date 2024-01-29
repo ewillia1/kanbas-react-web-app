@@ -164,3 +164,29 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.wd-course-status-buttons {
+    background-color: buttonface;
+    border-color: buttonborder;
+}
+
+.wd-flex-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    background-color: black;
+    padding: 0;
+    width: 100%;
+    color: white;
+}
+  
+.wd-flex-container > div {
+    background-color: inherit;
+    margin: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+ul.wd-kanbas-nav-list {
+    margin: 10px;
+}
