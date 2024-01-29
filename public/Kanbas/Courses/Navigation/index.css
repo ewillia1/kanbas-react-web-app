@@ -1,23 +1,21 @@
 .wd-navigation {
     background-color: white;
     list-style: none;
-    padding: 0px;
-    margin: 0px;
-    width: 125px;
-    /* margin-left: 20px; */
+    padding: 5px;
+    margin: 0;
+    width: 100%;
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
     overflow-y: auto;
     overflow-x: hidden;
+    font-size: smaller;
 }
 
 .wd-navigation li {
-    padding-left: 10px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 0;
 }
 
 .wd-navigation li.wd-active {
