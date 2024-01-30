@@ -33,9 +33,7 @@
                     </ul>
                 </div>
 
-                <!-- Column 2a: Rest of screen, broken into another grid/table. This column should only take up 11 of 12 columns until the 
-                        screen is smaller than medium. When that happens Column 1: Kanbas Navigation will disappear, and it should now take
-                        up all 12 columns. -->
+                <!-- Column 2a: Rest of screen, broken into another grid/table. -->
                 <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11" style="padding: 0;">
                     <!-- Row 1b: Breadcrumb section. Hide on screens smaller than medium. -->
                     <div class="row d-none d-md-block">
@@ -183,26 +181,27 @@
                             </div>
                         </div>
 
-                        <!-- Column 2b: Weekly Modules. Is always visible, no matter the screen size. -->
+                        <!-- Column 2b: Assignments. Is always visible, no matter the screen size. -->
                         <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11" style="padding-left: 35px;">
-                            <!-- Buttons above the weeks. -->
+                            <!-- Buttons above the assignments. -->
                             <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px;">&#8285</button>
                             <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px; background-color: red; color: white; border-color: red;"><i class="fa-solid fa-plus"></i> Assignment</button>
                             <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px;"><i class="fa-solid fa-plus"></i> Group</button>
                             <div class="wd-float-done"></div>
 
                             <div class="input-group">
-                                <div class="form-outline" data-mdb-input-init>
-                                  <input type="search" id="form1" class="form-control" placeholder="Seach for Assignment" title="Input search item."/>
+                                <div class="form-outline w-25" data-mdb-input-init>
+                                  <input type="search" id="form1" class="form-control" placeholder="Search for Assignment" title="Input search item."/>
                                 </div>
                             </div>
                             <hr/>
 
+                            <!-- Assignments. -->
                             <div class="wd-assignments-section">
                                 <button draggable="true"  type="button" class="wd-collapsible border border-dark">
                                     <p style="text-align: left; margin: 0;">
                                         <i class="fa-solid fa-grip-vertical"></i>
-                                        <i class="fa-solid fa-caret-down"></i> Assignments
+                                        <i class="fa-solid fa-caret-down"></i> <b>Assignments</b>
                                         <span class="float-end">
                                             <input type="button" value="40% of Total" style="border-radius: 18px;"/>
                                             <i class="fa-solid fa-plus"></i>
@@ -213,57 +212,197 @@
 
                                 <div class="wd-content">
                                     <div draggable="true" class="row border border-dark">
-                                        <p class="wd-week">
-                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i> A1 SETUP
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
                                             <span class="float-end">
                                                 <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
+                                            <label><b>A1 SETUP</b><br/><span style="font-size: 14px;">Week 0 - SETUP - Week starting on Monday September 5th (9/5/2022) Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Sep 18, 2022 at 11:59pm | 100 pts</span></label>
                                         </p>
                                     </div>
                                     <div draggable="true" class="row border border-dark">
-                                        <p class="wd-week">
-                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i> A2 HTML
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
                                             <span class="float-end">
                                                 <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
+                                            <label><b>A2 HTML</b><br/><span style="font-size: 14px;">Week 1 - HTML - Week starting on Monday September 12th (9/12/2022) Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Sep 25, 2022 at 11:59pm | 100 pts</span></label>
                                         </p>
                                     </div>
                                     <div draggable="true" class="row border border-dark">
-                                        <p class="wd-week">
-                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i> A3 CSS
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
                                             <span class="float-end">
                                                 <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
+                                            <label><b>A3 CSS</b><br/><span style="font-size: 14px;">Week 3 - CSS - Week starting on Monday September 19th (9/19/2022) Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Oct 2, 2022 at 11:59pm | 100 pts</span></label>
                                         </p>
                                     </div>
                                     <div draggable="true" class="row border border-dark">
-                                        <p class="wd-week">
-                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i> A4 BOOTSTRAP
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
                                             <span class="float-end">
                                                 <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
+                                            <label><b>A4 BOOTSTRAP</b><br/><span style="font-size: 14px;">Week 4 - Bootstrap - Week starting on Monday September 26th (9/26/2022) Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Oct 10, 2022 at 11:59pm | 100 pts</span></label>
                                         </p>
                                     </div>
                                     <div draggable="true" class="row border border-dark">
-                                        <p class="wd-week">
-                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i> A5 JAVASCRIPT
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
                                             <span class="float-end">
                                                 <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
+                                            <label><b>A5 JAVASCRIPT</b><br/><span style="font-size: 14px;">Week 5 - Javascript - Week starting on Monday October 3rd (10/3/2022) Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Oct 16, 2022 at 11:59pm | 100 pts</span></label>
                                         </p>
                                     </div>
                                     <div draggable="true" class="row border border-dark">
-                                        <p class="wd-week">
-                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i> A6 REACT
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
                                             <span class="float-end">
                                                 <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
+                                            <label><b>A6 REACT</b><br/><span style="font-size: 14px;">Week 6 - React & Routing - Week starting on Monday October 10th (10/10/2022) Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Oct 23, 2022 at 11:59pm | 100 pts</span></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quizzes. -->
+                            <div class="wd-assignments-section">
+                                <button draggable="true"  type="button" class="wd-collapsible border border-dark">
+                                    <p style="text-align: left; margin: 0;">
+                                        <i class="fa-solid fa-grip-vertical"></i>
+                                        <i class="fa-solid fa-caret-down"></i> <b>Quizzes</b>
+                                        <span class="float-end">
+                                            <input type="button" value="10% of Total" style="border-radius: 18px;"/>
+                                            <i class="fa-solid fa-plus"></i>
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </span>
+                                    </p>
+                                </button>
+
+                                <div class="wd-content">
+                                    <div draggable="true" class="row border border-dark">
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
+                                            <span class="float-end">
+                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </span>
+                                            <label><b>Q1</b><br/><span style="font-size: 14px;">Week 1 - SETPUP Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Jan 25, 2024 at 11:59pm | 100 pts</span></label>
+                                        </p>
+                                    </div>
+                                    <div draggable="true" class="row border border-dark">
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
+                                            <span class="float-end">
+                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </span>
+                                            <label><b>Q2</b><br/><span style="font-size: 14px;">Week 2 - HTML Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Jan 31, 2024 at 11:59pm | 100 pts</span></label>
+                                        </p>
+                                    </div>
+                                    <div draggable="true" class="row border border-dark">
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
+                                            <span class="float-end">
+                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </span>
+                                            <label><b>Q3</b><br/><span style="font-size: 14px;">Week 3 - CSS Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Feb 5, 2024 at 11:59pm | 100 pts</span></label>
+                                        </p>
+                                    </div>
+                                    <div draggable="true" class="row border border-dark">
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
+                                            <span class="float-end">
+                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </span>
+                                            <label><b>Q4</b><br/><span style="font-size: 14px;">Week 4 - Bootstrap Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Feb 12, 2024 at 11:59pm | 100 pts</span></label>
+                                        </p>
+                                    </div>
+                                    <div draggable="true" class="row border border-dark">
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
+                                            <span class="float-end">
+                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </span>
+                                            <label><b>Q5</b><br/><span style="font-size: 14px;">Week 5 - Javascript Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Feb 19, 2024 at 11:59pm | 100 pts</span></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exams. -->
+                            <div class="wd-assignments-section">
+                                <button draggable="true"  type="button" class="wd-collapsible border border-dark">
+                                    <p style="text-align: left; margin: 0;">
+                                        <i class="fa-solid fa-grip-vertical"></i>
+                                        <i class="fa-solid fa-caret-down"></i> <b>Exams</b>
+                                        <span class="float-end">
+                                            <input type="button" value="20% of Total" style="border-radius: 18px;"/>
+                                            <i class="fa-solid fa-plus"></i>
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </span>
+                                    </p>
+                                </button>
+
+                                <div class="wd-content">
+                                    <div draggable="true" class="row border border-dark">
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
+                                            <span class="float-end">
+                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </span>
+                                            <label><b>MIDTERM</b><br/><span style="font-size: 14px;">Week 7 - MIDTERM Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Feb 26, 2024 at 11:59pm | 100 pts</span></label>
+                                        </p>
+                                    </div>
+                                    <div draggable="true" class="row border border-dark">
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
+                                            <span class="float-end">
+                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </span>
+                                            <label><b>FINAL</b><br/><span style="font-size: 14px;">Week 14 - FINAL Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Apr 19, 2024 at 11:59pm | 100 pts</span></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Projects. -->
+                            <div class="wd-assignments-section">
+                                <button draggable="true"  type="button" class="wd-collapsible border border-dark">
+                                    <p style="text-align: left; margin: 0;">
+                                        <i class="fa-solid fa-grip-vertical"></i>
+                                        <i class="fa-solid fa-caret-down"></i> <b>Projects</b>
+                                        <span class="float-end">
+                                            <input type="button" value="30% of Total" style="border-radius: 18px;"/>
+                                            <i class="fa-solid fa-plus"></i>
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </span>
+                                    </p>
+                                </button>
+
+                                <div class="wd-content">
+                                    <div draggable="true" class="row border border-dark">
+                                        <p class="wd-assignment">
+                                            <i class="fa-solid fa-grip-vertical wd-icon-indentation-assignment1"></i> <i class="fa-regular fa-file-lines wd-icon-indentation-assignment2" style="color: green;"></i>
+                                            <span class="float-end">
+                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </span>
+                                            <label><b>P</b><br/><span style="font-size: 14px;">Week 14 - FINAL Module |</span><br/><span style="font-size: 14px;"><b>Due</b> Apr 21, 2024 at 11:59pm | 100 pts</span></label>
                                         </p>
                                     </div>
                                 </div>
