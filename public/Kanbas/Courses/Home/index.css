@@ -63,9 +63,6 @@
 }
 
 .wd-content {
-    /* padding: 0 18px; */
-    /* display: none; */
-    /* overflow: hidden; */
     background-color: white;
     margin: 0;
     width: 100%;
@@ -174,7 +171,6 @@ ul.wd-content-nav {
     padding-right: 6px;
     padding-bottom: 1px;
     padding-left: 6px;
-    /* opacity: 0; */
 }
 
 .wd-course-status-dropdown:hover {
