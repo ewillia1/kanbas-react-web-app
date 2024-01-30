@@ -90,7 +90,7 @@
                                 <div><i class="fa-solid fa-glasses"></i></div>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: inherit; border-color: black;"></button>
-                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1" style="width: max-content;">
                                         <li class="wd-navigation-link"><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-house-user"></i> Home</a></li>
                                         <li class="wd-navigation-link"><a href="/Kanbas/Courses/Modules/screen.html"><i class="fa-solid fa-group-arrows-rotate"></i> Modules</a></li>
                                         <li class="wd-navigation-link"><a href="/Kanbas/Courses/Piazza/index.html"><i class="fa-solid fa-plug"></i> Piazza</a></li>
@@ -100,14 +100,14 @@
                                         <li class="wd-navigation-link"><a href="/Kanbas/Courses/Grades/screen.html"><i class="fa-solid fa-clipboard-check"></i> Grades</a></li>
                                         <li class="wd-navigation-link"><a href="#"><i class="fa-solid fa-user-group"></i> People</a></li>
                                         <li class="wd-navigation-link"><a href="#"><i class="fa-solid fa-plug"></i> Panopto Video</a></li>
-                                        <li class="wd-navigation-link"><a href="#"><i class="fa-regular fa-message"></i> Discussions</a></li>
-                                        <li class="wd-navigation-link"><a href="#"><i class="fa-solid fa-bullhorn"></i> Announcements</a></li>
-                                        <li class="wd-navigation-link"><a href="#"><i class="fa-regular fa-newspaper"></i> Pages</a></li>
-                                        <li class="wd-navigation-link"><a href="#"><i class="fa-regular fa-folder"></i> Files</a></li>
-                                        <li class="wd-navigation-link"><a href="#"><i class="fa-solid fa-clipboard-check"></i> Rubrics</a></li>
-                                        <li class="wd-navigation-link"><a href="#"><i class="fa-solid fa-bullseye"></i> Outcomes</a></li>
-                                        <li class="wd-navigation-link"><a href="#"><i class="fa-regular fa-circle"></i> Collaborations</a></li>
-                                        <li class="wd-navigation-link"><a href="#"><i class="fa-regular fa-file-lines"></i> Syllabus</a></li>
+                                        <li class="wd-navigation-link"><a href="#"><i class="fa-regular fa-message"></i> Discussions <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a href="#"><i class="fa-solid fa-bullhorn"></i> Announcements <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a href="#"><i class="fa-regular fa-newspaper"></i> Pages <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a href="#"><i class="fa-regular fa-folder"></i> Files <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a href="#"><i class="fa-solid fa-clipboard-check"></i> Rubrics <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a href="#"><i class="fa-solid fa-bullseye"></i> Outcomes <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a href="#"><i class="fa-regular fa-circle"></i> Collaborations <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a href="#"><i class="fa-regular fa-file-lines"></i> Syllabus <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
                                         <li class="wd-navigation-link"><a href="#"><i class="fa-solid fa-plug"></i> Progress Reports (EAB Navigate)</a></li>
                                         <li class="wd-navigation-link"><a href="/Kanbas/Account/Settings/CourseDetails/screen.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
                                     </ul>
@@ -172,19 +172,51 @@
 
                         <!-- Column 2b: Weekly Modules. Is always visible, no matter the screen size. -->
                         <div class="col-sm-12 col-md-11 col-lg-11 col-xl-8">
+                            <!-- Buttons above the weeks. -->
                             <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px;">&#8285</button>
-                            <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px; background-color: red; color: white; border-color: red;">+ Module</button>
-                            <select class=" wd-select wd-home-button">
-                                <option value="PUBALL">Publish All</option>
-                                <option value="DUMMY1">Dummy 1</option>
-                                <option value="DUMMY2">Dummy 2</option>
-                                <option value="DUMMY3">Dummy 3</option>
-                                <option value="DUMMY4">Dummy 4</option>
-                            </select>
+                            <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px; background-color: red; color: white; border-color: red;"><i class="fa-solid fa-plus"></i> Module</button>
+                            <div class="wd-float-right dropdown">
+                                <button class="btn btn-secondary dropdown-toggle wd-course-status-dropdown" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-regular fa-circle-check" style="color: green;"></i> Publish All</button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2" style="width: max-content;">
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-circle-check" style="color: green;"></i> Publish all modules and items</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-circle-check" style="color: green;"></i> Publish modules only</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-ban" style="color: grey;"></i> Unpublish all modules and items</a></li>
+                                </ul>
+                            </div>
                             <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px;">View Progress</button>
                             <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px;">Collapse All</button>
                             <div class="wd-float-done"></div>
                             <hr style="opacity: 0;"/>
+
+
+                            <!-- <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Week 0 - INTRO
+                                    </button>
+                                  </h2>
+                                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Week 1 - HTML
+                                    </button>
+                                  </h2>
+                                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    </div>
+                                  </div>
+                                </div>
+                            </div> -->
+
+
 
                             <div class="wd-week-section">
                                 <button draggable="true"  type="button" class="wd-collapsible border border-dark">
@@ -408,20 +440,20 @@
                             <!-- Course Status Section. -->  
                             <h2>Course Status</h2>
                             <div class="list-group list-group-horizontal">
-                                <a href="#" class="list-group-item list-group-item-action w-100 wd-course-status-buttons"><i class="fa-solid fa-ban"></i> Unpublish</a>
-                                <a href="#" class="list-group-item list-group-item-action w-100 wd-course-status-buttons"><i class="fa-regular fa-circle-check"></i> Published</a>
+                                <a href="#" class="list-group-item list-group-item-action w-100 wd-course-status-button"><i class="fa-solid fa-ban"></i> Unpublish</a>
+                                <a href="#" class="list-group-item list-group-item-action w-100 wd-course-status-button"><i class="fa-regular fa-circle-check"></i> Published</a>
                             </div>
 
                             <p></p>
 
                             <div class="list-group">
-                                <a href="#" class="list-group-item list-group-item-action wd-course-status-buttons"><i class="fa-solid fa-file-import"></i> Import Existing Content</a>
-                                <a href="#" class="list-group-item list-group-item-action wd-course-status-buttons"><i class="fa-solid fa-right-from-bracket"></i> Import From Commons</a>
-                                <a href="#" class="list-group-item list-group-item-action wd-course-status-buttons"><i class="fa-solid fa-crosshairs"></i> Choose Home Page</a>
-                                <a href="#" class="list-group-item list-group-item-action wd-course-status-buttons"><i class="fa-solid fa-chart-simple"></i> View Course Stream</a>
-                                <a href="#" class="list-group-item list-group-item-action wd-course-status-buttons"><i class="fa-solid fa-bullhorn"></i> New Announcement</a>
-                                <a href="#" class="list-group-item list-group-item-action wd-course-status-buttons"><i class="fa-solid fa-chart-simple"></i> New Analytics</a>
-                                <a href="#" class="list-group-item list-group-item-action wd-course-status-buttons"><i class="fa-regular fa-bell"></i> View Course Notifications</a>
+                                <a href="#" class="list-group-item list-group-item-action wd-course-status-button"><i class="fa-solid fa-file-import"></i> Import Existing Content</a>
+                                <a href="#" class="list-group-item list-group-item-action wd-course-status-button"><i class="fa-solid fa-right-from-bracket"></i> Import From Commons</a>
+                                <a href="#" class="list-group-item list-group-item-action wd-course-status-button"><i class="fa-solid fa-crosshairs"></i> Choose Home Page</a>
+                                <a href="#" class="list-group-item list-group-item-action wd-course-status-button"><i class="fa-solid fa-chart-simple"></i> View Course Stream</a>
+                                <a href="#" class="list-group-item list-group-item-action wd-course-status-button"><i class="fa-solid fa-bullhorn"></i> New Announcement</a>
+                                <a href="#" class="list-group-item list-group-item-action wd-course-status-button"><i class="fa-solid fa-chart-simple"></i> New Analytics</a>
+                                <a href="#" class="list-group-item list-group-item-action wd-course-status-button"><i class="fa-regular fa-bell"></i> View Course Notifications</a>
                             </div>
 
                             <p></p>

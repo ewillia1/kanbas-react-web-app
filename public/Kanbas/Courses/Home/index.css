@@ -180,9 +180,28 @@ ul.wd-content-nav {
     text-overflow: ellipsis;
 }
 
-.wd-course-status-buttons {
+.wd-course-status-button {
     background-color: buttonface;
     border-color: buttonborder;
+}
+
+.wd-course-status-dropdown {
+    background-color: buttonface;
+    border-color: buttonborder;
+    color: black;
+    width: max-content;
+    height: max-content;
+    margin: 5px;
+    border: 2px;
+    padding-top: 1px;
+    padding-right: 6px;
+    padding-bottom: 1px;
+    padding-left: 6px;
+}
+
+.wd-course-status-dropdown:hover {
+    background-color: #cbcbcb;
+    color: black;
 }
 
 .wd-flex-container {
