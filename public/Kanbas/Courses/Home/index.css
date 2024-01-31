@@ -1,6 +1,20 @@
-@media screen and (max-width: 1250px) {
-    .wd-right-most-col {
-        display: none;
+/* For the section of the screen that is not the Kanbas Navigation bar. */
+.wd-home-col-num2 {
+    padding-left: 40px;
+}
+
+/* Change the padding of a wd-home-col-num2 element when the browser window is a minimum width of 1199px wide. */
+@media only screen and (min-width: 1199px) {
+    .wd-home-col-num2 {
+        padding-left: 25px;
+    }
+}
+
+/* Change the padding of a wd-home-col-num2 element when the browser window is 767px wide or less. */
+@media only screen and (max-width: 767px) {
+    .wd-home-col-num2 {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
