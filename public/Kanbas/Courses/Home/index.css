@@ -141,12 +141,6 @@ ul.wd-content-nav {
     text-decoration: none;
 }
 
-.wd-nowrap {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .wd-course-status-button {
     background-color: buttonface;
     border-color: buttonborder;

@@ -16,6 +16,12 @@
     }
 }
 
+.wd-nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .wd-kanbas-navigation li {
     padding: 10px;
     margin-bottom: 10px;

@@ -14,9 +14,3 @@ p.wd-nowrap {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-/* @media screen and (min-width: 710) {
-    .wd-kanbas-nav-bar {
-      background-color: lightgreen;
-    }
-} */
