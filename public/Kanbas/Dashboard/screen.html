@@ -15,8 +15,8 @@
         <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
             <!-- Row 1a: All elements on the screen. -->
             <div class="row" style="max-width: 100%;">
-                <!-- Column 1: Kanbas Navigation. Hide on screen smaller than medium. -->
-                <div class="col-1 d-none d-md-block">    
+                <!-- Column 1: Kanbas Navigation. Hide on screen smaller than small. -->
+                <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1 d-none d-sm-block">    
                     <ul class="wd-kanbas-navigation">
                         <li><a href="http://northeastern.edu"><img src="/images/northeastern_logo.png" alt="Northeastern University Logo" width="50"/></a></li>
                         <li class="wd-account"><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user"></i>Account</a></li>
@@ -31,22 +31,23 @@
                     </ul>
                 </div>
 
-                <!-- Empy div that is only "visible" on small screens. This is added to make it so the 
-                    Kanbas Nav does not overlap with the Published Course cards. -->
-                <div class="d-none d-sm-block d-md-none">
-                </div>
-
-                <!-- Column 2: Published Course cards. -->
-                <div class="col-11">
+                <!-- Column 2: Published Course cards. Take up all 12 columns in xs screens. -->
+                <div class="col-12 col-sm-11 col-md-11 col-lg-11 col-xl-11">
                     <div class="p-4">
+                        <!-- Dashboard. Hidden on screens smaller than small. -->
                         <div class="d-none d-sm-block sticky-top" style="background-color: rgba(254, 254, 254, 0.97);;">
-                            <h1>Dashboard</h1> <hr />
+                            <h1>Dashboard</h1> <hr/>
                         </div>
+                        <!-- Three dot menu icon. Visible on screens smaller than small. -->
                         <div class="d-block d-sm-none">
                             <p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; border-left: 0;"><i class="fa-solid fa-ellipsis-vertical"></i></p>
                             <hr />
                         </div>
+
+                        <!-- Published Courses header. Always visible. -->
                         <h2>Published Courses (12)</h2> <hr />
+                        
+                        <!-- Course cards. -->
                         <div class="row">
                             <div class="row row-cols-1 row-cols-md-5 g-4">
                                 <div class="col" style="width: 260px; margin-top: 35px;">
