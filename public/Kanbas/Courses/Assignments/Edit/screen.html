@@ -199,112 +199,120 @@
                                 <div class="mb-3">
                                     <textarea class="form-control" id="description" rows="3">This assignment describes how to install the development environment for creating and working with Web applications we will be developing this semester. We will add new content every week, pushing the code to a GitHub source repository, and then deploying the content to a remote server hosted on Netlify.</textarea>
                                 </div>
-                                <div class="row mb-3">
-                                    <label for="points" class="col-sm-2 col-form-label">Points</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="points" value="100">
+                                
+
+
+                                <div class="wd-bottom-section">
+                                    <div class="row mb-3">
+                                        <label for="points" class="col-sm-2 col-form-label wd-assign-edit-label">Points</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="points" value="100">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="assignmentGroup" class="col-sm-2 col-form-label">Assignment Group</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-select" id="assignmentGroup" name="assignmentGroup">
-                                            <option selected>ASSIGNMENTS</option>
-                                            <option>QUIZZES</option>
-                                            <option>EXAMS</option>
-                                            <option>PROJECTS</option>
-                                        </select>
+                                    <div class="row mb-3">
+                                        <label for="assignmentGroup" class="col-sm-2 col-form-label wd-assign-edit-label">Assignment Group</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-select" id="assignmentGroup" name="assignmentGroup">
+                                                <option selected>ASSIGNMENTS</option>
+                                                <option>QUIZZES</option>
+                                                <option>EXAMS</option>
+                                                <option>PROJECTS</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="displayGrade" class="col-sm-2 col-form-label">Display Grade as</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-select" id="displayGrade" name="displayGrade">
-                                            <option selected>Percentage</option>
-                                            <option>Dummy 1</option>
-                                            <option>Dummy 2</option>
-                                            <option>Dummy 3</option>
-                                        </select>
+                                    <div class="row mb-3">
+                                        <label for="displayGrade" class="col-sm-2 col-form-label wd-assign-edit-label">Display Grade as</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-select" id="displayGrade" name="displayGrade">
+                                                <option selected>Percentage</option>
+                                                <option>Dummy 1</option>
+                                                <option>Dummy 2</option>
+                                                <option>Dummy 3</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-10 offset-sm-2">
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                        <label class="form-check-label" for="gridCheck1">
-                                            Do not count this assignment towards the final grade
-                                        </label>
-                                      </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-10 offset-sm-2">
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                            <label class="form-check-label" for="gridCheck1">
+                                                Do not count this assignment towards the final grade
+                                            </label>
+                                          </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="submissionType" class="col-sm-2 col-form-label">Submission Type</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-select" id="submissionType" name="submissionType">
-                                            <option selected>Online</option>
-                                            <option>Dummy 1</option>
-                                            <option>Dummy 2</option>
-                                            <option>Dummy 3</option>
-                                        </select>
+                                    <div class="row mb-3">
+                                        <label for="submissionType" class="col-sm-2 col-form-label wd-assign-edit-label">Submission Type</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-select" id="submissionType" name="submissionType">
+                                                <option selected>Online</option>
+                                                <option>Dummy 1</option>
+                                                <option>Dummy 2</option>
+                                                <option>Dummy 3</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="onlineEntryOptions" class="col-sm-2 col-form-label">Online Entry Options</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-check-input" type="checkbox" value="TEXTENTRY" name="check-online-entry-options" id="chkbox-textEntry"/>
-                                        <label for="chkbox-textEntry">Text Entry</label><br/>
-                            
-                                        <input class="form-check-input" type="checkbox" value="WEBSITEURL" name="check-online-entry-options" id="chkbox-websiteURL"/>
-                                        <label for="chkbox-websiteURL">Website URL</label><br/>
-                            
-                                        <input class="form-check-input" type="checkbox" value="MEDIARECORDINGS" name="check-online-entry-options" id="chkbox-mediaRec"/>
-                                        <label for="chkbox-mediaRec">Media Recordings</label><br/>
-                            
-                                        <input class="form-check-input" type="checkbox" value="STUDENTANNO" name="check-online-entry-options" id="chkbox-studentAnno"/>
-                                        <label for="chkbox-studentAnno">Student Annotation</label><br/>
-                            
-                                        <input class="form-check-input" type="checkbox" value="FILEUPLOADS" name="check-online-entry-options" id="chkbox-fileUploads"/>
-                                        <label for="chkbox-fileUploads">File Uploads</label><br/><br/>
+                                    <div class="row mb-3">
+                                        <label for="onlineEntryOptions" class="col-sm-2 col-form-label wd-assign-edit-label">Online Entry Options</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-check-input" type="checkbox" value="TEXTENTRY" name="check-online-entry-options" id="chkbox-textEntry"/>
+                                            <label for="chkbox-textEntry">Text Entry</label><br/>
+                                
+                                            <input class="form-check-input" type="checkbox" value="WEBSITEURL" name="check-online-entry-options" id="chkbox-websiteURL"/>
+                                            <label for="chkbox-websiteURL">Website URL</label><br/>
+                                
+                                            <input class="form-check-input" type="checkbox" value="MEDIARECORDINGS" name="check-online-entry-options" id="chkbox-mediaRec"/>
+                                            <label for="chkbox-mediaRec">Media Recordings</label><br/>
+                                
+                                            <input class="form-check-input" type="checkbox" value="STUDENTANNO" name="check-online-entry-options" id="chkbox-studentAnno"/>
+                                            <label for="chkbox-studentAnno">Student Annotation</label><br/>
+                                
+                                            <input class="form-check-input" type="checkbox" value="FILEUPLOADS" name="check-online-entry-options" id="chkbox-fileUploads"/>
+                                            <label for="chkbox-fileUploads">File Uploads</label><br/><br/>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="assign" class="col-sm-2 col-form-label">Assign</label>
-                                    <div class="col-sm-10 border" style="border-radius: 8px;">
-                                        <div class="mb-3">
-                                            <label for="assignTo" class="form-label">Assign to</label>
-                                            <div class="container p-3 wd-rounded-corners-all-around wd-assign-to-container">
-                                                <button class="wd-rounded-corners-all-around">Everyone <span class="float-end ps-5"><i class="fa-solid fa-plus"></i></span></button>
+                                    <div class="row mb-3">
+                                        <label for="assign" class="col-sm-2 col-form-label wd-assign-edit-label">Assign</label>
+                                        <div class="col-sm-10 border" style="border-radius: 8px;">
+                                            <div class="mb-3">
+                                                <label for="assignTo" class="form-label">Assign to</label>
+                                                <div class="container p-3 wd-rounded-corners-all-around wd-assign-to-container">
+                                                    <button class="wd-rounded-corners-all-around">Everyone <span class="float-end ps-5"><i class="fa-solid fa-plus"></i></span></button>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="dueDate" class="form-label">Due</label>
+                                                <input id="dueDate" class="form-control" type="date" value="2021-01-01"/>
+                                            </div>
+                                            <div class="row g-2">
+                                                <div class="col-sm">
+                                                    <label for="availableFrom" class="form-label">Available from</label>
+                                                    <input id="availableFrom" class="form-control" type="date" value="2021-01-01"/>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <label for="untilDate" class="form-label">Until</label>
+                                                    <input id="untilDate" class="form-control" type="date" value="2021-01-01"/>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <button type="button" class="btn wd-add-button" style="width: 100%;" onclick="window.location.href='#';"><i class="fa-solid fa-plus"></i>Add</button>
                                             </div>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="dueDate" class="form-label">Due</label>
-                                            <input id="dueDate" class="form-control" type="date" value="2021-01-01"/>
-                                        </div>
-                                        <div class="row g-2">
-                                            <div class="col-sm">
-                                                <label for="availableFrom" class="form-label">Available from</label>
-                                                <input id="availableFrom" class="form-control" type="date" value="2021-01-01"/>
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="untilDate" class="form-label">Until</label>
-                                                <input id="untilDate" class="form-control" type="date" value="2021-01-01"/>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <button type="button" class="btn wd-add-button" style="width: 100%;" onclick="window.location.href='#';"><i class="fa-solid fa-plus"></i>Add</button>
-                                        </div>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-10 offset-sm-2">
+
+
+
+                                <!-- <div class="row mb-3">
+                                    <div class="col-sm-10 offset-sm-2"> -->
                                       <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="gridCheck1">
                                         <label class="form-check-label" for="gridCheck1">
                                             Notify users that this content has changed
                                         </label>
                                       </div>
-                                    </div>
-                                </div>
+                                    <!-- </div>
+                                </div> -->
                                 <button type="submit" class="wd-rounded-corners-all-around wd-save-button float-end" onclick="window.location.href='#';">Save</button>
                                 <button type="button" class="wd-rounded-corners-all-around wd-cancel-button float-end" onclick="window.location.href='#';">Cancel</button>
                             </form>

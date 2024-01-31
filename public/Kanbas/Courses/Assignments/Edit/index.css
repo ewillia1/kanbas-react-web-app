@@ -26,3 +26,13 @@
     border-color: buttonborder; 
     outline: 1px solid;
 }
+
+.wd-bottom-section {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.wd-assign-edit-label {
+    display: inline-block;
+    text-align: right;
+}
