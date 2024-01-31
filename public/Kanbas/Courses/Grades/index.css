@@ -43,14 +43,14 @@
 }
 
 /* Override input fields for grade cells. */
-input[type=grade] {
+input[type=number] {
     border: none;        /* Remove default borders. */
     padding: 4px 8px;
     border-radius: 8px;
 }
 
 /* Override input fields for grade cells. */
-input[type=grade]:focus{
+input[type=number]:focus{
     outline: none;      /* Remove default outline and use border or box-shadow. */
     box-shadow: 0 0 0 2px red; /* Full freedom. (works also with border-radius). */
 }
