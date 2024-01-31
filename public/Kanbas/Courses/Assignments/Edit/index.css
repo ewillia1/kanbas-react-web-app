@@ -21,3 +21,8 @@
     border-color: buttonborder;
     color: black;
 }
+
+.wd-assign-to-container {
+    border-color: buttonborder; 
+    outline: 1px solid;
+}
