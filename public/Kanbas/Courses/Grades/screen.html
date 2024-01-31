@@ -2,257 +2,411 @@
 <html lang="en">
     <head>
         <title>Grades</title>
-        <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/d75b05e166.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/Kanbas/styles.css"/>
         <link rel="stylesheet" href="/Kanbas/Navigation/index.css"/>
         <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css"/>
+        <link rel="stylesheet" href="/Kanbas/Courses/Home/index.css"/>
+        <link rel="stylesheet" href="/Kanbas/Courses/Grades/index.css"/>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" wd-content="width=device-width, initial-scale=1">
     </head>
-    <body class="wd-nomargin">
-        <table width="100%">
-            <tbody>
-              <tr>
-                <!-- Left Side Column -->
-                <td valign="top" style="width: 80px">
-                    <div class="wd-xs-browser-display">    
-                        <ul class="wd-kanbas-navigation">
-                            <li><a href="http://northeastern.edu"><img src="/images/northeastern_logo.png" alt="Northeastern University Logo" width="50"/></a></li>
-                            <li class="wd-account"><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user"></i>Account</a></li>
-                            <li><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i>Dashboard<a></li>
-                            <li class="wd-active"><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-user-group"></i>Courses</a> </li>
-                            <li><a href="/Kanbas/Calendar/index.html"><i class="fa fa-calendar"></i>Calendar</a></li>
-                            <li><a href="/Kanbas/Inbox/index.html"><i class="fa-solid fa-inbox"></i><br/>Inbox</a></li>
-                            <li><a href="#"><i class="fa-regular fa-clock"></i></i>History</a></li>
-                            <li><a href="#"><i class="fa-solid fa-file-video"></i><br/>Studio</a></li>
-                            <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i>Commons</a></li>
-                            <li><a href="#"><i class="fa-solid fa-question"></i><br/>Help</a></li>
-                        </ul>
-                    </div>
-                </td>
+    <body>
+        <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+            <!-- Row 1a: All elements on the screen. -->
+            <div class="row" style="max-width: 100%;">
+                <!-- Column 1a: Kanbas Navigation. Hide on screen smaller than medium. -->
+                <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block">    
+                    <ul class="wd-kanbas-navigation">
+                        <li><a href="http://northeastern.edu"><img src="/images/northeastern_logo.png" alt="Northeastern University Logo" width="50"/></a></li>
+                        <li class="wd-account"><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user"></i>Account</a></li>
+                        <li><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i>Dashboard<a></li>
+                        <li class="wd-active"><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-user-group"></i>Courses</a> </li>
+                        <li><a href="/Kanbas/Calendar/index.html"><i class="fa fa-calendar"></i>Calendar</a></li>
+                        <li><a href="/Kanbas/Inbox/index.html"><i class="fa-solid fa-inbox"></i><br/>Inbox</a></li>
+                        <li><a href="#"><i class="fa-regular fa-clock"></i></i>History</a></li>
+                        <li><a href="#"><i class="fa-solid fa-file-video"></i><br/>Studio</a></li>
+                        <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i>Commons</a></li>
+                        <li><a href="#"><i class="fa-solid fa-question"></i><br/>Help</a></li>
+                    </ul>
+                </div>
 
-                <!-- Middle Column -->
-                <td style="padding-top: 0; vertical-align: top;">
-                    <div class="wd-xs-browser-display">
-                        <ul class="wd-navigation">
-                            <li><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
-                            <li><a href="/Kanbas/Courses/Modules/screen.html">Modules</a></li>
-                            <li><a href="/Kanbas/Courses/Piazza/index.html">Piazza</a></li>
-                            <li class="wd-active"><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
-                            <li><a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a></li>
-                            <li><a href="/Kanbas/Courses/Assignments/Quizzes/index.html">Quizzes</a></li>
-                            <li><a href="#">People</a></li>
-                            <li><a href="#">Panopto Video</a></li>
-                            <li><a href="#">Discussions</a></li>
-                            <li><a href="#">Announcements</a></li>
-                            <li><a href="#">Pages</a></li>
-                            <li><a href="#">Files</a></li>
-                            <li><a href="#">Rubrics</a></li>
-                            <li><a href="#">Outcomes</a></li>
-                            <li><a href="#">Collaborations</a></li>
-                            <li><a href="#">Syllabus</a></li>
-                            <li><a href="/Kanbas/Account/Settings/CourseDetails/screen.html">Settings</a></li>
-                        </ul>
-                   </div>
-                </td>
-
-                <!-- Right Side Column -->
-                <td style="padding-top: 0; vertical-align: top; padding-left: 20px;">
-                    <select>
-                        <option value="" disabled selected hidden>Gradebook</option>
-                        <option value="CHANGE" disabled><b>Change Gradebook View</b></option>
-                        <option value="TRAD">Traditional Gradebook</option>
-                        <option value="INDVI">Individual Gradebook</option>
-                        <hr/>
-                        <option value="HISTORY">Gradebook History</option>
-                     </select>
-                    <button type="button">Import</button>
-                    <select>
-                        <option value="" disabled selected hidden>Export</option>
-                        <option value="EXPCURR">Export Current Gradebook View</option>
-                        <option value="EXPENTIRE">Export Entire Gradebook</option>
-                        <hr/>
-                        <option value="PREVIOUSEXPORT">Previous Export (Jan 10, 2024 at 11:25 am)</option>
-                     </select>
-                    <button type="button">Configure</button>
-            
-                    <form id="filter-fields">
-                        <label for="filter-fields-student-names"><h3 style="margin-bottom: 0;" >Student Names</h3></label><br/>
-                        <input type="text" id="filter-fields-student-names" placeholder="Search Students"/><br/>
-                        <label for="filter-fields-assignment-names"><h3 style="margin-bottom: 0;">Assignment Names</h3></label><br/>
-                        <input type="text" id="filter-fields-assignment-names" placeholder="Search Assignments"/><br/>
-                        <button style="margin-top: 20px;" type="submit" form="filter-fields">Apply Filters</button>
-                    </form>
-            
-                    <!-- <table style="margin-top: 20px;" border="1" width="100%"> -->
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Student Name</th>
-                                    <th>A1 SETUP<br/>Out of 100</th>
-                                    <th>A2 HTML<br/>Out of 100</th>
-                                    <th>A3 CSS<br/>Out of 100</th>
-                                    <th>A4 BOOTSTRAP<br/>Out of 100</th>
-                                    <th>A5 JAVASCRIPT<br/>Out of 100</th>
-                                    <th>A6 REACT<br/>Out of 100</th>
-                                    <th>A7 REDUX<br/>Out of 100</th>
-                                    <th>A8 NODE<br/>Out of 100</th>
-                                    <th>A9 MONGO<br/>Out of 100</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Alice Wonderland</td>
-                                    <td style="text-align: center; vertical-align: middle;">98</td>
-                                    <td style="text-align: center; vertical-align: middle;">89</td>
-                                    <td style="text-align: center; vertical-align: middle;">87</td>
-                                    <td style="text-align: center; vertical-align: middle;">90</td>
-                                    <td style="text-align: center; vertical-align: middle;">89</td>
-                                    <td style="text-align: center; vertical-align: middle;">94</td>
-                                    <td style="text-align: center; vertical-align: middle;">88</td>
-                                    <td style="text-align: center; vertical-align: middle;">87</td>
-                                    <td style="text-align: center; vertical-align: middle;">100</td>
-                                </tr>
-                                <tr>
-                                    <td>Prices Leia</td>
-                                    <td style="text-align: center; vertical-align: middle;">98</td>
-                                    <td style="text-align: center; vertical-align: middle;">80</td>
-                                    <td style="text-align: center; vertical-align: middle;">87</td>
-                                    <td style="text-align: center; vertical-align: middle;">86</td>
-                                    <td style="text-align: center; vertical-align: middle;">100</td>
-                                    <td style="text-align: center; vertical-align: middle;">94</td>
-                                    <td style="text-align: center; vertical-align: middle;"><input style="text-align: center; vertical-align: middle;" value="85" size="4"/></td>
-                                    <td style="text-align: center; vertical-align: middle;">84</td>
-                                    <td style="text-align: center; vertical-align: middle;">92</td>
-                                </tr>
-                                <tr>
-                                    <td>Luke Skywalker</td>
-                                    <td style="text-align: center; vertical-align: middle;"><input style="text-align: center; vertical-align: middle;" value="99" size="4"/></td>
-                                    <td style="text-align: center; vertical-align: middle;">88</td>
-                                    <td style="text-align: center; vertical-align: middle;">97</td>
-                                    <td style="text-align: center; vertical-align: middle;">82</td>
-                                    <td style="text-align: center; vertical-align: middle;">96</td>
-                                    <td style="text-align: center; vertical-align: middle;">93</td>
-                                    <td style="text-align: center; vertical-align: middle;">95</td>
-                                    <td style="text-align: center; vertical-align: middle;">100</td>
-                                    <td style="text-align: center; vertical-align: middle;">93</td>
-                                </tr>
-                                <tr>
-                                    <td>Han Solo</td>
-                                    <td style="text-align: center; vertical-align: middle;">83</td>
-                                    <td style="text-align: center; vertical-align: middle;">99</td>
-                                    <td style="text-align: center; vertical-align: middle;">94</td>
-                                    <td style="text-align: center; vertical-align: middle;">98</td>
-                                    <td style="text-align: center; vertical-align: middle;">86</td>
-                                    <td style="text-align: center; vertical-align: middle;">85</td>
-                                    <td style="text-align: center; vertical-align: middle;"><input style="text-align: center; vertical-align: middle;" value="86" size="4"/></td>
-                                    <td style="text-align: center; vertical-align: middle;">80</td>
-                                    <td style="text-align: center; vertical-align: middle;">84</td>
-                                </tr>
-                                <tr>
-                                    <td>Lando Calresian</td>
-                                    <td style="text-align: center; vertical-align: middle;">83</td>
-                                    <td style="text-align: center; vertical-align: middle;"><input style="text-align: center; vertical-align: middle;" value="92" size="4"/></td>
-                                    <td style="text-align: center; vertical-align: middle;">80</td>
-                                    <td style="text-align: center; vertical-align: middle;">80</td>
-                                    <td style="text-align: center; vertical-align: middle;">92</td>
-                                    <td style="text-align: center; vertical-align: middle;">92</td>
-                                    <td style="text-align: center; vertical-align: middle;">94</td>
-                                    <td style="text-align: center; vertical-align: middle;">87</td>
-                                    <td style="text-align: center; vertical-align: middle;">95</td>
-                                </tr>
-                                <tr>
-                                    <td>Boba Fet</td>
-                                    <td style="text-align: center; vertical-align: middle;">85</td>
-                                    <td style="text-align: center; vertical-align: middle;">89</td>
-                                    <td style="text-align: center; vertical-align: middle;">94</td>
-                                    <td style="text-align: center; vertical-align: middle;">83</td>
-                                    <td style="text-align: center; vertical-align: middle;">83</td>
-                                    <td style="text-align: center; vertical-align: middle;">84</td>
-                                    <td style="text-align: center; vertical-align: middle;">91</td>
-                                    <td style="text-align: center; vertical-align: middle;">87</td>
-                                    <td style="text-align: center; vertical-align: middle;">96</td>
-                                </tr>
-                                <tr>
-                                    <td>Darth Vader</td>
-                                    <td style="text-align: center; vertical-align: middle;">81</td>
-                                    <td style="text-align: center; vertical-align: middle;">81</td>
-                                    <td style="text-align: center; vertical-align: middle;"><input style="text-align: center; vertical-align: middle;" value="96" size="4"/></td>
-                                    <td style="text-align: center; vertical-align: middle;">80</td>
-                                    <td style="text-align: center; vertical-align: middle;">89</td>
-                                    <td style="text-align: center; vertical-align: middle;">88</td>
-                                    <td style="text-align: center; vertical-align: middle;">82</td>
-                                    <td style="text-align: center; vertical-align: middle;">80</td>
-                                    <td style="text-align: center; vertical-align: middle;">82</td>
-                                </tr>
-                                <tr>
-                                    <td>Obi-Wan Kenobi</td>
-                                    <td style="text-align: center; vertical-align: middle;"><input style="text-align: center; vertical-align: middle;" value="85" size="4"/></td>
-                                    <td style="text-align: center; vertical-align: middle;">99</td>
-                                    <td style="text-align: center; vertical-align: middle;">87</td>
-                                    <td style="text-align: center; vertical-align: middle;">82</td>
-                                    <td style="text-align: center; vertical-align: middle;">88</td>
-                                    <td style="text-align: center; vertical-align: middle;">83</td>
-                                    <td style="text-align: center; vertical-align: middle;">88</td>
-                                    <td style="text-align: center; vertical-align: middle;">92</td>
-                                    <td style="text-align: center; vertical-align: middle;">80</td>
-                                </tr>
-                                <tr>
-                                    <td>R2-D2</td>
-                                    <td style="text-align: center; vertical-align: middle;">81</td>
-                                    <td style="text-align: center; vertical-align: middle;"><input style="text-align: center; vertical-align: middle;" value="92" size="4"/></td>
-                                    <td style="text-align: center; vertical-align: middle;"><input style="text-align: center; vertical-align: middle;" value="82" size="4"/></td>
-                                    <td style="text-align: center; vertical-align: middle;">86</td>
-                                    <td style="text-align: center; vertical-align: middle;">83</td>
-                                    <td style="text-align: center; vertical-align: middle;"><input style="text-align: center; vertical-align: middle;" value="84" size="4"/></td>
-                                    <td style="text-align: center; vertical-align: middle;">98</td>
-                                    <td style="text-align: center; vertical-align: middle;">85</td>
-                                    <td style="text-align: center; vertical-align: middle;">96</td>
-                                </tr>
-                                <tr>
-                                    <td>C-3PO</td>
-                                    <td style="text-align: center; vertical-align: middle;">94</td>
-                                    <td style="text-align: center; vertical-align: middle;">98</td>
-                                    <td style="text-align: center; vertical-align: middle;">83</td>
-                                    <td style="text-align: center; vertical-align: middle;">83</td>
-                                    <td style="text-align: center; vertical-align: middle;">100</td>
-                                    <td style="text-align: center; vertical-align: middle;">96</td>
-                                    <td style="text-align: center; vertical-align: middle;">96</td>
-                                    <td style="text-align: center; vertical-align: middle;">85</td>
-                                    <td style="text-align: center; vertical-align: middle;">87</td>
-                                </tr>
-                                <tr>
-                                    <td>Yoda</td>
-                                    <td style="text-align: center; vertical-align: middle;">80</td>
-                                    <td style="text-align: center; vertical-align: middle;">89</td>
-                                    <td style="text-align: center; vertical-align: middle;">99</td>
-                                    <td style="text-align: center; vertical-align: middle;">89</td>
-                                    <td style="text-align: center; vertical-align: middle;">96</td>
-                                    <td style="text-align: center; vertical-align: middle;">85</td>
-                                    <td style="text-align: center; vertical-align: middle;">96</td>
-                                    <td style="text-align: center; vertical-align: middle;">92</td>
-                                    <td style="text-align: center; vertical-align: middle;">85</td>
-                                </tr>
-                                <tr>
-                                    <td>Admiral Ackbar</td>
-                                    <td style="text-align: center; vertical-align: middle;">82</td>
-                                    <td style="text-align: center; vertical-align: middle;">88</td>
-                                    <td style="text-align: center; vertical-align: middle;">95</td>
-                                    <td style="text-align: center; vertical-align: middle;">100</td>
-                                    <td style="text-align: center; vertical-align: middle;"><input style="text-align: center; vertical-align: middle;" value="93" size="4"/></td>
-                                    <td style="text-align: center; vertical-align: middle;">98</td>
-                                    <td style="text-align: center; vertical-align: middle;">85</td>
-                                    <td style="text-align: center; vertical-align: middle;">87</td>
-                                    <td style="text-align: center; vertical-align: middle;">99</td>
-                                </tr>
-                            </tbody>
-                         </table>
+                <!-- Column 2a: Rest of screen, broken into another grid/table. -->
+                <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11" style="padding: 0;">
+                    <!-- Row 1b: Breadcrumb section. Hide on screens smaller than medium. -->
+                    <div class="row d-none d-md-block">
+                        <!-- Column. -->
+                        <div class="col-12" style="padding: 10px;">
+                            <div class="row" style="margin: 0;">
+                                <nav class="navbar sticky-top" aria-label="Small site nav bar" style="background-color: transparent; padding-left: 20px;">
+                                    <div class="container-fluid">
+                                        <button onclick="window.location.href='#';" style="color: red; background-color: white; border: none;">
+                                            <i class="fa-solid fa-bars" style="color: red; margin-right: 20px;"></i>
+                                        </button>
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="/Kanbas/Courses/Home/screen.html" style="color: red; text-decoration: none;">CS5610.35159.202430</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Grades</li>
+                                            </ol>
+                                        </nav>
+                                        <button class="wd-rounded-corners-all-around wd-grade-button">
+                                            <i class="fa-solid fa-glasses"></i> Student View
+                                        </button>
+                                    </div>
+                                </nav>
+                            </div>
+                            <hr/>
+                        </div>
                     </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>          
+
+                    <!-- Row 2b: Rest of the screen. -->
+                    <div class="row">
+                        <!-- Column 1b: Course Navigation. Hide on screens smaller than medium. -->
+                        <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block" style="padding: 0;">
+                            <ul class="wd-navigation">
+                                <p class="wd-nowrap">202410_1 Fall 2023 Semester</p>
+                                <li><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
+                                <li><a href="/Kanbas/Courses/Modules/screen.html">Modules</a></li>
+                                <li><a href="/Kanbas/Courses/Piazza/index.html">Piazza</a></li>
+                                <li class="wd-active"><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+                                <li><a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a></li>
+                                <li><a href="/Kanbas/Courses/Assignments/Quizzes/index.html">Quizzes</a></li>
+                                <li><a href="#">People</a></li>
+                                <li><a href="#">Panopto Video</a></li>
+                                <li><a href="#">Discussions</a></li>
+                                <li><a href="#">Announcements</a></li>
+                                <li><a href="#">Pages</a></li>
+                                <li><a href="#">Files</a></li>
+                                <li><a href="#">Rubrics</a></li>
+                                <li><a href="#">Outcomes</a></li>
+                                <li><a href="#">Collaborations</a></li>
+                                <li><a href="#">Syllabus</a></li>
+                                <li><a href="/Kanbas/Account/Settings/CourseDetails/screen.html">Settings</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- What appears when the screen is medium. Black small navbar. -->
+                        <div class="d-block d-md-none" style="padding-right: 0; padding-left: 0;">
+                            <nav class="navbar sticky-top" aria-label="Small site nav bar" style="background-color: black; color: white; padding-left: 20px; padding-right: 20px;">
+                                <div class="container-fluid">
+                                    <button type="button" class="wd-small-navbar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i class="fa-solid fa-bars"></i>
+                                    </button>
+                                    <p style="text-align: center;"><u>CS4500.12631.202410</u><br><u>Modules</u></p>
+                                    <button class="wd-small-navbar" onclick="window.location.href='#';">
+                                        <i class="fa-solid fa-glasses"></i>
+                                    </button>
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                                    <ul class="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                        <!-- Button trigger modal. -->
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-house-user"></i> Home</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Modules/screen.html"><i class="fa-solid fa-group-arrows-rotate"></i> Modules</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Piazza/index.html"><i class="fa-solid fa-plug"></i> Piazza</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i> Zoom Meetings</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Assignments/screen.html"><i class="fa-regular fa-file-lines"></i> Assignments</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Assignments/Quizzes/index.html"><i class="fa-solid fa-rocket"></i> Quizzes</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Grades/screen.html"><i class="fa-solid fa-clipboard-check"></i> Grades</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-user-group"></i> People</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i> Panopto Video</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-message"></i> Discussions <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullhorn"></i> Announcements <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-newspaper"></i> Pages <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-folder"></i> Files <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-clipboard-check"></i> Rubrics <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullseye"></i> Outcomes <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-circle"></i> Collaborations <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-file-lines"></i> Syllabus <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i> Progress Reports (EAB Navigate)</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Account/Settings/CourseDetails/screen.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+
+                            <!-- Modal. -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content wd-content-nav">
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <ul class="wd-no-bullets">
+                                            <li>
+                                                <div class="wd-flex-row-container">
+                                                    <div><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i>Dashboard</a></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="wd-flex-row-container">
+                                                    <div><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user" style="color: grey;"></i>Account</a></div>
+                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="wd-flex-row-container">
+                                                    <div><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-user-group"></i>Courses</a></div>
+                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="/Kanbas/Calendar/index.html"><i class="fa fa-calendar"></i>Calendar</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Kanbas/Inbox/index.html"><i class="fa-solid fa-inbox"></i>Inbox</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="fa-solid fa-file-video"></i>Studio</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="fa-solid fa-right-from-bracket"></i>Commons</a>
+                                            </li>
+                                            <li>
+                                                <div class="wd-flex-row-container">
+                                                    <div><a href="#"><i class="fa-regular fa-clock"></i></i>History</a></div>
+                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="wd-flex-row-container">
+                                                    <div><a href="#"><i class="fa-solid fa-question"></i>Help</a></div>
+                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Column 2b: Grade section. Is always visible, no matter the screen size. -->
+                        <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11" style="padding-left: 35px;">
+                            <!-- Grade header row 1 with Import, Export, and Gear icon buttons. -->
+                            <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px;"><i class="fa-solid fa-gear"></i></button>
+                            <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px;"><i class="fa-solid fa-file-export"></i> Export</button>
+                            <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px;"><i class="fa-solid fa-file-import"></i> Import</button>
+                            <div class="wd-float-done"></div>
+
+                            <!-- Grade header row 2 with drop-down menus. -->
+                            <div class="row">
+                                <div class="col-sm">
+                                    <label for="studentNames" class="form-label">Student Names</label>
+                                    <div class="dropdown">
+                                        <button class="btn btn-light wd-grade-button wd-search-button" type="button" id="dropdownAssignments" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa-solid fa-magnifying-glass" style="padding-right: 10px;"></i> Search Students <i class="fa-solid fa-angle-down float-end" style="padding-top: 5px;"></i>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownAssignments" style="width: -webkit-fill-available;">
+                                            <li><a class="dropdown-item" href="#">Alice Wonderland</a></li>
+                                            <li><a class="dropdown-item" href="#">Princess Leia</a></li>
+                                            <li><a class="dropdown-item" href="#">Luke Skywalker</a></li>
+                                            <li><a class="dropdown-item" href="#">Han Solo</a></li>
+                                            <li><a class="dropdown-item" href="#">Lando Calresian</a></li>
+                                            <li><a class="dropdown-item" href="#">Boba Fet</a></li>
+                                            <li><a class="dropdown-item" href="#">Darth Vader</a></li>
+                                            <li><a class="dropdown-item" href="#">Obi-Wan Kenobi</a></li>
+                                            <li><a class="dropdown-item" href="#">R2-D2</a></li>
+                                            <li><a class="dropdown-item" href="#">C-3PO</a></li>
+                                            <li><a class="dropdown-item" href="#">Yoda</a></li>
+                                            <li><a class="dropdown-item" href="#">Admiral Ackbar</a></li>
+                                        </ul>
+                                            
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="assignmentNames" class="form-label">Assignment Names</label>
+                                    <div class="dropdown">
+                                        <button class="btn btn-light wd-grade-button wd-search-button" type="button" id="dropdownAssignments" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa-solid fa-magnifying-glass" style="padding-right: 10px;"></i> Search Assignments  <i class="fa-solid fa-angle-down float-end" style="padding-top: 5px;"></i>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownAssignments" style="width: -webkit-fill-available;">
+                                            <li><a class="dropdown-item" href="#">A1 SETUP</a></li>
+                                            <li><a class="dropdown-item" href="#">A2 HTML</a></li>
+                                            <li><a class="dropdown-item" href="#">A3 CSS</a></li>
+                                            <li><a class="dropdown-item" href="#">A4 BOOTSTRAP</a></li>
+                                            <li><a class="dropdown-item" href="#">A5 JAVASCRIPT</a></li>
+                                            <li><a class="dropdown-item" href="#">A6 REACT</a></li>
+                                            <li><a class="dropdown-item" href="#">A7 REDUX</a></li>
+                                            <li><a class="dropdown-item" href="#">A8 NODE</a></li>
+                                            <li><a class="dropdown-item" href="#">A9 MONGO</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Grade header row 3 with Apply Filters button. -->
+                            <button class="wd-rounded-corners-all-around wd-grade-button wd-apply-filters-button"><i class="fa-solid fa-filter"></i> Apply Filters</button>
+
+                            <!-- Grade table. -->
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" aria-describedby="gradeTable">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Student Name</th>
+                                            <th class="wd-table-header">A1 SETUP<br/><span class="wd-notbold">Out of 100</span></th>
+                                            <th class="wd-table-header">A2 HTML<br/><span class="wd-notbold">Out of 100</span></th>
+                                            <th class="wd-table-header">A3 CSS<br/><span class="wd-notbold">Out of 100</span></th>
+                                            <th class="wd-table-header">A4 BOOTSTRAP<br/><span class="wd-notbold">Out of 100</span></th>
+                                            <th class="wd-table-header">A5 JAVASCRIPT<br/><span class="wd-notbold">Out of 100</span></th>
+                                            <th class="wd-table-header">A6 REACT<br/><span class="wd-notbold">Out of 100</span></th>
+                                            <th class="wd-table-header">A7 REDUX<br/><span class="wd-notbold">Out of 100</span></th>
+                                            <th class="wd-table-header">A8 NODE<br/><span class="wd-notbold">Out of 100</span></th>
+                                            <th class="wd-table-header">A9 MONGO<br/><span class="wd-notbold">Out of 100</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a href="#" class="wd-student-name">Alice Wonderland</a></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="98" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="89" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="87" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="90" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="89" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="94" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="88" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="87" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="100" size="4" type="grade"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="wd-student-name">Princess Leia</a></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="98" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="80" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="87" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="86" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="100" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="94" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="85" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="84" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="85" size="4" type="grade"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="wd-student-name">Luke Skywalker</a></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="99" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="88" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="97" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="82" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="96" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="93" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="95" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="100" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="93" size="4" type="grade"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="wd-student-name">Han Solo</a></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="83" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="99" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="94" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="98" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="86" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="85" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="86" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="80" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="84" size="4" type="grade"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="wd-student-name">Lando Calresian</a></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="83" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="92" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="80" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="80" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="92" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="92" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="94" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="87" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="95" size="4" type="grade"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="wd-student-name">Boba Fet</a></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="85" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="89" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="94" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="83" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="83" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="84" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="91" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="87" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="96" size="4" type="grade"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="wd-student-name">Darth Vader</a></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="81" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="81" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="96" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="80" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="89" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="88" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="82" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="80" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="82" size="4" type="grade"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="wd-student-name">Obi-Wan Kenobi</a></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="85" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="99" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="87" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="82" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="88" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="83" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="88" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="92" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="80" size="4" type="grade"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="wd-student-name">R2-D2</a></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="81" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="92" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="82" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="86" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="83" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="84" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="98" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="85" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="96" size="4" type="grade"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="wd-student-name">C-3PO</a></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="94" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="98" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="83" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="83" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="100" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="96" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="96" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="85" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="87" size="4" type="grade"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="wd-student-name">Yoda</a></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="80" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="89" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="99" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="89" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="96" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="85" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="96" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="92" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="85" size="4" type="grade"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="wd-student-name">Admiral Ackbar</a></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="82" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="88" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="95" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="100" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="93" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="98" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="85" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="87" size="4" type="grade"/></td>
+                                            <td class="wd-table-cell"><input class="wd-table-cell" value="99" size="4" type="grade"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>         
     </body>
 </html>
