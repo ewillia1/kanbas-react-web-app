@@ -202,13 +202,13 @@ ul.wd-content-nav {
     content: var(--bs-breadcrumb-divider, ">");
 }
 
+.wd-dropdown-menu {
+    width: -webkit-fill-available;
+    padding: 30px;
+}
+
 .wd-small-navbar {
     background-color: black; 
     color: white; 
     border: none;
-}
-
-.wd-dropdown-menu {
-    width: -webkit-fill-available;
-    padding: 30px;
 }
