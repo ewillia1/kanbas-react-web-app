@@ -10,6 +10,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     font-size: smaller;
+    max-height: 100vh;
 }
 
 .wd-navigation li {
