@@ -1,0 +1,34 @@
+.wd-always-vis-col-profile {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+/* For the section of the screen that is not the Kanbas Navigation bar. */
+.wd-profile-col-num2 {
+    padding-left: 40px;
+}
+
+/* Change the padding of a wd-col-num2 element when the browser window is 767px wide or less. */
+@media only screen and (max-width: 767px) {
+    .wd-profile-col-num2 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.wd-profile-hyperlink {
+    text-decoration: none;
+    color: red;
+}
+
+.wd-save-button-profile {
+    background-color: red;
+    border-color: red;
+    color: white;
+}
+
+.wd-cancel-button-profile {
+    background-color: buttonface;
+    border-color: buttonborder;
+    color: black;
+}

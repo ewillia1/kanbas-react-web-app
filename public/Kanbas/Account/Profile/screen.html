@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="/Kanbas/Navigation/index.css"/>
         <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css"/>
         <link rel="stylesheet" href="/Kanbas/Courses/Home/index.css"/>
+        <link rel="stylesheet" href="/Kanbas/Account/Profile/index.css"/>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
@@ -20,7 +21,7 @@
                 <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block">    
                     <ul class="wd-kanbas-navigation">
                         <li><a href="http://northeastern.edu"><img src="/images/northeastern_logo.png" alt="Northeastern University Logo" width="50"/></a></li>
-                        <li class="wd-account wd-active"><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user"></i>Account</a></li>
+                        <li class="wd-account wd-account-active"><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user"></i>Account</a></li>
                         <li><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i>Dashboard<a></li>
                         <li><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-user-group"></i>Courses</a> </li>
                         <li><a href="/Kanbas/Calendar/index.html"><i class="fa fa-calendar"></i>Calendar</a></li>
@@ -33,8 +34,8 @@
                 </div>
 
                 <!-- Column 2a: Rest of screen, broken into another grid/table. -->
-                <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11 wd-settings-col-num2">
-                    <!-- Row 1b: Breadcrumb section. Hide on screens smaller than medium. -->
+                <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11 wd-profile-col-num2">
+                    <!-- Row 1b: Top header section. Hide on screens smaller than medium. -->
                     <div class="row d-none d-md-block">
                         <!-- Column. -->
                         <div class="col-12" style="padding: 10px;">
@@ -44,12 +45,7 @@
                                         <button onclick="window.location.href='#';" style="color: red; background-color: white; border: none;">
                                             <i class="fa-solid fa-bars" style="color: red; margin-right: 20px;"></i>
                                         </button>
-                                        <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="/Kanbas/Courses/Home/screen.html" style="color: red; text-decoration: none;">CS5610.35159.202430</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Account</li>
-                                            </ol>
-                                        </nav>
+                                        <h6>Elizabeth Williams's Profile</h6>
                                         <button class="wd-rounded-corners-all-around wd-home-button">
                                             <i class="fa-solid fa-glasses"></i> Student View
                                         </button>
@@ -172,31 +168,33 @@
                         </div>
 
                         <!-- Column 2b: Edit section. Is always visible, no matter the screen size. -->
-                        <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11" style="padding-left: 80px;">
-                            <label style="font-size: 25px; padding-left: 2px;">Jose Annunziato's Profile</label><br/><br/>
-                            <hr>
-
-                            <table>
-                                <tbody>
-                                <tr>
-                                    <!-- Left Side Column -->
-                                    <td style="padding-top: 0; vertical-align: top;">
-                                        <h1>Jose Annunziato</h1>
-                                        <h2>Contact</h2>
-                                        <p>No registered services, you can add some on the <a style="text-decoration: none" href="/Kanbas/Account/Settings/CourseDetails/screen.html">settings</a> page.</p>
-                                        <h2>Biography</h2>
-                                        <p>Faculty, Software Engineer, AI, Space, and renewable enthusiast.</p>
-                                        <h2>Links</h2>
-                                        <a style="text-decoration: none" href="https://www.youtube.com">YouTube</a>
-                                    </td>
-
-                                    <!-- Right Side Column -->
-                                    <td style="padding-top: 0; vertical-align: top;">
-                                        <button type="button" onclick="window.location.href='/Kanbas/Account/Profile/Edit/screen.html'"><img src="pencil_icon.png" alt="pencil icon" width="10" height="10"> Edit Profile</button><br/>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11 wd-always-vis-col-profile">
+                            <div class="row">
+                                <!-- User icon column. -->
+                                <div class="col-2">
+                                    <i class="fa-regular fa-circle-user fa-6x" style="color: grey;"></i>
+                                </div>
+    
+                                <!-- Profile information column. -->
+                                <div class="col-10">
+                                    <div class="row">
+                                        <div class="col-9">
+                                            <h3>Elizabeth Williams</h3><br/>
+                                            <h4>Contact</h4>
+                                            <p>No registered services, you can add some on the <a class="wd-profile-hyperlink" href="/Kanbas/Account/Settings/CourseDetails/screen.html">settings</a> page.</p><br/>
+                                            <h4>Biography</h4>
+                                            <p>Elizabeth Williams hasn't added a bio</p><br/>
+                                            <h4>Links</h4>
+                                            <p>Elizabeth Williams hasn't added any links</p>
+                                        </div>
+    
+                                        <!-- Edit Profile button column. -->
+                                        <div class="col-3">
+                                            <button type="button" class="wd-rounded-corners-all-around wd-home-button" onclick="window.location.href='/Kanbas/Account/Profile/Edit/screen.html'"><img src="pencil_icon.png" alt="pencil icon" width="15px" height="15px"> Edit Profile</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

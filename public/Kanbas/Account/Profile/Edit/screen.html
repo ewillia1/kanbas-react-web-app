@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="/Kanbas/Navigation/index.css"/>
         <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css"/>
         <link rel="stylesheet" href="/Kanbas/Courses/Home/index.css"/>
+        <link rel="stylesheet" href="/Kanbas/Account/Profile/index.css"/>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
@@ -20,7 +21,7 @@
                 <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block">    
                     <ul class="wd-kanbas-navigation">
                         <li><a href="http://northeastern.edu"><img src="/images/northeastern_logo.png" alt="Northeastern University Logo" width="50"/></a></li>
-                        <li class="wd-account wd-active"><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user"></i>Account</a></li>
+                        <li class="wd-account wd-account-active"><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user"></i>Account</a></li>
                         <li><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i>Dashboard<a></li>
                         <li><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-user-group"></i>Courses</a> </li>
                         <li><a href="/Kanbas/Calendar/index.html"><i class="fa fa-calendar"></i>Calendar</a></li>
@@ -33,8 +34,8 @@
                 </div>
 
                 <!-- Column 2a: Rest of screen, broken into another grid/table. -->
-                <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11 wd-settings-col-num2">
-                    <!-- Row 1b: Breadcrumb section. Hide on screens smaller than medium. -->
+                <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11 wd-profile-col-num2">
+                    <!-- Row 1b: Top header section. Hide on screens smaller than medium. -->
                     <div class="row d-none d-md-block">
                         <!-- Column. -->
                         <div class="col-12" style="padding: 10px;">
@@ -44,12 +45,7 @@
                                         <button onclick="window.location.href='#';" style="color: red; background-color: white; border: none;">
                                             <i class="fa-solid fa-bars" style="color: red; margin-right: 20px;"></i>
                                         </button>
-                                        <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="/Kanbas/Courses/Home/screen.html" style="color: red; text-decoration: none;">CS5610.35159.202430</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Account</li>
-                                            </ol>
-                                        </nav>
+                                        <h6>Elizabeth Williams's Profile</h6>
                                         <button class="wd-rounded-corners-all-around wd-home-button">
                                             <i class="fa-solid fa-glasses"></i> Student View
                                         </button>
@@ -173,62 +169,87 @@
 
                         <!-- Column 2b: Edit section. Is always visible, no matter the screen size. -->
                         <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11" style="padding-left: 80px;">
-                            <h1>Jose Annunziato</h1>
-                        <label for="text-fields-name">Name:*</label>
-                        <input type="text" id="text-fields-name" value="Jose Annunziato" required/>
-                        <label for="text-fields-pronouns">Pronouns:</label>
-                        <select id="select-one-pronouns">
-                            <option selected value="SCIFI">None</option>
-                            <option value="SHEHER">She/Her</option>
-                            <option value="HEHIM">He/Him</option>
-                            <option value="THEYTHEM">They/Them</option>
-                            <option value="SHETHEY">She/They</option>
-                            <option value="HETHEY">He/They</option>
-                            <option value="SHE/THEY/He">She/They/He</option>
-                            <option value="ZEZIR">Ze/Zir</option>
-                            <option value="OTHER">Other</option>
-                        </select><br/><br/>
+                            <div class="row">
+                                <!-- User icon column. -->
+                                <div class="col-2">
+                                    <i class="fa-regular fa-circle-user fa-6x" style="color: grey;"></i>
+                                </div>
+    
+                                <!-- Edit input fields AND cancel editing button column. -->
+                                <div class="col-10">
+                                    <div class="row">
+                                        <!-- Edit input fields column. -->
+                                        <div class="col-9">
+                                            <form>
+                                                <div class="mb-3">
+                                                    <label for="studentName" class="form-label"><b>Name:*</b></label>
+                                                    <input type="text" class="form-control" id="studentName" value="Elizabeth Williams" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="pronoun" class="form-label"><b>Pronouns:</b></label>
+                                                    <select class="form-select" id="assignmentGroup" name="assignmentGroup">
+                                                        <option selected value="NONE">None</option>
+                                                        <option value="SHEHER">She/Her</option>
+                                                        <option value="HEHIM">He/Him</option>
+                                                        <option value="THEYTHEM">They/Them</option>
+                                                        <option value="SHETHEY">She/They</option>
+                                                        <option value="HETHEY">He/They</option>
+                                                        <option value="SHE/THEY/He">She/They/He</option>
+                                                        <option value="ZEZIR">Ze/Zir</option>
+                                                        <option value="OTHER">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="text-fields-title" class="form-label"><b>Title:</b></label>
+                                                    <input type="text" class="form-control" id="text-fields-title">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <h4>Contact</h4>
+                                                    <p>No registered services, you can add some on the <a class="wd-profile-hyperlink" href="/Kanbas/Account/Settings/CourseDetails/screen.html">settings</a> page.</p>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <h4>Biography</h4>
+                                                    <textarea class="form-control" id="biography" rows="6"></textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <h4>Links</h4>
+                                                    <div class="row g-2">
+                                                        <div class="col-sm" style="text-align: center;">
+                                                            <label for="linkTitle" class="form-label">Title</label>
+                                                        </div>
+                                                        <div class="col-sm" style="text-align: center;">
+                                                            <label for="linkUrl" class="form-label">URL</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" class="form-control" aria-label="title1">
+                                                        <span class="input-group-text"><i class="fa-solid fa-arrow-right"></i></span>
+                                                        <input type="text" class="form-control" aria-label="url1">
+                                                        <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-x" style="color: red;"></i></button>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" class="form-control" aria-label="title2">
+                                                        <span class="input-group-text"><i class="fa-solid fa-arrow-right"></i></span>
+                                                        <input type="text" class="form-control" aria-label="url2">
+                                                        <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-x" style="color: red;"></i></button>
+                                                    </div>
+                                                    <button type="button" class="wd-rounded-corners-all-around wd-home-button" onclick="window.location.href='#'">Add another link</button>
+                                                </div>
+                                                <hr/>
+                                                <br/>
+        
+                                                <button type="submit" class="wd-rounded-corners-all-around wd-save-button-profile float-end" onclick="window.location.href='#';">Save Profile</button>
+                                                <button type="button" class="wd-rounded-corners-all-around wd-cancel-button-profile float-end" onclick="window.location.href='#';">Cancel</button>
+                                            </form>
+                                        </div>
 
-                        <label for="text-fields-title">Title:</label>
-                        <input type="text" id="text-fields-title"/>
-
-                        <h2>Contact</h2>
-                        <p>No registered services, you can add some on the <a class="wd-a-no-line" href="/Kanbas/Account/Settings/CourseDetails/screen.html">settings</a> page.</p>
-
-                        <h2>Biography</h2>
-                        <form id="textarea">
-                            <textarea cols="50" rows="3">Faculty, Software Engineer, AI, Space, and renewables enthusiast.</textarea>
-                        </form>
-
-                        <h2>Links</h2>
-                        <ul>
-                            <li><a href="https://www.youtube.com">YouTube</a> <a class="wd-a-no-line" href="https://www.youtube.com"> <img src="window_icon.png" alt="window icon" with="12px" height="12px"> Links to an external site.</a></li>
-                        </ul>
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="wd-th-centered-text">Title</th>
-                                    <th></th>
-                                    <th class="wd-th-centered-text">URL</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="text" value="YouTube"></td>
-                                    <td><img src="arrow_icon.png" alt="arrow icon" with="12px" height="12px"></td>
-                                    <td><input type="text" value="https://www.youtube.com"></td>
-                                    <td><a href="#">Remove</a><br/></td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <button class="wd-button-2px-margin-top" type="button">Add another link</button><br/>
-                        <button type="button" onclick="window.location.href='/Kanbas/Account/Profile/screen.html'">Cancel</button>
-                        <button type="button" onclick="window.location.href='/Kanbas/Account/Profile/screen.html'">Save Profile</button><br/>
-                        <button type="button" onclick="window.location.href='/Kanbas/Account/Profile/Edit/screen.html'">Edit Profile</button>
-                        <button type="button" onclick="window.location.href='/Kanbas/Account/Profile/screen.html'">Cancel Editing</button>
+                                        <!-- Cancel Editing button column. -->
+                                        <div class="col-3">
+                                            <button type="button" class="wd-rounded-corners-all-around wd-home-button" onclick="window.location.href='/Kanbas/Account/Profile/screen.html'"><img src="/Kanbas/Account/Profile/pencil_icon.png" alt="pencil icon" width="15px" height="15px"> Cancel Editing</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
