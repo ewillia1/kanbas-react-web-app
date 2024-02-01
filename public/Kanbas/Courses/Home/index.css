@@ -11,6 +11,11 @@
     }
 }
 
+.wd-always-vis-col {
+    padding-left: 56px;
+    padding-right: 56px;
+}
+
 .wd-float-right {
     float: right;
 }
