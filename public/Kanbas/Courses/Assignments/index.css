@@ -22,9 +22,29 @@
 
 .wd-icon-indentation-assignment2 {
     padding-right: 30px;
+    color: green;
 }
 
 .wd-assignment {
     margin: 0;
     text-align: left;
+}
+
+.wd-add-assignment {
+    margin: 5px; 
+    background-color: red; 
+    color: white; 
+    border-color: red;
+}
+
+.wd-assignment-label {
+    cursor: pointer;
+}
+
+.wd-border-radius-18px {
+    border-radius: 18px;
+}
+
+.wd-week-span {
+    font-size: 14px;
 }
