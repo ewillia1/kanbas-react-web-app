@@ -32,3 +32,55 @@
     border-color: buttonborder;
     color: black;
 }
+
+.wd-image-block {
+    flex-direction: row;
+}
+
+@media only screen and (min-width: 992px) {
+    .wd-image-block {
+        flex-direction: row;
+    }
+}
+
+.wd-flex-container {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+    background-color: white;
+}
+  
+.wd-flex-container > .wd-flex-item-left {
+    background-color: white;
+    padding: 10px;
+    flex: 30%;
+    color: grey;
+}
+  
+.wd-flex-container > .wd-flex-item-right {
+    background-color: white;
+    padding: 10px;
+    flex: 70%;
+    color: black;
+    text-align: left;
+}
+
+.wd-flex-item-right p {
+    font-size: initial;
+}
+
+.wd-flex-item-right label {
+    font-size: initial;
+}
+
+.wd-flex-item-right button {
+    font-size: initial;
+}
+  
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 1199px) {
+    .wd-flex-container {
+      flex-direction: column;
+    }
+}

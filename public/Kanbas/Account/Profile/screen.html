@@ -60,7 +60,7 @@
                     <div class="row">
                         <!-- Column 1b: Profile Navigation. Hide on screens smaller than medium. -->
                         <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block" style="padding: 0;">
-                            <ul class="wd-navigation">
+                            <ul class="wd-navigation" style="width: 165px">
                                 <li class="wd-nowrap"><a href="#">Notifications</a></li>
                                 <li class="wd-active wd-nowrap"><a href="/Kanbas/Account/Profile/screen.html">Profile</a></li>
                                 <li class="wd-nowrap"><a href="#">Files</a></li>
@@ -167,18 +167,15 @@
                             </div>
                         </div>
 
-                        <!-- Column 2b: Edit section. Is always visible, no matter the screen size. -->
+                        <!-- Column 2b: Profile section. Is always visible, no matter the screen size. -->
                         <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11 wd-always-vis-col-profile">
                             <div class="row">
-                                <!-- User icon column. -->
-                                <div class="col-2">
-                                    <i class="fa-regular fa-circle-user fa-6x" style="color: grey;"></i>
-                                </div>
-    
-                                <!-- Profile information column. -->
                                 <div class="col-10">
-                                    <div class="row">
-                                        <div class="col-9">
+                                    <div class="wd-flex-container">
+                                        <div class="wd-flex-item-left">
+                                            <i class="fa-regular fa-circle-user fa-5x"></i>
+                                        </div>
+                                        <div class="wd-flex-item-right">
                                             <h3>Elizabeth Williams</h3><br/>
                                             <h4>Contact</h4>
                                             <p>No registered services, you can add some on the <a class="wd-profile-hyperlink" href="/Kanbas/Account/Settings/CourseDetails/screen.html">settings</a> page.</p><br/>
@@ -187,11 +184,12 @@
                                             <h4>Links</h4>
                                             <p>Elizabeth Williams hasn't added any links</p>
                                         </div>
-    
-                                        <!-- Edit Profile button column. -->
-                                        <div class="col-3">
-                                            <button type="button" class="wd-rounded-corners-all-around wd-home-button" onclick="window.location.href='/Kanbas/Account/Profile/Edit/screen.html'"><img src="pencil_icon.png" alt="pencil icon" width="15px" height="15px"> Edit Profile</button>
-                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div>
+                                        <button type="button" class="wd-rounded-corners-all-around wd-home-button" onclick="window.location.href='/Kanbas/Account/Profile/Edit/screen.html'"><img src="pencil_icon.png" alt="pencil icon" width="15px" height="15px"> Edit Profile</button>
                                     </div>
                                 </div>
                             </div>

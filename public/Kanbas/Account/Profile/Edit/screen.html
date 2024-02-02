@@ -60,7 +60,7 @@
                     <div class="row">
                         <!-- Column 1b: Profile Navigation. Hide on screens smaller than medium. -->
                         <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block" style="padding: 0;">
-                            <ul class="wd-navigation">
+                            <ul class="wd-navigation" style="width: 165px">
                                 <li class="wd-nowrap"><a href="#">Notifications</a></li>
                                 <li class="wd-active wd-nowrap"><a href="/Kanbas/Account/Profile/screen.html">Profile</a></li>
                                 <li class="wd-nowrap"><a href="#">Files</a></li>
@@ -170,33 +170,27 @@
                         <!-- Column 2b: Edit section. Is always visible, no matter the screen size. -->
                         <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11" style="padding-left: 80px;">
                             <div class="row">
-                                <!-- User icon column. -->
-                                <div class="col-2">
-                                    <i class="fa-regular fa-circle-user fa-6x" style="color: grey;"></i>
-                                </div>
-    
-                                <!-- Edit input fields AND cancel editing button column. -->
                                 <div class="col-10">
-                                    <div class="row">
-                                        <!-- Edit input fields column. -->
-                                        <div class="col-9">
+                                    <div class="wd-flex-container">
+                                        <div class="wd-flex-item-left">
+                                            <i class="fa-regular fa-circle-user fa-5x"></i>
+                                        </div>
+                                        <div class="wd-flex-item-right">
                                             <form>
                                                 <div class="mb-3">
                                                     <label for="studentName" class="form-label"><b>Name:*</b></label>
                                                     <input type="text" class="form-control" id="studentName" value="Elizabeth Williams" required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="pronoun" class="form-label"><b>Pronouns:</b></label>
-                                                    <select class="form-select" id="assignmentGroup" name="assignmentGroup">
-                                                        <option selected value="NONE">None</option>
-                                                        <option value="SHEHER">She/Her</option>
-                                                        <option value="HEHIM">He/Him</option>
-                                                        <option value="THEYTHEM">They/Them</option>
-                                                        <option value="SHETHEY">She/They</option>
-                                                        <option value="HETHEY">He/They</option>
-                                                        <option value="SHE/THEY/He">She/They/He</option>
-                                                        <option value="ZEZIR">Ze/Zir</option>
-                                                        <option value="OTHER">Other</option>
+                                                    <label for="pronouns" class="form-label" ><b>Pronouns:</b></label>
+                                                    <select class="form-select" name="pronouns" id="pronouns">
+                                                        <option value="">None</option>
+                                                        <option value="He/Him">He/Him</option>
+                                                        <option value="She/Her">She/Her</option>
+                                                        <option value="They/Them">They/Them</option>
+                                                        <option value="He/They">He/They</option>
+                                                        <option value="She/They">She/They</option>
+                                                        <option value="He/She/They">He/She/They</option>
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
@@ -212,12 +206,12 @@
                                                     <textarea class="form-control" id="biography" rows="6"></textarea>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <h4>Links</h4>
+                                                    <h4 style="margin-bottom: 0;">Links</h4>
                                                     <div class="row g-2">
-                                                        <div class="col-sm" style="text-align: center;">
+                                                        <div class="col-sm" style="text-align: center; margin-top: 0;">
                                                             <label for="linkTitle" class="form-label">Title</label>
                                                         </div>
-                                                        <div class="col-sm" style="text-align: center;">
+                                                        <div class="col-sm" style="text-align: center; margin-top: 0;">
                                                             <label for="linkUrl" class="form-label">URL</label>
                                                         </div>
                                                     </div>
@@ -242,11 +236,12 @@
                                                 <button type="button" class="wd-rounded-corners-all-around wd-cancel-button-profile float-end" onclick="window.location.href='#';">Cancel</button>
                                             </form>
                                         </div>
+                                    </div>
+                                </div>
 
-                                        <!-- Cancel Editing button column. -->
-                                        <div class="col-3">
-                                            <button type="button" class="wd-rounded-corners-all-around wd-home-button" onclick="window.location.href='/Kanbas/Account/Profile/screen.html'"><img src="/Kanbas/Account/Profile/pencil_icon.png" alt="pencil icon" width="15px" height="15px"> Cancel Editing</button>
-                                        </div>
+                                <div class="col-2">
+                                    <div>
+                                        <button type="button" class="wd-rounded-corners-all-around wd-home-button" onclick="window.location.href='/Kanbas/Account/Profile/screen.html'"><img src="/Kanbas/Account/Profile/pencil_icon.png" alt="pencil icon" width="15px" height="15px"> Cancel Editing</button>
                                     </div>
                                 </div>
                             </div>
