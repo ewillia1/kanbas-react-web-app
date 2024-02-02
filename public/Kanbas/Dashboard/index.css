@@ -1,3 +1,12 @@
+.wd-main-container {
+    padding-left: 0; 
+    padding-right: 0;
+}
+
+.wd-main-row {
+    max-width: 100%;
+}
+
 .wd-container {
     text-align: center;
     color: white;
@@ -13,4 +22,35 @@ p.wd-nowrap {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.wd-course-card-col {
+    width: 260px; 
+    margin-top: 35px;
+}
+
+.wd-card-image {
+    max-height: 150px;
+}
+
+.wd-card-title {
+    text-decoration: none; 
+    color: navy; 
+    font-weight: bold;
+}
+
+.wd-three-dot-menu {
+    text-align: right; 
+    margin-right: 5px; 
+    margin-top: 5px; 
+    margin-bottom: 5px; 
+    border-left: 0;
+}
+
+.wd-published-courses {
+    padding-left: 40px;
+}
+
+.wd-dashboard {
+    background-color: rgba(254, 254, 254, 0.97);
 }
