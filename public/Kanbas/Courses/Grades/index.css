@@ -67,3 +67,15 @@ input[type=number]:focus{
     outline: none;      /* Remove default outline and use border or box-shadow. */
     box-shadow: 0 0 0 2px red; /* Full freedom. (works also with border-radius). */
 }
+
+.wd-magnifying-glass {
+    padding-right: 10px;
+}
+
+.wd-search-dropdown {
+    padding-top: 5px;
+}
+
+.wd-dropdown-menu {
+    width: -webkit-fill-available;
+}
