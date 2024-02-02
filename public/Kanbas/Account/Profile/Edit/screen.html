@@ -77,16 +77,16 @@
                         <div class="d-block d-md-none" style="padding-right: 0; padding-left: 0;">
                             <nav class="navbar sticky-top" aria-label="Small site nav bar" style="background-color: black; color: white; padding-left: 20px; padding-right: 20px;">
                                 <div class="container-fluid">
-                                    <button type="button" class="wd-small-navbar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button type="button" class="wd-small-navbar" data-bs-toggle="modal" data-bs-target="#kanbasModal">
                                         <i class="fa-solid fa-bars"></i>
                                     </button>
                                     <p style="text-align: center;"><u>CS4500.12631.202410</u><br><u>Modules</u></p>
                                     <button class="wd-small-navbar" onclick="window.location.href='#';">
                                         <i class="fa-solid fa-glasses"></i>
                                     </button>
+                                    
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                                     <ul class="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                        <!-- Button trigger modal. -->
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-house-user"></i> Home</a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Modules/screen.html"><i class="fa-solid fa-group-arrows-rotate"></i> Modules</a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Piazza/index.html"><i class="fa-solid fa-plug"></i> Piazza</a></li>
@@ -110,8 +110,8 @@
                                 </div>
                             </nav>
 
-                            <!-- Modal. -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <!-- Kanbas modal. -->
+                            <div class="modal fade" id="kanbasModal" tabindex="-1" aria-labelledby="kanbasModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content wd-content-nav">
                                     <div class="modal-header">
@@ -173,7 +173,9 @@
                                 <div class="col-10">
                                     <div class="wd-flex-container">
                                         <div class="wd-flex-item-left">
-                                            <i class="fa-regular fa-circle-user fa-5x"></i>
+                                            <button type="button" data-bs-toggle="modal" data-bs-target="#avatarModal" class="wd-user-avatar">
+                                                <i class="fa-regular fa-circle-user fa-5x"></i> 
+                                            </button>
                                         </div>
                                         <div class="wd-flex-item-right">
                                             <form>
@@ -242,6 +244,22 @@
                                 <div class="col-2">
                                     <div>
                                         <button type="button" class="wd-rounded-corners-all-around wd-home-button" onclick="window.location.href='/Kanbas/Account/Profile/screen.html'"><img src="/Kanbas/Account/Profile/pencil_icon.png" alt="pencil icon" width="15px" height="15px"> Cancel Editing</button>
+                                    </div>
+                                </div>
+
+                                <!-- Profile modal. -->
+                                <div class="modal fade" id="avatarModal" tabindex="-1" aria-labelledby="avatarModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content wd-content-nav">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Select Profile Picture</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <label for="profilePic" class="form-label">Upload a Picture</label>
+                                            <input class="form-control" type="file" id="profilePic" accept="image/*">
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>

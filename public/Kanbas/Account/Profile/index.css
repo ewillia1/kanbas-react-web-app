@@ -84,3 +84,9 @@
       flex-direction: column;
     }
 }
+
+.wd-user-avatar {
+    border: none;
+    color: grey;
+    background-color: white;
+}
