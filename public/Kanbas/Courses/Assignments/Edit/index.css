@@ -14,6 +14,7 @@
     background-color: buttonface;
     border-color: buttonborder;
     color: black;
+    width: 100%;
 }
 
 .wd-add-button:hover {
@@ -35,4 +36,8 @@
 .wd-assign-edit-label {
     display: inline-block;
     text-align: right;
+}
+
+.wd-border-radius-8px {
+    border-radius: 8px;
 }
