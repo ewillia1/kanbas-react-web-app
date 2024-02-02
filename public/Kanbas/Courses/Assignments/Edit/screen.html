@@ -206,7 +206,10 @@
                                     <div class="row mb-3">
                                         <label for="points" class="col-sm-2 col-form-label wd-assign-edit-label">Points</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="points" value="100">
+                                            <!-- I am not setting a max number since I am assuming professors can make the total number of points
+                                            be as high as they want. I am just not allowing an assignment to be less than 1 point. 
+                                            Negative scores do not make sense, and I am assuming that no assignments will be worth 0 points. -->
+                                            <input type="number" min="1" class="form-control" id="points" value="100">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
