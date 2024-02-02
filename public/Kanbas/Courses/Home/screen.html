@@ -13,9 +13,9 @@
         <meta name="viewport" wd-content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+        <div class="container-fluid wd-main-container">
             <!-- Row 1a: All elements on the screen. -->
-            <div class="row" style="max-width: 100%;">
+            <div class="row wd-main-row">
                 <!-- Column 1a: Kanbas Navigation. Hide on screen smaller than medium. -->
                 <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block">    
                     <ul class="wd-kanbas-navigation">
@@ -39,16 +39,16 @@
                     <!-- Row 1b: Breadcrumb section. Hide on screens smaller than medium. -->
                     <div class="row d-none d-md-block">
                         <!-- Column. -->
-                        <div class="col-12" style="padding: 10px;">
-                            <div class="row" style="margin: 0;">
-                                <nav class="navbar" aria-label="Small site nav bar" style="background-color: transparent; padding-left: 20px;">
+                        <div class="col-12 wd-padding-10px">
+                            <div class="row m-0">
+                                <nav class="navbar wd-breadcrumb-navbar" aria-label="Small site nav bar">
                                     <div class="container-fluid">
-                                        <button onclick="window.location.href='#';" style="color: red; background-color: white; border: none;">
-                                            <i class="fa-solid fa-bars" style="color: red; margin-right: 20px;"></i>
+                                        <button class="wd-three-bar-menu" onclick="window.location.href='#';">
+                                            <i class="fa-solid fa-bars wd-margin-20px"></i>
                                         </button>
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="/Kanbas/Courses/Home/screen.html" style="color: red; text-decoration: none;">CS5610.35159.202430</a></li>
+                                                <li class="breadcrumb-item"><a href="/Kanbas/Courses/Home/screen.html" class="wd-breadcrumb-link">CS5610.35159.202430</a></li>
                                                 <li class="breadcrumb-item active" aria-current="page">Modules</li>
                                             </ol>
                                         </nav>
@@ -65,7 +65,7 @@
                     <!-- Row 2b: Rest of the screen. -->
                     <div class="row">
                         <!-- Column 1b: Course Navigation. Hide on screens smaller than medium. -->
-                        <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block" style="padding: 0;">
+                        <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block p-0">
                             <ul class="wd-navigation">
                                 <p class="wd-nowrap">202410_1 Fall 2023 Semester</p>
                                 <li class="wd-active wd-nowrap"><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
@@ -89,13 +89,13 @@
                         </div>
 
                         <!-- What appears when the screen is medium. Black small navbar. -->
-                        <div class="d-block d-md-none" style="padding-right: 0; padding-left: 0;">
-                            <nav class="navbar sticky-top" aria-label="Small site nav bar" style="background-color: black; color: white; padding-left: 20px; padding-right: 20px;">
+                        <div class="d-block d-md-none wd-0-lr-padding">
+                            <nav class="navbar sticky-top wd-black-navbar" aria-label="Small site nav bar">
                                 <div class="container-fluid">
                                     <button type="button" class="wd-small-navbar" data-bs-toggle="modal" data-bs-target="#kanbasModal">
                                         <i class="fa-solid fa-bars"></i>
                                     </button>
-                                    <p style="text-align: center;"><u>CS4500.12631.202410</u><br><u>Modules</u></p>
+                                    <p class="wd-centered-text"><u>CS4500.12631.202410</u><br><u>Modules</u></p>
                                     <button class="wd-small-navbar" onclick="window.location.href='#';">
                                         <i class="fa-solid fa-glasses"></i>
                                     </button>
@@ -111,14 +111,14 @@
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Grades/screen.html"><i class="fa-solid fa-clipboard-check"></i> Grades</a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-user-group"></i> People</a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i> Panopto Video</a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-message"></i> Discussions <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullhorn"></i> Announcements <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-newspaper"></i> Pages <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-folder"></i> Files <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-clipboard-check"></i> Rubrics <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullseye"></i> Outcomes <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-circle"></i> Collaborations <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-file-lines"></i> Syllabus <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-message"></i> Discussions <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullhorn"></i> Announcements <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-newspaper"></i> Pages <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-folder"></i> Files <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-clipboard-check"></i> Rubrics <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullseye"></i> Outcomes <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-circle"></i> Collaborations <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-file-lines"></i> Syllabus <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i> Progress Reports (EAB Navigate)</a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Account/Settings/CourseDetails/screen.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
                                     </ul>
@@ -141,14 +141,14 @@
                                             </li>
                                             <li>
                                                 <div class="wd-flex-row-container">
-                                                    <div><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user" style="color: grey;"></i>Account</a></div>
-                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                    <div><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user wd-grey-icon"></i>Account</a></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="wd-flex-row-container">
                                                     <div><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-user-group"></i>Courses</a></div>
-                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
                                                 </div>
                                             </li>
                                             <li>
@@ -166,13 +166,13 @@
                                             <li>
                                                 <div class="wd-flex-row-container">
                                                     <div><a href="#"><i class="fa-regular fa-clock"></i></i>History</a></div>
-                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="wd-flex-row-container">
                                                     <div><a href="#"><i class="fa-solid fa-question"></i>Help</a></div>
-                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
                                                 </div>
                                             </li>
                                         </ul>
@@ -185,28 +185,28 @@
                         <!-- Column 2b: Weekly Modules. Is always visible, no matter the screen size. -->
                         <div class="col-sm-12 col-md-11 col-lg-11 col-xl-8 wd-always-vis-col">
                             <!-- Buttons above the weeks. -->
-                            <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px;">&#8285</button>
-                            <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px; background-color: red; color: white; border-color: red;"><i class="fa-solid fa-plus"></i> Module</button>
+                            <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button wd-margin-5px">&#8285</button>
+                            <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button wd-module-plus"><i class="fa-solid fa-plus"></i> Module</button>
                             <div class="wd-float-right dropdown">
-                                <button class="btn btn-secondary dropdown-toggle wd-course-status-dropdown" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-regular fa-circle-check" style="color: green;"></i> Publish All</button>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2" style="width: max-content;">
-                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-circle-check" style="color: green;"></i> Publish all modules and items</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-circle-check" style="color: green;"></i> Publish modules only</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-ban" style="color: grey;"></i> Unpublish all modules and items</a></li>
+                                <button class="btn btn-secondary dropdown-toggle wd-course-status-dropdown" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-regular fa-circle-check wd-green-icon"></i> Publish All</button>
+                                <ul class="dropdown-menu dropdown-menu-end wd-max-content-width" aria-labelledby="dropdownMenuButton2">
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-circle-check wd-green-icon"></i> Publish all modules and items</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-circle-check wd-green-icon"></i> Publish modules only</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-ban wd-grey-icon"></i> Unpublish all modules and items</a></li>
                                 </ul>
                             </div>
-                            <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px;">View Progress</button>
-                            <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button" style="margin: 5px;">Collapse All</button>
+                            <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button wd-margin-5px">View Progress</button>
+                            <button type="button" class="wd-float-right wd-rounded-corners-all-around wd-home-button wd-margin-5px">Collapse All</button>
                             <div class="wd-float-done"></div>
                             <hr/>
 
                             <div class="wd-week-section">
                                 <button draggable="true"  type="button" class="wd-collapsible border border-dark">
-                                    <p style="text-align: left; margin: 0;">
+                                    <p class="wd-left-text m-0">
                                         <i class="fa-solid fa-grip-vertical"></i>
                                         <i class="fa-solid fa-caret-down"></i> Week 0 - INTRO
                                         <span class="float-end">
-                                            <i class="fa-solid fa-circle-check" style="color: green;"></i>
+                                            <i class="fa-solid fa-circle-check wd-green-icon"></i>
                                             <i class="fa-solid fa-caret-down"></i>
                                             <i class="fa-solid fa-plus"></i>
                                             <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -219,7 +219,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical"></i> LEARNING OBJECTIVES
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -228,7 +228,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> Introduction to the course
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -237,7 +237,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> Learn what is Web Development
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -246,7 +246,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> Creating a development environment
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -255,7 +255,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> Creating a Web Application
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -264,7 +264,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> Getting started with the 1st assignment
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -273,7 +273,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical"></i> READING
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -282,7 +282,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> Full Stack Developer - Chapter 1 - Introduction
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -291,7 +291,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -300,7 +300,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical"></i> SLIDES
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -309,7 +309,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> <a class="wd-hyperlinks" href="#">Introduction to Web Development <i class="fa fa-external-link" aria-hidden="true"></i></a>
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -318,7 +318,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> <a class="wd-hyperlinks" href="#">Creating an HTTP server with Node.js <i class="fa fa-external-link" aria-hidden="true"></i></a>
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -327,7 +327,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> <a class="wd-hyperlinks" href="#">Creating a React Application <i class="fa fa-external-link" aria-hidden="true"></i></a>
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -337,11 +337,11 @@
 
                             <div class="wd-week-section">
                                 <button draggable="true"  type="button" class="wd-collapsible border border-dark">
-                                    <p style="text-align: left; margin: 0;">
+                                    <p class="wd-left-text m-0">
                                         <i class="fa-solid fa-grip-vertical"></i>
                                         <i class="fa-solid fa-caret-down"></i> Week 1 - HTML
                                         <span class="float-end">
-                                            <i class="fa-solid fa-circle-check" style="color: green;"></i>
+                                            <i class="fa-solid fa-circle-check wd-green-icon"></i>
                                             <i class="fa-solid fa-caret-down"></i>
                                             <i class="fa-solid fa-plus"></i>
                                             <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -354,7 +354,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical"></i> LEARNING OBJECTIVES
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -363,7 +363,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> Learn how to create user interfaces with HTML
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -372,7 +372,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> Keep working on assignment 1
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -381,7 +381,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> Deploy the assignment to Netlify
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -390,7 +390,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical"></i> READING
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -399,7 +399,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> Full Stack Developer - Chapter 1 - Introduction
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -408,7 +408,7 @@
                                         <p class="wd-week">
                                             <i class="fa-solid fa-grip-vertical wd-icon-indentation-week"></i> Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML
                                             <span class="float-end">
-                                                <i class="fa-solid fa-circle-check" style="color: green; margin-right: 10px;"></i>
+                                                <i class="fa-solid fa-circle-check wd-check-mark"></i>
                                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                                             </span>
                                         </p>
@@ -448,7 +448,7 @@
                             </div>
                             <div class="row"><hr/></div>
                             <div class="row wd-coming-up-todo-row">
-                                <a class="wd-hyperlinks" href="/Kanbas/Courses/Assignments/Edit/screen.html"><i class="fa-solid fa-calendar-check" style="color: red; margin: 5px;"></i>Grade A1 - ENV + HTML</a>
+                                <a class="wd-hyperlinks" href="/Kanbas/Courses/Assignments/Edit/screen.html"><i class="fa-solid fa-calendar-check wd-to-do-assignment"></i>Grade A1 - ENV + HTML</a>
                                 <p class="wd-subheader-to-do">100 points • Sep 18 at 11:59pm</p>
                             </div>
 
@@ -461,21 +461,21 @@
                                 </div>
                                 <div class="col">
                                     <h6>
-                                        <a class="wd-hyperlinks" href="/Kanbas/Calendar/index.html"><i class="fa-regular fa-calendar" style="color: grey;"></i> View Calendar</a>
+                                        <a class="wd-hyperlinks" href="/Kanbas/Calendar/index.html"><i class="fa-regular fa-calendar wd-calendar"></i> View Calendar</a>
                                     </h6>
                                 </div>
                             </div>
                             <div class="row"><hr/></div>
                             <div class="row wd-coming-up-todo-row">
-                                <a class="wd-hyperlinks" href="#"><i class="fa-regular fa-calendar" style="color: grey; margin: 5px;"></i>Lecture</a>
+                                <a class="wd-hyperlinks" href="#"><i class="fa-regular fa-calendar wd-calendar"></i>Lecture</a>
                                 <p class="wd-subheader-coming-up">CS4500.12631.202410 Sep 11 at 11:45am</p>
                             </div>
                             <div class="row wd-coming-up-todo-row">
-                                <a class="wd-hyperlinks" href="#"><i class="fa-regular fa-calendar" style="color: grey; margin: 5px;"></i>CS5610 06 SP23 Lecture</a>
+                                <a class="wd-hyperlinks" href="#"><i class="fa-regular fa-calendar wd-calendar"></i>CS5610 06 SP23 Lecture</a>
                                 <p class="wd-subheader-coming-up">CS4500.12631.202410 Sep 11 at 6pm</p>
                             </div>
                             <div class="row wd-coming-up-todo-row">
-                                <a class="wd-hyperlinks" href="#"><i class="fa-regular fa-calendar" style="color: grey; margin: 5px;"></i>SC5610 Web Development Summer 1 2023 Lecture</a>
+                                <a class="wd-hyperlinks" href="#"><i class="fa-regular fa-calendar wd-calendar"></i>CS5610 Web Development Summer 1 2023 Lecture</a>
                                 <p class="wd-subheader-coming-up">CS4500.12631.202410 Sep 11 at 7pm</p>
                             </div>
                         </div>

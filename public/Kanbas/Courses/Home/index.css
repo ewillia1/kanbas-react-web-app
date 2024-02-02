@@ -11,6 +11,38 @@
     }
 }
 
+.wd-main-container {
+    padding-left: 0; 
+    padding-right: 0;
+}
+
+.wd-main-row {
+    max-width: 100%;
+}
+
+.wd-crossed-out-eye {
+    color: grey;
+}
+
+.wd-green-icon {
+    color: green;
+}
+
+.wd-check-mark {
+    color: green;
+    margin-right: 10px;
+}
+
+.wd-to-do-assignment {
+    color: red; 
+    margin: 5px;
+}
+
+.wd-kanbas-modal-icon {
+    color: grey; 
+    margin-right: 20px;
+}
+
 .wd-always-vis-col {
     padding-left: 56px;
     padding-right: 56px;
@@ -216,4 +248,72 @@ ul.wd-content-nav {
     background-color: black; 
     color: white; 
     border: none;
+}
+
+.wd-calendar {
+    color: grey;
+    margin: 5px;
+}
+
+.wd-breadcrumb-navbar {
+    background-color: transparent; 
+    padding-left: 20px;
+}
+
+.wd-breadcrumb-link {
+    color: red; 
+    text-decoration: none;
+}
+
+.wd-black-navbar {
+    background-color: black; 
+    color: white; 
+    padding-left: 20px; 
+    padding-right: 20px;
+}
+
+.wd-0-lr-padding {
+    padding-right: 0; 
+    padding-left: 0;
+}
+
+.wd-margin-5px {
+    margin: 5px;
+}
+
+.wd-margin-20px {
+    margin-right: 20px;
+}
+
+.wd-padding-10px {
+    padding: 10px;
+}
+
+.wd-three-bar-menu {
+    color: red; 
+    background-color: white; 
+    border: none;
+}
+
+.wd-centered-text {
+    text-align: center;
+}
+
+.wd-left-text {
+    text-align: left;
+}
+
+.wd-grey-icon {
+    color: grey;
+}
+
+.wd-module-plus {
+    margin: 5px; 
+    background-color: red; 
+    color: white; 
+    border-color: red;
+}
+
+.wd-max-content-width {
+    width: max-content;
 }
