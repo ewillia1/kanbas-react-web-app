@@ -14,9 +14,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+        <div class="container-fluid wd-main-container">
             <!-- Row 1a: All elements on the screen. -->
-            <div class="row" style="max-width: 100%;">
+            <div class="row wd-main-row">
                 <!-- Column 1a: Kanbas Navigation. Hide on screen smaller than medium. -->
                 <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block">    
                     <ul class="wd-kanbas-navigation">
@@ -38,17 +38,17 @@
                     <!-- Row 1b: Breadcrumb section. Hide on screens smaller than medium. -->
                     <div class="row d-none d-md-block">
                         <!-- Column. -->
-                        <div class="col-12" style="padding: 10px;">
-                            <div class="row" style="margin: 0;">
-                                <nav class="navbar" aria-label="Small site nav bar" style="background-color: transparent; padding-left: 20px;">
+                        <div class="col-12 wd-padding-10px">
+                            <div class="row m-0">
+                                <nav class="navbar wd-breadcrumb-navbar" aria-label="Small site nav bar">
                                     <div class="container-fluid">
-                                        <button onclick="window.location.href='#';" style="color: red; background-color: white; border: none;">
-                                            <i class="fa-solid fa-bars" style="color: red; margin-right: 20px;"></i>
+                                        <button class="wd-three-bar-menu" onclick="window.location.href='#';">
+                                            <i class="fa-solid fa-bars wd-margin-20px"></i>
                                         </button>
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="/Kanbas/Courses/Home/screen.html" style="color: red; text-decoration: none;">CS5610.35159.202430</a></li>
-                                                <li class="breadcrumb-item"><a href="/Kanbas/Account/Settings/CourseDetails/screen.html" style="color: red; text-decoration: none;">Settings</a></li>
+                                                <li class="breadcrumb-item"><a href="/Kanbas/Courses/Home/screen.html" class="wd-breadcrumb-link">CS5610.35159.202430</a></li>
+                                                <li class="breadcrumb-item"><a href="/Kanbas/Account/Settings/CourseDetails/screen.html" class="wd-breadcrumb-link">Settings</a></li>
                                                 <li class="breadcrumb-item active" aria-current="page">Course Details</li>
                                             </ol>
                                         </nav>
@@ -65,7 +65,7 @@
                     <!-- Row 2b: Rest of the screen. -->
                     <div class="row">
                         <!-- Column 1b: Course Navigation. Hide on screens smaller than medium. -->
-                        <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block" style="padding: 0;">
+                        <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block p-0">
                             <ul class="wd-navigation">
                                 <p class="wd-nowrap">202410_1 Fall 2023 Semester</p>
                                 <li class="wd-nowrap"><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
@@ -89,13 +89,13 @@
                         </div>
 
                         <!-- What appears when the screen is medium. Black small navbar. -->
-                        <div class="d-block d-md-none" style="padding-right: 0; padding-left: 0;">
-                            <nav class="navbar sticky-top" aria-label="Small site nav bar" style="background-color: black; color: white; padding-left: 20px; padding-right: 20px;">
+                        <div class="d-block d-md-none wd-0-lr-padding">
+                            <nav class="navbar sticky-topwd-black-navbar" aria-label="Small site nav bar">
                                 <div class="container-fluid">
                                     <button type="button" class="wd-small-navbar" data-bs-toggle="modal" data-bs-target="#kanbasModal">
                                         <i class="fa-solid fa-bars"></i>
                                     </button>
-                                    <p style="text-align: center;"><u>CS4500.12631.202410</u><br><u>Modules</u></p>
+                                    <p class="wd-centered-text"><u>CS4500.12631.202410</u><br><u>Modules</u></p>
                                     <button class="wd-small-navbar" onclick="window.location.href='#';">
                                         <i class="fa-solid fa-glasses"></i>
                                     </button>
@@ -111,14 +111,14 @@
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Grades/screen.html"><i class="fa-solid fa-clipboard-check"></i> Grades</a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-user-group"></i> People</a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i> Panopto Video</a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-message"></i> Discussions <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullhorn"></i> Announcements <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-newspaper"></i> Pages <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-folder"></i> Files <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-clipboard-check"></i> Rubrics <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullseye"></i> Outcomes <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-circle"></i> Collaborations <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-file-lines"></i> Syllabus <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-message"></i> Discussions <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullhorn"></i> Announcements <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-newspaper"></i> Pages <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-folder"></i> Files <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-clipboard-check"></i> Rubrics <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullseye"></i> Outcomes <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-circle"></i> Collaborations <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-file-lines"></i> Syllabus <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i> Progress Reports (EAB Navigate)</a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Account/Settings/CourseDetails/screen.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
                                     </ul>
@@ -141,14 +141,14 @@
                                             </li>
                                             <li>
                                                 <div class="wd-flex-row-container">
-                                                    <div><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user" style="color: grey;"></i>Account</a></div>
-                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                    <div><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user wd-grey-icon"></i>Account</a></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="wd-flex-row-container">
                                                     <div><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-user-group"></i>Courses</a></div>
-                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
                                                 </div>
                                             </li>
                                             <li>
@@ -166,13 +166,13 @@
                                             <li>
                                                 <div class="wd-flex-row-container">
                                                     <div><a href="#"><i class="fa-regular fa-clock"></i></i>History</a></div>
-                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="wd-flex-row-container">
                                                     <div><a href="#"><i class="fa-solid fa-question"></i>Help</a></div>
-                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
                                                 </div>
                                             </li>
                                         </ul>
@@ -183,7 +183,7 @@
                         </div>
 
                         <!-- Column 2b: Edit section. Is always visible, no matter the screen size. -->
-                        <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11" style="padding-left: 35px;">
+                        <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11 wd-always-vis-col-setings">
                             <button type="button" onclick="window.location.href='/Kanbas/Account/Settings/CourseDetails/screen.html'">Course Details</button>
                             <button type="button" onclick="window.location.href='#'">Sections</button>
                             <button type="button" onclick="window.location.href='/Kanbas/Account/Settings/CourseNavigation/screen.html'">Navigation</button>
@@ -199,9 +199,9 @@
                                     <tr>
                                         <td><h4>Image:</h4></td>
                                         <td>
-                                            <div style="width: 222px; padding: 50px; border: 1px solid gray; margin: 0;">
-                                                <button style="display:block; width:120px; height:30px;" onclick="document.getElementById('getFile').click()">Choose Image</button>
-                                                <input type='file' id="getFile" style="display:none">
+                                            <div class="wd-course-image">
+                                                <button class="wd-choose-image" onclick="document.getElementById('getFile').click()">Choose Image</button>
+                                                <input type='file' id="getFile" class="wd-display-none">
                                             </div>
                                         </td>
                                     </tr>
@@ -222,7 +222,7 @@
                                         <td>
                                             <!-- Will need to use CSS to change the color of the label when the checkbox is clicked vs. not clicked. -->
                                             <input type="checkbox" value="DRAMA" name="check-enable" id="chkbox-enable-template"/>
-                                            <label for="chkbox-enable-template" style="color: grey;">Enable course as a Course Template</label>
+                                            <label for="chkbox-enable-template" class="wd-grey-icon">Enable course as a Course Template</label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -240,16 +240,16 @@
                                         <td><h4>SIS ID:</h4></td>
                                         <td>CS4500.12631.202410</td>
                                     </tr>
-                                    <tr style="margin: 0;">
+                                    <tr class="m-0">
                                         <td><h4>Subaccount:</h4></td>
-                                        <td><a style="text-decoration: none" href="#">CS Undergrad</a></td>
+                                        <td><a class="wd-no-underline-link" href="#">CS Undergrad</a></td>
                                     </tr>
                                     <tr>
                                         <td><h4>Term:</h4></td>
                                         <td>202410_1 Fall 2023 Semester Full Term</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding-top: 0; vertical-align: top;"><h4 style="margin-top: 0;">Participation:</h4></td>
+                                        <td class="pt-0 wd-vertical-align-top"><h4 class="mt-0">Participation:</h4></td>
                                         <td>
                                             <select id="select-one-participation">
                                                 <option selected value="TERM">Term</option>
@@ -271,7 +271,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="padding-top: 0; vertical-align: top;"><h4 style="margin-top: 0;">Default due time:</h4></td>
+                                        <td class="pt-0 wd-vertical-align-top"><h4 class="mt-0">Default due time:</h4></td>
                                         <td>
                                             <select id="select-one-due-time">
                                                 <option selected value="DEFAULT">Account default (11:59pm)</option>
@@ -284,7 +284,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="padding-top: 0; vertical-align: top;"><h4 style="margin-top: 0;">Language:</h4></td>
+                                        <td class="pt-0 wd-vertical-align-top"><h4 class="mt-0">Language:</h4></td>
                                         <td>
                                             <select id="select-one-language">
                                                 <option selected value="DEFAULT">Not set (user-configurable, defaults to English (Unit))</option>
@@ -336,9 +336,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="padding-top: 0; vertical-align: top;"><h4 style="margin-top: 0;">Visibility:</h4></td>
+                                        <td class="pt-0 wd-vertical-align-top"><h4 class="mt-0">Visibility:</h4></td>
                                         <td>
-                                            <p style="margin-top: 0;">If you need to make your course public please contact your administrator/support.</p>
+                                            <p class="mt-0">If you need to make your course public please contact your administrator/support.</p>
                                             <select id="select-one-visibility">
                                                 <option selected value="COURSE">Course</option>
                                                 <option value="DUMMY1">Dummy 1</option>
@@ -379,14 +379,14 @@
                                     <tr>
                                         <td></td>
                                         <td>
-                                        <a style="text-decoration: none" href="#">more options</a>
+                                        <a class="wd-no-underline-link" href="#">more options</a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             
                             <hr>
-                            <input type="button" value="Update Course Details" style="float: right; background-color: red; color: white; border-color: red; border-radius: 4px; padding: 5px;" onclick="location.href='/Kanbas/Account/Settings/CourseDetails/screen.html';">
+                            <input type="button" value="Update Course Details" class="wd-update-button" onclick="location.href='/Kanbas/Account/Settings/CourseDetails/screen.html';">
                         </div>
                     </div>
                 </div>

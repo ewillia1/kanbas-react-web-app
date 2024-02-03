@@ -10,3 +10,72 @@
         padding-right: 0;
     }
 }
+
+.wd-always-vis-col-setings {
+    padding-left: 35px;
+}
+
+.wd-section-header {
+    margin-left: 20px; 
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.wd-three-dot-menu-settings {
+    text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;
+}
+
+.wd-border-collapse {
+    border-collapse: collapse;
+}
+
+.wd-setting-subheader {
+    font-size: 12px;
+}
+
+.wd-page-disabled {
+    font-size: 12px; 
+    padding-left: 10px;
+}
+
+.wd-save-button {
+    background-color: red; 
+    color: white; 
+    border-color: red; 
+    border-radius: 4px; 
+    padding: 5px;
+}
+
+.wd-course-image {
+    width: 222px; 
+    padding: 50px; 
+    border: 1px solid gray; 
+    margin: 0;
+}
+
+.wd-choose-image {
+    display:block; 
+    width:120px; 
+    height:30px;
+}
+
+.wd-display-none {
+    display: none;
+}
+
+.wd-no-underline-link {
+    text-decoration: none;
+}
+
+.wd-vertical-align-top {
+    vertical-align: top;
+}
+
+.wd-update-button {
+    float: right; 
+    background-color: red; 
+    color: white; 
+    border-color: red; 
+    border-radius: 4px; 
+    padding: 5px;
+}
