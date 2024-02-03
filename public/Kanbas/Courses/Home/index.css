@@ -45,7 +45,6 @@
 
 .wd-always-vis-col {
     padding-left: 56px;
-    padding-right: 56px;
 }
 
 .wd-float-right {
@@ -89,7 +88,6 @@
 .wd-collapsible {
     color: black;
     background-color: buttonface;
-    cursor: pointer;
     padding: 18px;
     width: 100%;
     border: none;
@@ -316,4 +314,9 @@ ul.wd-content-nav {
 
 .wd-max-content-width {
     width: max-content;
+}
+
+.wd-draggable-item {
+    cursor: -webkit-grab; 
+    cursor: grab;
 }
