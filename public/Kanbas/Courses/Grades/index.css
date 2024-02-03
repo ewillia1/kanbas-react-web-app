@@ -24,6 +24,7 @@
 .wd-search-button {
     width: 100%; 
     text-align: left;
+    background-color: white;
 }
 
 .wd-apply-filters-button {
