@@ -14,9 +14,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+        <div class="container-fluid wd-main-container">
             <!-- Row 1a: All elements on the screen. -->
-            <div class="row" style="max-width: 100%;">
+            <div class="row wd-main-row">
                 <!-- Column 1a: Kanbas Navigation. Hide on screen smaller than medium. -->
                 <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block">    
                     <ul class="wd-kanbas-navigation">
@@ -38,12 +38,12 @@
                     <!-- Row 1b: Top header section. Hide on screens smaller than medium. -->
                     <div class="row d-none d-md-block">
                         <!-- Column. -->
-                        <div class="col-12" style="padding: 10px;">
-                            <div class="row" style="margin: 0;">
-                                <nav class="navbar" aria-label="Small site nav bar" style="background-color: transparent; padding-left: 20px;">
+                        <div class="col-12 wd-padding-10px">
+                            <div class="row m-0">
+                                <nav class="navbar wd-breadcrumb-navbar" aria-label="Small site nav bar">
                                     <div class="container-fluid">
-                                        <button onclick="window.location.href='#';" style="color: red; background-color: white; border: none;">
-                                            <i class="fa-solid fa-bars" style="color: red; margin-right: 20px;"></i>
+                                        <button class="wd-three-bar-menu" onclick="window.location.href='#';">
+                                            <i class="fa-solid fa-bars wd-margin-20px"></i>
                                         </button>
                                         <h6>Elizabeth Williams's Profile</h6>
                                         <button class="wd-rounded-corners-all-around wd-home-button">
@@ -59,8 +59,8 @@
                     <!-- Row 2b: Rest of the screen. -->
                     <div class="row">
                         <!-- Column 1b: Profile Navigation. Hide on screens smaller than medium. -->
-                        <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block" style="padding: 0;">
-                            <ul class="wd-navigation" style="width: 165px">
+                        <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block p-0">
+                            <ul class="wd-navigation wd-width-165px">
                                 <li class="wd-nowrap"><a href="#">Notifications</a></li>
                                 <li class="wd-active wd-nowrap"><a href="/Kanbas/Account/Profile/screen.html">Profile</a></li>
                                 <li class="wd-nowrap"><a href="#">Files</a></li>
@@ -74,13 +74,13 @@
                         </div>
 
                         <!-- What appears when the screen is medium. Black small navbar. -->
-                        <div class="d-block d-md-none" style="padding-right: 0; padding-left: 0;">
-                            <nav class="navbar sticky-top" aria-label="Small site nav bar" style="background-color: black; color: white; padding-left: 20px; padding-right: 20px;">
+                        <div class="d-block d-md-none wd-0-lr-padding">
+                            <nav class="navbar sticky-top wd-black-navbar" aria-label="Small site nav bar">
                                 <div class="container-fluid">
                                     <button type="button" class="wd-small-navbar" data-bs-toggle="modal" data-bs-target="#kanbasModal">
                                         <i class="fa-solid fa-bars"></i>
                                     </button>
-                                    <p style="text-align: center;"><u>CS4500.12631.202410</u><br><u>Modules</u></p>
+                                    <p class="wd-centered-text"><u>CS4500.12631.202410</u><br><u>Modules</u></p>
                                     <button class="wd-small-navbar" onclick="window.location.href='#';">
                                         <i class="fa-solid fa-glasses"></i>
                                     </button>
@@ -96,14 +96,14 @@
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Grades/screen.html"><i class="fa-solid fa-clipboard-check"></i> Grades</a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-user-group"></i> People</a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i> Panopto Video</a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-message"></i> Discussions <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullhorn"></i> Announcements <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-newspaper"></i> Pages <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-folder"></i> Files <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-clipboard-check"></i> Rubrics <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullseye"></i> Outcomes <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-circle"></i> Collaborations <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
-                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-file-lines"></i> Syllabus <i class="fa-regular fa-eye-slash" style="color: grey;"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-message"></i> Discussions <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullhorn"></i> Announcements <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-newspaper"></i> Pages <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-folder"></i> Files <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-clipboard-check"></i> Rubrics <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullseye"></i> Outcomes <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-circle"></i> Collaborations <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-file-lines"></i> Syllabus <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i> Progress Reports (EAB Navigate)</a></li>
                                         <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Account/Settings/CourseDetails/screen.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
                                     </ul>
@@ -126,14 +126,14 @@
                                             </li>
                                             <li>
                                                 <div class="wd-flex-row-container">
-                                                    <div><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user" style="color: grey;"></i>Account</a></div>
-                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                    <div><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user wd-grey-icon"></i>Account</a></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="wd-flex-row-container">
                                                     <div><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-user-group"></i>Courses</a></div>
-                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
                                                 </div>
                                             </li>
                                             <li>
@@ -151,13 +151,13 @@
                                             <li>
                                                 <div class="wd-flex-row-container">
                                                     <div><a href="#"><i class="fa-regular fa-clock"></i></i>History</a></div>
-                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="wd-flex-row-container">
                                                     <div><a href="#"><i class="fa-solid fa-question"></i>Help</a></div>
-                                                    <div><i class="fa-solid fa-chevron-right" style="color: grey; margin-right: 20px;"></i></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
                                                 </div>
                                             </li>
                                         </ul>
@@ -168,7 +168,7 @@
                         </div>
 
                         <!-- Column 2b: Edit section. Is always visible, no matter the screen size. -->
-                        <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11" style="padding-left: 80px;">
+                        <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11 wd-always-vis-col-profile">
                             <div class="row">
                                 <div class="col-10">
                                     <div class="wd-flex-container">
@@ -208,12 +208,12 @@
                                                     <textarea class="form-control" id="biography" rows="6"></textarea>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <h4 style="margin-bottom: 0;">Links</h4>
+                                                    <h4 class="mb-0">Links</h4>
                                                     <div class="row g-2">
-                                                        <div class="col-sm" style="text-align: center; margin-top: 0;">
+                                                        <div class="col-sm wd-link-header">
                                                             <label for="linkTitle" class="form-label">Title</label>
                                                         </div>
-                                                        <div class="col-sm" style="text-align: center; margin-top: 0;">
+                                                        <div class="col-sm wd-link-header">
                                                             <label for="linkUrl" class="form-label">URL</label>
                                                         </div>
                                                     </div>
@@ -221,13 +221,13 @@
                                                         <input type="text" class="form-control" aria-label="title1">
                                                         <span class="input-group-text"><i class="fa-solid fa-arrow-right"></i></span>
                                                         <input type="text" class="form-control" aria-label="url1">
-                                                        <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-x" style="color: red;"></i></button>
+                                                        <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-x wd-cancel-link"></i></button>
                                                     </div>
                                                     <div class="input-group mb-3">
                                                         <input type="text" class="form-control" aria-label="title2">
                                                         <span class="input-group-text"><i class="fa-solid fa-arrow-right"></i></span>
                                                         <input type="text" class="form-control" aria-label="url2">
-                                                        <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-x" style="color: red;"></i></button>
+                                                        <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-x wd-cancel-link"></i></button>
                                                     </div>
                                                     <button type="button" class="wd-rounded-corners-all-around wd-home-button" onclick="window.location.href='#'">Add another link</button>
                                                 </div>
