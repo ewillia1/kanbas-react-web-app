@@ -12,7 +12,7 @@
 }
 
 .wd-always-vis-col-setings {
-    padding-left: 35px;
+    padding-left: 57px;
 }
 
 .wd-section-header {
@@ -34,8 +34,8 @@
 }
 
 .wd-page-disabled {
-    font-size: 12px; 
-    padding-left: 10px;
+    margin-left: 30px; 
+    font-size: smaller;
 }
 
 .wd-save-button {
@@ -65,6 +65,12 @@
 
 .wd-no-underline-link {
     text-decoration: none;
+    color: red;
+}
+
+.wd-no-underline-link:hover {
+    text-decoration: none;
+    color: red;
 }
 
 .wd-vertical-align-top {
@@ -78,4 +84,21 @@
     border-color: red; 
     border-radius: 4px; 
     padding: 5px;
+}
+
+.wd-float-done {
+    clear: both;
+}
+
+.wd-more-options {
+    margin-left: 190px;
+}
+
+.wd-question-mark-btn {
+    border: none;
+    background-color: white;
+}
+
+.wd-disabled-color {
+    color: grey;
 }

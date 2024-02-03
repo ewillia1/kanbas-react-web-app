@@ -48,8 +48,7 @@
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="/Kanbas/Courses/Home/screen.html" class="wd-breadcrumb-link">CS5610.35159.202430</a></li>
-                                                <li class="breadcrumb-item"><a href="/Kanbas/Account/Settings/CourseDetails/screen.html" class="wd-breadcrumb-link">Settings</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">Course Details</li>
+                                                <li class="breadcrumb-item active" aria-current="page">Settings</li>
                                             </ol>
                                         </nav>
                                         <button class="wd-rounded-corners-all-around wd-home-button">
@@ -90,7 +89,7 @@
 
                         <!-- What appears when the screen is medium. Black small navbar. -->
                         <div class="d-block d-md-none wd-0-lr-padding">
-                            <nav class="navbar sticky-topwd-black-navbar" aria-label="Small site nav bar">
+                            <nav class="navbar sticky-top wd-black-navbar" aria-label="Small site nav bar">
                                 <div class="container-fluid">
                                     <button type="button" class="wd-small-navbar" data-bs-toggle="modal" data-bs-target="#kanbasModal">
                                         <i class="fa-solid fa-bars"></i>
@@ -184,206 +183,265 @@
 
                         <!-- Column 2b: Edit section. Is always visible, no matter the screen size. -->
                         <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11 wd-always-vis-col-setings">
-                            <button type="button" onclick="window.location.href='/Kanbas/Account/Settings/CourseDetails/screen.html'">Course Details</button>
-                            <button type="button" onclick="window.location.href='#'">Sections</button>
-                            <button type="button" onclick="window.location.href='/Kanbas/Account/Settings/CourseNavigation/screen.html'">Navigation</button>
-                            <button type="button" onclick="window.location.href='#'">Apps</button>
-                            <button type="button" onclick="window.location.href='#'">Feature Options</button>
-                            <button type="button" onclick="window.location.href='#'">Integrations</button>
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                  <a class="nav-link active" aria-current="page" href="/Kanbas/Account/Settings/CourseDetails/screen.html">Course Details</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link wd-no-underline-link" href="#">Sections</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link wd-no-underline-link" href="/Kanbas/Account/Settings/CourseNavigation/screen.html">Navigation</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link wd-no-underline-link" href="#">Apps</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link wd-no-underline-link" href="#">Feature Options</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link wd-no-underline-link" href="#">Integrations</a>
+                                  </li>
+                            </ul>
                             <hr>
                 
                             <h1>Course Details</h1>
-                            
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td><h4>Image:</h4></td>
-                                        <td>
-                                            <div class="wd-course-image">
-                                                <button class="wd-choose-image" onclick="document.getElementById('getFile').click()">Choose Image</button>
-                                                <input type='file' id="getFile" class="wd-display-none">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>Name:</h4></td>
-                                        <td>CS4550 12631 Web Development SEC 01 Fall 2023 (BOS-1-TR)</td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>Course Code:</h4></td>
-                                        <td>CS4500.12631.202410</td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>Blueprint Course:</h4></td>
-                                        <td>No</td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>Course Template:</h4></td>
-                                        <td>
-                                            <!-- Will need to use CSS to change the color of the label when the checkbox is clicked vs. not clicked. -->
-                                            <input type="checkbox" value="DRAMA" name="check-enable" id="chkbox-enable-template"/>
-                                            <label for="chkbox-enable-template" class="wd-grey-icon">Enable course as a Course Template</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>Time Zone:</h4></td>
-                                        <td>
-                                            <select id="select-one-time-zone">
-                                                <option selected value="EST">Eastern Time (US & Canada)(-05:00/-04:00)</option>
-                                                <option value="CST">Central Time (US & Canada)(-06:00/-05:00)</option>
-                                                <option value="MST">Mountain Time (US & Canada)(-07:00/-06:00)</option>
-                                                <option value="PST">Pacific Time (US & Canada)(-08:00/-07:00)</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>SIS ID:</h4></td>
-                                        <td>CS4500.12631.202410</td>
-                                    </tr>
-                                    <tr class="m-0">
-                                        <td><h4>Subaccount:</h4></td>
-                                        <td><a class="wd-no-underline-link" href="#">CS Undergrad</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>Term:</h4></td>
-                                        <td>202410_1 Fall 2023 Semester Full Term</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pt-0 wd-vertical-align-top"><h4 class="mt-0">Participation:</h4></td>
-                                        <td>
-                                            <select id="select-one-participation">
-                                                <option selected value="TERM">Term</option>
-                                                <option value="DUMMY1">Dummy 1</option>
-                                                <option value="DUMMY2">Dummy 2</option>
-                                                <option value="DUMMY3">Dummy 3</option>
-                                                <option value="DUMMY4">Dummy 4</option>
-                                            </select>
-                                            <p>Course participation is limited to <b>term</b> start and end dates.</p>
-                                            <label for="text-fields-start-date"><h3>Start</h3></label>
-                                            <input type="date" id="text-fields-start-date"/><br/>
-                                            <label for="text-fields-end-date"><h3>End</h3></label>
-                                            <input type="date" id="text-fields-end-date"/><br/><br/>
-                        
-                                            <input type="checkbox" value="RESTRICT_START" name="check-restrict" id="chkbox-restrict-start"/>
-                                            <label for="chkbox-restrict-start">Restrict students from viewing course before term start date</label><br/>
-                                            <input type="checkbox" value="RESTRICT_END" name="check-restrict" id="chkbox-restrict-end"/>
-                                            <label for="chkbox-restrict-end">Restrict studnets from view course after term end date</label><br/><br/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pt-0 wd-vertical-align-top"><h4 class="mt-0">Default due time:</h4></td>
-                                        <td>
-                                            <select id="select-one-due-time">
-                                                <option selected value="DEFAULT">Account default (11:59pm)</option>
-                                                <option value="DUMMY1">Dummy 1</option>
-                                                <option value="DUMMY2">Dummy 2</option>
-                                                <option value="DUMMY3">Dummy 3</option>
-                                                <option value="DUMMY4">Dummy 4</option>
-                                            </select>
-                                            <p>This influences the user interface for setting due dates. It does not change the time due for any existing assignments.</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pt-0 wd-vertical-align-top"><h4 class="mt-0">Language:</h4></td>
-                                        <td>
-                                            <select id="select-one-language">
-                                                <option selected value="DEFAULT">Not set (user-configurable, defaults to English (Unit))</option>
-                                                <option value="DUMMY1">Dummy 1</option>
-                                                <option value="DUMMY2">Dummy 2</option>
-                                                <option value="DUMMY3">Dummy 3</option>
-                                                <option value="DUMMY4">Dummy 4</option>
-                                            </select>
-                                            <p>This will override any user/system language preferences. This is only recommended for foreign langauge courses.</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>File Storage:</h4></td>
-                                        <td>10000 megabytes</td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>Large Course:</h4></td>
-                                        <td>
-                                            <input type="checkbox" value="LARGE_COURSE" name="check-large" id="chkbox-large-course"/>
-                                            <label for="chkbox-large-course">Launch SpeedGrader Filtered by Student Group</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>Grading Sceme:</h4></td>
-                                        <td>
-                                            <input type="checkbox" value="GRADING_SCHEME" name="check-grading" id="chkbox-large-grading-scheme"/>
-                                            <label for="chkbox-grading-scheme">Enable course grading scheme</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>License:</h4></td>
-                                        <td>
-                                            <select id="select-one-license">
-                                                <option selected value="PRIVATE">Private (Copyrighted)</option>
-                                                <option value="DUMMY1">Dummy 1</option>
-                                                <option value="DUMMY2">Dummy 2</option>
-                                                <option value="DUMMY3">Dummy 3</option>
-                                                <option value="DUMMY4">Dummy 4</option>
-                                            </select>
-                                            
-                                            <a href="#" onclick="window.open('#', 'newName', 'width=300, height=250'); return false;"><img src="question-mark-icon.png" alt="question mark icon" width="20px" height="20px"/></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>File Copyright:</h4></td>
-                                        <td>
-                                        <input type="checkbox" value="COPYRIGHT" name="check-copyright" id="chkbox-copyright"/>
-                                        <label for="chkbox-copyright">Copyright and license information must be provided for files before they are published.</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="pt-0 wd-vertical-align-top"><h4 class="mt-0">Visibility:</h4></td>
-                                        <td>
-                                            <p class="mt-0">If you need to make your course public please contact your administrator/support.</p>
-                                            <select id="select-one-visibility">
-                                                <option selected value="COURSE">Course</option>
-                                                <option value="DUMMY1">Dummy 1</option>
-                                                <option value="DUMMY2">Dummy 2</option>
-                                                <option value="DUMMY3">Dummy 3</option>
-                                                <option value="DUMMY4">Dummy 4</option>
-                                            </select>
-                                            <a href="#" onclick="window.open('#', 'newName', 'width=300, height=250'); return false;"><img src="question-mark-icon.png" alt="question mark icon" width="20px" height="20px"/></a>
-                                            <input type="checkbox" value="COPYRIGHT" name="check-copyright" id="chkbox-copyright"/>
-                                            <label for="chkbox-copyright">Copyright and license information must be provided for files before they are published.</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>Format:</h4></td>
-                                        <td>
-                                        <select id="select-one-format">
-                                            <option selected value="ONCAMPUS">On-Campus</option>
+                            <div class="mb-3 row">
+                                <label for="image" class="col-sm-2 col-form-label">Image:</label>
+                                <div class="col-sm-10">
+                                    <div class="wd-course-image" id="image">
+                                        <button class="wd-rounded-corners-all-around wd-home-button wd-choose-image" onclick="document.getElementById('getFile').click()">Choose Image</button>
+                                        <input type='file' id="getFile" class="wd-display-none">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="courseName" class="col-sm-2 col-form-label">Name:</label>
+                                <div class="col-sm-10">
+                                    <p id="courseName">CS4550 12631 Web Development SEC 01 Fall 2023 (BOS-1-TR)</p>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="courseCode" class="col-sm-2 col-form-label">Course Code:</label>
+                                <div class="col-sm-10">
+                                    <p id="courseName">CS4500.12631.202410</p>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="bluePrint" class="col-sm-2 col-form-label">Blueprint Course:</label>
+                                <div class="col-sm-10">
+                                    <p id="bluePrint">No</p>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="courseTemplate" class="col-sm-2 col-form-label">Blueprint Course:</label>
+                                <div class="col-sm-10" >
+                                    <div class="form-check wd-disabled-color" id="courseTemplate">
+                                        <input class="form-check-input" type="checkbox" value="" id="enableCourseTemplate">
+                                        <label class="form-check-label" for="enableCourseTemplate">
+                                            Enable course as a Course Template
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="timeZone" class="col-sm-2 col-form-label wd-assign-edit-label">Time Zone:</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" id="timeZone">
+                                        <option selected value="EST">Eastern Time (US & Canada)(-05:00/-04:00)</option>
+                                        <option value="CST">Central Time (US & Canada)(-06:00/-05:00)</option>
+                                        <option value="MST">Mountain Time (US & Canada)(-07:00/-06:00)</option>
+                                        <option value="PST">Pacific Time (US & Canada)(-08:00/-07:00)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="sisId" class="col-sm-2 col-form-label">SIS ID:</label>
+                                <div class="col-sm-10">
+                                    <p id="sisId">CS4500.12631.202410</p>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="sisId" class="col-sm-2 col-form-label">Subaccount:</label>
+                                <div class="col-sm-10">
+                                    <a class="wd-no-underline-link" href="#">CS Undergrad</a>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="term" class="col-sm-2 col-form-label">Term:</label>
+                                <div class="col-sm-10">
+                                    <p id="term">202410_1 Fall 2023 Semester Full Term</p>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="participation" class="col-sm-2 col-form-label wd-assign-edit-label">Participation:</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" id="participation">
+                                        <option selected value="TERM">Term</option>
+                                        <option value="DUMMY1">Dummy 1</option>
+                                        <option value="DUMMY2">Dummy 2</option>
+                                        <option value="DUMMY3">Dummy 3</option>
+                                        <option value="DUMMY4">Dummy 4</option>
+                                    </select>
+                                    <p>Course participation is limited to <b>term</b> start and end dates.</p>
+                                    <div class="mb-3">
+                                        <label for="startDate" class="form-label">Start</label>
+                                        <input id="startDate" class="form-control" type="date"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="endDate" class="form-label">End</label>
+                                        <input id="endDate" class="form-control" type="date"/>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="restrict1">
+                                        <label class="form-check-label" for="restrict1">
+                                            Restrict students from viewing the course before term start date
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="restrict2">
+                                        <label class="form-check-label" for="restrict2">
+                                            Restrict students from viewing the course after term end date
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="defaultDue" class="col-sm-2 col-form-label wd-assign-edit-label">Default due time:</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" id="defaultDue">
+                                        <option selected value="DEFAULT">Account default (11:59pm)</option>
+                                        <option value="DUMMY1">Dummy 1</option>
+                                        <option value="DUMMY2">Dummy 2</option>
+                                        <option value="DUMMY3">Dummy 3</option>
+                                        <option value="DUMMY4">Dummy 4</option>
+                                    </select>
+                                    <p>This influences the user interface for setting due dates. It does not change the time due for any existing assignments.</p>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="langauge" class="col-sm-2 col-form-label wd-assign-edit-label">Language:</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" id="langauge">
+                                        <option selected value="DEFAULT">Not set (user-configurable, defaults to English (Unit))</option>
+                                        <option value="DUMMY1">Dummy 1</option>
+                                        <option value="DUMMY2">Dummy 2</option>
+                                        <option value="DUMMY3">Dummy 3</option>
+                                        <option value="DUMMY4">Dummy 4</option>
+                                    </select>
+                                    <p>This will override any user/system language preferences. This is only recommended for foreign langauge courses.</p>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="fileStorage" class="col-sm-2 col-form-label">File Storage:</label>
+                                <div class="col-sm-10">
+                                    <p id="fileStorage">10000 megabytes</p>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="largeCourse" class="col-sm-2 col-form-label">Blueprint Course:</label>
+                                <div class="col-sm-10" >
+                                    <div class="form-check" id="courselargeCourseTemplate">
+                                        <input class="form-check-input" type="checkbox" value="" id="launchSpeedGrader">
+                                        <label class="form-check-label" for="launchSpeedGrader">
+                                            Launch SpeedGrader Filtered by Student Group
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="gradingScheme" class="col-sm-2 col-form-label">Blueprint Course:</label>
+                                <div class="col-sm-10" >
+                                    <div class="form-check" id="gradingScheme">
+                                        <input class="form-check-input" type="checkbox" value="" id="enableGradingScheme">
+                                        <label class="form-check-label" for="enableGradingScheme">
+                                            Enable course grading scheme
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="license" class="col-sm-2 col-form-label wd-assign-edit-label">License:</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select" id="license">
+                                            <option selected value="PRIVATE">Private (Copyrighted)</option>
                                             <option value="DUMMY1">Dummy 1</option>
                                             <option value="DUMMY2">Dummy 2</option>
                                             <option value="DUMMY3">Dummy 3</option>
                                             <option value="DUMMY4">Dummy 4</option>
                                         </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>Mastery Paths:</h4></td>
-                                        <td>
-                                        <input type="checkbox" value="MASTERY_PATHS" name="check-mastery-paths" id="chkbox-mastery-paths"/>
-                                        <label for="chkbox-mastery-paths">Enable individual learning paths for students based on assessment</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><h4>Description:</h4></td>
-                                        <td>
-                                        <textarea cols="45" rows="10"></textarea>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                        <a class="wd-no-underline-link" href="#">more options</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                        <button class="wd-question-mark-btn" onclick="window.open('#', 'newName', 'width=300, height=250'); return false;" type="button"><img src="question-mark-icon.png" alt="question mark icon" width="30px" height="30px"/></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="fileCopyright" class="col-sm-2 col-form-label">File Copyright:</label>
+                                <div class="col-sm-10" >
+                                    <div class="form-check" id="fileCopyright">
+                                        <input class="form-check-input" type="checkbox" value="" id="chkbox-copyright">
+                                        <label class="form-check-label" for="chkbox-copyright">
+                                            Copyright and license information must be provided for files before they are published.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="visibility" class="col-sm-2 col-form-label">Visibility:</label>
+                                <div class="col-sm-10">
+                                    <p id="visibility">If you need to make your course public please contact your administrator/support.</p>
+                                    <div class="input-group mb-3">
+                                        <select class="form-select" id="visibility" disabled>
+                                            <option selected value="COURSE">Course</option>
+                                            <option value="DUMMY1">Dummy 1</option>
+                                            <option value="DUMMY2">Dummy 2</option>
+                                            <option value="DUMMY3">Dummy 3</option>
+                                            <option value="DUMMY4">Dummy 4</option>
+                                        </select>
+                                        <button class="wd-question-mark-btn" onclick="window.open('#', 'newName', 'width=300, height=250'); return false;" type="button"><img src="question-mark-icon.png" alt="question mark icon" width="30px" height="30px"/></button>
+                                    </div>
+                                    <div class="form-check" id="fileCopyright">
+                                        <input class="form-check-input" type="checkbox" value="" id="chkbox-copyright">
+                                        <label class="form-check-label" for="chkbox-copyright">
+                                            Incude this course in the public course index
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="format" class="col-sm-2 col-form-label wd-assign-edit-label">License:</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" id="format">
+                                        <option selected value="ONCAMPUS">On-Campus</option>
+                                        <option value="DUMMY1">Dummy 1</option>
+                                        <option value="DUMMY2">Dummy 2</option>
+                                        <option value="DUMMY3">Dummy 3</option>
+                                        <option value="DUMMY4">Dummy 4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="materyPaths" class="col-sm-2 col-form-label">File Copyright:</label>
+                                <div class="col-sm-10">
+                                    <div class="form-check" id="materyPaths">
+                                        <input class="form-check-input" type="checkbox" value="" id="chkbox-materyPaths">
+                                        <label class="form-check-label" for="chkbox-materyPaths">
+                                            Enable individual learning paths for students based on assessment
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="sisId" class="col-sm-2 col-form-label">Description:</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="description" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <a class="wd-no-underline-link wd-more-options" href="#">more options</a>
+                            </div>
+
+                            
                             
                             <hr>
                             <input type="button" value="Update Course Details" class="wd-update-button" onclick="location.href='/Kanbas/Account/Settings/CourseDetails/screen.html';">
