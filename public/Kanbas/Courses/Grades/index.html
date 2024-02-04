@@ -27,46 +27,43 @@
                     <!-- Grade header row 2 with drop-down menus. -->
                     <div class="row">
                         <div class="col-sm">
-                            <label for="studentNames" class="form-label">Student Names</label>
-                            <div class="dropdown">
-                                <button class="btn btn-light wd-grade-button wd-search-button" type="button" id="dropdownAssignments" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-magnifying-glass wd-magnifying-glass"></i> Search Students <i class="fa-solid fa-angle-down float-end wd-search-dropdown"></i>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownAssignments wd-dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Alice Wonderland</a></li>
-                                    <li><a class="dropdown-item" href="#">Princess Leia</a></li>
-                                    <li><a class="dropdown-item" href="#">Luke Skywalker</a></li>
-                                    <li><a class="dropdown-item" href="#">Han Solo</a></li>
-                                    <li><a class="dropdown-item" href="#">Lando Calresian</a></li>
-                                    <li><a class="dropdown-item" href="#">Boba Fet</a></li>
-                                    <li><a class="dropdown-item" href="#">Darth Vader</a></li>
-                                    <li><a class="dropdown-item" href="#">Obi-Wan Kenobi</a></li>
-                                    <li><a class="dropdown-item" href="#">R2-D2</a></li>
-                                    <li><a class="dropdown-item" href="#">C-3PO</a></li>
-                                    <li><a class="dropdown-item" href="#">Yoda</a></li>
-                                    <li><a class="dropdown-item" href="#">Admiral Ackbar</a></li>
-                                </ul>
-                                    
+                            <label for="studentList" class="form-label">Student Names</label>
+                            <div class="input-group">
+                                <div class="input-group-text"><i class="fa-solid fa-magnifying-glass wd-magnifying-glass"></i></div>
+                                <input type="text" class="form-control" id="studentList" list="studentlistOptions" placeholder="Search Students                                                                           &#xf107;" style="font-family: Arial, sans-serif, FontAwesome">
                             </div>
+                            <datalist id="studentlistOptions">
+                                <option value="Alice Wonderland">
+                                <option value="Princess Leia">
+                                <option value="Luke Skywalker">
+                                <option value="Han Solo">
+                                <option value="Lando Calresian">
+                                <option value="Boba Fet">
+                                <option value="Darth Vader">    
+                                <option value="Obi-Wan Kenobi">
+                                <option value="R2-D2">
+                                <option value="C-3PO">
+                                <option value="Yoda">
+                                <option value="Admiral Ackbar">
+                            </datalist>
                         </div>
                         <div class="col-sm">
-                            <label for="assignmentNames" class="form-label">Assignment Names</label>
-                            <div class="dropdown">
-                                <button class="btn btn-light wd-grade-button wd-search-button" type="button" id="dropdownAssignments" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-magnifying-glass wd-magnifying-glass"></i> Search Assignments  <i class="fa-solid fa-angle-down float-end wd-search-dropdown"></i>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownAssignments wd-dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">A1 SETUP</a></li>
-                                    <li><a class="dropdown-item" href="#">A2 HTML</a></li>
-                                    <li><a class="dropdown-item" href="#">A3 CSS</a></li>
-                                    <li><a class="dropdown-item" href="#">A4 BOOTSTRAP</a></li>
-                                    <li><a class="dropdown-item" href="#">A5 JAVASCRIPT</a></li>
-                                    <li><a class="dropdown-item" href="#">A6 REACT</a></li>
-                                    <li><a class="dropdown-item" href="#">A7 REDUX</a></li>
-                                    <li><a class="dropdown-item" href="#">A8 NODE</a></li>
-                                    <li><a class="dropdown-item" href="#">A9 MONGO</a></li>
-                                </ul>
+                            <label for="assignmentList" class="form-label">Assignment Names</label>
+                            <div class="input-group">
+                                <div class="input-group-text"><i class="fa-solid fa-magnifying-glass wd-magnifying-glass"></i></div>
+                                <input type="text" class="form-control" id="assignmentList" list="assignmentlistOptions" placeholder="Search Assignments                                                                     &#xf107;" style="font-family: Arial, sans-serif, FontAwesome">
                             </div>
+                            <datalist id="assignmentlistOptions">
+                                <option value="A1 SETUP">
+                                <option value="A2 HTML">
+                                <option value="A3 CSS">
+                                <option value="A4 BOOTSTRAP">
+                                <option value="A5 JAVASCRIPT">
+                                <option value="A6 REACT">
+                                <option value="A7 REDUX">    
+                                <option value="A8 NODE">
+                                <option value="A9 MONGO">
+                            </datalist>
                         </div>
                     </div>
 
