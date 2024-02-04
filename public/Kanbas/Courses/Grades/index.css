@@ -73,10 +73,6 @@ input[type=number]:focus{
     padding-right: 10px;
 }
 
-.wd-search-dropdown {
-    padding-top: 5px;
-}
-
 .wd-dropdown-menu {
     width: -webkit-fill-available;
 }
