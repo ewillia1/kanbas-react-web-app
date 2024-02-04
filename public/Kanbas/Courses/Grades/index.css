@@ -76,3 +76,13 @@ input[type=number]:focus{
 .wd-dropdown-menu {
     width: -webkit-fill-available;
 }
+
+.wd-search-dropdown {
+    border-right: none; 
+    background-color: white;
+}
+
+.wd-dropdown-angle {
+    border-left: none;  
+    background-color: white;
+}
