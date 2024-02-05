@@ -1,0 +1,43 @@
+.wd-save-button {
+    background-color: red;
+    border-color: red;
+    color: white;
+}
+
+.wd-cancel-button {
+    background-color: buttonface;
+    border-color: buttonborder;
+    color: black;
+}
+
+.wd-add-button {
+    background-color: buttonface;
+    border-color: buttonborder;
+    color: black;
+    width: 100%;
+}
+
+.wd-add-button:hover {
+    background-color: buttonface;
+    border-color: buttonborder;
+    color: black;
+}
+
+.wd-assign-to-container {
+    border-color: buttonborder; 
+    outline: 1px solid;
+}
+
+.wd-bottom-section {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.wd-assign-edit-label {
+    display: inline-block;
+    text-align: right;
+}
+
+.wd-border-radius-8px {
+    border-radius: 8px;
+}

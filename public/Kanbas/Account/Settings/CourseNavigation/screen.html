@@ -2,179 +2,321 @@
 <html lang="en">
     <head>
         <title>Course Navigation</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/d75b05e166.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/Kanbas/styles.css"/>
+        <link rel="stylesheet" href="/Kanbas/Navigation/index.css"/>
+        <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css"/>
+        <link rel="stylesheet" href="/Kanbas/Courses/Home/index.css"/>
+        <link rel="stylesheet" href="/Kanbas/Account/Settings/index.css"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <table>
-            <tbody>
-              <tr>
-                <!-- Left Side Column -->
-                <td style="padding-top: 0; vertical-align: top;">
-                    <ul style="margin-top: 0;">
-                        <li><a href="/Kanbas/Account/Profile/screen.html">Account</a></li>
-                        <li><a href="/Kanbas/Dashboard/screen.html">Dashboard</a></li>
-                        <li><a href="/Kanbas/Courses/Home/screen.html">Courses</a></li>
-                        <li><a href="/Kanbas/Calendar/index.html">Calendar</a></li>
-                        <li><a href="/Kanbas/Inbox/index.html">Inbox</a></li>
-                        <li><a href="#">History</a></li>
-                        <li><a href="#">Studio</a></li>
-                        <li><a href="#">Commons</a></li>
-                        <li><a href="#">Help</a></li>
+        <div class="container-fluid wd-main-container">
+            <!-- Row 1a: All elements on the screen. -->
+            <div class="row wd-main-row">
+                <!-- Column 1a: Kanbas Navigation. Hide on screen smaller than medium. -->
+                <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block">    
+                    <ul class="wd-kanbas-navigation">
+                        <li><a href="http://northeastern.edu"><img src="/images/northeastern_logo.png" alt="Northeastern University Logo" width="50"/></a></li>
+                        <li class="wd-account"><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user"></i>Account</a></li>
+                        <li><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i>Dashboard<a></li>
+                        <li class="wd-active"><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-user-group"></i>Courses</a> </li>
+                        <li><a href="/Kanbas/Calendar/index.html"><i class="fa fa-calendar"></i>Calendar</a></li>
+                        <li><a href="/Kanbas/Inbox/index.html"><i class="fa-solid fa-inbox"></i><br/>Inbox</a></li>
+                        <li><a href="#"><i class="fa-regular fa-clock"></i></i>History</a></li>
+                        <li><a href="#"><i class="fa-solid fa-file-video"></i><br/>Studio</a></li>
+                        <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i>Commons</a></li>
+                        <li><a href="#"><i class="fa-solid fa-question"></i><br/>Help</a></li>
                     </ul>
-                </td>
+                </div>
 
-                <!-- Middle Column -->
-                <td style="padding-top: 0; vertical-align: top;">
-                    <ul style="margin-top: 0;">
-                        <li><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
-                        <li><a href="/Kanbas/Courses/Modules/screen.html">Modules</a></li>
-                        <li><a href="/Kanbas/Courses/Piazza/index.html">Piazza</a></li>
-                        <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
-                        <li><a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a></li>
-                        <li><a href="/Kanbas/Courses/Assignments/Quizzes/index.html">Quizzes</a></li>
-                        <li><a href="#">People</a></li>
-                        <li><a href="#">Panopto Video</a></li>
-                        <li><a href="#">Discussions</a></li>
-                        <li><a href="#">Announcements</a></li>
-                        <li><a href="#">Pages</a></li>
-                        <li><a href="#">Files</a></li>
-                        <li><a href="#">Rubrics</a></li>
-                        <li><a href="#">Outcomes</a></li>
-                        <li><a href="#">Collaborations</a></li>
-                        <li><a href="#">Syllabus</a></li>
-                        <li><a href="/Kanbas/Account/Settings/CourseDetails/screen.html">Settings</a></li>
-                    </ul>
-                </td>
+                <!-- Column 2a: Rest of screen, broken into another grid/table. -->
+                <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11 wd-settings-col-num2">
+                    <!-- Row 1b: Breadcrumb section. Hide on screens smaller than medium. -->
+                    <div class="row d-none d-md-block">
+                        <!-- Column. -->
+                        <div class="col-12 wd-padding-10px">
+                            <div class="row m-0">
+                                <nav class="navbar wd-breadcrumb-navbar" aria-label="Small site nav bar">
+                                    <div class="container-fluid">
+                                        <button class="wd-three-bar-menu" onclick="window.location.href='#';">
+                                            <i class="fa-solid fa-bars wd-margin-20px"></i>
+                                        </button>
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="/Kanbas/Courses/Home/screen.html" class="wd-breadcrumb-link">CS5610.35159.202430</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                                            </ol>
+                                        </nav>
+                                        <button class="wd-rounded-corners-all-around wd-home-button">
+                                            <i class="fa-solid fa-glasses"></i> Student View
+                                        </button>
+                                    </div>
+                                </nav>
+                            </div>
+                            <hr/>
+                        </div>
+                    </div>
 
-                <!-- Right Side Column -->
-                <td style="padding-top: 0; vertical-align: top; padding-left: 20px;">
-                    <button type="button" onclick="window.location.href='/Kanbas/Account/Settings/CourseDetails/screen.html'">Course Details</button>
-                    <button type="button" onclick="window.location.href='#'">Sections</button>
-                    <button type="button" onclick="window.location.href='/Kanbas/Account/Settings/CourseNavigation/screen.html'">Navigation</button>
-                    <button type="button" onclick="window.location.href='#'">Apps</button>
-                    <button type="button" onclick="window.location.href='#'">Feature Options</button>
-                    <button type="button" onclick="window.location.href='#'">Integrations</button>
-                    <hr>
-            
-                    <p>Drag and drop items to reorder them in the course navigation.</p>
-                    <table border="1" style="border-collapse: collapse;" width="100%" rules="rows">
-                        <thead>
-                            <tr>
-                                <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Home</p></td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr draggable="true">
-                                <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Modules</p></td>
-                                <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; border-left: 0;">&#8285</p></td>
-                            </tr>
-                            <tr draggable="true">
-                                <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Piazza</p></td>
-                                <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                            </tr>
-                            <tr draggable="true">
-                                <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Zoom Meetings</p></td>
-                                <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                            </tr>
-                            <tr draggable="true">
-                                <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Assignments</p></td>
-                                <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                            </tr>
-                            <tr draggable="true">
-                                <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Quizzes</p></td>
-                                <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                            </tr>
-                            <tr draggable="true">
-                                <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Grades</p></td>
-                                <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                            </tr>
-                            <tr draggable="true">
-                                <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">People</p></td>
-                                <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                            </tr>
-                            <tr draggable="true">
-                                <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Panopto Video</p></td>
-                                <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                            </tr>
-                        </tbody>
-                    </table>
-            
-                    <p>Drag items here to hide them from students.<br/><span style="font-size: 12px;">Disabling most pages will cause students who visit those pages to be redirected to the course home page.</span></p>
-                    <table border="1" style="border-collapse: collapse;" width="100%" rules="rows">
-                        <tbody>
-                            <tbody>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Chat<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">SCORM<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Attendance<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Barnes and Noble Bookstore<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Digication<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Top Hat<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Syllabus<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Perusall<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Microsoft Teams Meetings<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">FACT Reporting and Photo Roster<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Progress Reports (Navigate)<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Microsoft Teams for Canvas<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">VHL Central<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Gradescope 1.3<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">Credentials<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                                <tr draggable="true">
-                                    <td><p style="margin-left: 20px; margin-top: 5px; margin-bottom: 5px;">iClicker<br/><i style="font-size: 12px; padding-left: 10px;">Page disabled, won't appear in navigation</i></p></td>
-                                    <td><p style="text-align: right; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">&#8285</p></td>
-                                </tr>
-                            </tbody>
-                        </tbody>
-                    </table>
-                   
-                    <br/>
-                    <button type="submit" style="background-color: red; color: white; border-color: red; border-radius: 4px; padding: 5px;" onclick="location.href='/Kanbas/Account/Settings/CourseNavigation/screen.html';">Save</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>   
+                    <!-- Row 2b: Rest of the screen. -->
+                    <div class="row">
+                        <!-- Column 1b: Course Navigation. Hide on screens smaller than medium. -->
+                        <div class="col-md-1 col-lg-1 col-xl-1 d-none d-md-block p-0">
+                            <ul class="wd-navigation">
+                                <p class="wd-nowrap">202410_1 Fall 2023 Semester</p>
+                                <li class="wd-nowrap"><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
+                                <li class="wd-nowrap"><a href="/Kanbas/Courses/Modules/screen.html">Modules</a></li>
+                                <li class="wd-nowrap"><a href="/Kanbas/Courses/Piazza/index.html">Piazza</a></li>
+                                <li class="wd-nowrap"><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+                                <li class="wd-nowrap"><a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a></li>
+                                <li class="wd-nowrap"><a href="/Kanbas/Courses/Assignments/Quizzes/index.html">Quizzes</a></li>
+                                <li class="wd-nowrap"><a href="#">People</a></li>
+                                <li class="wd-nowrap"><a href="#">Panopto Video</a></li>
+                                <li class="wd-nowrap"><a href="#">Discussions</a></li>
+                                <li class="wd-nowrap"><a href="#">Announcements</a></li>
+                                <li class="wd-nowrap"><a href="#">Pages</a></li>
+                                <li class="wd-nowrap"><a href="#">Files</a></li>
+                                <li class="wd-nowrap"><a href="#">Rubrics</a></li>
+                                <li class="wd-nowrap"><a href="#">Outcomes</a></li>
+                                <li class="wd-nowrap"><a href="#">Collaborations</a></li>
+                                <li class="wd-nowrap"><a href="#">Syllabus</a></li>
+                                <li class="wd-active wd-nowrap"><a href="/Kanbas/Account/Settings/CourseDetails/screen.html">Settings</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- What appears when the screen is medium. Black small navbar. -->
+                        <div class="d-block d-md-none wd-0-lr-padding">
+                            <nav class="navbar sticky-top wd-black-navbar" aria-label="Small site nav bar">
+                                <div class="container-fluid">
+                                    <button type="button" class="wd-small-navbar" data-bs-toggle="modal" data-bs-target="#kanbasModal">
+                                        <i class="fa-solid fa-bars"></i>
+                                    </button>
+                                    <p class="wd-centered-text"><u>CS4500.12631.202410</u><br><u>Modules</u></p>
+                                    <button class="wd-small-navbar" onclick="window.location.href='#';">
+                                        <i class="fa-solid fa-glasses"></i>
+                                    </button>
+                                    
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                                    <ul class="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-house-user"></i> Home</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Modules/screen.html"><i class="fa-solid fa-group-arrows-rotate"></i> Modules</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Piazza/index.html"><i class="fa-solid fa-plug"></i> Piazza</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i> Zoom Meetings</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Assignments/screen.html"><i class="fa-regular fa-file-lines"></i> Assignments</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Assignments/Quizzes/index.html"><i class="fa-solid fa-rocket"></i> Quizzes</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Courses/Grades/screen.html"><i class="fa-solid fa-clipboard-check"></i> Grades</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-user-group"></i> People</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i> Panopto Video</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-message"></i> Discussions <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullhorn"></i> Announcements <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-newspaper"></i> Pages <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-folder"></i> Files <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-clipboard-check"></i> Rubrics <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-bullseye"></i> Outcomes <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-circle"></i> Collaborations <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-regular fa-file-lines"></i> Syllabus <i class="fa-regular fa-eye-slash wd-crossed-out-eye"></i></a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i> Progress Reports (EAB Navigate)</a></li>
+                                        <li class="wd-navigation-link"><a class="dropdown-item" href="/Kanbas/Account/Settings/CourseDetails/screen.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+
+                            <!-- Kanbas modal. -->
+                            <div class="modal fade" id="kanbasModal" tabindex="-1" aria-labelledby="kanbasModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content wd-content-nav">
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <ul class="wd-no-bullets">
+                                            <li>
+                                                <div class="wd-flex-row-container">
+                                                    <div><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i>Dashboard</a></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="wd-flex-row-container">
+                                                    <div><a href="/Kanbas/Account/Profile/screen.html"><i class="fa-regular fa-circle-user wd-grey-icon"></i>Account</a></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="wd-flex-row-container">
+                                                    <div><a href="/Kanbas/Courses/Home/screen.html"><i class="fa-solid fa-user-group"></i>Courses</a></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="/Kanbas/Calendar/index.html"><i class="fa fa-calendar"></i>Calendar</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Kanbas/Inbox/index.html"><i class="fa-solid fa-inbox"></i>Inbox</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="fa-solid fa-file-video"></i>Studio</a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="fa-solid fa-right-from-bracket"></i>Commons</a>
+                                            </li>
+                                            <li>
+                                                <div class="wd-flex-row-container">
+                                                    <div><a href="#"><i class="fa-regular fa-clock"></i></i>History</a></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="wd-flex-row-container">
+                                                    <div><a href="#"><i class="fa-solid fa-question"></i>Help</a></div>
+                                                    <div><i class="fa-solid fa-chevron-right wd-kanbas-modal-icon"></i></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Column 2b: Edit section. Is always visible, no matter the screen size. -->
+                        <div class="col-sm-12 col-md-11 col-lg-11 col-xl-11 wd-always-vis-col-setings">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                  <a class="nav-link wd-no-underline-link" href="/Kanbas/Account/Settings/CourseDetails/screen.html">Course Details</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link wd-no-underline-link" href="#">Sections</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link active" aria-current="page" href="/Kanbas/Account/Settings/CourseNavigation/screen.html">Navigation</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link wd-no-underline-link" href="#">Apps</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link wd-no-underline-link" href="#">Feature Options</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link wd-no-underline-link" href="#">Integrations</a>
+                                  </li>
+                            </ul>
+                            <hr>
+                    
+                            <p>Drag and drop items to reorder them in the course navigation.</p>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                Home
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Modules<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Piazza<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Zoom Meetings<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Assignments<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Quizzes<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Grades<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>People<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Panopto Videos<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                            </div>
+                    
+                            <p class="mt-3">Drag items here to hide them from students.<br/><span class="wd-setting-subheader">Disabling most pages will cause students who visit those pages to be redirected to the course home page.</span></p>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <div class="col"><span>Chat<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span></div>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>SCORM<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Attendance<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Barne and Noble Bookstore<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Digication<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Top Hat<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Syllabus<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Perusall<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Microsoft Teams Meetings<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>FACT Reporting and Photo Roster<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Progress Reports (Navigate)<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Microsoft Teams for Canvas<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Gradescope 1.3<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>Credentials<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            <div class="row border border-dark p-2 ms-2 me-2 wd-draggable-item" draggable="true">
+                                <span>iClicker<span class="float-end"><i class="fa-solid fa-ellipsis-vertical"></i></span></span>
+                                <div class="wd-float-done"></div>
+                                <div class="col"><i class="wd-page-disabled">Page disabled, won't appear in navigation</i></div>
+                            </div>
+                            
+                            <br/>
+                            <button type="submit" class="wd-save-button" onclick="location.href='/Kanbas/Account/Settings/CourseNavigation/screen.html';">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

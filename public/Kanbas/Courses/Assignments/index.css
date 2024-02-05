@@ -1,0 +1,50 @@
+/* For the section of the screen that is not the Kanbas Navigation bar. */
+.wd-assignment-col-num2 {
+    padding-left: 40px;
+}
+
+/* Change the padding of a wd-col-num2 element when the browser window is 767px wide or less. */
+@media only screen and (max-width: 767px) {
+    .wd-assignment-col-num2 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.wd-assignments-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.wd-icon-indentation-assignment1 {
+    padding-right: 15px;
+}
+
+.wd-icon-indentation-assignment2 {
+    padding-right: 30px;
+    color: green;
+}
+
+.wd-assignment {
+    margin: 0;
+    text-align: left;
+}
+
+.wd-add-assignment {
+    margin: 5px; 
+    background-color: red; 
+    color: white; 
+    border-color: red;
+}
+
+.wd-assignment-label {
+    cursor: pointer;
+}
+
+.wd-border-radius-18px {
+    border-radius: 18px;
+}
+
+.wd-week-span {
+    font-size: 14px;
+}

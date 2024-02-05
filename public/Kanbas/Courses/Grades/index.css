@@ -1,0 +1,88 @@
+/* For the section of the screen that is not the Kanbas Navigation bar. */
+.wd-grades-col-num2 {
+    padding-left: 40px;
+}
+
+/* Change the padding of a wd-col-num2 element when the browser window is 767px wide or less. */
+@media only screen and (max-width: 767px) {
+    .wd-grades-col-num2 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.wd-grade-button {
+    background-color: buttonface;
+    border-color: buttonborder;
+}
+
+.wd-grade-button:hover {
+    background-color: buttonface;
+    border-color: buttonborder;
+}
+
+.wd-search-button {
+    width: 100%; 
+    text-align: left;
+    background-color: white;
+}
+
+.wd-apply-filters-button {
+    margin-left: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.wd-table-header {
+    text-align: center;
+}
+
+.wd-notbold{
+    font-weight:normal
+}
+
+.wd-student-name {
+    color: red;
+    text-decoration: none;
+}
+
+.wd-table-cell {
+    text-align: center; 
+    vertical-align: middle;
+}
+
+/* Overriding the background color upon hovering over a row in the table. */
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #E5F2F9;
+}
+
+/* Override input fields for grade cells. */
+input[type=number] {
+    border: none;        /* Remove default borders. */
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+/* Override input fields for grade cells. */
+input[type=number]:focus{
+    outline: none;      /* Remove default outline and use border or box-shadow. */
+    box-shadow: 0 0 0 2px red; /* Full freedom. (works also with border-radius). */
+}
+
+.wd-magnifying-glass {
+    padding-right: 10px;
+}
+
+.wd-dropdown-menu {
+    width: -webkit-fill-available;
+}
+
+.wd-search-dropdown {
+    border-right: none; 
+    background-color: white;
+}
+
+.wd-dropdown-angle {
+    border-left: none;  
+    background-color: white;
+}

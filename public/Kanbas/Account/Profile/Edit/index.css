@@ -1,0 +1,20 @@
+.wd-a-no-line {
+    text-decoration: none;
+}
+
+.wd-th-centered-text {
+    text-align: center;
+}
+
+.wd-button-2px-margin-top {
+    margin-top: 2px;
+}
+
+.wd-cancel-link {
+    color: red;
+}
+
+.wd-link-header {
+    text-align: center; 
+    margin-top: 0;
+}

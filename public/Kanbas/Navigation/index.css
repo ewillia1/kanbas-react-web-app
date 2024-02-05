@@ -1,0 +1,114 @@
+.wd-kanbas-navigation {
+    background-color: black;
+    list-style: none;
+    padding: 0px;  
+    margin: 0px;
+    width: 80px;
+    position: fixed;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.wd-nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wd-kanbas-navigation li {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    text-align: center;
+    font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.wd-kanbas-navigation li.wd-active {
+    background-color: white;
+}
+
+.wd-kanbas-navigation li.wd-active a {
+    color: red;
+}
+
+.wd-kanbas-navigation a {
+    color: white;
+    text-decoration: none;
+}
+
+.wd-kanbas-navigation a i {
+    color: red;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.wd-kanbas-navigation li.wd-account a i {
+    color: white;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.wd-kanbas-navigation li.wd-account-active {
+    background-color: white;
+}
+
+.wd-kanbas-navigation li.wd-account-active a {
+    color: red;
+}
+
+.wd-kanbas-navigation li.wd-account-active a i {
+    color: grey;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+/* Hide element on extra small window widths. */
+@media screen and (max-width: 576px) {
+    .wd-xs-browser-display {
+        display: none;
+    }
+}
+  
+/* Drop-down <div> section and button. */
+.dropdown .dropbtn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    padding-left: 10px; 
+    padding-top: 5px; 
+    padding-right: 5px; 
+    padding-bottom: 5px;
+    float: right;
+    text-align: center;
+}
+
+/* Drop-down content (hidden by default). */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Links inside the drop-down. */
+.dropdown-content a {
+    float: none;
+    color: red;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    padding: 12px 16px;
+}
+
+/* What happens to the links in the drop-down when a mouse hovers over them. */
+.dropdown-content a:hover {
+    text-decoration: underline;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button). */
+.show {
+    display: block;
+}

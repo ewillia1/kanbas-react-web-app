@@ -1,0 +1,322 @@
+/* For the section of the screen that is not the Kanbas Navigation bar. */
+.wd-home-col-num2 {
+    padding-left: 40px;
+}
+
+/* Change the padding of a wd-col-num2 element when the browser window is 767px wide or less. */
+@media only screen and (max-width: 767px) {
+    .wd-home-col-num2 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.wd-main-container {
+    padding-left: 0; 
+    padding-right: 0;
+}
+
+.wd-main-row {
+    max-width: 100%;
+}
+
+.wd-crossed-out-eye {
+    color: grey;
+}
+
+.wd-green-icon {
+    color: green;
+}
+
+.wd-check-mark {
+    color: green;
+    margin-right: 10px;
+}
+
+.wd-to-do-assignment {
+    color: red; 
+    margin: 5px;
+}
+
+.wd-kanbas-modal-icon {
+    color: grey; 
+    margin-right: 20px;
+}
+
+.wd-always-vis-col {
+    padding-left: 56px;
+}
+
+.wd-float-right {
+    float: right;
+}
+
+.wd-float-done {
+    clear: both;
+}
+
+.wd-select {
+    -webkit-appearance: menulist-button;
+    height: 28px;
+    float: right; 
+    margin: 5px;
+    border-radius: 8px;
+    background-color: buttonface;
+    padding-block: 1px;
+    padding-inline: 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+    height: 30px;
+}
+
+.wd-coming-up-todo-row {
+    margin: 0;
+}
+
+.wd-subheader-coming-up {
+    padding-left: 45px; 
+    margin: 0;
+}
+
+.wd-subheader-to-do {
+    padding-left: 45px; 
+    margin: 0;
+}
+
+.wd-collapsible {
+    color: black;
+    background-color: buttonface;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin: 0;
+}
+
+.wd-content {
+    background-color: white;
+    margin: 0;
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.wd-week-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.wd-week-row {
+    border-color: buttonborder;
+    border-width: 2px;
+}
+
+.wd-week {
+    margin: 0;
+    text-align: left;
+}
+
+.wd-icon-indentation-week {
+    padding-right: 30px;
+}
+
+.wd-hyperlinks {
+    text-decoration: none;
+    color: red;
+    padding: 0; 
+    margin: 0;
+}
+
+.wd-rounded-corners-all-around {
+    border-radius: 8px;
+    margin: 2px;
+}
+
+.wd-home-button:hover {
+    background-color: #cbcbcb;
+}
+
+.wd-course-status-button {
+    text-align: left;
+}
+
+.wd-float-right {
+    float: right;
+}
+ 
+.wd-float-done {
+    clear: both;
+}
+
+.wd-content-nav {
+    background-color: white;
+    overflow-y: auto;
+}
+
+.wd-content-nav a {
+    color: red;
+    background-color: white;
+    text-decoration: none;
+    margin: 5px;
+}
+
+ul.wd-no-bullets {
+    list-style-type: none;
+}
+
+ul.wd-no-bullets li {
+    margin: 10px;
+}
+
+ul.wd-content-nav {
+    margin: 10px;
+}
+
+.wd-box-close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    text-decoration: none;
+}
+
+.wd-course-status-button {
+    background-color: buttonface;
+    border-color: buttonborder;
+}
+
+.wd-course-status-dropdown {
+    background-color: buttonface;
+    border-color: buttonborder;
+    color: black;
+    width: max-content;
+    height: max-content;
+    margin: 5px;
+    border: 2px;
+    padding-top: 1px;
+    padding-right: 6px;
+    padding-bottom: 1px;
+    padding-left: 6px;
+}
+
+.wd-course-status-dropdown:hover {
+    background-color: #cbcbcb;
+    color: black;
+}
+
+.wd-flex-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    background-color: black;
+    padding: 0;
+    width: 100%;
+    color: white;
+}
+  
+.wd-flex-container > div {
+    background-color: inherit;
+    margin: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.wd-flex-row-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    float: left;
+    padding-right:  var(--bs-breadcrumb-item-padding-x);
+    color: var(--bs-breadcrumb-divider-color);
+    content: var(--bs-breadcrumb-divider, ">");
+}
+
+.wd-dropdown-menu {
+    width: -webkit-fill-available;
+    padding: 30px;
+}
+
+.wd-small-navbar {
+    background-color: black; 
+    color: white; 
+    border: none;
+}
+
+.wd-calendar {
+    color: grey;
+    margin: 5px;
+}
+
+.wd-breadcrumb-navbar {
+    background-color: transparent; 
+    padding-left: 20px;
+}
+
+.wd-breadcrumb-link {
+    color: red; 
+    text-decoration: none;
+}
+
+.wd-black-navbar {
+    background-color: black; 
+    color: white; 
+    padding-left: 20px; 
+    padding-right: 20px;
+}
+
+.wd-0-lr-padding {
+    padding-right: 0; 
+    padding-left: 0;
+}
+
+.wd-margin-5px {
+    margin: 5px;
+}
+
+.wd-margin-20px {
+    margin-right: 20px;
+}
+
+.wd-padding-10px {
+    padding: 10px;
+}
+
+.wd-three-bar-menu {
+    color: red; 
+    background-color: white; 
+    border: none;
+}
+
+.wd-centered-text {
+    text-align: center;
+}
+
+.wd-left-text {
+    text-align: left;
+}
+
+.wd-grey-icon {
+    color: grey;
+}
+
+.wd-module-plus {
+    margin: 5px; 
+    background-color: red; 
+    color: white; 
+    border-color: red;
+}
+
+.wd-max-content-width {
+    width: max-content;
+}
+
+.wd-draggable-item {
+    cursor: -webkit-grab; 
+    cursor: grab;
+}

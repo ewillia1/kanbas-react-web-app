@@ -15,7 +15,10 @@
             <textarea cols="20" rows="2">This is the assignment description.</textarea><br/><br/>
 
             <label for="points">Points</label><br/>
-            <input type="text" id="points" name="points" value="100"><br/><br/>
+            <!-- I am not setting a max number since I am assuming professors can make the total number of points
+                be as high as they want. I am just not allowing an assignment to be less than 1 point. 
+                Negative scores do not make sense, and I am assuming that no assignments will be worth 0 points. -->
+            <input type="number" id="points" name="points" value="100"><br/><br/>
 
             <label for="assignmentGroup">Assignment Group</label><br/>
             <select id="assignmentGroup" name="assignmentGroup">
