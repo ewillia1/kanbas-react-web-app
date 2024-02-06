@@ -18,6 +18,10 @@ import FindFunction from "./arrays/FindFunction";
 import FindIndex from "./arrays/FindIndex";
 import FilterFunction from "./arrays/FilterFunction";
 import TemplateLiterals from "./string/TemplateLiterals";
+import House from "./json/House";
+import Spreading from "./json/Spreading";
+import Destructing from "./json/Destructing";
+import FunctionDestructing from "./functions/FunctionDestructing";
 
 function JavaScript() {
     console.log('Hello World!');
@@ -47,6 +51,12 @@ function JavaScript() {
             <FilterFunction/>
             <h4>Strings</h4>
             <TemplateLiterals/>
+            <h4>JSON</h4>
+            <House/>
+            <Spreading/>
+            <Destructing/>
+            <h4>Functions</h4>
+            <FunctionDestructing/>
         </div>
     );
 }
