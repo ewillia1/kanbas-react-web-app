@@ -112,5 +112,227 @@
       "name": "Spacecraft Systems Engineering",
       "description": "Overview of spacecraft systems and subsystems engineering.",
       "course": "RS103"
+    },
+    {
+        "_id": "W0WebDev",
+        "name": "Week 0 - INTRO",
+        "description": "Week 0 Module",
+        "course": "CS5610",
+        "lessons": [
+            {
+                "_id": "W0101",
+                "name": "Introduction ot the course",
+                "description": "An introduction to the Web Development course.",
+                "module": "W0WebDev"
+            },
+            {
+                "_id": "W0102",
+                "name": "Learn what is Web Developement",
+                "description": "Basic principles and concepts related to Web Development.",
+                "module": "W0WebDev"
+            },
+            {
+                "_id": "W0103",
+                "name": "Creating a development environment",
+                "description": "Overview of different types of rocket engines.",
+                "module": "W0WebDev"
+            }
+        ]
+    },
+    {
+        "_id": "W1WebDev",
+        "name": "Week 1 - Formatting User Interface with HTML",
+        "description": "Week 1 Module.",
+        "course": "CS5610",
+        "lessons": [
+            {
+                "_id": "W1201",
+                "name": "Learn how to create user interfaces with HTML",
+                "description": "Steps and advice for using HTML to create UI.",
+                "module": "W1WebDev"
+            },
+            {
+                "_id": "W1202",
+                "name": "Keep working on assignment 1",
+                "description": "Continue to work on assignment 1.",
+                "module": "W1WebDev"
+            },
+            {
+                "_id": "W1203",
+                "name": "Deploy the assignment to Netlify",
+                "description": "Learn how to use Netlify.",
+                "module": "W1WebDev"
+            }
+        ]
+    },
+    {
+        "_id": "W2WebDev",
+        "name": "Week 2 - Styling User Interfaces with CSS, Assignment 2",
+        "description": "Week 2 Module.",
+        "course": "CS5610",
+        "lessons": [
+            {
+                "_id": "W2301",
+                "name": "Introduction to CSS",
+                "description": "A brief overview of CSS.",
+                "module": "W2WebDev"
+            },
+            {
+                "_id": "W2302",
+                "name": "Selectors by tag ID, classes, and document structure",
+                "description": "Introduction on how to use selectors.",
+                "module": "W2WebDev"
+            },
+            {
+                "_id": "W2303",
+                "name": "Styling color and background color",
+                "description": "Introduction on how to use color and background color.",
+                "module": "W2WebDev"
+            }
+        ]
+    },
+    {
+            "_id": "M401",
+            "name": "Recitation - Week 0",
+            "description": "Basic aerodynamic concepts and fluid dynamics principles.",
+            "course": "CS5005"
+    },
+    {
+        "_id": "M402",
+        "name": "Recitation - Week 1",
+        "description": "Understanding subsonic and supersonic aerodynamic behaviors.",
+        "course": "CS5005"
+    },
+    {
+        "_id": "M403",
+        "name": "Recitation - Week 2",
+        "description": "Study of aerodynamic heating and thermal protection systems.",
+        "course": "CS5005"
+    },
+    {
+        "_id": "M501",
+        "name": "HCI - Week 0",
+        "description": "Fundamentals of designing spacecraft structures and materials selection.",
+        "course": "CS5340"
+    },
+    {
+        "_id": "M502",
+        "name": "HCI - Week 1",
+        "description": "Understanding orbital dynamics and mission planning.",
+        "course": "CS5340"
+    },
+    {
+        "_id": "M503",
+        "name": "HCI - Week 2",
+        "description": "Overview of spacecraft systems and subsystems engineering.",
+        "course": "CS5340"
+    },
+    {
+        "_id": "M601",
+        "name": "FSE - Week 0",
+        "description": "Fundamentals of designing spacecraft structures and materials selection.",
+        "course": "CS5500"
+    },
+    {
+        "_id": "M602",
+        "name": "FSE  - Week 1",
+        "description": "Understanding orbital dynamics and mission planning.",
+        "course": "CS5500"
+    },
+    {
+        "_id": "M603",
+        "name": "FSE - Week 2",
+        "description": "Overview of spacecraft systems and subsystems engineering.",
+        "course": "CS5500"
+    },
+    {
+        "_id": "M701",
+        "name": "OOD - Week 0",
+        "description": "Fundamentals of designing spacecraft structures and materials selection.",
+        "course": "CS5004"
+    },
+    {
+        "_id": "M702",
+        "name": "OOD - Week 1",
+        "description": "Understanding orbital dynamics and mission planning.",
+        "course": "CS5004"
+    },
+    {
+        "_id": "M703",
+        "name": "OOD - Week 2",
+        "description": "Overview of spacecraft systems and subsystems engineering.",
+        "course": "CS5004"
+    },
+    {
+        "_id": "M801",
+        "name": "Data Str, Algo & App in CmpSys - Week 0",
+        "description": "Fundamentals of designing spacecraft structures and materials selection.",
+        "course": "CS5008"
+    },
+    {
+        "_id": "M802",
+        "name": "Data Str, Algo & App in CmpSys - Week 1",
+        "description": "Understanding orbital dynamics and mission planning.",
+        "course": "CS5008"
+    },
+    {
+        "_id": "M803",
+        "name": "Data Str, Algo & App in CmpSys - Week 2",
+        "description": "Overview of spacecraft systems and subsystems engineering.",
+        "course": "CS5008"
+    },
+    {
+        "_id": "M901",
+        "name": "DMS - Week 0",
+        "description": "Fundamentals of designing spacecraft structures and materials selection.",
+        "course": "CS5200"
+    },
+    {
+        "_id": "M902",
+        "name": "DMS - Week 1",
+        "description": "Understanding orbital dynamics and mission planning.",
+        "course": "CS5200"
+    },
+    {
+        "_id": "M903",
+        "name": "DMS - Week 2",
+        "description": "Overview of spacecraft systems and subsystems engineering.",
+        "course": "CS5200"
+    },
+    {
+        "_id": "M1001",
+        "name": "Algorithms - Week 0",
+        "description": "Fundamentals of designing spacecraft structures and materials selection.",
+        "course": "CS5800"
+    },
+    {
+        "_id": "M1002",
+        "name": "Algorithms - Week 1",
+        "description": "Understanding orbital dynamics and mission planning.",
+        "course": "CS5800"
+    },
+    {
+        "_id": "M1003",
+        "name": "Algorithms - Week 2",
+        "description": "Overview of spacecraft systems and subsystems engineering.",
+        "course": "CS5800"
+    },
+    {
+        "_id": "M1101",
+        "name": "Mobile Application Development - Week 0",
+        "description": "Fundamentals of designing spacecraft structures and materials selection.",
+        "course": "CS5520"
+    },
+    {
+        "_id": "M1102",
+        "name": "Mobile Application Development - Week 1",
+        "description": "Understanding orbital dynamics and mission planning.",
+        "course": "CS5520"
+    },
+    {
+        "_id": "M1103",
+        "name": "Mobile Application Development - Week 2",
+        "description": "Overview of spacecraft systems and subsystems engineering.",
+        "course": "CS5520"
     }
 ]

@@ -4,15 +4,21 @@ import "../Kanbas/Dashboard/index.css";
 import Dashboard from "./Dashboard";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Courses from "./Courses";
+import Breadcrumb from "./Courses/Breadcrumb";
+import "./index.css";
 
 function Kanbas() {
     return(
         <div className="container-fluid wd-main-container">
             <div className="row wd-main-row">
+                {/* Column 1a: Kanbas Navigation. Hide on screen smaller than medium. */}
                 <div className="col-md-1 col-lg-1 col-xl-1 d-none d-md-block">
                     <KanbasNavigation/>
                 </div>
+
+                {/* Column 2a: Rest of screen. */}
                 <div className="col-12 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                    {/* <Breadcrumb/> */}
                     <Routes>
                         <Route path="/" element={<Navigate to="Dashboard" />} />
                         <Route path="Account" element={<h1>Account</h1>} />

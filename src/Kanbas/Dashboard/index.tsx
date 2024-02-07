@@ -9,7 +9,10 @@ function Dashboard() {
     return (
         <div className="wd-published-courses">
             <div className="p-4">
-                <BlackHeader/>
+                <div className="d-block d-md-none wd-0-lr-padding">
+                    <BlackHeader/>
+                </div>
+                
                 <div className="d-none d-sm-block sticky-top wd-dashboard">
                     <h1>Dashboard</h1> <hr/>
                 </div>

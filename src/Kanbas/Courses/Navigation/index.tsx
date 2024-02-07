@@ -12,15 +12,17 @@ function CourseNavigation() {
     const course = courses.find((course) => course._id === courseId);
 
     return(
-        <div className="wd-course-nav">
-            <ul className="wd-navigation">
-                <li className="wd-nowrap">{course?.startDate} {course?.name}</li>
-                {links.map((link, index) => (
-                    <li key={index} className={pathname.includes(link) ? "wd-active wd-nowrap" : "wd-nowrap"}>
-                        <Link to={link}>{link}</Link>
-                    </li>
-                ))}
-            </ul>
+        <div className="col-md-1 col-lg-1 col-xl-1 d-none d-md-block p-0">
+            <div className="wd-course-nav sticky-top" style={{paddingLeft: "4vw"}}>
+                <ul className="wd-navigation">
+                    <li className="wd-nowrap">{course?.startDate} {course?.name}</li>
+                    {links.map((link, index) => (
+                        <li key={index} className={pathname.includes(link) ? "wd-active wd-nowrap" : "wd-nowrap"}>
+                            <Link to={link}>{link}</Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 }

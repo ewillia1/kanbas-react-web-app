@@ -1,7 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { FaHome, FaRegCircle, FaPlug, FaRocket, FaBars, FaUserFriends, FaComments, FaBullhorn, FaClipboardList, FaBullseye, FaCog, FaGlasses, FaBook, FaFolder, FaRegUserCircle, FaTachometerAlt, FaRegCalendarAlt, FaRegEnvelope, FaRegClock, FaRegCaretSquareRight, FaRegArrowAltCircleRight, FaRegQuestionCircle } from "react-icons/fa";
 import React from "react";
 import "./index.css";
+import { courses } from "../Database";
+import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function BlackHeader() {
     const links = [
@@ -39,13 +41,15 @@ function BlackHeader() {
     ];
     
     const { pathname } = useLocation();
+    const { courseId } = useParams();
+    const course = courses.find((course) => course._id === courseId);
 
     return(
-        <div className="d-block d-sm-none wd-0-lr-padding">
+        <>
             <nav className="navbar sticky-top wd-black-navbar" aria-label="Small site nav bar">
-                <div className="container-fluid" data-bs-toggle="modal" data-bs-target="#kanbasModal">
-                    <button className="wd-small-navbar"><FaBars /></button>
-                    <p className="wd-centered-text">Dashboard</p>
+                <div className="container-fluid">
+                    <button className="wd-small-navbar" data-bs-toggle="modal" data-bs-target="#kanbasModal"><FaBars /></button>
+                    <p className="wd-centered-text">{course?.number} {course?.name}</p>
                     <button className="wd-small-navbar"><FaGlasses /></button>
                     <a className="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                     <ul className="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="navbarScrollingDropdown">
@@ -76,7 +80,7 @@ function BlackHeader() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 export default BlackHeader
