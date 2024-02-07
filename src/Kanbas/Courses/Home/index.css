@@ -1,0 +1,13 @@
+.wd-main-container {
+    padding-left: 0; 
+    padding-right: 0;
+}
+
+.wd-main-row {
+    max-width: 100%;
+}
+
+/* For the section of the screen that is not the Kanbas Navigation bar. */
+.wd-home-col-num2 {
+    padding-left: 40px;
+}

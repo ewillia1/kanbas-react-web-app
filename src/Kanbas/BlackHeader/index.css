@@ -1,0 +1,35 @@
+.wd-0-lr-padding {
+    padding-right: 0; 
+    padding-left: 0;
+}
+
+.wd-black-navbar {
+    background-color: black; 
+    color: white; 
+    padding-left: 20px; 
+    padding-right: 20px;
+}
+
+.wd-small-navbar {
+    background-color: black; 
+    color: white; 
+    border: none;
+}
+
+.wd-dropdown-menu {
+    width: -webkit-fill-available;
+    padding: 30px;
+}
+
+ul.wd-no-bullets {
+    list-style-type: none;
+}
+
+ul.wd-no-bullets li {
+    margin: 10px;
+}
+
+.wd-navigation-link a {
+    color: red;
+    text-decoration: none;
+}

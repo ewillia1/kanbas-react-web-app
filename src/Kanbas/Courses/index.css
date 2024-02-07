@@ -1,0 +1,43 @@
+.wd-breadcrumb {
+    color: red;
+    padding-top: 10px;
+    padding-left: 50px;
+}
+
+.wd-nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    float: left;
+    padding-right:  var(--bs-breadcrumb-item-padding-x);
+    color: var(--bs-breadcrumb-divider-color);
+    content: var(--bs-breadcrumb-divider, ">");
+}
+
+.wd-breadcrumb-navbar {
+    background-color: transparent; 
+    padding-left: 20px;
+}
+
+.wd-breadcrumb-link {
+    color: red; 
+    text-decoration: none;
+}
+
+.wd-three-bar-menu {
+    color: red; 
+    background-color: white; 
+    border: none;
+}
+
+.wd-rounded-corners-all-around {
+    border-radius: 8px;
+    margin: 2px;
+}
+
+.wd-home-button:hover {
+    background-color: #cbcbcb;
+}

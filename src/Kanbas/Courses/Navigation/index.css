@@ -1,0 +1,51 @@
+.wd-navigation {
+    background-color: transparent;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    width: 125px;
+    position: -webkit-sticky;   /* Safari */
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: smaller;
+    max-height: 100vh;
+}
+
+.wd-navigation li {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+.wd-navigation li.wd-active {
+    border-left: 2px solid black;
+}
+
+.wd-navigation li.wd-active a {
+    color: black;
+}
+
+.wd-navigation a {
+    color: red;
+    text-decoration: none;
+}
+
+.wd-navigation-link a {
+    color: red;
+    text-decoration: none;
+}
+
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: yellow;
+    padding: 50px;
+    font-size: 20px;
+}
+
+.wd-course-nav {
+    padding-left: 50px;
+}
