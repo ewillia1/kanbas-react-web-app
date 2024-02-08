@@ -2,7 +2,6 @@ import { HiMiniBars3 } from "react-icons/hi2";
 import { Link, useParams } from "react-router-dom";
 import { courses } from "../../Database";
 import "./index.css";
-import CourseNavigation from "../Navigation";
 
 function Breadcrumb() {
     const { courseId } = useParams();
@@ -23,14 +22,12 @@ function Breadcrumb() {
         if (x === null) {
             console.log("x is null");
         } else {
-            console.log(x);
-
             if (x.style.display === "none") {
                 x.style.display = "block";
-                console.log("x appears");
+                console.log("courseNav appears");
             } else {
                 x.style.display = "none";
-                console.log("x goes away");
+                console.log("courseNav goes away");
             }
         }
     }
