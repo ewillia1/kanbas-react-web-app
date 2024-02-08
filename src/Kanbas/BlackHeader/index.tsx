@@ -3,7 +3,6 @@ import { FaHome, FaRegCircle, FaPlug, FaRocket, FaBars, FaUserFriends, FaComment
 import React from "react";
 import "./index.css";
 import { courses } from "../Database";
-import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function BlackHeader() {
     const links = [
@@ -55,14 +54,14 @@ function BlackHeader() {
                     <ul className="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                         {links.map((link, index) => (
                             <li key={index} className="wd-navigation-link dropdown-item">
-                                <Link to={`/Kanbas/${link.label}`}> {link.icon} {link.label} </Link>
+                                <Link to={`/Kanbas/Courses/${course?._id}/${link.label}`}> {link.icon} {link.label} </Link>
                             </li>
                         ))}
                     </ul>
                 </div>
             </nav>
 
-            <div className="modal fade" id="kanbasModal" aria-labelledby="kanbasModalLabel" aria-hidden="true">
+            <div className="modal fade" id="kanbasModal" aria-labelledby="kanbasModalLabel" aria-hidden="false">
                 <div className="modal-dialog">
                     <div className="modal-content wd-content-nav">
                         <div className="modal-header">
@@ -71,7 +70,7 @@ function BlackHeader() {
                         <div className="modal-body">
                             <ul className="wd-no-bullets">
                                 {links1.map((link, index) => (
-                                    <li key={index} className="wd-navigation-link dropdown-item">
+                                    <li key={index} className="wd-navigation-link dropdown-item" data-bs-dismiss="modal">
                                         <Link to={`/Kanbas/${link.label}`}> {link.icon} {link.label} </Link>
                                     </li>
                                 ))}
