@@ -32,11 +32,6 @@
     text-decoration: none;
 }
 
-.wd-navigation-link a {
-    color: red;
-    text-decoration: none;
-}
-
 div.sticky {
     position: -webkit-sticky;
     position: sticky;
