@@ -7,20 +7,17 @@ import Home from "./Home";
 import Breadcrumb from "./Breadcrumb";
 
 function Courses() {
-    var currentURL = (document.URL);
-    console.log(currentURL);
-
     return (
         <div className="row">
             <Breadcrumb/>
 
             <CourseNavigation />
 
-            <div className="d-block d-md-none wd-0-lr-padding">
+            <div className="d-block d-md-none wd-0-lr-padding sticky-top">
                 <BlackHeader/>
             </div>
 
-            <div className="col" style={{paddingLeft: "12vw"}}>
+            <div className="col" style={{paddingLeft: "12vw", paddingRight: "12vw"}}>
                 <Routes>
                     <Route path="/" element={<Navigate to="Home" />} />
                     <Route path="Home" element={<Home/>} />
