@@ -16,7 +16,7 @@ function ModuleList() {
                 <button type="button" className="wd-rounded-corners-all-around wd-home-button wd-margin-5px">View Progress</button>
                 <div className="btn-group">
                     <button className="btn btn-secondary dropdown-toggle wd-course-status-dropdown" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"><FaRegCheckCircle className="wd-green-icon" /> Publish All</button>
-                    <ul className="dropdown-menu dropdown-menu-end wd-max-content-width" aria-labelledby="dropdownMenuButton2">
+                    <ul className="dropdown-menu dropdown-menu-end wd-publish-all-btn" aria-labelledby="dropdownMenuButton2">
                         <li><a className="dropdown-item" href="#"><FaCheckCircle className="wd-green-icon" /> Publish all modules and items</a></li>
                         <li><a className="dropdown-item" href="#"><FaCheckCircle className="wd-green-icon" /> Publish modules only</a></li>
                         <li><a className="dropdown-item" href="#"><FaCheckCircle className="wd-green-icon" /> Unpublish all modules and items</a></li>
