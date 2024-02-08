@@ -4,7 +4,6 @@ import "../Kanbas/Dashboard/index.css";
 import Dashboard from "./Dashboard";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Courses from "./Courses";
-import Breadcrumb from "./Courses/Breadcrumb";
 import "./index.css";
 
 function Kanbas() {
@@ -17,8 +16,7 @@ function Kanbas() {
                 </div>
 
                 {/* Column 2a: Rest of screen. */}
-                <div className="col-12 col-sm-11 col-md-11 col-lg-11 col-xl-11">
-                    {/* <Breadcrumb/> */}
+                <div className="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-11">
                     <Routes>
                         <Route path="/" element={<Navigate to="Dashboard" />} />
                         <Route path="Account" element={<h1>Account</h1>} />
