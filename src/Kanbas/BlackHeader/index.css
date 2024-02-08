@@ -28,3 +28,16 @@ ul.wd-no-bullets li {
     color: red;
     text-decoration: none;
 }
+
+.wd-react-icon {
+    color:red;
+}
+
+.wd-centered-text {
+    text-align: center;
+}
+
+.wd-navigation-link {
+    color: red;
+    text-decoration: none;
+}
