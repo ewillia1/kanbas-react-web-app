@@ -1,9 +1,8 @@
 import ModuleList from "./List";
 
-
 function Modules() {
     return (
-        <div style={{ paddingLeft: 20 }}>
+        <div style={{ paddingLeft: "20px" }}>
             <ModuleList/>
         </div>
     );
