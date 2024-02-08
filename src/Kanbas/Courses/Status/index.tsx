@@ -1,24 +1,56 @@
 import { FaBan, FaBell, FaBullhorn, FaCalendarCheck, FaCalendarDay, FaChartBar, FaCheckCircle, FaFileImport, FaRegArrowAltCircleRight, FaRegDotCircle } from "react-icons/fa";
+import "./index.css";
+import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { courses } from "../../Database";
 
 function Status() {
+    const [isUnpubBtnDisabled, setUnpubBtn] = useState(false);
+    const [isPubBtnDisabled, setPubBtn] = useState(false);
+    const { courseId } = useParams();
+    const course = courses.find((course) => course._id === courseId);
+    
+    // Function to change color and enable/disable unpublish and pubish buttons depending on which one is clicked.
+    function changePublish(str: string) {
+        let unpub_element= document.getElementById("unpublishbtn");
+        let pub_element = document.getElementById("publishbtn");
+
+        if (str.localeCompare("unpub")) {
+            if (unpub_element!== null && pub_element !== null) {
+                pub_element.classList.toggle("wd-enabled-btn");
+                unpub_element.classList.remove("wd-enabled-btn");
+                setPubBtn(true);
+                setUnpubBtn(false);
+            }
+        } else {
+            if (unpub_element!== null && pub_element !== null) {
+                pub_element.classList.remove("wd-enabled-btn");
+                unpub_element.classList.toggle("wd-enabled-btn");
+                setPubBtn(false);
+                setUnpubBtn(true);
+            }
+        }
+    }
+
     return(
         <>
             <h3>Course Status</h3>
-            <div className="list-group list-group-horizontal">
-                <a href="#" className="list-group-item list-group-item-action w-100 wd-course-status-button"><FaBan /> Unpublish</a>
-                <a href="#" className="list-group-item list-group-item-action w-100 wd-course-status-button"><FaCheckCircle /> Published</a>
+
+            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button id="unpublishbtn" className="w-100 wd-course-status-button" type="button" disabled={isUnpubBtnDisabled} onClick={() => changePublish("unpub")}><FaBan /> Unpublish</button>
+                <button id="publishbtn" className="w-100 wd-course-status-button" type="button" disabled={isPubBtnDisabled} onClick={() => changePublish("pub")}><FaCheckCircle /> Published</button>
             </div>
 
             <p></p>
 
-            <div className="list-group">
-                <a href="#" className="list-group-item list-group-item-action wd-course-status-button"><FaFileImport /> Import Existing Content</a>
-                <a href="#" className="list-group-item list-group-item-action wd-course-status-button"><FaRegArrowAltCircleRight /> Import From Commons</a>
-                <a href="#" className="list-group-item list-group-item-action wd-course-status-button"><FaRegDotCircle /> Choose Home Page</a>
-                <a href="#" className="list-group-item list-group-item-action wd-course-status-button"><FaChartBar /> View Course Stream</a>
-                <a href="#" className="list-group-item list-group-item-action wd-course-status-button"><FaBullhorn /> New Announcement</a>
-                <a href="#" className="list-group-item list-group-item-action wd-course-status-button"><FaChartBar /> New Analytics</a>
-                <a href="#" className="list-group-item list-group-item-action wd-course-status-button"><FaBell /> View Course Notifications</a>
+            <div className="d-grid gap-1 mx-auto">
+                <button className="wd-course-status-button" type="button"><FaFileImport /> Import Existing Content</button>
+                <button className="wd-course-status-button" type="button"><FaRegArrowAltCircleRight /> Import From Commons</button>
+                <button className="wd-course-status-button" type="button"><FaRegDotCircle /> Choose Home Page</button>
+                <button className="wd-course-status-button" type="button"><FaChartBar /> View Course Stream</button>
+                <button className="wd-course-status-button" type="button"><FaBullhorn /> New Announcement</button>
+                <button className="wd-course-status-button" type="button"><FaChartBar /> New Analytics</button>
+                <button className="wd-course-status-button" type="button"><FaBell /> View Course Notifications</button>
             </div>
 
             <p></p>
@@ -30,7 +62,7 @@ function Status() {
             </div>
             <div className="row"><hr/></div>
             <div className="row wd-coming-up-todo-row">
-                <a className="wd-hyperlinks" href="/Kanbas/Courses/Assignments/Edit/screen.html"><FaCalendarCheck /> Grade A1 - ENV + HTML</a>
+                <Link to={`/Kanbas/Courses/${course?.name}/Grades`}><FaCalendarCheck /> Grade A1 - ENV + HTML</Link>
                 <p className="wd-subheader-to-do">100 points • Sep 18 at 11:59pm</p>
             </div>
 
@@ -42,21 +74,21 @@ function Status() {
                 </div>
                 <div className="col">
                     <h6>
-                        <a className="wd-hyperlinks" href="/Kanbas/Calendar/index.html"><FaCalendarDay /> View Calendar</a>
+                        <Link to={`/Kanbas/Calendar`}><FaCalendarDay /> View Calendar</Link>          
                     </h6>
                 </div>
             </div>
             <div className="row"><hr/></div>
             <div className="row wd-coming-up-todo-row">
-                <a className="wd-hyperlinks" href="#"><FaCalendarDay />Lecture</a>
+                <Link to={`/Kanbas/Calendar`}><FaCalendarDay />Lecture</Link>
                 <p className="wd-subheader-coming-up">CS4500.12631.202410 Sep 11 at 11:45am</p>
             </div>
             <div className="row wd-coming-up-todo-row">
-                <a className="wd-hyperlinks" href="#"><FaCalendarDay />CS5610 06 SP23 Lecture</a>
+                <Link to={`/Kanbas/Calendar`}><FaCalendarDay />CS5610 06 SP23 Lecture</Link>
                 <p className="wd-subheader-coming-up">CS4500.12631.202410 Sep 11 at 6pm</p>
             </div>
             <div className="row wd-coming-up-todo-row">
-                <a className="wd-hyperlinks" href="#"><FaCalendarDay />CS5610 Web Development Summer 1 2023 Lecture</a>
+            <Link to={`/Kanbas/Calendar`}><FaCalendarDay />CS5610 Web Development Summer 1 2023 Lecture</Link>
                 <p className="wd-subheader-coming-up">CS4500.12631.202410 Sep 11 at 7pm</p>
             </div>
         </>
