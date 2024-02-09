@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./index.css";
 import { modules } from "../../Database";
-import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus } from "react-icons/fa";
+import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown } from "react-icons/fa";
 import { useParams } from "react-router";
+import { RxDragHandleDots2 } from "react-icons/rx";
 
 function ModuleList() {
     const { courseId } = useParams();
@@ -31,10 +32,10 @@ function ModuleList() {
                 {modulesList.map((module) => (
                     <li key={module._id} className="list-group-item" onClick={() => setSelectedModule(module)}>
                         <div>
-                            <FaEllipsisV className="me-2" />
-                            {module.name}
+                            <RxDragHandleDots2 className="me-2" /><FaCaretDown style={{paddingRight: "5px"}} /> {module.name}
                             <span className="float-end">
                                 <FaCheckCircle className="text-success" />
+                                <FaCaretDown style={{paddingLeft: "5px"}} />
                                 <FaPlusCircle className="ms-2" />
                                 <FaEllipsisV className="ms-2" />
                             </span>
@@ -44,8 +45,7 @@ function ModuleList() {
                             <ul className="list-group">
                                 {module.lessons?.map((lesson) => (
                                 <li key={lesson._id} className="list-group-item">
-                                    <FaEllipsisV className="me-2" />
-                                    {lesson.name}
+                                    <RxDragHandleDots2 className="me-2" />{lesson.name}
                                     <span className="float-end">
                                         <FaCheckCircle className="text-success" />
                                         <FaEllipsisV className="ms-2" />
