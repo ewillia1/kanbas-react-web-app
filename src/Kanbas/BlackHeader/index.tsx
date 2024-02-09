@@ -40,44 +40,42 @@ function BlackHeader() {
         { label: "Settings", icon: <FaCog className="fs-2 wd-react-icon" />, hidden: <span></span> },
     ];
     
-    const { pathname } = useLocation();
     const { courseId } = useParams();
     const course = courses.find((course) => course._id === courseId);
 
-    function changeIcon(_x: string) {
-        let x= document.getElementById("iconForMiniCourseNav");
+    // Change  icon from chevron down to x.
+    function changeIcon() {
+        let x = document.getElementById("iconForMiniCourseNav");
         if (x !== null) {
-            x.classList.toggle("fa-x")
+            x.classList.toggle("fa-x");
         }
     }
 
     return(
-        <>
-            <nav className="navbar sticky-top wd-black-navbar" aria-label="Small site nav bar">
-                <div className="container-fluid">
-                    <button className="wd-small-navbar" id="threeBarDropDown" data-bs-toggle="dropdown" aria-expanded="false"><FaBars/></button>
-                    <ul className="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="threeBarDropDown">
-                        <li><MdCancelPresentation className="fs-2 float-end"/></li>
-                        {kanbasNavLinks.map((link, index) => (
-                            <li key={index} className="wd-navigation-link dropdown-item" data-bs-dismiss="modal">
-                                <Link to={`/Kanbas/${link.label}`}> {link.icon} {link.label} {link.optional} </Link>
-                            </li>
-                        ))}
-                    </ul>
+        <nav className="navbar sticky-top wd-black-navbar" aria-label="Small site nav bar">
+            <div className="container-fluid">
+                <button className="wd-small-navbar" id="threeBarDropDown" data-bs-toggle="dropdown" aria-expanded="false"><FaBars/></button>
+                <ul className="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="threeBarDropDown">
+                    <li><MdCancelPresentation className="fs-2 float-end"/></li>
+                    {kanbasNavLinks.map((link) => (
+                        <li key={link.label} className="wd-navigation-link dropdown-item" data-bs-dismiss="modal">
+                            <Link to={`/Kanbas/${link.label}`}> {link.icon} {link.label} {link.optional} </Link>
+                        </li>
+                    ))}
+                </ul>
 
-                    <p className="wd-centered-text">{course?.number} {course?.name}</p>
-                    <button className="wd-small-navbar"><FaGlasses /></button>
-                    <button className="wd-small-navbar" id="carrotDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i id="iconForMiniCourseNav" onClick={() => changeIcon("1")} className="fa-solid fa-chevron-down"></i></button>
-                    <ul className="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="carrotDropdown">
-                        {courseNavLinks.map((link, index) => (
-                            <li key={index} className="wd-navigation-link dropdown-item">
-                                <Link to={`/Kanbas/Courses/${course?._id}/${link.label}`}> {link.icon} {link.label} {link.hidden} </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </nav>
-        </>
+                <p className="wd-centered-text">{course?.number} {course?.name}</p>
+                <button className="wd-small-navbar"><FaGlasses /></button>
+                <button className="wd-small-navbar" id="carrotDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i id="iconForMiniCourseNav" onClick={() => changeIcon()} className="fa-solid fa-chevron-down"></i></button>
+                <ul className="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="carrotDropdown">
+                    {courseNavLinks.map((link) => (
+                        <li key={link.label} className="wd-navigation-link dropdown-item">
+                            <Link to={`/Kanbas/Courses/${course?._id}/${link.label}`}> {link.icon} {link.label} {link.hidden} </Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </nav>
     );
 }
 export default BlackHeader
