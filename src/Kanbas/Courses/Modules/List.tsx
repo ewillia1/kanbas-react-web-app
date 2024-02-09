@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import { modules } from "../../Database";
-import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown, FaCaretRight } from "react-icons/fa";
+import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown } from "react-icons/fa";
 import { useParams } from "react-router";
 import { RxDragHandleDots2 } from "react-icons/rx";
 
@@ -9,16 +9,6 @@ function ModuleList() {
     const { courseId } = useParams();
     const modulesList = modules.filter((module) => module.course === courseId);
     const [selectedModule, setSelectedModule] = useState(modulesList[0]);
-    // const [icon, setIcon] = useState(false);
-
-    // useEffect(() => {
-    //     console.log("icon = " + icon);
-    //     if (!icon) {
-    //         setIcon(true);
-    //     } else {
-    //         setIcon(false);
-    //     }
-    // }, [selectedModule]);
 
     return (
         <>
