@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import { modules } from "../../Database";
-import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown } from "react-icons/fa";
+import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown, FaCaretRight } from "react-icons/fa";
 import { useParams } from "react-router";
 import { RxDragHandleDots2 } from "react-icons/rx";
 
@@ -9,6 +9,16 @@ function ModuleList() {
     const { courseId } = useParams();
     const modulesList = modules.filter((module) => module.course === courseId);
     const [selectedModule, setSelectedModule] = useState(modulesList[0]);
+    // const [icon, setIcon] = useState(false);
+
+    // useEffect(() => {
+    //     console.log("icon = " + icon);
+    //     if (!icon) {
+    //         setIcon(true);
+    //     } else {
+    //         setIcon(false);
+    //     }
+    // }, [selectedModule]);
 
     return (
         <>
@@ -32,7 +42,8 @@ function ModuleList() {
                 {modulesList.map((module) => (
                     <li key={module._id} className="list-group-item" onClick={() => setSelectedModule(module)}>
                         <div>
-                            <RxDragHandleDots2 className="me-2" /><FaCaretDown style={{paddingRight: "5px"}} /> {module.name}
+                            <RxDragHandleDots2 className="me-2" />
+                            <FaCaretDown style={{paddingRight: "5px"}} /> {module.name}
                             <span className="float-end">
                                 <FaCheckCircle className="text-success" />
                                 <FaCaretDown style={{paddingLeft: "5px"}} />
