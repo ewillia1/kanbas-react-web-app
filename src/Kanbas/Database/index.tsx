@@ -2,5 +2,6 @@
 // For now we just have the courses, but later sections will add users, assignments, modules, etc.
 import courses from "./courses.json";
 import modules from "./modules.json";
+import assignments from "./assignments.json";
 
-export { courses, modules };
+export { courses, modules, assignments };
