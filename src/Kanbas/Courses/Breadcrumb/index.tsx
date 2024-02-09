@@ -39,13 +39,13 @@ function Breadcrumb() {
                     <nav className="navbar wd-breadcrumb-navbar" aria-label="Small site nav bar">
                         <div className="container-fluid">
                             <button className="wd-three-bar-menu" onClick={() => enableCourseNav()}><HiMiniBars3 /></button>
-                            <nav aria-label="breadcrumb">
+                            <nav aria-label="breadcrumb" style={{paddingTop: "14px"}}>
                                 <ol className="breadcrumb">
                                     <li className="breadcrumb-item"><Link className="wd-breadcrumb-link" to={`/Kanbas/Courses/${course?._id}/Home`}>{course?.number} {course?.name}</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">{pageName}</li>
                                 </ol>
                             </nav>
-                            <button className="wd-rounded-corners-all-around wd-home-button">
+                            <button className="wd-rounded-corners-all-around wd-home-button" style={{marginTop: "14px"}}>
                                 <i className="fa-solid fa-glasses"></i> Student View
                             </button>
                         </div>
