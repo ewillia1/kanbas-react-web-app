@@ -36,9 +36,9 @@ function Status() {
         <>
             <h3>Course Status</h3>
 
-            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button id="unpublishbtn" className="w-100 wd-course-status-button" type="button" disabled={isUnpubBtnDisabled} onClick={() => changePublish("unpub")}><FaBan /> Unpublish</button>
-                <button id="publishbtn" className="w-100 wd-course-status-button" type="button" disabled={isPubBtnDisabled} onClick={() => changePublish("pub")}><FaCheckCircle /> Published</button>
+            <div className="d-grid gap-1 d-md-flex mx-auto">
+                <button id="unpublishbtn" className="wd-course-status-button" type="button" disabled={isUnpubBtnDisabled} onClick={() => changePublish("unpub")}><FaBan /> Unpublish</button>
+                <button id="publishbtn" className="wd-course-status-button" type="button" disabled={isPubBtnDisabled} onClick={() => changePublish("pub")}><FaCheckCircle /> Published</button>
             </div>
 
             <p></p>
