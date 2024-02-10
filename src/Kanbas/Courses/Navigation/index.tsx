@@ -6,7 +6,7 @@ import { courses } from "../../Database";
 function CourseNavigation() {
     const links = [ "Home", "Modules", "Piazza", "Grades", "Assignments", "Quizzes", "People", 
                     "Panopto Video","Discussions","Announcements", "Pages", "Files", "Rubrics",
-                    "Outcomes","Collaborations", "Syllabus"];
+                    "Outcomes","Collaborations", "Syllabus", "Settings"];
     const { pathname } = useLocation();
     const { courseId } = useParams();
     const course = courses.find((course) => course._id === courseId);

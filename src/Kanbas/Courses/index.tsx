@@ -38,6 +38,7 @@ function Courses() {
                     <Route path="Outcomes" element={<h1>Outcomes</h1>} />
                     <Route path="Collaborations" element={<h1>Collaborations</h1>} />
                     <Route path="Syllabus" element={<h1>Syllabus</h1>} />
+                    <Route path="Settings" element={<h1>Settings</h1>} />
                 </Routes>
             </div>
         </div>
