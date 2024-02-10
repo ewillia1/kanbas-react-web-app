@@ -31,7 +31,7 @@ function Assignments() {
             <div style={{marginBottom: "15px"}}>
             <RxDragHandleDots2 className="me-2" /><FaCaretDown style={{paddingRight: "5px"}} /> ASSIGNMENTS
                 <span className="float-end">
-                    <label className="wd-percentage-label">40% of Total</label>
+                    <span className="wd-percentage-label">40% of Total</span>
                     <FaCheckCircle className="text-success" />
                     <FaPlusCircle className="ms-2" /><FaEllipsisV className="ms-2" />
                 </span>
@@ -46,7 +46,7 @@ function Assignments() {
                     <Link to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}>
                         <b>{assignment.title}</b><br/>
                         <span className="wd-week-span">{assignment.subtitle}  Module |</span><br/>
-                        <span className="wd-week-span"><b>Due: </b>{assignment.dueDate} | {assignment.points}</span>
+                        <span className="wd-week-span"><b>Due: </b>{assignment.dueDate} | {assignment.points} pts</span>
                     </Link>
                 </li>))}
             </ul>
