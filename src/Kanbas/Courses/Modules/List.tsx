@@ -21,12 +21,14 @@ function ModuleList() {
     //     }
     // }, [selectedModule]);
 
-    function changeModuleIcon(module: React.SetStateAction<{ _id: string; name: string; description: string; course: string; lessons: { _id: string; name: string; description: string; module: string; }[]; } | { _id: string; name: string; description: string; course: string; lessons?: undefined; }>) {
+    function changeModuleIcon(module: React.SetStateAction<{ _id: string; name: string; description: string; course: string; id_icon: string; lessons: { _id: string; name: string; description: string; module: string; }[]; } | { _id: string; name: string; description: string; course: string; id_icon?: undefined; lessons?: undefined; } | { _id: string; name: string; description: string; course: string; lessons: { _id: string; name: string; description: string; module: string; }[]; id_icon?: undefined; }>, _iconID: string | undefined) {
         setSelectedModule(module);
 
-        let x = document.getElementById("iconForModule");
-        if (x !== null) {
-            x.classList.toggle("fa-caret-down");
+        if (typeof(_iconID) === 'string') {
+            let x = document.getElementById(_iconID);
+            if (x !== null) {
+                x.classList.toggle("fa-caret-down");
+            }
         }
     }
 
@@ -50,12 +52,12 @@ function ModuleList() {
 
             <ul className="list-group wd-modules">
                 {modulesList.map((module) => (
-                    <li key={module._id} className="list-group-item" onClick={() => changeModuleIcon(module)}>
+                    <li key={module._id} className="list-group-item" onClick={() => changeModuleIcon(module, module.id_icon)}>
                         <div>
                             <RxDragHandleDots2 className="me-2" />
                             {/* { icon ? <FaCaretRight style={{paddingRight: "5px"}} id={module.icon_id} /> : <FaCaretDown style={{paddingRight: "5px"}} id={module.icon_id} /> } {module.name} */}
                             
-                            <i id="iconForModule" className="fa-solid fa-caret-right"></i>
+                            <i id={module.id_icon} className="fa-solid fa-caret-right"></i>
                             
                             <span className="float-end">
                                 <FaCheckCircle className="text-success" />
