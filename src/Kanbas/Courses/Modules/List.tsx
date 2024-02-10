@@ -53,7 +53,7 @@ function ModuleList() {
                     <li key={module._id} className="list-group-item" onClick={() => changeModuleIcon(module)}>
                         <div>
                             <RxDragHandleDots2 className="me-2" />
-                            {/* { icon ? <FaAngleRight style={{paddingRight: "5px"}} id={module.icon_id} /> : <FaCaretDown style={{paddingRight: "5px"}} id={module.icon_id} /> } {module.name} */}
+                            {/* { icon ? <FaCaretRight style={{paddingRight: "5px"}} id={module.icon_id} /> : <FaCaretDown style={{paddingRight: "5px"}} id={module.icon_id} /> } {module.name} */}
                             
                             <i id="iconForModule" className="fa-solid fa-caret-right"></i>
                             
