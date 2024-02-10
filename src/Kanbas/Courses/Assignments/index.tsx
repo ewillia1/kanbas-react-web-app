@@ -8,8 +8,8 @@ import { RxDragHandleDots2 } from "react-icons/rx";
 
 function Assignments() {
   const { courseId } = useParams();
-  const assignmentList = assignments.filter(
-    (assignment) => assignment.course === courseId);
+  const assignmentList = assignments.filter((assignment) => assignment.course === courseId);
+  
   return (
     <>
         <div>
@@ -28,28 +28,30 @@ function Assignments() {
 
         <ul className="list-group wd-modules">
             <li className="list-group-item">
-            <div style={{marginBottom: "15px"}}>
-            <RxDragHandleDots2 className="me-2" /><FaCaretDown style={{paddingRight: "5px"}} /> ASSIGNMENTS
-                <span className="float-end">
-                    <span className="wd-percentage-label">40% of Total</span>
-                    <FaCheckCircle className="text-success" />
-                    <FaPlusCircle className="ms-2" /><FaEllipsisV className="ms-2" />
-                </span>
-            </div>
-            <ul className="list-group">
-                {assignmentList.map((assignment) => (
-                <li key={assignment._id} className="list-group-item wd-assignment">
-                    <RxDragHandleDots2 className="me-2" /><TbFilePencil className="wd-pencil-paper " />
+                <div style={{marginBottom: "15px"}}>
+                    <RxDragHandleDots2 className="me-2" /><FaCaretDown style={{paddingRight: "5px"}} /> ASSIGNMENTS
                     <span className="float-end">
-                        <FaCheckCircle className="text-success" /><FaEllipsisV className="ms-2" />
+                        <span className="wd-percentage-label">40% of Total</span>
+                        <FaCheckCircle className="text-success" />
+                        <FaPlusCircle className="ms-2" /><FaEllipsisV className="ms-2" />
                     </span>
-                    <Link to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}>
-                        <b>{assignment.title}</b><br/>
-                        <span className="wd-week-span">{assignment.subtitle}  Module |</span><br/>
-                        <span className="wd-week-span"><b>Due: </b>{assignment.dueDate} | {assignment.points} pts</span>
-                    </Link>
-                </li>))}
-            </ul>
+                </div>
+
+                <ul className="list-group">
+                    {assignmentList.map((assignment) => (
+                        <li key={assignment._id} className="list-group-item wd-assignment">
+                            <RxDragHandleDots2 className="me-2" /><TbFilePencil className="wd-pencil-paper " />
+                            <span className="float-end">
+                                <FaCheckCircle className="text-success" /><FaEllipsisV className="ms-2" />
+                            </span>
+                            <Link to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}>
+                                <b>{assignment.title}</b><br/>
+                                <span className="wd-week-span">{assignment.subtitle}  Module |</span><br/>
+                                <span className="wd-week-span"><b>Due: </b>{assignment.dueDate} | {assignment.points} pts</span>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
             </li>
         </ul>
     </>
