@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import { modules } from "../../Database";
-import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown } from "react-icons/fa";
+import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown, FaAngleRight } from "react-icons/fa";
 import { useParams } from "react-router";
 import { RxDragHandleDots2 } from "react-icons/rx";
 
@@ -9,6 +9,26 @@ function ModuleList() {
     const { courseId } = useParams();
     const modulesList = modules.filter((module) => module.course === courseId);
     const [selectedModule, setSelectedModule] = useState(modulesList[0]);
+    
+    // const [icon, setIcon] = useState(false);
+
+    // useEffect(() => {
+    //     console.log("icon = " + icon);
+    //     if (icon) {
+    //         setIcon(false);
+    //     } else {
+    //         setIcon(true);
+    //     }
+    // }, [selectedModule]);
+
+    function changeModuleIcon(module: React.SetStateAction<{ _id: string; name: string; description: string; course: string; lessons: { _id: string; name: string; description: string; module: string; }[]; } | { _id: string; name: string; description: string; course: string; lessons?: undefined; }>) {
+        setSelectedModule(module);
+
+        let x = document.getElementById("iconForModule");
+        if (x !== null) {
+            x.classList.toggle("fa-caret-down");
+        }
+    }
 
     return (
         <>
@@ -30,10 +50,13 @@ function ModuleList() {
 
             <ul className="list-group wd-modules">
                 {modulesList.map((module) => (
-                    <li key={module._id} className="list-group-item" onClick={() => setSelectedModule(module)}>
+                    <li key={module._id} className="list-group-item" onClick={() => changeModuleIcon(module)}>
                         <div>
                             <RxDragHandleDots2 className="me-2" />
-                            <FaCaretDown style={{paddingRight: "5px"}} /> {module.name}
+                            {/* { icon ? <FaAngleRight style={{paddingRight: "5px"}} id={module.icon_id} /> : <FaCaretDown style={{paddingRight: "5px"}} id={module.icon_id} /> } {module.name} */}
+                            
+                            <i id="iconForModule" className="fa-solid fa-caret-right"></i>
+                            
                             <span className="float-end">
                                 <FaCheckCircle className="text-success" />
                                 <FaCaretDown style={{paddingLeft: "5px"}} />
