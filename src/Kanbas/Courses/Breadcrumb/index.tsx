@@ -1,20 +1,8 @@
 import { HiMiniBars3 } from "react-icons/hi2";
-import { Link, useParams } from "react-router-dom";
-import { courses } from "../../Database";
 import "./index.css";
+import GetBreadcrumb from "./util";
 
 function Breadcrumb() {
-    const { courseId } = useParams();
-    const course = courses.find((course) => course._id === courseId);
-
-    let currentURL = (document.URL);
-    let webPage = currentURL.split("/");
-    let pageName = webPage[webPage.length - 1];
-
-    if (!pageName.localeCompare("Panopto%20Video")) {
-        pageName = "Panopto Video";
-    }
-
     function enableCourseNav() {
         let x = document.getElementById("courseNav");
         console.log("clicked course nav menu button");
@@ -39,12 +27,7 @@ function Breadcrumb() {
                     <nav className="navbar wd-breadcrumb-navbar" aria-label="Small site nav bar">
                         <div className="container-fluid">
                             <button className="wd-three-bar-menu" onClick={() => enableCourseNav()}><HiMiniBars3 /></button>
-                            <nav aria-label="breadcrumb" style={{paddingTop: "14px"}}>
-                                <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><Link className="wd-breadcrumb-link" to={`/Kanbas/Courses/${course?._id}/Home`}>{course?.number} {course?.name}</Link></li>
-                                    <li className="breadcrumb-item active" aria-current="page">{pageName}</li>
-                                </ol>
-                            </nav>
+                            <GetBreadcrumb/>
                             <button className="wd-rounded-corners-all-around wd-home-button" style={{marginTop: "14px"}}>
                                 <i className="fa-solid fa-glasses"></i> Student View
                             </button>
