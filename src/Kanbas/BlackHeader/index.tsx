@@ -66,7 +66,7 @@ function BlackHeader() {
 
                 <p className="wd-centered-text">{course?.number} {course?.name}</p>
                 <button className="wd-small-navbar"><FaGlasses /></button>
-                <button className="wd-small-navbar" id="carrotDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i id="iconForMiniCourseNav" onClick={() => changeIcon()} className="fa-solid fa-chevron-down"></i></button>
+                <button className="wd-small-navbar" id="carrotDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i id="iconForMiniCourseNav" onClick={changeIcon} className="fa-solid fa-chevron-down"></i></button>
                 <ul className="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="carrotDropdown">
                     {courseNavLinks.map((link) => (
                         <li key={link.label} className="wd-navigation-link dropdown-item">
