@@ -58,7 +58,7 @@ function BlackHeader() {
                 <ul className="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="threeBarDropDown">
                     <li><MdCancelPresentation className="fs-2 float-end"/></li>
                     {kanbasNavLinks.map((link) => (
-                        <li key={link.label} className="wd-navigation-link dropdown-item" data-bs-dismiss="modal">
+                        <li key={link.label} className="wd-navigation-link dropdown-item">
                             <Link to={`/Kanbas/${link.label}`}> {link.icon} {link.label} {link.optional} </Link>
                         </li>
                     ))}
@@ -66,7 +66,7 @@ function BlackHeader() {
 
                 <p className="wd-centered-text">{course?.number} {course?.name}</p>
                 <button className="wd-small-navbar"><FaGlasses /></button>
-                <button className="wd-small-navbar" id="carrotDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i id="iconForMiniCourseNav" onClick={changeIcon} className="fa-solid fa-chevron-down"></i></button>
+                <button className="wd-small-navbar" id="carrotDropdown" data-bs-toggle="dropdown" aria-expanded="false" onClick={changeIcon}><i id="iconForMiniCourseNav" className="fa-solid fa-chevron-down"></i></button>
                 <ul className="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="carrotDropdown">
                     {courseNavLinks.map((link) => (
                         <li key={link.label} className="wd-navigation-link dropdown-item">
