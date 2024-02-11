@@ -36,14 +36,14 @@ function AssignmentEditor() {
 
                 <div className="wd-bottom-section">
                     <div className="row mb-3">
-                        <label htmlFor="points" className="col-sm-2 col-form-label wd-assign-edit-label">Points</label>
-                        <div className="col-sm-10">
+                        <label htmlFor="points" className="col-sm-4 col-form-label wd-assign-edit-label">Points</label>
+                        <div className="col-sm-8">
                             <input type="number" min="1" className="form-control" id="points" value={assignment?.points} onChange={myChangeFunction}/>
                         </div>
                     </div>
                     <div className="row mb-3">
-                        <label htmlFor="assignmentGroup" className="col-sm-2 col-form-label wd-assign-edit-label">Assignment Group</label>
-                        <div className="col-sm-10">
+                        <label htmlFor="assignmentGroup" className="col-sm-4 col-form-label wd-assign-edit-label">Assignment Group</label>
+                        <div className="col-sm-8">
                             <select className="form-select" id="assignmentGroup" name="assignmentGroup">
                                 <option>ASSIGNMENTS</option>
                                 <option>QUIZZES</option>
@@ -53,8 +53,8 @@ function AssignmentEditor() {
                         </div>
                     </div>
                     <div className="row mb-3">
-                        <label htmlFor="displayGrade" className="col-sm-2 col-form-label wd-assign-edit-label">Display Grade as</label>
-                        <div className="col-sm-10">
+                        <label htmlFor="displayGrade" className="col-sm-4 col-form-label wd-assign-edit-label">Display Grade as</label>
+                        <div className="col-sm-8">
                             <select className="form-select" id="displayGrade" name="displayGrade">
                                 <option>Percentage</option>
                                 <option>Dummy 1</option>
@@ -64,7 +64,7 @@ function AssignmentEditor() {
                         </div>
                     </div>
                     <div className="row mb-3">
-                        <div className="col-sm-10 offset-sm-2">
+                        <div className="col-sm-12 offset-sm-4">
                             <div className="form-check">
                             <input className="form-check-input" type="checkbox" id="gridCheck1"/>
                             <label className="form-check-label" htmlFor="gridCheck1">
@@ -74,8 +74,8 @@ function AssignmentEditor() {
                         </div>
                     </div>
                     <div className="row mb-3">
-                        <label htmlFor="submissionType" className="col-sm-2 col-form-label wd-assign-edit-label">Submission Type</label>
-                        <div className="col-sm-10">
+                        <label htmlFor="submissionType" className="col-sm-4 col-form-label wd-assign-edit-label">Submission Type</label>
+                        <div className="col-sm-8">
                             <select className="form-select" id="submissionType" name="submissionType">
                                 <option>Text Entry Box</option>
                                 <option>Website URL</option>
@@ -84,8 +84,8 @@ function AssignmentEditor() {
                         </div>
                     </div>
                     <div className="row mb-3">
-                        <p className="col-sm-2 col-form-label wd-assign-edit-label">Online Entry Options</p>
-                        <div className="col-sm-10" id="onlineEntryOptions">
+                        <p className="col-sm-4 col-form-label wd-assign-edit-label">Online Entry Options</p>
+                        <div className="col-sm-8" id="onlineEntryOptions">
                             <input className="form-check-input" type="checkbox" name="check-online-entry-options" id="chkbox-textEntry"/>
                             <label htmlFor="chkbox-textEntry" style={{paddingLeft: "5px"}}>Text Entry</label><br/>
                 
@@ -103,8 +103,8 @@ function AssignmentEditor() {
                         </div>
                     </div>
                     <div className="row mb-3">
-                        <p className="col-sm-2 col-form-label wd-assign-edit-label">Assign</p>
-                        <div className="col-sm-10 border wd-border-radius-8px" id="assign">
+                        <p className="col-sm-4 col-form-label wd-assign-edit-label">Assign</p>
+                        <div className="col-sm-8 border wd-border-radius-8px" id="assign">
                             <div className="mb-3">
                                 <p className="form-label" style={{paddingTop: "10px"}}>Assign to</p>
                                 <div className="container p-3 wd-rounded-corners-all-around wd-assign-to-container" id="assignTo">
