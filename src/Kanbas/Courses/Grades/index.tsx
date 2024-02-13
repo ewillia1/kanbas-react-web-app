@@ -48,7 +48,9 @@ function Grades() {
                     <datalist id="assignmentListOptions">
                         {as.map((homework) => {
                             return(
-                                <option key={homework._id}>{homework.title}</option>
+                                <option key={homework._id}>
+                                    {homework.title}
+                                </option>
                             );
                         })}
                     </datalist>
@@ -62,7 +64,11 @@ function Grades() {
                     <thead className="table-light">
                         <tr>
                             <th>Student Name</th>
-                            {as.map((assignment, a) => (<th className="wd-table-header" key={a}>{assignment.title}</th>))}
+                            {as.map((assignment, a) => (
+                                <th className="wd-table-header" key={a}>
+                                    {assignment.title}
+                                </th>
+                            ))}
                         </tr>
                     </thead>
                     <tbody>
