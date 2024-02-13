@@ -23,7 +23,7 @@ function Grades() {
 
             <div className="row">
                 <div className="col-sm">
-                    <label htmlFor="studentList" className="form-label">Student Name</label>
+                    <label htmlFor="studentList" className="form-label">Student Names</label>
                     <div className="input-group">
                         <div className="input-group-text"><FaMagnifyingGlass /></div>
                         <input type="text" className="form-control wd-search-dropdown" id="studentList" list="studentListOptions" placeholder="Search Students" onChange={myChangeFunction}/>
