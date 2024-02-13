@@ -12,6 +12,11 @@ function Dashboard() {
                 <div className="d-none d-sm-block sticky-top wd-dashboard">
                     <h1>Dashboard</h1> <hr/>
                 </div>
+
+                <div className="d-block d-md-none wd-0-lr-padding sticky-top">
+                    <BlackHeader/>
+                </div>
+
                 <div className="d-block d-sm-none">
                     <p className="wd-three-dot-menu"><FaEllipsisV /></p>
                     <hr />

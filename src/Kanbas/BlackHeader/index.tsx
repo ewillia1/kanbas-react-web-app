@@ -51,10 +51,21 @@ function BlackHeader() {
         }
     }
 
+    let currentURL = (document.URL);
+    console.log("currentURL = " + currentURL);
+    let webPage = currentURL.split("/");
+    let pageName = webPage[webPage.length - 1];
+    let onDashboard = false;
+
+    if (!pageName.localeCompare("Dashboard")) {
+        onDashboard = true;
+    }
+
     return(
         <nav className="navbar sticky-top wd-black-navbar" aria-label="Small site nav bar">
             <div className="container-fluid">
                 <button className="wd-small-navbar" id="threeBarDropDown" data-bs-toggle="dropdown" aria-expanded="false"><FaBars/></button>
+                
                 <ul className="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="threeBarDropDown">
                     <li><MdCancelPresentation className="fs-2 float-end"/></li>
                     {kanbasNavLinks.map((link) => (
@@ -64,9 +75,11 @@ function BlackHeader() {
                     ))}
                 </ul>
 
-                <p className="wd-centered-text">{course?.number} {course?.name}</p>
+                {onDashboard ? <p className="wd-centered-text">Dashboard</p> : <p className="wd-centered-text">{course?.number} {course?.name}</p>}
+
                 <button className="wd-small-navbar"><FaGlasses /></button>
                 <button className="wd-small-navbar" id="carrotDropdown" data-bs-toggle="dropdown" aria-expanded="false" onClick={changeIcon}><i id="iconForMiniCourseNav" className="fa-solid fa-chevron-down"></i></button>
+                
                 <ul className="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="carrotDropdown">
                     {courseNavLinks.map((link) => (
                         <li key={link.label} className="wd-navigation-link dropdown-item">
