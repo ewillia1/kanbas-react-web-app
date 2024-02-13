@@ -1,5 +1,4 @@
 import { Link, useLocation, useParams } from "react-router-dom";
-import { FaRegUserCircle, FaTachometerAlt, FaBook, FaRegCalendarAlt, FaRegEnvelope, FaRegClock, FaRegCaretSquareRight, FaRegArrowAltCircleRight, FaRegQuestionCircle } from "react-icons/fa";
 import "./index.css";
 import { courses } from "../../Database";
 
