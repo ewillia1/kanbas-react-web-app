@@ -1,8 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { courses } from "../Database";
 import { FaEllipsisV } from "react-icons/fa";
-import BlackHeader from "../BlackHeader";
 import "./index.css";
 
 function Dashboard() {

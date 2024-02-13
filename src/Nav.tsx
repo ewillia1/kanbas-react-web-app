@@ -1,7 +1,6 @@
 // The navigation links in the three components: Labs, HelloWorld, and Kanbas.
 // It is best implemented as a reusable component, as shown below.
 // This component can be imported into the HelloWorld, Labs, and Kanbas components.
-
 import { Link, useLocation } from "react-router-dom";
 
 function Nav() {

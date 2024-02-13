@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { FaHome, FaRegCircle, FaPlug, FaRocket, FaBars, FaUserFriends, FaComments, FaBullhorn, FaClipboardList, FaBullseye, FaCog, FaGlasses, FaBook, FaFolder, FaRegUserCircle, FaTachometerAlt, FaRegCalendarAlt, FaRegEnvelope, FaRegClock, FaRegCaretSquareRight, FaRegArrowAltCircleRight, FaRegQuestionCircle, FaEyeSlash, FaAngleRight, FaChevronDown } from "react-icons/fa";
 import { MdCancelPresentation } from "react-icons/md";
-import React from "react";
 import "./index.css";
 import { courses } from "../Database";
 
