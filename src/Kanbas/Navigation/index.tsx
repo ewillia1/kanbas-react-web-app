@@ -20,8 +20,8 @@ function KanbasNavigation() {
         <ul className="wd-kanbas-navigation">
             <li><a href="http://northeastern.edu"><img src="/images/northeastern_logo.png" alt="Northeastern University Logo" width="50"/></a></li>
             {links.map((link, index) => (
-                <li key={index} className={pathname.includes(link.label) ? "wd-active" : ""}>
-                    <Link to={`/Kanbas/${link.label}`}> {link.icon} <div>{link.label}</div> </Link>
+                <li key={index} className={pathname.includes(link.label) ? "wd-active " + link.label : ""}>
+                    <Link to={`/Kanbas/${link.label}`}> {link.icon} <div className="wd-label">{link.label}</div> </Link>
                 </li>
             ))}
         </ul>

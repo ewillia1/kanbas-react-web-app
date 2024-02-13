@@ -25,6 +25,18 @@
     color: red;
 }
 
+.wd-kanbas-navigation li.wd-active.Account {
+    background-color: white;
+}
+
+.wd-kanbas-navigation li.wd-active.Account a {
+    color: grey;
+}
+
+.wd-kanbas-navigation li.wd-active.Account .wd-label {
+    color: red;
+}
+
 .wd-kanbas-navigation a {
     color: white;
     text-decoration: none;
