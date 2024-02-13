@@ -14,6 +14,14 @@ function GetBreadcrumb() {
         pageName = "Panopto Video";
     }
 
+    if (!pageName.localeCompare("Zoom%20Meetings")) {
+        pageName = "Zoom Meetings";
+    }
+
+    if (!pageName.localeCompare("Progress%20Reports%20(EAB%20Navigate)")) {
+        pageName = "Progress Reports (EAB Navigate)";
+    }
+
     let secondToLast = webPage[webPage.length - 2];
     let inAssignments = false;
     if (!secondToLast.localeCompare("Assignments")) {
