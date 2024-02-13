@@ -1,7 +1,7 @@
 import { assignments, enrollments, grades, users } from "../../Database";
 import { Link, useParams } from "react-router-dom";
 import "./index.css";
-import { FaMagnifyingGlass } from "react-icons/fa6";
+import { FaFileExport, FaFileImport, FaGear, FaMagnifyingGlass } from "react-icons/fa6";
 import { SlArrowDown } from "react-icons/sl";
 import { CiFilter } from "react-icons/ci";
 
@@ -16,9 +16,9 @@ function Grades() {
 
     return (
         <div>
-            <button type="button" className="wd-float-right wd-rounded-corners-all-around wd-home-button wd-margin-5px"><i className="fa-solid fa-gear"></i></button>
-            <button type="button" className="wd-float-right wd-rounded-corners-all-around wd-home-button wd-margin-5px"><i className="fa-solid fa-file-export"></i> Export</button>
-            <button type="button" className="wd-float-right wd-rounded-corners-all-around wd-home-button wd-margin-5px"><i className="fa-solid fa-file-import"></i> Import</button>
+            <button type="button" className="wd-float-right wd-rounded-corners-all-around wd-home-button wd-margin-5px"><FaGear /></button>
+            <button type="button" className="wd-float-right wd-rounded-corners-all-around wd-home-button wd-margin-5px"><FaFileImport /> Export</button>
+            <button type="button" className="wd-float-right wd-rounded-corners-all-around wd-home-button wd-margin-5px"><FaFileExport /> Import</button>
             <div className="wd-float-done"></div>
 
             <div className="row">
@@ -74,7 +74,7 @@ function Grades() {
                                         <Link to="/Kanbas/Account" className="wd-student-name">{user?.firstName} {user?.lastName}</Link>
                                     </td>
                                     
-                                    {assignments.map((assignment, index) => {
+                                    {as.map((assignment, index) => {
                                         const grade = grades.find((grade) => grade.student === enrollment.user && grade.assignment === assignment._id);
                                         return(
                                             <td key={index} className="wd-table-cell">
