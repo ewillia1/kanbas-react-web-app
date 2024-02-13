@@ -1,29 +1,3 @@
-.wd-main-container {
-    padding-left: 0; 
-    padding-right: 0;
-}
-
-.wd-main-row {
-    max-width: 100%;
-}
-
-.wd-container {
-    text-align: center;
-    color: white;
-}
-
-.wd-top-right {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-}
-
-p.wd-nowrap {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .wd-course-card-col {
     width: 260px; 
     margin-top: 35px;
