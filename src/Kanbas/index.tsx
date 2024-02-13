@@ -11,12 +11,12 @@ function Kanbas() {
         <div className="container-fluid wd-main-container">
             <div className="row wd-main-row">
                 {/* Column 1a: Kanbas Navigation. Hide on screen smaller than medium. */}
-                <div className="col-md-1 col-lg-1 col-xl-1 d-none d-md-block">
+                <div className="col-md-1 col-lg-1 col-xl-1 col-xxl-1 d-none d-md-block">
                     <KanbasNavigation/>
                 </div>
 
                 {/* Column 2a: Rest of screen. */}
-                <div className="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-11">
+                <div className="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-11 col-xxl-11">
                     <Routes>
                         <Route path="/" element={<Navigate to="Dashboard" />} />
                         <Route path="Account" element={<h1>Account</h1>} />

@@ -20,7 +20,7 @@ function Courses() {
                     <BlackHeader/>
                 </div>
 
-                <div className="col" style={{paddingLeft: "12vw", paddingRight: "12vw"}}>
+                <div className="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-11 col-xxl-11" style={{paddingLeft: "12vw", paddingRight: "12vw"}}>
                     <Routes>
                         <Route path="/" element={<Navigate to="Home" />} />
                         <Route path="Home" element={<Home/>} />
