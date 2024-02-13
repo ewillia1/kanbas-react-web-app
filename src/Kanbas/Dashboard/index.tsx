@@ -23,7 +23,7 @@ function Dashboard() {
             </div>
             
             <div style={{paddingTop: "10px", paddingLeft: "20px", paddingRight: "20px"}}>
-                <h2>Published Courses (12)</h2> 
+                <h2>Published Courses ({courses.length})</h2> 
                 <hr />
             </div>
 
@@ -32,7 +32,7 @@ function Dashboard() {
                     {courses.map((course) => (
                         <div key={course._id} className="col" style={{ width: 300 }}>
                             <div className="card">
-                                <img src={`/images/${course.image}`} className="card-img-top" style={{ height: 150 }}/>
+                                <img src={`/images/${course.image}`} className="card-img-top" style={{ height: 150 }} alt="react image"/>
                                 <div className="card-body">
                                     <Link className="card-title wd-card-title" to={`/Kanbas/Courses/${course._id}/Home`}
                                         style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}><p className="wd-nowrap">{course.name}</p></Link>
