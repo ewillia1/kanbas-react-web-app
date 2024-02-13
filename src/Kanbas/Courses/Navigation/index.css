@@ -4,8 +4,6 @@
     padding: 10px;
     margin: 0;
     width: 125px;
-    position: -webkit-sticky;   /* Safari */
-    position: sticky;
     top: 0;
     overflow-y: auto;
     overflow-x: hidden;
@@ -30,15 +28,6 @@
 .wd-navigation a {
     color: red;
     text-decoration: none;
-}
-
-div.sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    background-color: yellow;
-    padding: 50px;
-    font-size: 20px;
 }
 
 .wd-course-nav {
