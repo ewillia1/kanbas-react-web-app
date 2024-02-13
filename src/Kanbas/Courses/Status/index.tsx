@@ -62,7 +62,7 @@ function Status() {
             </div>
             <div className="row"><hr/></div>
             <div className="row wd-coming-up-todo-row">
-                <Link to={`/Kanbas/Courses/${course?.name}/Grades`}><FaCalendarCheck /> Grade A1 - ENV + HTML</Link>
+                <Link to={`/Kanbas/Courses/${course?.name}/Grades`} className="wd-hyperlinks"><FaCalendarCheck /> Grade A1 - ENV + HTML</Link>
                 <p className="wd-subheader-to-do">100 points • Sep 18 at 11:59pm</p>
             </div>
 
@@ -74,21 +74,21 @@ function Status() {
                 </div>
                 <div className="col">
                     <h6>
-                        <Link to={`/Kanbas/Calendar`}><FaCalendarDay /> View Calendar</Link>          
+                        <Link to={`/Kanbas/Calendar`} className="wd-hyperlinks"><FaCalendarDay /> View Calendar</Link>          
                     </h6>
                 </div>
             </div>
             <div className="row"><hr/></div>
             <div className="row wd-coming-up-todo-row">
-                <Link to={`/Kanbas/Calendar`}><FaCalendarDay />Lecture</Link>
+                <Link to={`/Kanbas/Calendar`} className="wd-hyperlinks"><FaCalendarDay />Lecture</Link>
                 <p className="wd-subheader-coming-up">CS4500.12631.202410 Sep 11 at 11:45am</p>
             </div>
             <div className="row wd-coming-up-todo-row">
-                <Link to={`/Kanbas/Calendar`}><FaCalendarDay />CS5610 06 SP23 Lecture</Link>
+                <Link to={`/Kanbas/Calendar`} className="wd-hyperlinks"><FaCalendarDay />CS5610 06 SP23 Lecture</Link>
                 <p className="wd-subheader-coming-up">CS4500.12631.202410 Sep 11 at 6pm</p>
             </div>
             <div className="row wd-coming-up-todo-row">
-            <Link to={`/Kanbas/Calendar`}><FaCalendarDay />CS5610 Web Development Summer 1 2023 Lecture</Link>
+            <Link to={`/Kanbas/Calendar`} className="wd-hyperlinks"><FaCalendarDay />CS5610 Web Development Summer 1 2023 Lecture</Link>
                 <p className="wd-subheader-coming-up">CS4500.12631.202410 Sep 11 at 7pm</p>
             </div>
         </>

@@ -16,3 +16,24 @@
     opacity: 0.5;
     color: white;
 }
+
+.wd-coming-up-todo-row {
+    margin: 0;
+}
+
+.wd-subheader-coming-up {
+    padding-left: 45px; 
+    margin: 0;
+}
+
+.wd-subheader-to-do {
+    padding-left: 45px; 
+    margin: 0;
+}
+
+.wd-hyperlinks {
+    text-decoration: none;
+    color: red;
+    padding: 0; 
+    margin: 0;
+}
