@@ -82,7 +82,7 @@ function BlackHeader() {
                 
                 <ul className="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="carrotDropdown">
                     {courseNavLinks.map((link) => (
-                        <li key={link.label} className="wd-navigation-link dropdown-item">
+                        <li key={link.label} className="wd-navigation-link dropdown-item" onClick={changeIcon}>
                             <Link to={`/Kanbas/Courses/${course?._id}/${link.label}`}> {link.icon} {link.label} {link.hidden} </Link>
                         </li>
                     ))}
