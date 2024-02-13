@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { FaRegUserCircle, FaTachometerAlt, FaBook, FaRegCalendarAlt, FaRegEnvelope, FaRegClock, FaRegCaretSquareRight, FaRegArrowAltCircleRight, FaRegQuestionCircle } from "react-icons/fa";
 import "./index.css";
+import { ImLab } from "react-icons/im";
 
 function KanbasNavigation() {
     const links = [
@@ -13,6 +14,7 @@ function KanbasNavigation() {
         { label: "Studio", icon: <FaRegCaretSquareRight className="fs-2 wd-react-icon" /> },
         { label: "Commons", icon: <FaRegArrowAltCircleRight className="fs-2 wd-react-icon" /> },
         { label: "Help", icon: <FaRegQuestionCircle className="fs-2 wd-react-icon" /> },
+        { label: "Labs", icon: <ImLab className="fs-2 wd-react-icon" /> }
     ];
     const { pathname } = useLocation();
 
@@ -21,7 +23,7 @@ function KanbasNavigation() {
             <li><a href="http://northeastern.edu"><img src="/images/northeastern_logo.png" alt="Northeastern University Logo" width="50"/></a></li>
             {links.map((link, index) => (
                 <li key={index} className={pathname.includes(link.label) ? "wd-active " + link.label : ""}>
-                    <Link to={`/Kanbas/${link.label}`}> {link.icon} <div className="wd-label">{link.label}</div> </Link>
+                    {!link.label.localeCompare("Labs") ? <Link to={`/${link.label}`}> {link.icon} <div className="wd-label">{link.label}</div> </Link> : <Link to={`/Kanbas/${link.label}`}> {link.icon} <div className="wd-label">{link.label}</div> </Link>}
                 </li>
             ))}
         </ul>
