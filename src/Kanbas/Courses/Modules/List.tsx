@@ -33,6 +33,7 @@ function ModuleList() {
                     <li key={module._id} className="list-group-item" onClick={() => setSelectedModule(module)}>
                         <div>
                             <RxDragHandleDots2 className="me-2" />
+
                             {selectedModule._id === module._id ? <FaCaretDown style={{paddingRight: "5px"}}/> : <FaCaretRight style={{paddingRight: "5px"}}/>} {module.name}
                             
                             <span className="float-end">
