@@ -1,0 +1,52 @@
+.wd-float-right {
+    float: right;
+}
+
+.wd-float-done {
+    clear: both;
+}
+
+.wd-rounded-corners-all-around {
+    border-radius: 8px;
+    margin: 2px;
+}
+
+.wd-search-dropdown {
+    border-right: none; 
+    background-color: white;
+}
+
+.wd-dropdown-angle {
+    border-left: none;  
+    background-color: white;
+}
+
+.wd-grade-button {
+    background-color: buttonface;
+    border-color: buttonborder;
+}
+
+.wd-grade-button:hover {
+    background-color: buttonface;
+    border-color: buttonborder;
+}
+
+.wd-apply-filters-button {
+    margin-left: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.wd-table-header {
+    text-align: center;
+}
+
+.wd-table-cell {
+    text-align: center; 
+    vertical-align: middle;
+}
+
+.wd-student-name {
+    color: red;
+    text-decoration: none;
+}
