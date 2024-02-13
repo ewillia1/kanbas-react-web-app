@@ -16,7 +16,7 @@ function Courses() {
             <div className="row">
                 <CourseNavigation />
 
-                <div className="d-block d-md-none wd-0-lr-padding sticky-top">
+                <div className="d-block d-md-none wd-0-lr-padding">
                     <BlackHeader/>
                 </div>
 

@@ -61,7 +61,7 @@ function BlackHeader() {
     }
 
     return(
-        <nav className="navbar sticky-top wd-black-navbar" aria-label="Small site nav bar">
+        <nav className="navbar wd-black-navbar" aria-label="Small site nav bar">
             <div className="container-fluid">
                 <button className="wd-small-navbar" id="threeBarDropDown" data-bs-toggle="dropdown" aria-expanded="false"><FaBars/></button>
                 
