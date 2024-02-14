@@ -1,7 +1,7 @@
 [
     { "_id": "A101", "title": "Propulsion Assignment", "subtitle": "Week 0 - Assignment", "dueDate": "Sep 19, 2022 at 11:59pm", "points": "100", "course": "RS101" },
-    { "_id": "A102", "title": "Combustion Analysis", "subtitle": "Week 1 - Assignment", "dueDate": "Sep 25, 2022 at 11:59pm", "points": "100", "course": "RS101" },
-    { "_id": "A103", "title": "Nozzle Design Project", "subtitle": "Week 2 - Assignment", "dueDate": "Oct 2, 2022 at 11:59pm", "points": "100", "course": "RS101" },
+    { "_id": "A102", "title": "Combustion Analysis", "subtitle": "Week 1 - Assignment", "dueDate": "Sep 25, 2022 at 11:59pm", "points": "200", "course": "RS101" },
+    { "_id": "A103", "title": "Nozzle Design Project", "subtitle": "Week 2 - Assignment", "dueDate": "Oct 2, 2022 at 11:59pm", "points": "150", "course": "RS101" },
     { "_id": "A201", "title": "Aerodynamics Quiz", "subtitle": "Week 0 - Assignment", "dueDate": "Sep 19, 2022 at 11:59pm", "points": "100", "course": "RS102" },
     { "_id": "A202", "title": "Flow Analysis", "subtitle": "Week 1 - Assignment", "dueDate": "Sep 25, 2022 at 11:59pm", "points": "100", "course": "RS102" },
     { "_id": "A203", "title": "Heating Analysis", "subtitle": "Week 2 - Assignment", "dueDate": "Oct 2, 2022 at 11:59pm", "points": "100", "course": "RS102" },
