@@ -67,7 +67,7 @@
       "lastName": "Baggins",
       "email": "frodo@shire.com",
       "dob": "1368-09-22",
-      "role": "FACULTY"
+      "role": "STUDENT"
     },
     {
       "_id": "128",
@@ -77,7 +77,7 @@
       "lastName": "Elessar",
       "email": "aragorn@gondor.com",
       "dob": "2931-03-01",
-      "role": "FACULTY"
+      "role": "STUDENT"
     },
     {
       "_id": "129",
@@ -87,7 +87,7 @@
       "lastName": "Greenleaf",
       "email": "legolas@mirkwood.com",
       "dob": "2879-07-15",
-      "role": "FACULTY"
+      "role": "STUDENT"
     },
     {
         "_id": "130",
