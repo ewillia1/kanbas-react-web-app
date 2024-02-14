@@ -50,3 +50,7 @@
     color: red;
     text-decoration: none;
 }
+
+.wd-notbold{
+    font-weight: normal;
+}

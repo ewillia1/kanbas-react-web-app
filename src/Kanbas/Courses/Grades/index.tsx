@@ -67,6 +67,8 @@ function Grades() {
                             {as.map((assignment, a) => (
                                 <th className="wd-table-header" key={a}>
                                     {assignment.title}
+                                    <br/>
+                                    <span className="wd-notbold">Out of {assignment.points}</span>
                                 </th>
                             ))}
                         </tr>
@@ -84,7 +86,7 @@ function Grades() {
                                         const grade = grades.find((grade) => grade.student === enrollment.user && grade.assignment === assignment._id);
                                         return(
                                             <td key={index} className="wd-table-cell">
-                                                <input className="wd-table-cell" defaultValue={grade?.grade} size={4} type="number" min="1" max="100"/>
+                                                <input className="wd-table-cell" defaultValue={grade?.grade} size={4} type="number" min="0" max={assignment.points}/>
                                             </td>
                                         );
                                     })}

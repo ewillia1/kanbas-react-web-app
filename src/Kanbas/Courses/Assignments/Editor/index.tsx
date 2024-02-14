@@ -37,7 +37,7 @@ function AssignmentEditor() {
                     <div className="row mb-3">
                         <label htmlFor="points" className="col-sm-4 col-form-label wd-assign-edit-label">Points</label>
                         <div className="col-sm-8">
-                            <input type="number" min="1" className="form-control" id="points" value={assignment?.points} onChange={myChangeFunction}/>
+                            <input type="number" min="0" className="form-control" id="points" value={assignment?.points} onChange={myChangeFunction}/>
                         </div>
                     </div>
                     <div className="row mb-3">
