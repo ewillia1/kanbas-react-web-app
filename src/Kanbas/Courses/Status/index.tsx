@@ -62,7 +62,7 @@ function Status() {
             </div>
             <div className="row"><hr/></div>
             <div className="row wd-coming-up-todo-row">
-                <Link to={`/Kanbas/Courses/${course?.name}/Grades`} className="wd-hyperlinks"><FaCalendarCheck /> Grade A1 - ENV + HTML</Link>
+                <Link to={`/Kanbas/Courses/${course?._id}/Grades`} className="wd-hyperlinks"><FaCalendarCheck /> Grade A1 - ENV + HTML</Link>
                 <p className="wd-subheader-to-do">100 points • Sep 18 at 11:59pm</p>
             </div>
 
