@@ -12,9 +12,9 @@ function AssignmentEditor() {
     const [assignmentTitle, setAssignmentTitle] = useState(assignment?.title);
     const [assignmentDescription, setAssignmentDescription] = useState(assignment?.subtitle);
     const [assignmentPoints, setAssignmentPoints] = useState(assignment?.points);
-    const [assignmentDueDate, setAssignmentDueDate] = useState('2021-01-01');
-    const [assignmentAvailableFromDate, setAssignmentAvailableFromDate] = useState('2021-01-01');
-    const [assignmentUntilDate, setAssignmentUntilDate] = useState('2021-01-01');
+    const [assignmentDueDate, setAssignmentDueDate] = useState(assignment?.dueDate);
+    const [assignmentAvailableFromDate, setAssignmentAvailableFromDate] = useState(assignment?.availableFromDate);
+    const [assignmentUntilDate, setAssignmentUntilDate] = useState(assignment?.untilDate);
 
     let clickedAtLeastOneCheckbox = false;
 
