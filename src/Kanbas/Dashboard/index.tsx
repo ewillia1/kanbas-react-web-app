@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { courses } from "../Database";
-import { FaEllipsisV } from "react-icons/fa";
+import { FaEllipsisV, FaRegEdit } from "react-icons/fa";
 import "./index.css";
+import BlackHeader from "../BlackHeader";
 
 function Dashboard() {
     return (
@@ -26,12 +27,15 @@ function Dashboard() {
                     {courses.map((course) => (
                         <div key={course._id} className="col wd-course-card-col" style={{ width: 300 }}>
                             <div className="card">
-                                <img src={`/images/${course.image}`} className="card-img-top wd-card-image" style={{ height: 150 }} alt="blue react card"/>
+                                <img src={`/images/${course.image}`} className="card-img-top wd-card-image" style={{ height: 150 }} alt="course card"/>
                                 <div className="card-body">
                                     <Link className="card-title wd-card-title" to={`/Kanbas/Courses/${course._id}/Home`}
-                                        style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}><p className="wd-nowrap">{course.name}</p></Link>
-                                    <p className="card-text wd-nowrap">{course.name}</p>
-                                    <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">Go </Link>
+                                        style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
+                                            <p className="wd-nowrap" style={{marginBottom: "2px"}}>{course.name}</p>
+                                    </Link>
+                                    <p className="card-text wd-nowrap" style={{marginBottom: "2px"}}>{course.number}</p>
+                                    <p className="card-text wd-nowrap" style={{marginBottom: "2px", fontSize: "smaller"}}>{course.semester}</p>
+                                    <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn" style={{fontSize: "25px", border: "0", padding: "0"}}><FaRegEdit /></Link>
                                 </div>
                             </div>
                         </div>
