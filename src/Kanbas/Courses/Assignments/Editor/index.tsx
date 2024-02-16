@@ -19,30 +19,9 @@ function AssignmentEditor() {
     let clickedAtLeastOneCheckbox = false;
 
     function handleSave() {
-        console.log("in handleSave");
-        if (clickedAtLeastOneCheckbox) {
-            console.log("Actually saving assignment TBD in later assignments");
-            navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-        } else {
-            alert("Please check at least one Online Entry Options.");
-        }
+        console.log("Actually saving assignment TBD in later assignments");
+        navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     }
-
-    // Check to make sure that at least one Online Entry Options checkbox is checked.
-    $(function(){
-        var requiredCheckboxes = $('input:checkbox[required]');
-        requiredCheckboxes.on('change',function(){
-            if($('input:checkbox[type=checkbox]').is(":checked") == true) {
-                requiredCheckboxes.removeAttr('required');
-                console.log("if");
-                clickedAtLeastOneCheckbox = true;
-            } else {
-                requiredCheckboxes.attr('required', 'required');
-                console.log("else");
-                clickedAtLeastOneCheckbox = false;
-            }
-        });
-    });
 
     return (
         <div>
@@ -112,19 +91,19 @@ function AssignmentEditor() {
                     <div className="row mb-3">
                         <p className="col-sm-4 col-form-label wd-assign-edit-label">Online Entry Options</p>
                         <div className="col-sm-8" id="onlineEntryOptions">
-                            <input className="form-check-input" type="checkbox" name="check-online-entry-options" id="chkbox-textEntry" required/>
+                            <input className="form-check-input" type="checkbox" name="check-online-entry-options" id="chkbox-textEntry"/>
                             <label htmlFor="chkbox-textEntry" style={{paddingLeft: "5px"}}>Text Entry</label><br/>
                 
-                            <input className="form-check-input" type="checkbox" name="check-online-entry-options" id="chkbox-websiteURL" required/>
+                            <input className="form-check-input" type="checkbox" name="check-online-entry-options" id="chkbox-websiteURL"/>
                             <label htmlFor="chkbox-websiteURL" style={{paddingLeft: "5px"}}>Website URL</label><br/>
                 
-                            <input className="form-check-input" type="checkbox" name="check-online-entry-options" id="chkbox-mediaRec" required/>
+                            <input className="form-check-input" type="checkbox" name="check-online-entry-options" id="chkbox-mediaRec"/>
                             <label htmlFor="chkbox-mediaRec" style={{paddingLeft: "5px"}}>Media Recordings</label><br/>
                 
-                            <input className="form-check-input" type="checkbox" name="check-online-entry-options" id="chkbox-studentAnno" required/>
+                            <input className="form-check-input" type="checkbox" name="check-online-entry-options" id="chkbox-studentAnno"/>
                             <label htmlFor="chkbox-studentAnno" style={{paddingLeft: "5px"}}>Student Annotation</label><br/>
                 
-                            <input className="form-check-input" type="checkbox" name="check-online-entry-options" id="chkbox-fileUploads" required/>
+                            <input className="form-check-input" type="checkbox" name="check-online-entry-options" id="chkbox-fileUploads"/>
                             <label htmlFor="chkbox-fileUploads" style={{paddingLeft: "5px"}}>File Uploads</label><br/><br/>
                         </div>
                     </div>
