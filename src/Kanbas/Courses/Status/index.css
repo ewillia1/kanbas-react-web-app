@@ -1,14 +1,15 @@
+.btn:hover {
+    background-color: #cbcbcb;
+}
+
 .wd-course-status-button {
     text-align: left;
     border-radius: 8px;
-    margin: 2px;
-    background-color: buttonface;
-    border-color: buttonborder;
-    color: black;
+    border-width: thin;
 }
 
-.wd-course-status-button:hover {
-    background-color: #cbcbcb;
+.wd-status-btn {
+    text-align: left;
 }
 
 .wd-enabled-btn {

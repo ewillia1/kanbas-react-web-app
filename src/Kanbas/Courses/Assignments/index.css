@@ -5,15 +5,6 @@
     border-color: red;
 }
 
-.wd-rounded-corners-all-around {
-    border-radius: 8px;
-    margin: 2px;
-}
-
-.wd-assignment-button:hover {
-    background-color: #cbcbcb;
-}
-
 .wd-nowrap {
     white-space: nowrap;
     overflow: hidden;

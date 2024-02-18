@@ -32,7 +32,7 @@ function GetBreadcrumb() {
         <nav aria-label="breadcrumb" style={{paddingTop: "14px"}}>
             <ol className="breadcrumb">
                 <li className="breadcrumb-item"><Link className="wd-breadcrumb-link" to={`/Kanbas/Courses/${course?._id}/Home`}>{course?.number} {course?.name}</Link></li>
-                { inAssignments && <li className="breadcrumb-item"><Link className="wd-breadcrumb-link" to={`/Kanbas/Courses/${course?._id}/Assignments`}>Assignments</Link></li> }
+                    { inAssignments && <li className="breadcrumb-item"><Link className="wd-breadcrumb-link" to={`/Kanbas/Courses/${course?._id}/Assignments`}>Assignments</Link></li> }
                 <li className="breadcrumb-item active" aria-current="page">{pageName}</li>
             </ol>
         </nav>

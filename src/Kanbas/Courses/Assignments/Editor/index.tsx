@@ -25,7 +25,7 @@ function AssignmentEditor() {
 
     return (
         <div>
-            <button type="button" className="wd-float-right wd-rounded-corners-all-around wd-home-button wd-margin-5px"><FaEllipsisV /></button>
+            <button type="button" className="wd-float-right btn btn-light btn-outline-dark"><FaEllipsisV /></button>
             <span className="wd-float-right wd-green-icon" style={{paddingRight: "10px"}}><FaCheckCircle /> <b>Published</b></span>
             <div className="wd-float-done"></div>
             <hr/>
@@ -113,7 +113,7 @@ function AssignmentEditor() {
                             <div className="mb-3">
                                 <p className="form-label" style={{paddingTop: "10px"}}>Assign to</p>
                                 <div className="container p-3 wd-rounded-corners-all-around wd-assign-to-container" id="assignTo">
-                                    <button className="wd-rounded-corners-all-around">Everyone <span className="float-end ps-5"><i className="fa-solid fa-plus"></i></span></button>
+                                    <button className="btn btn-light btn-outline-dark">Everyone <span className="float-end ps-5"><i className="fa-solid fa-plus"></i></span></button>
                                 </div>
                             </div>
                             <div className="mb-3">
@@ -131,7 +131,7 @@ function AssignmentEditor() {
                                 </div>
                             </div>
                             <div className="mb-3">
-                                <button type="button" className="btn wd-add-button"><i className="fa-solid fa-plus"></i>Add</button>
+                                <button type="button" className="btn btn-light btn-outline-dark wd-add-button"><i className="fa-solid fa-plus"></i>Add</button>
                             </div>
                         </div>
                     </div>
@@ -145,8 +145,8 @@ function AssignmentEditor() {
                 </div>
             </form>
 
-            <button onClick={handleSave} className="wd-rounded-corners-all-around wd-save-button ms-2 float-end">Save</button>
-            <Link to={`/Kanbas/Courses/${courseId}/Assignments`} className="wd-rounded-corners-all-around wd-cancel-button float-end">Cancel</Link>
+            <button onClick={handleSave} className="btn btn-light btn-outline-dark wd-save-button ms-2 float-end">Save</button>
+            <Link to={`/Kanbas/Courses/${courseId}/Assignments`} className="btn btn-light btn-outline-dark wd-cancel-button float-end">Cancel</Link>
         </div>
     );
 }

@@ -9,14 +9,12 @@ function Breadcrumb() {
         console.log(x);
         if (x === null) {
             console.log("x is null");
+        } else if (x.style.display === "none") {
+            x.style.display = "block";
+            console.log("courseNav appears");
         } else {
-            if (x.style.display === "none") {
-                x.style.display = "block";
-                console.log("courseNav appears");
-            } else {
-                x.style.display = "none";
-                console.log("courseNav goes away");
-            }
+            x.style.display = "none";
+            console.log("courseNav goes away");
         }
     }
     
@@ -28,7 +26,7 @@ function Breadcrumb() {
                         <div className="container-fluid">
                             <button className="wd-three-bar-menu" onClick={() => enableCourseNav()}><HiMiniBars3 /></button>
                             <GetBreadcrumb/>
-                            <button className="wd-rounded-corners-all-around wd-home-button" style={{marginTop: "14px"}}>
+                            <button className="btn btn-light btn-outline-dark" style={{marginTop: "14px"}}>
                                 <i className="fa-solid fa-glasses"></i> Student View
                             </button>
                         </div>

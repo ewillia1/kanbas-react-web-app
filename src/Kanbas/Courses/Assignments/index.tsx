@@ -17,9 +17,9 @@ function Assignments() {
             </div>
 
             <div className="float-end">
-                <button type="button" className="wd-rounded-corners-all-around wd-assignment-button"><FaPlus /> Group</button>
-                <button type="button" className="wd-rounded-corners-all-around wd-assignment-button wd-add-assignment"><FaPlus /> Assignment</button>
-                <button type="button" className="wd-rounded-corners-all-around wd-assignment-button"><FaEllipsisV /></button>
+                <button type="button" className="btn btn-light btn-outline-dark"><FaPlus /> Group</button>
+                <button type="button" className="btn btn-light btn-outline-dark wd-add-assignment"><FaPlus /> Assignment</button>
+                <button type="button" className="btn btn-light btn-outline-dark"><FaEllipsisV /></button>
             </div>
             <div className="wd-float-done"></div>
         </div>

@@ -37,20 +37,20 @@ function Status() {
             <h3>Course Status</h3>
 
             <div className="d-grid gap-1 d-md-flex mx-auto">
-                <button id="unpublishbtn" className="wd-course-status-button" type="button" disabled={isUnpubBtnDisabled} onClick={() => changePublish("unpub")}><FaBan /> Unpublish</button>
-                <button id="publishbtn" className="wd-course-status-button" type="button" disabled={isPubBtnDisabled} onClick={() => changePublish("pub")}><FaCheckCircle /> Published</button>
+                <button id="unpublishbtn" className="btn-light btn-outline-dark wd-course-status-button" type="button" disabled={isUnpubBtnDisabled} onClick={() => changePublish("unpub")}><FaBan /> Unpublish</button>
+                <button id="publishbtn" className="btn-light btn-outline-dark wd-course-status-button" type="button" disabled={isPubBtnDisabled} onClick={() => changePublish("pub")}><FaCheckCircle /> Published</button>
             </div>
 
             <p></p>
 
             <div className="d-grid gap-1 mx-auto">
-                <button className="wd-course-status-button" type="button"><FaFileImport /> Import Existing Content</button>
-                <button className="wd-course-status-button" type="button"><FaRegArrowAltCircleRight /> Import From Commons</button>
-                <button className="wd-course-status-button" type="button"><FaRegDotCircle /> Choose Home Page</button>
-                <button className="wd-course-status-button" type="button"><FaChartBar /> View Course Stream</button>
-                <button className="wd-course-status-button" type="button"><FaBullhorn /> New Announcement</button>
-                <button className="wd-course-status-button" type="button"><FaChartBar /> New Analytics</button>
-                <button className="wd-course-status-button" type="button"><FaBell /> View Course Notifications</button>
+                <button className="btn btn-light btn-outline-dark wd-status-btn" type="button"><FaFileImport /> Import Existing Content</button>
+                <button className="btn btn-light btn-outline-dark wd-status-btn" type="button"><FaRegArrowAltCircleRight /> Import From Commons</button>
+                <button className="btn btn-light btn-outline-dark wd-status-btn" type="button"><FaRegDotCircle /> Choose Home Page</button>
+                <button className="btn btn-light btn-outline-dark wd-status-btn" type="button"><FaChartBar /> View Course Stream</button>
+                <button className="btn btn-light btn-outline-dark wd-status-btn" type="button"><FaBullhorn /> New Announcement</button>
+                <button className="btn btn-light btn-outline-dark wd-status-btn" type="button"><FaChartBar /> New Analytics</button>
+                <button className="btn btn-light btn-outline-dark wd-status-btn" type="button"><FaBell /> View Course Notifications</button>
             </div>
 
             <p></p>

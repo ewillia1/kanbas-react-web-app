@@ -1,28 +1,5 @@
-.wd-float-right {
-    float: right;
-}
- 
-.wd-float-done {
-    clear: both;
-}
-
-.wd-course-status-dropdown {
-    background-color: buttonface;
-    border-color: buttonborder;
-    color: black;
-    width: max-content;
-    height: max-content;
-    margin: 5px;
-    border: 2px;
-    padding-top: 1px;
-    padding-right: 6px;
-    padding-bottom: 1px;
-    padding-left: 6px;
-}
-
-.wd-course-status-dropdown:hover {
+.btn:hover {
     background-color: #cbcbcb;
-    color: black;
 }
 
 .wd-green-icon {
@@ -30,58 +7,47 @@
 }
 
 .wd-module-plus {
-    margin: 5px; 
     background-color: red; 
     color: white; 
     border-color: red;
 }
 
-.wd-margin-5px {
-    margin: 5px;
-}
-
-.wd-home-button:hover {
-    background-color: #cbcbcb;
-}
-
-.wd-rounded-corners-all-around {
-    border-radius: 8px;
-    margin: 2px;
-}
-
 .wd-publish-all-btn {
     width: max-content;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
-.wd-modules,
-.wd-modules * {
-  border-radius: 0%;
-  border: none;
-  margin: 0px;
-  padding: 0px;
+.wd-modules, .wd-modules * {
+    border-radius: 0%;
+    border: none;
+    margin: 0px;
+    padding: 0px;
 }
 
 .wd-modules {
-  margin: 5px;
+    margin: 5px;
 }
 
 .wd-modules > li {
-  background-color: lightgray;
-  border: 1px solid gray !important;
-  border-left: none !important;
+    background-color: lightgray;
+    border: 1px solid gray !important;
+    border-left: none !important;
 }
 
 .wd-modules > li > div {
-  padding: 6px;
-  border-left: 1px solid gray !important;
+    padding: 6px;
+    border-left: 1px solid gray !important;
 }
 
 .wd-modules > li > ul > li {
-  padding: 5px;
-  border-top: 1px solid gray !important;
-  border-left: 2px solid green;
+    padding: 5px;
+    border-top: 1px solid gray !important;
+    border-left: 2px solid green;
 }
 
 .wd-modules > li {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
