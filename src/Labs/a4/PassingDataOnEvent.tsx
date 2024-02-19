@@ -5,7 +5,7 @@ const add = (a: number, b: number) => {
 function PassingDataOnEvent() {
     return (
         <div>
-            <h2>Passing Data on Event</h2>
+            <h3>Passing Data on Event</h3>
             <button onClick={() => add(2, 3)}   // Use this syntax
                 // onClick={add(2, 3)}          // and not this syntax. Otherwise you risk creating an infinite loop.
                 className="btn btn-primary">
