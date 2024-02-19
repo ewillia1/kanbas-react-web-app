@@ -1,3 +1,4 @@
+import BooleanStateVariables from "./BooleanStateVariables";
 import ClickEvent from "./ClickEvent";
 import Counter from "./Counter";
 import EventObject from "./EventObject";
@@ -17,6 +18,7 @@ function Assignment4() {
             <PassingFunctions theFunction={sayHello}/>
             <EventObject/>
             <Counter/>
+            <BooleanStateVariables/>
         </div>
     );
 }
