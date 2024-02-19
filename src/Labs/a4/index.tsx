@@ -1,4 +1,5 @@
 import ClickEvent from "./ClickEvent";
+import Counter from "./Counter";
 import EventObject from "./EventObject";
 import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
@@ -15,6 +16,7 @@ function Assignment4() {
             <PassingDataOnEvent/>
             <PassingFunctions theFunction={sayHello}/>
             <EventObject/>
+            <Counter/>
         </div>
     );
 }
