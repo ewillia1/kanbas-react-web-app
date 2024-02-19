@@ -11,7 +11,7 @@ function DateStateVariable() {
             <h3>Date State Variables</h3>
             <h4>{JSON.stringify(startDate)}</h4>
             <h4>{dateObjectToHtmlDateString(startDate)}</h4>
-            <input className="form-control" type="date" value={dateObjectToHtmlDateString(startDate)} onChange={(e) => setStartDate(new Date(e.target.value))}/>
+            <input className="form-control mb-2" type="date" value={dateObjectToHtmlDateString(startDate)} onChange={(e) => setStartDate(new Date(e.target.value))}/>
         </div>
     );
 }
