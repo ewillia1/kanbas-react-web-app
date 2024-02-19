@@ -1,3 +1,4 @@
+import ArrayStateVariable from "./ArrayStateVariable";
 import BooleanStateVariables from "./BooleanStateVariables";
 import ClickEvent from "./ClickEvent";
 import Counter from "./Counter";
@@ -25,6 +26,7 @@ function Assignment4() {
             <StringStateVariables/>
             <DateStateVariable/>
             <ObjectStateVariable/>
+            <ArrayStateVariable/>
         </div>
     );
 }
