@@ -4,6 +4,7 @@ import Counter from "./Counter";
 import EventObject from "./EventObject";
 import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
+import StringStateVariables from "./StringStateVariables";
 
 function Assignment4() {
     function sayHello() {
@@ -19,6 +20,7 @@ function Assignment4() {
             <EventObject/>
             <Counter/>
             <BooleanStateVariables/>
+            <StringStateVariables/>
         </div>
     );
 }
