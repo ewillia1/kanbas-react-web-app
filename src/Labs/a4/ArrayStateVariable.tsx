@@ -13,7 +13,7 @@ function ArrayStateVariable() {
         <div>
             <h3>Array State Variable</h3>
             <button className="btn btn-success mb-2" onClick={addElement}>Add Element</button>      {/* Button calls addElement to append to array. */}
-            <ul className="list-group">
+            <ul className="list-group mb-4">
                 {array.map((item, index) => (                       // Interate over array items.
                     <li key={index} className="list-group-item">
                         {item} <button className="btn btn-danger float-end" onClick={() => deleteElement(index)}>Delete</button>        {/* Render item's value button to delete element by its index. */}

@@ -7,7 +7,7 @@ function ObjectStateVariable() {
             <h3>Object State Variables</h3>
             <pre>{JSON.stringify(person, null, 2)}</pre>
             <input className="form-control mb-2" value={person.name} onChange={(e) => setPerson({ ...person, name: e.target.value })}/>               {/* The spreader operator: ...person */}
-            <input className="form-control" value={person.age} onChange={(e) => setPerson({ ...person, age: parseInt(e.target.value) })}/>
+            <input className="form-control mb-4" value={person.age} onChange={(e) => setPerson({ ...person, age: parseInt(e.target.value) })}/>
         </div>
     );
 }
