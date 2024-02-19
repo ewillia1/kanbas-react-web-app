@@ -1,0 +1,22 @@
+.breadcrumb-item+.breadcrumb-item::before {
+    float: left;
+    padding-right:  var(--bs-breadcrumb-item-padding-x);
+    color: var(--bs-breadcrumb-divider-color);
+    content: var(--bs-breadcrumb-divider, ">");
+}
+
+.wd-breadcrumb-navbar {
+    background-color: transparent; 
+    padding-left: 20px;
+}
+
+.wd-breadcrumb {
+    color: red;
+    padding-top: 10px;
+    padding-left: 50px;
+}
+
+.wd-breadcrumb-link {
+    color: red; 
+    text-decoration: none;
+}

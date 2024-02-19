@@ -1,0 +1,35 @@
+.wd-float-right {
+    float: right;
+}
+
+.wd-float-done {
+    clear: both;
+}
+
+.wd-search-dropdown {
+    border-right: none; 
+    background-color: white;
+}
+
+.wd-dropdown-angle {
+    border-left: none;  
+    background-color: white;
+}
+
+.wd-table-header {
+    text-align: center;
+}
+
+.wd-table-cell {
+    text-align: center; 
+    vertical-align: middle;
+}
+
+.wd-student-name {
+    color: red;
+    text-decoration: none;
+}
+
+.wd-notbold{
+    font-weight: normal;
+}

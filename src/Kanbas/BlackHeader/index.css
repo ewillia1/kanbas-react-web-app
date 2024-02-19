@@ -1,0 +1,54 @@
+.wd-black-navbar {
+    background-color: black; 
+    color: white; 
+    padding-left: 20px; 
+    padding-right: 20px;
+}
+
+.wd-small-navbar {
+    background-color: black; 
+    color: white; 
+    border: none;
+}
+
+.wd-dropdown-menu {
+    width: -webkit-fill-available;
+    padding: 30px;
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px);
+}
+
+ul.wd-no-bullets {
+    list-style-type: none;
+}
+
+ul.wd-no-bullets li {
+    margin: 10px;
+}
+
+.wd-navigation-link a {
+    color: red;
+    text-decoration: none;
+}
+
+.wd-react-icon {
+    color:red;
+}
+
+.wd-centered-text {
+    text-align: center;
+}
+
+.wd-navigation-link {
+    color: red;
+    text-decoration: none;
+}
+
+.wd-extra-sections {
+    color: grey;
+}
+
+.wd-slash-eye {
+    color: grey;
+}

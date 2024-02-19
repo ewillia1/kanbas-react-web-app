@@ -1,0 +1,25 @@
+.wd-nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wd-three-bar-menu {
+    color: red; 
+    background-color: white; 
+    border: none;
+}
+
+.wd-rounded-corners-all-around {
+    border-radius: 8px;
+    margin: 2px;
+}
+
+.wd-home-button:hover {
+    background-color: #cbcbcb;
+}
+
+.wd-0-lr-padding {
+    padding-right: 0; 
+    padding-left: 0;
+}

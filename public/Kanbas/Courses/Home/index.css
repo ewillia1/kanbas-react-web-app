@@ -140,18 +140,6 @@
     background-color: #cbcbcb;
 }
 
-.wd-course-status-button {
-    text-align: left;
-}
-
-.wd-float-right {
-    float: right;
-}
- 
-.wd-float-done {
-    clear: both;
-}
-
 .wd-content-nav {
     background-color: white;
     overflow-y: auto;
@@ -184,6 +172,7 @@ ul.wd-content-nav {
 }
 
 .wd-course-status-button {
+    text-align: left;
     background-color: buttonface;
     border-color: buttonborder;
 }
