@@ -13,7 +13,7 @@ function Assignments() {
     <>
         <div>
             <div className="form-outline w-25 float-start" data-mdb-input-init>
-                <input type="search" id="form1" className="form-control wd-nowrap" placeholder="Search for Assignment" title="Input search item."/>
+                <input type="search" id="form1" className="form-control wd-nowrap mt-1" placeholder="Search for Assignment" title="Input search item."/>
             </div>
 
             <div className="float-end">

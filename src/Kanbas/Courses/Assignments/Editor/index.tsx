@@ -25,8 +25,8 @@ function AssignmentEditor() {
 
     return (
         <div>
-            <button type="button" className="wd-float-right btn btn-light btn-outline-dark"><FaEllipsisV /></button>
-            <span className="wd-float-right wd-green-icon" style={{paddingRight: "10px"}}><FaCheckCircle /> <b>Published</b></span>
+            <button type="button" className="wd-float-right btn btn-light btn-outline-dark mt-1"><FaEllipsisV /></button>
+            <span className="wd-float-right wd-green-icon mt-1" style={{paddingRight: "10px"}}><FaCheckCircle /> <b>Published</b></span>
             <div className="wd-float-done"></div>
             <hr/>
 

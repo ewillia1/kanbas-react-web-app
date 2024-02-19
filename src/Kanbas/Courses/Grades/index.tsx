@@ -16,9 +16,9 @@ function Grades() {
 
     return (
         <div>
-            <button type="button" className="wd-float-right btn btn-light btn-outline-dark"><FaGear /></button>
-            <button type="button" className="wd-float-right btn btn-light btn-outline-dark me-2"><FaFileImport /> Export</button>
-            <button type="button" className="wd-float-right btn btn-light btn-outline-dark me-2"><FaFileExport /> Import</button>
+            <button type="button" className="wd-float-right btn btn-light btn-outline-dark mt-1"><FaGear /></button>
+            <button type="button" className="wd-float-right btn btn-light btn-outline-dark me-2 mt-1"><FaFileImport /> Export</button>
+            <button type="button" className="wd-float-right btn btn-light btn-outline-dark me-2 mt-1"><FaFileExport /> Import</button>
             <div className="wd-float-done"></div>
 
             <div className="row">
