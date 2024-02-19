@@ -30,7 +30,7 @@ function Assignment4() {
             <ObjectStateVariable/>
             <ArrayStateVariable/>
             <ParentStateComponent/>
-
+            <hr/>
             <ReduxExamples/>
         </div>
     );
