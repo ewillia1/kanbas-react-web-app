@@ -1,3 +1,4 @@
+import CounterRedux from "./CounterRedux";
 import HelloRedux from "./HelloRedux";
 
 const ReduxExamples = () => {
@@ -5,6 +6,7 @@ const ReduxExamples = () => {
         <div>
             <h2>Redux Examples</h2>
             <HelloRedux/>
+            <CounterRedux/>
         </div>
     );
 };
