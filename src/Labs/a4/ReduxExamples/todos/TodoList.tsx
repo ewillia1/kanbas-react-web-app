@@ -1,4 +1,6 @@
 import { useState } from "react";
+import TodoForm from "./TodoForm";
+import TodoItem from "./TodoItem";
 
 function TodoList() {
     const [todos, setTodos] = useState([
@@ -30,25 +32,10 @@ function TodoList() {
         <div>
             <h3>Todo List</h3>
             <ul className="list-group mb-4">
-
-                <li className="list-group-item">
-                    <div className="form-outline w-25 float-start" data-mdb-input-init>
-                        <input className="form-control" value={todo.title} onChange={(e) => setTodo({ ...todo, title: e.target.value })}/>
-                    </div>
-
-                    <div className="float-end">
-                        <button className="btn btn-warning me-2 mb-2" onClick={() => updateTodo(todo)}>Update</button>
-                        <button className="btn btn-success me-2 mb-2" onClick={() => addTodo(todo)}>Add</button>
-                    </div>
-                    <div className="wd-float-done"></div>
-                </li>
-
+                <TodoForm todo={todo} setTodo={setTodo} addTodo={addTodo} updateTodo={updateTodo}/>
+                
                 {todos.map((todo) => (
-                    <li key={todo.id} className="list-group-item">
-                        <button className="btn btn-danger me-2 float-end" onClick={() => deleteTodo(todo.id)}>Delete </button>
-                        <button className="btn btn-primary me-2 float-end" onClick={() => setTodo(todo)}>Edit </button>
-                        {todo.title}
-                    </li>
+                    <TodoItem key={todo.id} todo={todo} deleteTodo={deleteTodo} setTodo={setTodo} />
                 ))}
             </ul>
         </div>
