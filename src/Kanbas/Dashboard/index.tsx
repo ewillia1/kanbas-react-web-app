@@ -7,30 +7,45 @@ import { courses } from "../Database";
 function Dashboard() {
     console.log("courses = " + courses);
 
-    const [_courses, setCourses] = useState(courses);  
+    const [_courses, setCourses] = useState(courses);               // Create _courses array state variable. Initialize with courses from the json file.
     
-    const [course, setCourse] = useState({
+    const [course, setCourse] = useState({                          // Create course state variable object.
         _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
         startDate: "2024-09-10", endDate: "2024-12-15",
         image: "/images/reactjs.jpg"
     });
 
-    const addNewCourse = () => {
+    const addNewCourse = () => {                                    // Event handler to add new course.
         const newCourse = { ...course,  _id: new Date().getTime().toString() };
         console.log("newCourse = " + newCourse);
-        setCourses([..._courses, { ...course, ...newCourse }]);
+        setCourses([..._courses, { ...course, ...newCourse }]);     // Update _courses.
+        setCourse({                                                 // Clear the course.
+            _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
+            startDate: "2024-09-10", endDate: "2024-12-15",
+            image: "/images/reactjs.jpg"
+        });
     };
 
-    const deleteCourse = (courseId: string) => {
+    const deleteCourse = (courseId: string) => {                    // Event handler to delete a course.
         const courseToDelete = _courses.filter((course) => course._id !== courseId);
         console.log("courseToDelete = " + courseToDelete);
-        setCourses(courseToDelete);
+        setCourses(courseToDelete);                                 // Update _courses.
+        setCourse({                                                 // Clear the course.
+            _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
+            startDate: "2024-09-10", endDate: "2024-12-15",
+            image: "/images/reactjs.jpg"
+        });
     };
     
-    const updateCourse = () => {
+    const updateCourse = () => {                                    // Event handler to update/edit a course.
         const updatedCourse = _courses.map((c) => (c._id === course._id ? course : c));
         console.log("updatedCourse = " + updatedCourse);
-        setCourses(updatedCourse);
+        setCourses(updatedCourse);                                  // Update _courses.
+        setCourse({                                                 // Clear the course.
+            _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
+            startDate: "2024-09-10", endDate: "2024-12-15",
+            image: "/images/reactjs.jpg"
+        });
     };
 
     console.log("_courses = " + _courses);
@@ -48,7 +63,7 @@ function Dashboard() {
             </div>
             
             <div className="wd-dashboard-component">
-                <h5>Course</h5>
+                <h5>Course Form</h5>
                 <input value={course.name} className="form-control" onChange={(e) => setCourse({ ...course, name: e.target.value }) } />
                 <input value={course.number} className="form-control" onChange={(e) => setCourse({ ...course, number: e.target.value }) } />
                 <input value={course.semester} className="form-control" onChange={(e) => setCourse({ ...course, semester: e.target.value }) } />
