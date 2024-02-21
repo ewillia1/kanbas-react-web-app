@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+import { LabState } from "../store";
 import ArrayStateVariable from "./ArrayStateVariable";
 import BooleanStateVariables from "./BooleanStateVariables";
 import ClickEvent from "./ClickEvent";
@@ -15,6 +17,8 @@ function Assignment4() {
     function sayHello() {
         alert("Hello");
     }
+
+    const { todos } = useSelector((state: LabState) => state.todosReducer);
     
     return (
         <div className="container">
