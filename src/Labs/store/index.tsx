@@ -27,12 +27,13 @@ export interface LabState {
         todo: TodoType;
     };    
 }
+
 const store = configureStore({
     reducer: {
         helloReducer,
         counterReducer,
         addReducer,
-        todosReducer,
+        todosReducer
     },
 });
 export default store;
