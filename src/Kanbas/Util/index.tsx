@@ -3,3 +3,10 @@ export type CourseType = {
     startDate: string, endDate: string,
     image: string
 };
+
+export type LessonType = {
+    "_id": string,
+    "name": string,
+    "description": string,
+    "module": string
+};

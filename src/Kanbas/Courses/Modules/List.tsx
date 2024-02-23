@@ -4,50 +4,19 @@ import { modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown, FaCaretRight } from "react-icons/fa";
 import { useParams } from "react-router";
 import { RxDragHandleDots2 } from "react-icons/rx";
+import { KanbasState } from "../../store";
+import { useSelector, useDispatch } from "react-redux";             // Import useSelector and useDispatch.
+import { addModule, deleteModule, updateModule, setModule } from "./modulesReducer";        // Import reducer functions to add, delete, and update modules.
+import { LessonType } from "../../Util";
 
 function ModuleList() {
     const { courseId } = useParams();
-    const [moduleList, setModuleList] = useState(modules);  // Create modules state variables initialized from database.  
     const modulesList = modules.filter((module) => module.course === courseId);
     const [selectedModule, setSelectedModule] = useState(modulesList[0]);
-    const [module, setModule] = useState({                  // Declare module state variable initialized with default values used to edit new and existing modules.
-        _id: "0", name: "New Module",
-        description: "New Description",
-        course: courseId || "",
-        lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
-    });
 
-    // Event handler to add a new module.
-    const addModule = (module: any) => {                    // addModule appends new module at beginning of modules, overriding _id with a timestamp.
-        const newModule = { ...module,  _id: new Date().getTime().toString() };
-        console.log("newModule = " + JSON.stringify(newModule));
-        setModuleList([newModule, ...moduleList]);          // Update moduleList.
-        setModule({                                         // Clear the module.
-            _id: "0", name: "New Module",
-            description: "New Description",
-            course: courseId || "",
-            lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
-        });
-    };
-
-    // Event handler to delete a module.
-    const deleteModule = (moduleId: string) => {            // deleteModule filters out the module whose ID is equal to the parameter moduleId.
-        const courseToDelete = moduleList.filter((module) => module._id !== moduleId);
-        console.log("courseToDelete = " + JSON.stringify(courseToDelete));
-        setModuleList(courseToDelete);                       // Update moduleList.
-    };
-
-    const updateModule = () => {                            // Event handler to update/edit a module.
-        const updatedModule = moduleList.map((m) => (m._id === module._id ? module : m));
-        console.log("updatedModule = " + JSON.stringify(updatedModule));  
-        setModuleList(updatedModule);                       // Update moduleList.
-        setModule({                                         // Clear the module.
-            _id: "0", name: "New Module",
-            description: "New Description",
-            course: courseId || "",
-            lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
-        });
-    };
+    const moduleList = useSelector((state: KanbasState) => state.modulesReducer.modules);  // Retrieve current state variables modules and module from reducer.
+    const module = useSelector((state: KanbasState) => state.modulesReducer.module);
+    const dispatch = useDispatch();             // Get dispatch to call reducer functions.
 
     return (
         <>
@@ -69,9 +38,9 @@ function ModuleList() {
 
             <ul className="list-group wd-modules">
                 <li className="list-group-item">
-                    <input className="form-contro m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={module.name} onChange={(e) => setModule({ ...module, name: e.target.value })}/>       {/* Update module.name for every key stroke. */}
-                    <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => { addModule(module) }}>Add</button>         {/* Add buttons calls addModule with module being edited in the form to be added to the modules. */}
-                    <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={updateModule}>Update</button>
+                    <input className="form-contro m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={module.name} onChange={(e) => dispatch(setModule({ ...module, name: e.target.value }))}/>        {/* Wrap reducer functions with dispatch. */}
+                    <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => dispatch(addModule({ ...module, course: courseId }))}>Add</button>         {/* Wrap reducer functions with dispatch. */}
+                    <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => dispatch(updateModule(module))}>Update</button>                           {/* Wrap reducer functions with dispatch. */}
                     {/* <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}}>Update</button> */}
                     <textarea className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={module.description} onChange={(e) => setModule({ ...module, description: e.target.value })}/>   {/* Update module.description for every key stroke. */}
                 </li>
@@ -88,14 +57,14 @@ function ModuleList() {
                                 <FaCaretDown style={{paddingLeft: "5px"}} />
                                 <FaPlusCircle className="ms-2" />
                                 <FaEllipsisV className="ms-2" />
-                                <button className="btn btn-danger" style={{borderRadius: "6px"}} onClick={() => deleteModule(module._id)}>Delete</button>
-                                <button className="btn btn-success" style={{borderRadius: "6px", marginLeft: "5px"}} onClick={(event) => { setModule(module); }}>Edit</button>
+                                <button className="btn btn-danger" style={{borderRadius: "6px"}} onClick={() => dispatch(deleteModule(module._id))}>Delete</button>                 {/* Wrap reducer functions with dispatch. */}
+                                <button className="btn btn-success" style={{borderRadius: "6px", marginLeft: "5px"}} onClick={() => dispatch(setModule(module))}>Edit</button>      {/* Wrap reducer functions with dispatch. */}
                             </span>
                         </div>
 
                         {selectedModule._id === module._id && (
                             <ul className="list-group" style={{cursor: "pointer"}}>
-                                {module.lessons?.map((lesson) => (
+                                {module.lessons?.map((lesson: LessonType) => (
                                 <li key={lesson._id} className="list-group-item">
                                     <RxDragHandleDots2 className="me-2" />{lesson.name}
                                     <span className="float-end">
