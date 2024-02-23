@@ -35,11 +35,6 @@ function Kanbas() {
         const courseToDelete = _courses.filter((course) => course._id !== courseId);
         console.log("courseToDelete = " + courseToDelete);
         setCourses(courseToDelete);                                 // Update _courses.
-        setCourse({                                                 // Clear the course.
-            _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
-            startDate: "2024-09-10", endDate: "2024-12-15",
-            image: "/blueBackground.jpg"
-        });
     };
     
     const updateCourse = () => {                                    // Event handler to update/edit a course.

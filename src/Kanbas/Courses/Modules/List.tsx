@@ -31,6 +31,11 @@ function ModuleList() {
         });
     };
 
+    const deleteModule = (moduleId: string) => {            // deleteModule filters out the module whose ID is equal to the parameter moduleId.
+        const newModuleList = moduleList.filter( (module) => module._id !== moduleId );
+        setModuleList(newModuleList);                       // Update moduleList.
+    };
+
     return (
         <>
             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -52,7 +57,7 @@ function ModuleList() {
             <ul className="list-group wd-modules">
                 <li className="list-group-item">
                 <input className="form-contro m-2 p-2" style={{borderRadius: "6px"}} value={module.name} onChange={(e) => setModule({ ...module, name: e.target.value })}/>       {/* Update module.name for every key stroke. */}
-                    <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}}  onClick={() => { addModule(module) }}>Add</button>         {/* Add buttons calls addModule with module being edited in the form to be added to the modules. */}
+                    <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => { addModule(module) }}>Add</button>         {/* Add buttons calls addModule with module being edited in the form to be added to the modules. */}
                     <textarea className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={module.description} onChange={(e) => setModule({ ...module, description: e.target.value })}/>   {/* Update module.description for every key stroke. */}
                 </li>
 
@@ -68,6 +73,7 @@ function ModuleList() {
                                 <FaCaretDown style={{paddingLeft: "5px"}} />
                                 <FaPlusCircle className="ms-2" />
                                 <FaEllipsisV className="ms-2" />
+                                <button className="btn btn-danger" style={{borderRadius: "6px"}} onClick={() => deleteModule(module._id)}>Delete</button>
                             </span>
                         </div>
 
