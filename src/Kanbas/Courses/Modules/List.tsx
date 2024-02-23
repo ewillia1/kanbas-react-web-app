@@ -4,7 +4,6 @@ import { modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown, FaAngleRight, FaCaretRight } from "react-icons/fa";
 import { useParams } from "react-router";
 import { RxDragHandleDots2 } from "react-icons/rx";
-// import { ModuleType } from "../../Util";
 
 function ModuleList() {
     console.log("modules (json) = " + modules);
@@ -19,8 +18,6 @@ function ModuleList() {
         _id: "0", name: "New Module",
         description: "New Description",
         course: courseId || ""
-        // lessons: [{ }]
-        // lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
     });
     console.log("module = " + module);
 
@@ -29,13 +26,11 @@ function ModuleList() {
         const newModule = { ...module,  _id: new Date().getTime().toString() };
         console.log("newModule = " + newModule);
         setModuleList([newModule, ...moduleList]);          // Update moduleList.
-        setModule({                                         // Clear the module.
-            _id: "0", name: "New Module",
-            description: "New Description",
-            course: courseId || ""
-            // lessons: [{ }]
-            // lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
-        });
+        // setModule({                                         // Clear the module.
+        //     _id: "0", name: "New Module",
+        //     description: "New Description",
+        //     course: courseId || ""
+        // });
     };
 
     // Event handler to delete a module.
@@ -48,26 +43,14 @@ function ModuleList() {
         const updatedModule = moduleList.map((m) => (m._id === module._id ? module : m));
         console.log("typeof(updatedModule) = " + typeof(updatedModule));
         console.log("updatedModule = " + JSON.stringify(updatedModule));
-
-        setModuleList(updatedModule);                       // Update moduleList.
-
-        // updatedModule['lessons'] = [];
-
-
-        // let lessons = {};
-        // updatedModule.push(lessons);
+        console.log("moduleList = " + JSON.stringify(moduleList));
+        // setModuleList(updatedModule);                       // Update moduleList.
 
         // setModule({                                         // Clear the module.
-        //     ...updatedModule
-        //     // lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
+        //     _id: "0", name: "New Module",
+        //     description: "New Description",
+        //     course: courseId || ""
         // });
-
-        setModule({                                         // Clear the module.
-            _id: "0", name: "New Module",
-            description: "New Description",
-            course: courseId || ""
-            // lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
-        });
     };
 
     return (
@@ -90,7 +73,7 @@ function ModuleList() {
 
             <ul className="list-group wd-modules">
                 <li className="list-group-item">
-                <input className="form-contro m-2 p-2" style={{borderRadius: "6px"}} value={module.name} onChange={(e) => setModule({ ...module, name: e.target.value })}/>       {/* Update module.name for every key stroke. */}
+                <input className="form-contro m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={module.name} onChange={(e) => setModule({ ...module, name: e.target.value })}/>       {/* Update module.name for every key stroke. */}
                     <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => { addModule(module) }}>Add</button>         {/* Add buttons calls addModule with module being edited in the form to be added to the modules. */}
                     <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={updateModule}>Update</button>
                     {/* <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}}>Update</button> */}
