@@ -12,7 +12,7 @@ function Dashboard() {
     const [course, setCourse] = useState({                          // Create course state variable object.
         _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
         startDate: "2024-09-10", endDate: "2024-12-15",
-        image: "/images/reactjs.jpg"
+        image: "/blueBackground.jpg"
     });
 
     const addNewCourse = () => {                                    // Event handler to add new course.
@@ -22,7 +22,7 @@ function Dashboard() {
         setCourse({                                                 // Clear the course.
             _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
             startDate: "2024-09-10", endDate: "2024-12-15",
-            image: "/images/reactjs.jpg"
+            image: "/blueBackground.jpg"
         });
     };
 
@@ -33,7 +33,7 @@ function Dashboard() {
         setCourse({                                                 // Clear the course.
             _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
             startDate: "2024-09-10", endDate: "2024-12-15",
-            image: "/images/reactjs.jpg"
+            image: "/blueBackground.jpg"
         });
     };
     
@@ -44,7 +44,7 @@ function Dashboard() {
         setCourse({                                                 // Clear the course.
             _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
             startDate: "2024-09-10", endDate: "2024-12-15",
-            image: "/images/reactjs.jpg"
+            image: "/blueBackground.jpg"
         });
     };
 
