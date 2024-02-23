@@ -7,8 +7,15 @@ import { RxDragHandleDots2 } from "react-icons/rx";
 
 function ModuleList() {
     const { courseId } = useParams();
+    const [moduleList, setModuleList] = useState(modules);
     const modulesList = modules.filter((module) => module.course === courseId);
     const [selectedModule, setSelectedModule] = useState(modulesList[0]);
+    const [module, setModule] = useState({
+        name: "New Module",
+        description: "New Description",
+        course: courseId,
+    });
+    
 
     return (
         <>
@@ -29,9 +36,9 @@ function ModuleList() {
             <hr/>
 
             <ul className="list-group wd-modules">
-                {modulesList.map((module) => (
+                {modulesList.filter((module) => module.course === courseId).map((module) => (
                     <li key={module._id} className="list-group-item" onClick={() => setSelectedModule(module)}>
-                        <div>
+                        <div style={{cursor: "pointer"}}>
                             <RxDragHandleDots2 className="me-2" />
 
                             {selectedModule._id === module._id ? <FaCaretDown style={{paddingRight: "5px"}}/> : <FaCaretRight style={{paddingRight: "5px"}}/>} {module.name}
@@ -45,7 +52,7 @@ function ModuleList() {
                         </div>
 
                         {selectedModule._id === module._id && (
-                            <ul className="list-group">
+                            <ul className="list-group" style={{cursor: "pointer"}}>
                                 {module.lessons?.map((lesson) => (
                                 <li key={lesson._id} className="list-group-item">
                                     <RxDragHandleDots2 className="me-2" />{lesson.name}
