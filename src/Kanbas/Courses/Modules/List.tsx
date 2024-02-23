@@ -1,56 +1,52 @@
 import { useState } from "react";                                   // Import useState to create state variables.
 import "./index.css";
 import { modules } from "../../Database";
-import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown, FaAngleRight, FaCaretRight } from "react-icons/fa";
+import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown, FaCaretRight } from "react-icons/fa";
 import { useParams } from "react-router";
 import { RxDragHandleDots2 } from "react-icons/rx";
 
 function ModuleList() {
-    console.log("modules (json) = " + modules);
-
     const { courseId } = useParams();
-    const [moduleList, setModuleList] = useState(modules);          // Create modules state variables initialized from database.  
-    console.log("moduleList = " + moduleList);
+    const [moduleList, setModuleList] = useState(modules);  // Create modules state variables initialized from database.  
     const modulesList = modules.filter((module) => module.course === courseId);
     const [selectedModule, setSelectedModule] = useState(modulesList[0]);
-
     const [module, setModule] = useState({                  // Declare module state variable initialized with default values used to edit new and existing modules.
         _id: "0", name: "New Module",
         description: "New Description",
-        course: courseId || ""
+        course: courseId || "",
+        lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
     });
-    console.log("module = " + module);
 
     // Event handler to add a new module.
     const addModule = (module: any) => {                    // addModule appends new module at beginning of modules, overriding _id with a timestamp.
         const newModule = { ...module,  _id: new Date().getTime().toString() };
-        console.log("newModule = " + newModule);
+        console.log("newModule = " + JSON.stringify(newModule));
         setModuleList([newModule, ...moduleList]);          // Update moduleList.
-        // setModule({                                         // Clear the module.
-        //     _id: "0", name: "New Module",
-        //     description: "New Description",
-        //     course: courseId || ""
-        // });
+        setModule({                                         // Clear the module.
+            _id: "0", name: "New Module",
+            description: "New Description",
+            course: courseId || "",
+            lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
+        });
     };
 
     // Event handler to delete a module.
     const deleteModule = (moduleId: string) => {            // deleteModule filters out the module whose ID is equal to the parameter moduleId.
-        const newModuleList = moduleList.filter((module) => module._id !== moduleId);
-        setModuleList(newModuleList);                       // Update moduleList.
+        const courseToDelete = moduleList.filter((module) => module._id !== moduleId);
+        console.log("courseToDelete = " + JSON.stringify(courseToDelete));
+        setModuleList(courseToDelete);                       // Update moduleList.
     };
 
     const updateModule = () => {                            // Event handler to update/edit a module.
         const updatedModule = moduleList.map((m) => (m._id === module._id ? module : m));
-        console.log("typeof(updatedModule) = " + typeof(updatedModule));
-        console.log("updatedModule = " + JSON.stringify(updatedModule));
-        console.log("moduleList = " + JSON.stringify(moduleList));
-        // setModuleList(updatedModule);                       // Update moduleList.
-
-        // setModule({                                         // Clear the module.
-        //     _id: "0", name: "New Module",
-        //     description: "New Description",
-        //     course: courseId || ""
-        // });
+        console.log("updatedModule = " + JSON.stringify(updatedModule));  
+        setModuleList(updatedModule);                       // Update moduleList.
+        setModule({                                         // Clear the module.
+            _id: "0", name: "New Module",
+            description: "New Description",
+            course: courseId || "",
+            lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
+        });
     };
 
     return (
@@ -73,7 +69,7 @@ function ModuleList() {
 
             <ul className="list-group wd-modules">
                 <li className="list-group-item">
-                <input className="form-contro m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={module.name} onChange={(e) => setModule({ ...module, name: e.target.value })}/>       {/* Update module.name for every key stroke. */}
+                    <input className="form-contro m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={module.name} onChange={(e) => setModule({ ...module, name: e.target.value })}/>       {/* Update module.name for every key stroke. */}
                     <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => { addModule(module) }}>Add</button>         {/* Add buttons calls addModule with module being edited in the form to be added to the modules. */}
                     <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={updateModule}>Update</button>
                     {/* <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}}>Update</button> */}
