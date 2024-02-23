@@ -11,6 +11,36 @@
     text-overflow: ellipsis;
 }
 
+.wd-assignmentSection, .wd-assignmentSection * {
+    border-radius: 0%;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.wd-assignmentSection {
+    margin: 5px;
+}
+
+.wd-assignmentSection > li {
+    background-color: lightgray;
+    border: 1px solid gray !important;
+}
+
+.wd-assignmentSection > li > div {
+    padding: 6px;
+}
+
+.wd-assignmentSection > li > ul > li {
+    padding: 5px;
+    border-top: 1px solid gray !important;
+    border-left: 2px solid green;
+}
+
+.wd-assignmentSection > li {
+    margin-bottom: 20px;
+}
+
 .wd-assignment a {
     color:black;
     text-decoration: none;

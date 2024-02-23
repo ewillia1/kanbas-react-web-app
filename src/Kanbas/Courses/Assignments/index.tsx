@@ -25,7 +25,7 @@ function Assignments() {
         </div>
         <hr/>
 
-        <ul className="list-group wd-modules">
+        <ul className="list-group wd-assignmentSection">
             <li className="list-group-item">
                 <div style={{marginBottom: "15px", cursor: "pointer"}}>
                     <RxDragHandleDots2 className="me-2" /><FaCaretDown style={{paddingRight: "5px"}} /> ASSIGNMENTS
