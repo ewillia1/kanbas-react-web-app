@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "react";                                   // Import useState to create state variables.
 import "./index.css";
 import { modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown, FaAngleRight, FaCaretRight } from "react-icons/fa";
@@ -7,15 +7,14 @@ import { RxDragHandleDots2 } from "react-icons/rx";
 
 function ModuleList() {
     const { courseId } = useParams();
-    const [moduleList, setModuleList] = useState(modules);
+    const [moduleList, setModuleList] = useState(modules);          // Create modules state variables initialized from database.  
     const modulesList = modules.filter((module) => module.course === courseId);
     const [selectedModule, setSelectedModule] = useState(modulesList[0]);
-    const [module, setModule] = useState({
+    const [module, setModule] = useState({                  // Declare module state variable initialized with default values used to edit new and existing modules.
         name: "New Module",
         description: "New Description",
         course: courseId,
     });
-    
 
     return (
         <>
@@ -36,6 +35,12 @@ function ModuleList() {
             <hr/>
 
             <ul className="list-group wd-modules">
+                <li className="list-group-item">
+                <input className="form-contro m-2 p-2" style={{borderRadius: "6px"}} value={module.name} onChange={(e) => setModule({ ...module, name: e.target.value })}/>       {/* Update module.name for every key stroke. */}
+                    <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}}>Add</button>
+                    <textarea className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={module.description} onChange={(e) => setModule({ ...module, description: e.target.value })}/>   {/* Update module.description for every key stroke. */}
+                </li>
+
                 {modulesList.filter((module) => module.course === courseId).map((module) => (
                     <li key={module._id} className="list-group-item" onClick={() => setSelectedModule(module)}>
                         <div style={{cursor: "pointer"}}>
