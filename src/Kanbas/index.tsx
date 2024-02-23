@@ -10,7 +10,7 @@ import { courses } from "./Database";
 import { CourseType } from "./Util";
 
 function Kanbas() {
-    console.log("courses = " + courses);
+    console.log("courses (json) = " + courses);
 
     const [_courses, setCourses] = useState<CourseType[]>(courses);               // Create _courses array state variable. Initialize with courses from the json file.
     

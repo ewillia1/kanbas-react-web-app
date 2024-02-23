@@ -6,15 +6,30 @@ import { useParams } from "react-router";
 import { RxDragHandleDots2 } from "react-icons/rx";
 
 function ModuleList() {
+    console.log("modules (json) = " + modules);
+
     const { courseId } = useParams();
     const [moduleList, setModuleList] = useState(modules);          // Create modules state variables initialized from database.  
+    console.log("moduleList = " + moduleList);
     const modulesList = modules.filter((module) => module.course === courseId);
     const [selectedModule, setSelectedModule] = useState(modulesList[0]);
     const [module, setModule] = useState({                  // Declare module state variable initialized with default values used to edit new and existing modules.
-        name: "New Module",
+        _id: "0", name: "New Module",
         description: "New Description",
-        course: courseId,
+        course: courseId || ""
     });
+    console.log("module = " + module);
+
+    const addModule = (module: any) => {                    // addModule appends new module at beginning of modules, overriding _id with a timestamp.
+        const newModule = { ...module,  _id: new Date().getTime().toString() };
+        console.log("newModule = " + newModule);
+        setModuleList([newModule, ...moduleList]);          // Update moduleList.
+        setModule({                                         // Clear the module.
+            _id: "0", name: "New Module",
+            description: "New Description",
+            course: courseId || ""
+        });
+    };
 
     return (
         <>
@@ -37,11 +52,11 @@ function ModuleList() {
             <ul className="list-group wd-modules">
                 <li className="list-group-item">
                 <input className="form-contro m-2 p-2" style={{borderRadius: "6px"}} value={module.name} onChange={(e) => setModule({ ...module, name: e.target.value })}/>       {/* Update module.name for every key stroke. */}
-                    <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}}>Add</button>
+                    <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}}  onClick={() => { addModule(module) }}>Add</button>         {/* Add buttons calls addModule with module being edited in the form to be added to the modules. */}
                     <textarea className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={module.description} onChange={(e) => setModule({ ...module, description: e.target.value })}/>   {/* Update module.description for every key stroke. */}
                 </li>
 
-                {modulesList.filter((module) => module.course === courseId).map((module) => (
+                {moduleList.filter((module) => module.course === courseId).map((module) => (
                     <li key={module._id} className="list-group-item" onClick={() => setSelectedModule(module)}>
                         <div style={{cursor: "pointer"}}>
                             <RxDragHandleDots2 className="me-2" />
