@@ -3,7 +3,11 @@ import { useDispatch } from "react-redux";
 import { deleteTodo, setTodo } from "./todosReducer";
 import { TodoType } from "../../../store";
 
-function TodoItem({ todo }: { todo: TodoType }) {
+type TodoItemProps = {
+    todo: TodoType;
+}
+
+function TodoItem({ todo }: TodoItemProps) {
     const dispatch = useDispatch();
     console.log("todo = " + todo);
     console.log("todo.title = " + todo.title);
