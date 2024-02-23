@@ -1,55 +1,13 @@
 import { Link } from "react-router-dom";
 import { FaEllipsisV, FaRegEdit } from "react-icons/fa";
 import "./index.css";
-import { useState } from "react";
-import { courses } from "../Database";
+import { CourseType } from "../Util";
 
-function Dashboard() {
-    console.log("courses = " + courses);
+type DashboardProps = {
+    courses: CourseType[], course: CourseType, setCourse: any, addNewCourse: any, deleteCourse: any, updateCourse: any
+};
 
-    const [_courses, setCourses] = useState(courses);               // Create _courses array state variable. Initialize with courses from the json file.
-    
-    const [course, setCourse] = useState({                          // Create course state variable object.
-        _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
-        startDate: "2024-09-10", endDate: "2024-12-15",
-        image: "/blueBackground.jpg"
-    });
-
-    const addNewCourse = () => {                                    // Event handler to add new course.
-        const newCourse = { ...course,  _id: new Date().getTime().toString() };
-        console.log("newCourse = " + newCourse);
-        setCourses([..._courses, { ...course, ...newCourse }]);     // Update _courses.
-        setCourse({                                                 // Clear the course.
-            _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
-            startDate: "2024-09-10", endDate: "2024-12-15",
-            image: "/blueBackground.jpg"
-        });
-    };
-
-    const deleteCourse = (courseId: string) => {                    // Event handler to delete a course.
-        const courseToDelete = _courses.filter((course) => course._id !== courseId);
-        console.log("courseToDelete = " + courseToDelete);
-        setCourses(courseToDelete);                                 // Update _courses.
-        setCourse({                                                 // Clear the course.
-            _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
-            startDate: "2024-09-10", endDate: "2024-12-15",
-            image: "/blueBackground.jpg"
-        });
-    };
-    
-    const updateCourse = () => {                                    // Event handler to update/edit a course.
-        const updatedCourse = _courses.map((c) => (c._id === course._id ? course : c));
-        console.log("updatedCourse = " + updatedCourse);
-        setCourses(updatedCourse);                                  // Update _courses.
-        setCourse({                                                 // Clear the course.
-            _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
-            startDate: "2024-09-10", endDate: "2024-12-15",
-            image: "/blueBackground.jpg"
-        });
-    };
-
-    console.log("_courses = " + _courses);
-    
+function Dashboard( { courses, course, setCourse, addNewCourse, deleteCourse, updateCourse }: DashboardProps ) {     //  Move the state variables and event handler functions to Kanbas and then accept them as parameters.
     return (
         <>
             <div className="d-none d-sm-block sticky-top wd-dashboard wd-dashboard-component"> 
@@ -72,13 +30,13 @@ function Dashboard() {
                 <button className="btn btn-light btn-outline-dark me-2 mt-2" onClick={addNewCourse}>Add</button>
                 <button className="btn btn-light btn-outline-dark mt-2" onClick={updateCourse}>Update</button>
                 <hr />
-                <h2>Published Courses ({_courses.length})</h2> 
+                <h2>Published Courses ({courses.length})</h2> 
                 <hr />
             </div>
 
             <div className="row wd-dashboard-component">
                 <div className="row row-cols-1 row-cols-md-5 g-4">
-                    {_courses.map((course) => (
+                    {courses.map((course) => (
                         <div key={course._id} className="col wd-course-card-col" style={{ width: 300 }}>
                             <div className="card">
                                 <img src={`/images/${course.image}`} className="card-img-top wd-card-image" style={{ height: 150 }} alt="course card"/>
