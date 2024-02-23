@@ -4,6 +4,7 @@ import { modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown, FaAngleRight, FaCaretRight } from "react-icons/fa";
 import { useParams } from "react-router";
 import { RxDragHandleDots2 } from "react-icons/rx";
+// import { ModuleType } from "../../Util";
 
 function ModuleList() {
     console.log("modules (json) = " + modules);
@@ -13,13 +14,17 @@ function ModuleList() {
     console.log("moduleList = " + moduleList);
     const modulesList = modules.filter((module) => module.course === courseId);
     const [selectedModule, setSelectedModule] = useState(modulesList[0]);
+
     const [module, setModule] = useState({                  // Declare module state variable initialized with default values used to edit new and existing modules.
         _id: "0", name: "New Module",
         description: "New Description",
         course: courseId || ""
+        // lessons: [{ }]
+        // lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
     });
     console.log("module = " + module);
 
+    // Event handler to add a new module.
     const addModule = (module: any) => {                    // addModule appends new module at beginning of modules, overriding _id with a timestamp.
         const newModule = { ...module,  _id: new Date().getTime().toString() };
         console.log("newModule = " + newModule);
@@ -28,12 +33,41 @@ function ModuleList() {
             _id: "0", name: "New Module",
             description: "New Description",
             course: courseId || ""
+            // lessons: [{ }]
+            // lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
         });
     };
 
+    // Event handler to delete a module.
     const deleteModule = (moduleId: string) => {            // deleteModule filters out the module whose ID is equal to the parameter moduleId.
-        const newModuleList = moduleList.filter( (module) => module._id !== moduleId );
+        const newModuleList = moduleList.filter((module) => module._id !== moduleId);
         setModuleList(newModuleList);                       // Update moduleList.
+    };
+
+    const updateModule = () => {                            // Event handler to update/edit a module.
+        const updatedModule = moduleList.map((m) => (m._id === module._id ? module : m));
+        console.log("typeof(updatedModule) = " + typeof(updatedModule));
+        console.log("updatedModule = " + JSON.stringify(updatedModule));
+
+        setModuleList(updatedModule);                       // Update moduleList.
+
+        // updatedModule['lessons'] = [];
+
+
+        // let lessons = {};
+        // updatedModule.push(lessons);
+
+        // setModule({                                         // Clear the module.
+        //     ...updatedModule
+        //     // lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
+        // });
+
+        setModule({                                         // Clear the module.
+            _id: "0", name: "New Module",
+            description: "New Description",
+            course: courseId || ""
+            // lessons: [{ _id: "0", name: "New Lesson", description: "New Lesson Description", module: "New Module" }]
+        });
     };
 
     return (
@@ -58,6 +92,8 @@ function ModuleList() {
                 <li className="list-group-item">
                 <input className="form-contro m-2 p-2" style={{borderRadius: "6px"}} value={module.name} onChange={(e) => setModule({ ...module, name: e.target.value })}/>       {/* Update module.name for every key stroke. */}
                     <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => { addModule(module) }}>Add</button>         {/* Add buttons calls addModule with module being edited in the form to be added to the modules. */}
+                    <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={updateModule}>Update</button>
+                    {/* <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}}>Update</button> */}
                     <textarea className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={module.description} onChange={(e) => setModule({ ...module, description: e.target.value })}/>   {/* Update module.description for every key stroke. */}
                 </li>
 
@@ -74,6 +110,7 @@ function ModuleList() {
                                 <FaPlusCircle className="ms-2" />
                                 <FaEllipsisV className="ms-2" />
                                 <button className="btn btn-danger" style={{borderRadius: "6px"}} onClick={() => deleteModule(module._id)}>Delete</button>
+                                <button className="btn btn-success" style={{borderRadius: "6px", marginLeft: "5px"}} onClick={(event) => { setModule(module); }}>Edit</button>
                             </span>
                         </div>
 
