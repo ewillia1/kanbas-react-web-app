@@ -41,7 +41,6 @@ function ModuleList() {
                     <input className="form-contro m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={module.name} onChange={(e) => dispatch(setModule({ ...module, name: e.target.value }))}/>        {/* Wrap reducer functions with dispatch. */}
                     <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => dispatch(addModule({ ...module, course: courseId }))}>Add</button>         {/* Wrap reducer functions with dispatch. */}
                     <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => dispatch(updateModule(module))}>Update</button>                           {/* Wrap reducer functions with dispatch. */}
-                    {/* <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}}>Update</button> */}
                     <textarea className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={module.description} onChange={(e) => setModule({ ...module, description: e.target.value })}/>   {/* Update module.description for every key stroke. */}
                 </li>
 
