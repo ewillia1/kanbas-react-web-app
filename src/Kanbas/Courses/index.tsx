@@ -20,7 +20,7 @@ function Courses({ courses }: CoursesProp) {
 
     return (
         <>
-            <Breadcrumb/>
+            <Breadcrumb courses={courses}/>
             <div className="row">
                 <CourseNavigation />
 
