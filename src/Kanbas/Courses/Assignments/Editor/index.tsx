@@ -16,6 +16,7 @@ function AssignmentEditor() {
     
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const navigate = useNavigate();
+    
     // If user is coming from clicking add assignment, set values to default values.
     // Else the user is coming from clicking an olf assignemt, so set values to the values of the assignment clicked.
     // Only run the effect on the initial render.
