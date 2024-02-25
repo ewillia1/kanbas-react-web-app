@@ -3,7 +3,7 @@ import modulesReducer from "../Courses/Modules/modulesReducer";     // Import re
 import assignmentsReducer from "../Courses/Assignments/assignmentsReducer";
 
 export type AssignmentType = {
-    _id: string, title: string, subtitle: string, 
+    _id: string, title: string, subtitle: string, description: string,
     dueDate: string, availableFromDate: string, untilDate: string, 
     points: string, course: string;
 };

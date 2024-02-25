@@ -38,14 +38,14 @@ function ModuleList() {
 
             <ul className="list-group wd-modules">
                 <li className="list-group-item">
-                    <input className="form-contro m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={module.name} onChange={(e) => dispatch(setModule({ ...module, name: e.target.value }))}/>        {/* Wrap reducer functions with dispatch. */}
+                    <input className="m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={module.name} onChange={(e) => dispatch(setModule({ ...module, name: e.target.value }))}/>        {/* Wrap reducer functions with dispatch. */}
                     <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => dispatch(addModule({ ...module, course: courseId }))}>Add</button>         {/* Wrap reducer functions with dispatch. */}
                     <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => dispatch(updateModule(module))}>Update</button>                           {/* Wrap reducer functions with dispatch. */}
                     <textarea className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={module.description} onChange={(e) => setModule({ ...module, description: e.target.value })}/>   {/* Update module.description for every key stroke. */}
                 </li>
 
                 {moduleList.filter((module) => module.course === courseId).map((module) => (
-                    <li key={module._id} className="list-group-item" onClick={() => setSelectedModule(module)}>
+                    <li key={module._id} className="list-group-item" onClick={() => setSelectedModule(module)} draggable="true">
                         <div style={{cursor: "pointer"}}>
                             <RxDragHandleDots2 className="me-2" />
 
@@ -64,7 +64,7 @@ function ModuleList() {
                         {selectedModule._id === module._id && (
                             <ul className="list-group" style={{cursor: "pointer"}}>
                                 {module.lessons?.map((lesson: LessonType) => (
-                                <li key={lesson._id} className="list-group-item">
+                                <li key={lesson._id} className="list-group-item" draggable="true">
                                     <RxDragHandleDots2 className="me-2" />{lesson.name}
                                     <span className="float-end">
                                         <FaCheckCircle className="text-success" />

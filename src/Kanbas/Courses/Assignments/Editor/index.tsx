@@ -1,25 +1,44 @@
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { assignments } from "../../../Database";
 import { FaCheckCircle, FaEllipsisV } from "react-icons/fa";
 import "./index.css";
-import { useState } from "react";
+import { addAssignment, initialState, selectAssignment, updateAssignment } from "../assignmentsReducer";        // Import reducer functions to add, delete, and update assignments.
+import { useDispatch, useSelector } from "react-redux";
+import { AssignmentType, KanbasState } from "../../../store";
+import { useEffect } from "react";
 
 function AssignmentEditor() {
-    const { assignmentId } = useParams();
-    const assignment = assignments.find((assignment) => assignment._id === assignmentId);
     const { courseId } = useParams();
+    console.log("courseId = " + courseId);
+    const { assignmentId } = useParams();
+    console.log("assignmentId = " + assignmentId);
+    const assignmentList = useSelector((state: KanbasState) => state.assignmentsReducer.assignments);  // Retrieve current state variables modules and module from reducer.
+    const assignment = useSelector((state: KanbasState) => state.assignmentsReducer.assignment);
+    
+    const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const navigate = useNavigate();
-    const [assignmentTitle, setAssignmentTitle] = useState(assignment?.title);
-    const [assignmentDescription, setAssignmentDescription] = useState(assignment?.subtitle);
-    const [assignmentPoints, setAssignmentPoints] = useState(assignment?.points);
-    const [assignmentDueDate, setAssignmentDueDate] = useState(assignment?.dueDate);
-    const [assignmentAvailableFromDate, setAssignmentAvailableFromDate] = useState(assignment?.availableFromDate);
-    const [assignmentUntilDate, setAssignmentUntilDate] = useState(assignment?.untilDate);
-
-    let clickedAtLeastOneCheckbox = false;
-
+    // If user is coming from clicking add assignment, set values to default values.
+    // Else the user is coming from clicking an olf assignemt, so set values to the values of the assignment clicked.
+    // Only run the effect on the initial render.
+    useEffect(() => {
+        // Runs only on the first render.
+        if ( assignmentId !== undefined ) {
+            if (assignmentId.localeCompare("Editor")) {
+                const a = assignmentList.find((assignment) => assignment._id === assignmentId);
+                dispatch(selectAssignment(a));
+            }
+        }
+    }, []);
+    
     function handleSave() {
-        console.log("Actually saving assignment TBD in later assignments");
+        console.log("In handleSave.");
+        console.log("assignment being added/edited = " + JSON.stringify(assignment));
+        if (assignmentId !== undefined) {
+            if (!assignmentId.localeCompare("Editor")) {
+                dispatch(addAssignment({ ...assignment, course: courseId }));
+            } else {
+                dispatch(updateAssignment(assignment));
+            }
+        }
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     }
 
@@ -33,17 +52,17 @@ function AssignmentEditor() {
             <form>
                 <div className="mb-3">
                     <label htmlFor="assignmentName" className="form-label">Assignment Name</label>
-                    <input type="text" className="form-control" id="assignmentName" value={assignmentTitle} onChange={e => setAssignmentTitle(e.target.value)}/>
+                    <input type="text" className="form-control" id="assignmentName" value={assignment?.title} onChange={(e) => dispatch(selectAssignment({ ...assignment, title: e.target.value }))}/>
                 </div>
                 <div className="mb-3">
-                    <textarea className="form-control" id="description" rows={3} value={assignmentDescription} onChange={e => setAssignmentDescription(e.target.value)}></textarea>
+                    <textarea className="form-control" id="description" rows={3} value={assignment?.description} onChange={(e) => dispatch(selectAssignment({ ...assignment, description: e.target.value }))}></textarea>
                 </div>
 
                 <div className="wd-bottom-section">
                     <div className="row mb-3">
                         <label htmlFor="points" className="col-sm-4 col-form-label wd-assign-edit-label">Points</label>
                         <div className="col-sm-8">
-                            <input type="number" min="0" className="form-control" id="points" value={assignmentPoints} onChange={e => setAssignmentPoints(e.target.value)}/>
+                            <input type="number" min="0" className="form-control" id="points" value={assignment?.points} onChange={(e) => dispatch(selectAssignment({ ...assignment, points: e.target.value }))}/>
                         </div>
                     </div>
                     <div className="row mb-3">
@@ -118,16 +137,16 @@ function AssignmentEditor() {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="dueDate" className="form-label">Due</label>
-                                <input id="dueDate" className="form-control" type="date" value={assignmentDueDate} onChange={e => setAssignmentDueDate(e.target.value)}/>
+                                <input id="dueDate" className="form-control" type="date" value={assignment?.dueDate} onChange={(e) => dispatch(selectAssignment({ ...assignment, dueDate: e.target.value }))}/>
                             </div>
                             <div className="row g-2">
                                 <div className="col-sm">
                                     <label htmlFor="availableFrom" className="form-label">Available from</label>
-                                    <input id="availableFrom" className="form-control" type="date" value={assignmentAvailableFromDate} onChange={e => setAssignmentAvailableFromDate(e.target.value)}/>
+                                    <input id="availableFrom" className="form-control" type="date" value={assignment?.availableFromDate} onChange={(e) => dispatch(selectAssignment({ ...assignment, availableFromDate: e.target.value }))}/>
                                 </div>
                                 <div className="col-sm">
                                     <label htmlFor="untilDate" className="form-label">Until</label>
-                                    <input id="untilDate" className="form-control" type="date" value={assignmentUntilDate} onChange={e => setAssignmentUntilDate(e.target.value)}/>
+                                    <input id="untilDate" className="form-control" type="date" value={assignment?.untilDate} onChange={(e) => dispatch(selectAssignment({ ...assignment, untilDate: e.target.value }))}/>
                                 </div>
                             </div>
                             <div className="mb-3">
