@@ -1,9 +1,9 @@
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { FaCheckCircle, FaEllipsisV } from "react-icons/fa";
 import "./index.css";
-import { addAssignment, initialState, selectAssignment, updateAssignment } from "../assignmentsReducer";        // Import reducer functions to add, delete, and update assignments.
+import { addAssignment, selectAssignment, updateAssignment } from "../assignmentsReducer";        // Import reducer functions to add, delete, and update assignments.
 import { useDispatch, useSelector } from "react-redux";
-import { AssignmentType, KanbasState } from "../../../store";
+import { KanbasState } from "../../../store";
 import { useEffect } from "react";
 
 function AssignmentEditor() {

@@ -1,10 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import { FaHome, FaRegCircle, FaPlug, FaRocket, FaBars, FaUserFriends, FaComments, FaBullhorn, FaClipboardList, FaBullseye, FaCog, FaGlasses, FaBook, FaFolder, FaRegUserCircle, FaTachometerAlt, FaRegCalendarAlt, FaRegEnvelope, FaRegClock, FaRegCaretSquareRight, FaRegArrowAltCircleRight, FaRegQuestionCircle, FaEyeSlash, FaAngleRight, FaChevronDown } from "react-icons/fa";
-import { MdCancelPresentation } from "react-icons/md";
 import "./index.css";
 import { courses } from "../Database";
 import { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 function BlackHeader() {
     const kanbasNavLinks = [
