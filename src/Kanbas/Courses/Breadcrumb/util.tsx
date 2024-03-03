@@ -27,10 +27,24 @@ function GetBreadcrumb({ courses }: GetBreadcrumbProp) {
         pageName = "Progress Reports (EAB Navigate)";
     }
 
+    if (!pageName.localeCompare("DetailsEditor")) {
+        pageName = "Details Editor";
+    }
+
+    if (!pageName.localeCompare("QuizDetails")) {
+        pageName = "Quiz Details";
+    }
+
     let secondToLast = webPage[webPage.length - 2];
     let inAssignments = false;
     if (!secondToLast.localeCompare("Assignments")) {
         inAssignments = true;
+    }
+
+    let thirdToLast = webPage[webPage.length - 3];
+    let inQuizzes = false;
+    if (!thirdToLast.localeCompare("Quizzes")) {
+        inQuizzes = true;
     }
     
     return(
@@ -38,6 +52,7 @@ function GetBreadcrumb({ courses }: GetBreadcrumbProp) {
             <ol className="breadcrumb">
                 <li className="breadcrumb-item"><Link className="wd-breadcrumb-link" to={`/Kanbas/Courses/${course?._id}/Home`}>{course?.number} {course?.name}</Link></li>
                     { inAssignments && <li className="breadcrumb-item"><Link className="wd-breadcrumb-link" to={`/Kanbas/Courses/${course?._id}/Assignments`}>Assignments</Link></li> }
+                    { inQuizzes && <li className="breadcrumb-item"><Link className="wd-breadcrumb-link" to={`/Kanbas/Courses/${course?._id}/Quizzes`}>Quizzes</Link></li> }
                 <li className="breadcrumb-item active" aria-current="page">{pageName}</li>
             </ol>
         </nav>
