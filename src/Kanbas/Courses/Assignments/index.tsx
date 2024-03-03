@@ -74,7 +74,7 @@ function Assignments() {
                     <ul className="list-group">
                         {assignmentList.filter((assignment) => assignment.course === courseId).map((assignment) => (
                             <li key={assignment._id} className="list-group-item wd-assignment" onClick={() => selectAssignment(assignment)} draggable="true">
-                                <RxDragHandleDots2 className="me-2" /><TbFilePencil className="wd-pencil-paper " />
+                                <RxDragHandleDots2 className="me-2" /><TbFilePencil className="wd-pencil-paper" />
                                 <span className="float-end">
                                     <button className="btn btn-danger me-1" style={{borderRadius: "6px"}} onClick={() => handleShow(assignment)}>Delete</button> {/* Wrap reducer functions with dispatch. */}
 
