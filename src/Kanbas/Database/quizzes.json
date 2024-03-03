@@ -1,5 +1,5 @@
 [
-    { "_id": "Q1", "title": "Quiz 1", "subtitle": "Week 0 - Quiz", "description": "Quiz description", "dueDate": "2024-09-19", "availableFromDate": "2024-09-24", "untilDate": "2024-12-01", "points": "100", "course": "RS101" },
-    { "_id": "Q2", "title": "Quiz 2", "subtitle": "Week 1 - Quiz", "description": "Quiz description", "dueDate": "2024-09-25", "availableFromDate": "2024-10-01", "untilDate": "2024-12-01", "points": "200", "course": "RS101" },
-    { "_id": "Q3", "title": "Quiz 3", "subtitle": "Week 2 - Quiz", "description": "Quiz description", "dueDate": "2024-10-02", "availableFromDate": "2024-10-15", "untilDate": "2024-12-01", "points": "150", "course": "RS101" },
+    { "_id": "Q1", "title": "Quiz 1", "subtitle": "Week 0 - Quiz", "description": "Quiz description", "dueDate": "2024-09-19", "availableFromDate": "2024-09-24", "untilDate": "2024-12-01", "points": "100", "numQuestions": "11", "availability": true, "published": false, "course": "RS101" },
+    { "_id": "Q2", "title": "Quiz 2", "subtitle": "Week 1 - Quiz", "description": "Quiz description", "dueDate": "2024-09-25", "availableFromDate": "2024-10-01", "untilDate": "2024-12-01", "points": "200", "numQuestions": "7", "availability": true, "published": false, "course": "RS101" },
+    { "_id": "Q3", "title": "Quiz 3", "subtitle": "Week 2 - Quiz", "description": "Quiz description", "dueDate": "2024-10-02", "availableFromDate": "2024-10-15", "untilDate": "2024-12-01", "points": "150", "numQuestions": "1", "availability": false, "published": false, "course": "RS101" }
   ]

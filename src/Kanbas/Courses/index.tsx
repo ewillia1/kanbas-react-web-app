@@ -9,6 +9,9 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 import { CourseType } from "../Util";
+import Quizzes from "./Quizzes";
+import QuizDetails from "./Quizzes/Details";
+import QuizDetailsEditor from "./Quizzes/DetailsEditor";
 
 type CoursesProp = {
     courses: CourseType[]
@@ -37,7 +40,9 @@ function Courses({ courses }: CoursesProp) {
                         <Route path="Grades" element={<Grades />} />
                         <Route path="Assignments" element={<Assignments/>} />
                         <Route path="Assignments/:assignmentId" element={<AssignmentEditor/>}/>
-                        <Route path="Quizzes" element={<h1>Quizzes</h1>} />
+                        <Route path="Quizzes" element={<Quizzes/>} />
+                        <Route path="Quizzes/DetailsEditor/:quizId" element={<QuizDetailsEditor/>}/>
+                        <Route path="Quizzes/QuizDetails/:quizId" element={<QuizDetails/>}/>
                         <Route path="People" element={<h1>People</h1>} />
                         <Route path="Panopto Video" element={<h1>Panopto Video</h1>} />
                         <Route path="Discussions" element={<h1>Discussions</h1>} />
