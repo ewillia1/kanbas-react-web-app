@@ -188,8 +188,6 @@ function QuizDetailsEditor() {
                                     </div>
                                 </div>
                             </div>
-
-
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4">
                                     <div className="form-check form-check-inline">
@@ -203,9 +201,6 @@ function QuizDetailsEditor() {
                                     </div>
                                 </div>
                             </div>
-
-
-
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
