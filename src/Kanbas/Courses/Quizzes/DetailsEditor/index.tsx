@@ -78,6 +78,11 @@ function QuizDetailsEditor() {
         let chkbox = document.getElementById("accessCodeCheckbox") as HTMLInputElement;
         if (textBox !== null) {
             if (chkbox !== null) {
+                if (chkbox.checked) {
+                    setAccessCodeText("Temp Access Code");
+                } else {
+                    setAccessCodeText("");
+                }
                 textBox.disabled = !(chkbox.checked);
             }
         }
