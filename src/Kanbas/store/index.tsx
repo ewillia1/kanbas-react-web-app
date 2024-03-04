@@ -10,7 +10,7 @@ export type AssignmentType = {
 };
 
 export type QuizType = {
-    _id: string, title: string, subtitle: string, description: string,
+    _id: string, title: string, subtitle: string, description: string, forAccess: string,
     dueDate: string, availableFromDate: string, untilDate: string, 
     points: string, numQuestions: string, availability: boolean, 
     published: boolean, course: string;

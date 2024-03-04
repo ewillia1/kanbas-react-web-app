@@ -7,7 +7,7 @@ import { quizzes } from "../../Database";           // Import quizzes from datab
 
 export const initialState = {                              // Create reducer's initial state with 
     quizzes: quizzes,                               // default quizzes copied from database.
-    quiz: { title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", dueDate: "", 
+    quiz: { title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", forAccess: "Everyone", dueDate: "", 
                   availableFromDate: "", untilDate: "", points: "0" }     // Default quiz.
 };
 
@@ -20,7 +20,7 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
                 { ...action.payload, _id: new Date().getTime().toString() },        // Override _id with timestamp.
                 ...state.quizzes,
             ];
-            state.quiz = { title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", dueDate: "", 
+            state.quiz = { title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", forAccess: "Everyone", dueDate: "", 
                                  availableFromDate: "", untilDate: "", points: "0" };  // Clear quiz.
         },
 
@@ -37,7 +37,7 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
         updateQuiz: (state, action) => {          // Quiz to update is in action.payload.
             // Replace quiz whose ID matches action.payload._id.
             state.quizzes = state.quizzes.map((quiz) => (quiz._id === action.payload._id ? action.payload : quiz));
-            state.quiz = { title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", dueDate: "", 
+            state.quiz = { title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", forAccess: "Everyone", dueDate: "", 
                                  availableFromDate: "", untilDate: "", points: "0" };  // Clear quiz.
         },
 
