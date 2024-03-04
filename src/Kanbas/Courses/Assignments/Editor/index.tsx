@@ -13,6 +13,7 @@ function AssignmentEditor() {
     console.log("assignmentId = " + assignmentId);
     const assignmentList = useSelector((state: KanbasState) => state.assignmentsReducer.assignments);  // Retrieve current state variables modules and module from reducer.
     const assignment = useSelector((state: KanbasState) => state.assignmentsReducer.assignment);
+    console.log("assignment = " + JSON.stringify(assignment));
     
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const navigate = useNavigate();
