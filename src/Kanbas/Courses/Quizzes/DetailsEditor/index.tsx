@@ -12,7 +12,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import 'react-quill/dist/quill.snow.css';
 import { FaRegKeyboard } from "react-icons/fa6";
 import { IoCodeSlashOutline } from "react-icons/io5";
-import { CgArrowsVAlt } from "react-icons/cg";
+import { CgArrowsVAlt, CgShapeHalfCircle } from "react-icons/cg";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import React from "react";
 import ReactQuill from 'react-quill';
@@ -51,6 +51,7 @@ function QuizDetailsEditor(this: any) {
         }
     }, []);
     
+    // Function to handle saving a quiz.
     function handleSave() {
         console.log("In handleSave.");
         console.log("quiz being added/edited = " + JSON.stringify(quiz));
@@ -66,6 +67,7 @@ function QuizDetailsEditor(this: any) {
 
     const [key, setKey] = useState('details');
 
+    // Function that enables and disables the number of minutes a quiz can be taken.
     function enableMinTextArea() {
         let textBox = document.getElementById("quizMinutesText") as HTMLInputElement;
         let chkbox = document.getElementById("timeLimitCheckbox") as HTMLInputElement;
@@ -81,6 +83,7 @@ function QuizDetailsEditor(this: any) {
         }
     };
 
+    // Function that enables and disables the creating of an access code.
     function createAccessCode() {
         let textBox = document.getElementById("accessCodeText") as HTMLInputElement;
         let chkbox = document.getElementById("accessCodeCheckbox") as HTMLInputElement;
@@ -96,6 +99,7 @@ function QuizDetailsEditor(this: any) {
         }
     };
 
+    // ReactQuill quiz instruction's rich text editor code.
     const modules = {
         toolbar: [
             [{ size: [] }],
@@ -111,11 +115,10 @@ function QuizDetailsEditor(this: any) {
     const [instructions, setQuizInstructions] =  useState("");
     console.log(instructions);
 
-
+    // Determining the word count for the quiz instructions.
     const reactQuillRef = React.useRef<ReactQuill>(null);
     const editor = reactQuillRef.current?.getEditor();
     console.log("editor = " + editor);
-
     let numOfWords = 0;
     if (editor !== undefined) {
         const unprivilegedEditor = reactQuillRef.current?.makeUnprivilegedEditor(editor);
@@ -146,7 +149,7 @@ function QuizDetailsEditor(this: any) {
                         </div>
 
                         <div className="mb-5">
-                            Quiz Instructions:
+                            Quiz Instructions: <span className="float-end"><CgShapeHalfCircle style = {{color:"green", transform: 'rotate(90deg)', fontSize: "2em"}}/> 100%</span>
                             
                             <React.StrictMode>
                                 <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" onChange={setQuizInstructions}/>
