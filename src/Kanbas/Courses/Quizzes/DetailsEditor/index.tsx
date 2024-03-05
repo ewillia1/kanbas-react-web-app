@@ -111,6 +111,25 @@ function QuizDetailsEditor(this: any) {
     const [instructions, setQuizInstructions] =  useState("");
     console.log(instructions);
 
+
+    const reactQuillRef = React.useRef<ReactQuill>(null);
+    const editor = reactQuillRef.current?.getEditor();
+    console.log("editor = " + editor);
+
+    let numOfWords = 0;
+    if (editor !== undefined) {
+        const unprivilegedEditor = reactQuillRef.current?.makeUnprivilegedEditor(editor);
+        console.log("getText() = " + unprivilegedEditor?.getText());
+        console.log("getLength() = " + unprivilegedEditor?.getLength());
+        var input = unprivilegedEditor?.getText();
+        var words = input?.match(/\b[-?(\w+)?]+\b/gi);
+        console.log("words = " + words);
+        console.log("number of words = " + words?.length);
+        if (words?.length !== undefined) {
+            numOfWords = words?.length;
+        }
+    }
+
     return (
         <div>
             <button type="button" className="wd-float-right btn btn-light btn-outline-dark mt-1"><FaEllipsisV /></button>
@@ -130,13 +149,13 @@ function QuizDetailsEditor(this: any) {
                             Quiz Instructions:
                             
                             <React.StrictMode>
-                                <ReactQuill id="quizInstructions" modules={modules} theme="snow" onChange={setQuizInstructions}/>
+                                <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" onChange={setQuizInstructions}/>
                             </React.StrictMode>
 
                             <span style={{color: "buttonborder"}}>
                                 p
                                 <span className="float-end mt-2">
-                                    <FaRegKeyboard style={{color: "red"}}/> | <span style={{color: "red"}}><span id="wordCount">0</span> words</span> | <IoCodeSlashOutline style={{color: "red"}}/> | <CgArrowsVAlt style = {{transform: 'rotate(45deg)', color: "red"}}/>  <button style={{borderRadius: "8px", borderWidth: "thin", borderColor: "red", backgroundColor: "unset"}}><RxDragHandleDots2 /></button>
+                                    <FaRegKeyboard style={{color: "red"}}/> | <span style={{color: "red"}}>{numOfWords} words</span> | <IoCodeSlashOutline style={{color: "red"}}/> | <CgArrowsVAlt style = {{transform: 'rotate(45deg)', color: "red"}}/>  <button style={{borderRadius: "8px", borderWidth: "thin", borderColor: "red", backgroundColor: "unset"}}><RxDragHandleDots2 /></button>
                                 </span>
                             </span>
                         </div>
