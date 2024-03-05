@@ -1,5 +1,5 @@
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { FaCheckCircle, FaEllipsisV } from "react-icons/fa";
+import { FaEllipsisV } from "react-icons/fa";
 import "./index.css";
 import { addQuiz, selectQuiz, updateQuiz } from "../quizzesReducer";        // Import reducer functions to add, delete, and update quizzes.
 import { useDispatch, useSelector } from "react-redux";
@@ -8,8 +8,16 @@ import { useEffect, useState } from "react";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { FiSlash } from "react-icons/fi";
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import 'react-quill/dist/quill.snow.css';
+import { FaRegKeyboard } from "react-icons/fa6";
+import { IoCodeSlashOutline } from "react-icons/io5";
+import { CgArrowsVAlt } from "react-icons/cg";
+import { RxDragHandleDots2 } from "react-icons/rx";
+import React from "react";
+import ReactQuill from 'react-quill';
 
-function QuizDetailsEditor() {
+function QuizDetailsEditor(this: any) {
     const { courseId } = useParams();
     console.log("courseId = " + courseId);
     const { quizId } = useParams();
@@ -54,7 +62,7 @@ function QuizDetailsEditor() {
             }
         }
         navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
-    }
+    };
 
     const [key, setKey] = useState('details');
 
@@ -71,7 +79,7 @@ function QuizDetailsEditor() {
                 textBox.disabled = !(chkbox.checked);
             }
         }
-    }
+    };
 
     function createAccessCode() {
         let textBox = document.getElementById("accessCodeText") as HTMLInputElement;
@@ -86,7 +94,22 @@ function QuizDetailsEditor() {
                 textBox.disabled = !(chkbox.checked);
             }
         }
+    };
+
+    const modules = {
+        toolbar: [
+            [{ size: [] }],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            ["bold", "italic", "underline", "strike"],
+            [{ color: [] }, { background: [] }],
+            [{ script:  "sub" }, { script:  "super" }],
+            ["blockquote", "code-block"],
+            [{ list:  "ordered" }, { list:  "bullet" }],
+            ["link", "image", "video"]
+        ],
     }
+    const [instructions, setQuizInstructions] =  useState("");
+    console.log(instructions);
 
     return (
         <div>
@@ -103,9 +126,19 @@ function QuizDetailsEditor() {
                             <input type="text" className="form-control" id="quizName" value={quiz?.title} onChange={(e) => dispatch(selectQuiz({ ...quiz, title: e.target.value }))}/>
                         </div>
 
-                        <div className="mb-3">
-                            <label htmlFor="quizInst">Quiz Instructions:</label>
-                            <textarea className="form-control" id="quizInst" rows={3} value={quiz?.description} onChange={(e) => dispatch(selectQuiz({ ...quiz, description: e.target.value }))}></textarea>
+                        <div className="mb-5">
+                            Quiz Instructions:
+                            
+                            <React.StrictMode>
+                                <ReactQuill id="quizInstructions" modules={modules} theme="snow" onChange={setQuizInstructions}/>
+                            </React.StrictMode>
+
+                            <span style={{color: "buttonborder"}}>
+                                p
+                                <span className="float-end mt-2">
+                                    <FaRegKeyboard style={{color: "red"}}/> | <span style={{color: "red"}}><span id="wordCount">0</span> words</span> | <IoCodeSlashOutline style={{color: "red"}}/> | <CgArrowsVAlt style = {{transform: 'rotate(45deg)', color: "red"}}/>  <button style={{borderRadius: "8px", borderWidth: "thin", borderColor: "red", backgroundColor: "unset"}}><RxDragHandleDots2 /></button>
+                                </span>
+                            </span>
                         </div>
 
                         <div className="wd-bottom-section">
@@ -282,3 +315,7 @@ function QuizDetailsEditor() {
     );
 }
 export default QuizDetailsEditor
+
+function useRef() {
+    throw new Error("Function not implemented.");
+}

@@ -45,7 +45,7 @@ function QuizDetails() {
                 <button type="button" className="btn btn-light btn-outline-dark mt-1"><FiSlash />Unpublished</button>
                 {/* TODO: Click Preview button to navigate to Quiz Preview. */}
                 <button type="button" className="btn btn-light btn-outline-dark mt-1">Preview</button>
-                <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={handleEditQuiz}><PiPencilLight style = {{transform: 'rotate(270deg)' }} />Edit</button>
+                <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={handleEditQuiz}><PiPencilLight style = {{transform: 'rotate(270deg)'}} />Edit</button>
                 <button type="button" className="btn btn-light btn-outline-dark mt-1"><FaEllipsisV /></button>
             </div>
             <hr/>
