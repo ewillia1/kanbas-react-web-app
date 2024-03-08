@@ -1,4 +1,4 @@
-import { FaEllipsisV } from "react-icons/fa";
+import { FaCheckCircle, FaEllipsisV } from "react-icons/fa";
 import { PiPencilLight } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
@@ -15,6 +15,9 @@ function QuizDetails() {
     const quizList = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables modules and module from reducer.
     const quiz = useSelector((state: KanbasState) => state.quizzesReducer.quiz);
     console.log("quiz = " + JSON.stringify(quiz));
+    console.log("first quiz?.published = " + quiz?.published);
+    const [publishQuiz, setPublishQuiz] = useState<boolean | undefined>(quiz?.published);
+    console.log("first publishQuiz = " + publishQuiz);
 
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const navigate = useNavigate();
@@ -33,18 +36,26 @@ function QuizDetails() {
             if (quizId.localeCompare("DetailsEditor")) {
                 const a = quizList.find((quiz) => quiz._id === quizId);
                 dispatch(selectQuiz(a));
+                setPublishQuiz(a?.published);
             }
         }
     }, []);
+
+    function pubUnpub() {
+        setPublishQuiz(!publishQuiz);
+        console.log("Clicked publish/unpublish button -- publishQuiz = " + publishQuiz);
+    }
     
     return(
         <>
             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
 
                 {/* TODO: Clicking Publish button changes Unpublished to Published, etc. */}
-                <button type="button" className="btn btn-light btn-outline-dark mt-1"><FiSlash />Unpublished</button>
+                {publishQuiz ? <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={pubUnpub} style={{backgroundColor: "green", color: "white"}}><FaCheckCircle />Published</button> : <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={pubUnpub}><FiSlash />Unpublished</button>}
+
                 {/* TODO: Click Preview button to navigate to Quiz Preview. */}
                 <button type="button" className="btn btn-light btn-outline-dark mt-1">Preview</button>
+
                 <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={handleEditQuiz}><PiPencilLight style = {{transform: 'rotate(270deg)'}} />Edit</button>
                 <button type="button" className="btn btn-light btn-outline-dark mt-1"><FaEllipsisV /></button>
             </div>
