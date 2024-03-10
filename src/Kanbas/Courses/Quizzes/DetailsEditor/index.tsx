@@ -24,6 +24,8 @@ function QuizDetailsEditor(this: any) {
     console.log("quizId = " + quizId);
     const quizList = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables modules and module from reducer.
     const quiz = useSelector((state: KanbasState) => state.quizzesReducer.quiz);
+
+    // TODO: Make these usable outside of the component.
     const [shuffleAnswersCheck, setShuffleAnswersChecked] = useState(true);
     const [timeLimitCheck, setTimeLimitChecked] = useState(true);
     const [multipleAttemptsCheck, setMultipleAttemptsChecked] = useState(false);
