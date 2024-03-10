@@ -18,22 +18,22 @@ function Quizzes() {
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const [show, setShow] = useState(false);
 
-    function handleCloseYes(quiz: QuizType  | undefined) {
-        console.log("In handleCloseYes");
+    function handleCloseYesDelete(quiz: QuizType  | undefined) {
+        console.log("In handleCloseYesDelete");
         console.log("quiz being deleted = " + JSON.stringify(quiz));
         dispatch(deleteQuiz(quiz?._id));
         setShow(false);
     }
 
-    function handleCloseNo() {
-        console.log("In handleCloseNo");
+    function handleCloseNoDelete() {
+        console.log("In handleCloseNoDelete");
         setShow(false);
     }
 
-    function handleShow(quiz: QuizType) {
+    function handleShowDelete(quiz: QuizType) {
         setToBeDeleted(quiz);
         console.log(toBeDeleted);
-        console.log("In handleShow");
+        console.log("In handleShowDelete");
         setShow(true);
     };
   
@@ -84,13 +84,13 @@ function Quizzes() {
                 
                                     <ul className="dropdown-menu dropdown-menu-end wd-three-dot-menu" aria-labelledby="threeDotDropdown">
                                         <li><a className="dropdown-item" onClick={() => handleEditQuiz()}>Edit</a></li>
-                                        <li><a className="dropdown-item" onClick={() => handleShow(quiz)}>Delete</a></li>
+                                        <li><a className="dropdown-item" onClick={() => handleShowDelete(quiz)}>Delete</a></li>
 
                                         {/* TODO: Publish functionality. */}
                                         <li><a className="dropdown-item">Publish</a></li>
                                     </ul>
 
-                                    <Modal show={show} backdrop="static" aria-labelledby="contained-modal-title-vcenter" centered onHide={() => handleCloseNo()}>
+                                    <Modal show={show} backdrop="static" aria-labelledby="contained-modal-title-vcenter" centered onHide={() => handleCloseNoDelete()}>
                                         <Modal.Header closeButton>
                                             Deleting an Quiz
                                         </Modal.Header>
@@ -98,10 +98,10 @@ function Quizzes() {
                                             Are you sure that you want to delete quiz: {toBeDeleted?.title}?
                                         </Modal.Body>
                                         <Modal.Footer>
-                                            <Button variant="secondary" onClick={() => handleCloseNo()}>
+                                            <Button variant="secondary" onClick={() => handleCloseNoDelete()}>
                                                 No
                                             </Button>
-                                            <Button variant="primary" onClick={() => handleCloseYes(toBeDeleted)}>
+                                            <Button variant="primary" onClick={() => handleCloseYesDelete(toBeDeleted)}>
                                                 Yes
                                             </Button>
                                         </Modal.Footer>
