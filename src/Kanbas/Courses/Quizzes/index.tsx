@@ -16,30 +16,42 @@ function Quizzes() {
     const quizzesList = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables modules and module from reducer.
     const [toBeDeleted, setToBeDeleted] = useState<QuizType | undefined>();
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
-    const [show, setShow] = useState(false);
+    const [showForDelete, setShowForDelete] = useState(false);
+    const [showForAdd, setShowForAdd] = useState(false);
 
-    function handleCloseYesDelete(quiz: QuizType  | undefined) {
-        console.log("In handleCloseYesDelete");
-        console.log("quiz being deleted = " + JSON.stringify(quiz));
-        dispatch(deleteQuiz(quiz?._id));
-        setShow(false);
+    function handleShowAdd() {
+        console.log("In handleAddQuiz");
+        setShowForAdd(true);
     }
 
-    function handleCloseNoDelete() {
-        console.log("In handleCloseNoDelete");
-        setShow(false);
+    function handleCloseNoAdd() {
+        console.log("In handleCloseNoAdd");
+        setShowForAdd(false);
+    }
+
+    function handleCloseYesAdd() {
+        console.log("In handleCloseYesAdd");
+        setShowForAdd(false);
+        navigate(`/Kanbas/Courses/${courseId}/Quizzes/DetailsEditor/DetailsEditor`);
     }
 
     function handleShowDelete(quiz: QuizType) {
         setToBeDeleted(quiz);
         console.log(toBeDeleted);
         console.log("In handleShowDelete");
-        setShow(true);
+        setShowForDelete(true);
     };
-  
-    function handleAddQuiz() {
-        console.log("In handleAddQuiz");
-        navigate(`/Kanbas/Courses/${courseId}/Quizzes/DetailsEditor/DetailsEditor`);
+
+    function handleCloseYesDelete(quiz: QuizType  | undefined) {
+        console.log("In handleCloseYesDelete");
+        console.log("quiz being deleted = " + JSON.stringify(quiz));
+        dispatch(deleteQuiz(quiz?._id));
+        setShowForDelete(false);
+    }
+
+    function handleCloseNoDelete() {
+        console.log("In handleCloseNoDelete");
+        setShowForDelete(false);
     }
 
     function handleEditQuiz() {
@@ -55,7 +67,27 @@ function Quizzes() {
                 </div>
 
                 <div className="float-end">
-                    <button type="button" className="btn btn-light btn-outline-dark wd-add-quiz" onClick={handleAddQuiz} id="AddQuizBtn" title="Click to add quiz."><FaPlus /> Quiz</button>
+                    {/* <button type="button" className="btn btn-light btn-outline-dark wd-add-quiz" onClick={handleAddQuiz} id="AddQuizBtn" title="Click to add quiz."><FaPlus /> Quiz</button> */}
+                    <button type="button" className="btn btn-light btn-outline-dark wd-add-quiz" onClick={() => handleShowAdd()} id="AddQuizBtn" title="Click to add quiz."><FaPlus /> Quiz</button>
+                    <Modal show={showForAdd} backdrop="static" aria-labelledby="contained-modal-title-vcenter1" centered onHide={() => handleCloseNoAdd()}>
+                        <Modal.Header closeButton>
+                            Adding a Quiz
+                        </Modal.Header>
+                        <Modal.Body>
+                            Are you sure that you want to add a new quiz?
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={() => handleCloseNoAdd()}>
+                                No
+                            </Button>
+                            <Button variant="primary" onClick={() => handleCloseYesAdd()}>
+                                Yes
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+
+
+
                     <button type="button" className="btn btn-light btn-outline-dark"><FaEllipsisV /></button>
                 </div>
                 <div className="wd-float-done"></div>
@@ -90,9 +122,9 @@ function Quizzes() {
                                         <li><a className="dropdown-item">Publish</a></li>
                                     </ul>
 
-                                    <Modal show={show} backdrop="static" aria-labelledby="contained-modal-title-vcenter" centered onHide={() => handleCloseNoDelete()}>
+                                    <Modal show={showForDelete} backdrop="static" aria-labelledby="contained-modal-title-vcenter2" centered onHide={() => handleCloseNoDelete()}>
                                         <Modal.Header closeButton>
-                                            Deleting an Quiz
+                                            Deleting a Quiz
                                         </Modal.Header>
                                         <Modal.Body>
                                             Are you sure that you want to delete quiz: {toBeDeleted?.title}?
