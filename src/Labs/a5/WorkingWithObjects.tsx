@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function WorkingWithObjects() {
     const [assignment, setAssignment] = useState({              // Create a state variable that holds
@@ -50,7 +50,7 @@ function WorkingWithObjects() {
             <div className="mb-3 row">
                 <div className="col-sm-9">
                     <div className="form-check float-end">
-                        <input className="form-check-input" type="checkbox" id="assignmentCompleted" onChange={(e) => handleChecked(e.target.checked)}/>
+                        <input className="form-check-input" type="checkbox" id="assignmentCompleted" onChange={(e) => handleChecked(e.target.checked)} checked={assignment.completed}/>
                         <label className="form-check-label" htmlFor="assignmentCompleted">
                             Assignment Completed
                         </label>
