@@ -339,7 +339,3 @@ function QuizDetailsEditor(this: any) {
     );
 }
 export default QuizDetailsEditor
-
-function useRef() {
-    throw new Error("Function not implemented.");
-}
