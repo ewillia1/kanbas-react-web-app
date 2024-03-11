@@ -20,8 +20,29 @@ function EncodingParametersInURLs() {
             <a href={`http://localhost:4000/a5/add/${a}/${b}`} type="button" className="btn btn-primary me-2 mb-2">
                 Add {a} + {b}
             </a>
-            <a href={`http://localhost:4000/a5/subtract/${a}/${b}`} type="button" className="btn btn-danger mb-2">
+            <a href={`http://localhost:4000/a5/subtract/${a}/${b}`} type="button" className="btn btn-danger me-2 mb-2">
                 Substract {a} - {b}
+            </a>
+            <a href={`http://localhost:4000/a5/multiply/${a}/${b}`} type="button" className="btn btn-secondary me-2 mb-2">
+                Multiply {a} * {b}
+            </a>
+            <a href={`http://localhost:4000/a5/divide/${a}/${b}`} type="button" className="btn btn-success me-2 mb-2">
+                Divide {a} / {b}
+            </a>
+
+            <h3>Query Parameters</h3>
+
+            <a className="btn btn-primary me-2 mb-2" href={`http://localhost:4000/a5/calculator?operation=add&a=${a}&b=${b}`}>
+                Add {a} + {b}
+            </a>
+            <a className="btn btn-danger me-2 mb-2" href={`http://localhost:4000/a5/calculator?operation=subtract&a=${a}&b=${b}`}>
+                Substract {a} - {b}
+            </a>
+            <a className="btn btn-secondary me-2 mb-2" href={`http://localhost:4000/a5/calculator?operation=multiply&a=${a}&b=${b}`}>
+                Multiply {a} * {b}
+            </a>
+            <a className="btn btn-success me-2 mb-2" href={`http://localhost:4000/a5/calculator?operation=divide&a=${a}&b=${b}`}>
+                Divide {a} / {b}
             </a>
         </div>
     );
