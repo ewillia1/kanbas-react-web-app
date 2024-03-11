@@ -1,3 +1,4 @@
+import EncodingParametersInURLs from "./EncodingParametersInURLs";
 import "./index.css";
 
 function Assignment5() {
@@ -9,6 +10,7 @@ function Assignment5() {
                     Welcome
                 </a>
             </div>
+            <EncodingParametersInURLs/>
         </div>
     );
 }
