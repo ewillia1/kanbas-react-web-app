@@ -27,6 +27,11 @@ function WorkingWithArrays() {
             <a type="button" className="btn btn-primary me-2 mb-2" href={`${API}?completed=true`}>
                 Get Completed Todos
             </a>
+
+            <h3>Creating new Items in an Array</h3>
+            <a type="button" className="btn btn-primary me-2 mb-2" href={`${API}/create`}>
+                Create Todo
+            </a>
         </div>
     );
 }
