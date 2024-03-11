@@ -2,7 +2,13 @@ import { useState } from "react";
 
 function WorkingWithArrays() {
     const API = "http://localhost:4000/a5/todos";
-    const [todo, setTodo] = useState({id: 1});
+    const [todo, setTodo] = useState({
+        id: 1,
+        title: "NodeJS Assignment",
+        description: "Create a NodeJS server with ExpressJS",
+        due: "2021-09-09",
+        completed: false,
+    });
     return (
         <div>
             <h3>Working with Arrays</h3>
@@ -36,6 +42,17 @@ function WorkingWithArrays() {
             <h4 className="mt-2">Deleting from an Array</h4>
             <a className="btn btn-primary me-2 mb-2" href={`${API}/${todo.id}/delete`}>
                 Delete Todo with ID = {todo.id}
+            </a>
+
+            <h4>Updating an Item in an Array</h4>
+            <input className="form-control mb-2" type="number" value={todo.id}
+                onChange={(e) => setTodo({
+                ...todo, id: parseInt(e.target.value) })}/>
+            <input className="form-control mb-2" type="text" value={todo.title}
+                onChange={(e) => setTodo({
+                ...todo, title: e.target.value })}/>
+            <a className="btn btn-primary me-2 mb-2" href={`${API}/${todo.id}/title/${todo.title}`} >
+                Update Title to {todo.title}
             </a>
         </div>
     );
