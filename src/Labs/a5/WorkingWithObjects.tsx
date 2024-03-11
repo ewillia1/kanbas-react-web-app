@@ -39,7 +39,7 @@ function WorkingWithObjects() {
             </div>
             <div className="mb-3 row">
                 <div className="col-sm-9">
-                    <input id="assignmentScoreInput" className="form-control" type="number" onChange={(e) => setAssignment({ ...assignment, score: parseInt(e.target.value) })} value={assignment.score}/>
+                    <input id="assignmentScoreInput" className="form-control" type="number" min={0} onChange={(e) => setAssignment({ ...assignment, score: parseInt(e.target.value) })} value={assignment.score}/>
                 </div>
                 <div className="col-sm-3">
                     <a type="button" className="btn btn-primary" href={`${ASSIGNMENT_URL}/score/${assignment.score}`}>
