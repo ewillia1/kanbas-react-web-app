@@ -80,7 +80,7 @@ function WorkingWithObjects() {
             <a type="button" className="btn btn-primary me-2 mb-2" href="http://localhost:4000/a5/module/name">
                 Get Module Name
             </a>
-            <div className="mb-3 row">
+            <div className="mt-2 mb-3 row">
                 <div className="col-sm-9">
                     <input id="moduleNameInput" className="form-control" type="text" onChange={(e) => setModule({ ...module, name: e.target.value })} value={module.name}/>
                 </div>
