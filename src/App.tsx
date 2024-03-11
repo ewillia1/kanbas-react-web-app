@@ -7,7 +7,7 @@ function App() {
     return (                    // Return can only return a single component. That is why we wrap the whole content with a <div>.
         <HashRouter>
             <Routes>
-                <Route path="/" element={<Navigate to="/Labs"/>}></Route>
+                <Route path="/" element={<Navigate to="/Labs/a3"/>}></Route>
                 <Route path="/Labs/*" element={<Labs/>}></Route>
                 <Route path="/Kanbas/*" element={<Kanbas/>}></Route>
                 <Route path="/hello" element={<HelloWorld/>}></Route>

@@ -1,8 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import { FaHome, FaRegCircle, FaPlug, FaRocket, FaBars, FaUserFriends, FaComments, FaBullhorn, FaClipboardList, FaBullseye, FaCog, FaGlasses, FaBook, FaFolder, FaRegUserCircle, FaTachometerAlt, FaRegCalendarAlt, FaRegEnvelope, FaRegClock, FaRegCaretSquareRight, FaRegArrowAltCircleRight, FaRegQuestionCircle, FaEyeSlash, FaAngleRight, FaChevronDown } from "react-icons/fa";
-import { MdCancelPresentation } from "react-icons/md";
 import "./index.css";
 import { courses } from "../Database";
+import { useState } from "react";
+import { Modal } from "react-bootstrap";
 
 function BlackHeader() {
     const kanbasNavLinks = [
@@ -60,19 +61,24 @@ function BlackHeader() {
         onDashboard = true;
     }
 
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return(
         <nav className="navbar wd-black-navbar" aria-label="Small site nav bar">
             <div className="container-fluid">
-                <button className="wd-small-navbar" id="threeBarDropDown" data-bs-toggle="dropdown" aria-expanded="false"><FaBars/></button>
-                
-                <ul className="dropdown-menu dropdown-menu-end wd-dropdown-menu" aria-labelledby="threeBarDropDown">
-                    <li><MdCancelPresentation className="fs-2 float-end"/></li>
-                    {kanbasNavLinks.map((link) => (
-                        <li key={link.label} className="wd-navigation-link dropdown-item">
-                            <Link to={`/Kanbas/${link.label}`}> {link.icon} {link.label} {link.optional} </Link>
-                        </li>
-                    ))}
-                </ul>
+                <button className="wd-small-navbar" id="threeBarModal" onClick={handleShow} ><FaBars/></button>
+                <Modal show={show} onHide={handleClose} fullscreen={true}>
+                    <Modal.Header closeButton></Modal.Header>
+                    <Modal.Body>
+                        {kanbasNavLinks.map((link) => (
+                            <li key={link.label} className="wd-navigation-link dropdown-item">
+                                <Link to={`/Kanbas/${link.label}`}> {link.icon} {link.label} {link.optional} </Link>
+                            </li>
+                        ))}
+                    </Modal.Body>
+                </Modal>
 
                 {onDashboard ? <p className="wd-centered-text">Dashboard</p> : <p className="wd-centered-text">{course?.number} {course?.name}</p>}
 

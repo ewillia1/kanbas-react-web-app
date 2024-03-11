@@ -1,8 +1,13 @@
 import { useParams } from "react-router";
 import { courses } from "../../Database";
 import { Link } from "react-router-dom";
+import { CourseType } from "../../Util";
 
-function GetBreadcrumb() {
+type GetBreadcrumbProp = {
+    courses: CourseType[]
+};
+
+function GetBreadcrumb({ courses }: GetBreadcrumbProp) {
     const { courseId } = useParams();
     const course = courses.find((course) => course._id === courseId);
 

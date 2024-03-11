@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import "./index.css";
 import CourseNavigation from "./Navigation";
 import Modules from "./Modules";
@@ -8,11 +8,19 @@ import Breadcrumb from "./Breadcrumb";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
+import { CourseType } from "../Util";
 
-function Courses() {
+type CoursesProp = {
+    courses: CourseType[]
+};
+
+function Courses({ courses }: CoursesProp) {
+    const { courseId } = useParams();                                           // Accept courses from Kanbas.
+    const course = courses.find((course) => course._id === courseId);      // Find the course by its ID.
+
     return (
         <>
-            <Breadcrumb/>
+            <Breadcrumb courses={courses}/>
             <div className="row">
                 <CourseNavigation />
 
