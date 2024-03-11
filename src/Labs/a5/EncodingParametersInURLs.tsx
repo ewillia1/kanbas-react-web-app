@@ -11,8 +11,8 @@ function EncodingParametersInURLs() {
             <h4>Calculator</h4>
 
             <div className="mb-3">
-                <input className="form-control mb-2" type="number" value={a} onChange={(e) => setA(parseInt(e.target.value))}/>
-                <input className="form-control" type="number" onChange={(e) => setB(parseInt(e.target.value))} value={b}/>
+                <input id="valueA" className="form-control mb-2" type="number" value={a} onChange={(e) => setA(parseInt(e.target.value))}/>
+                <input id="valueB" className="form-control" type="number" onChange={(e) => setB(parseInt(e.target.value))} value={b}/>
             </div>
 
             <h3>Path Parameters</h3>
