@@ -22,6 +22,11 @@ function WorkingWithArrays() {
                     </a>
                 </div>
             </div>
+
+            <h3>Filtering Array Items</h3>
+            <a type="button" className="btn btn-primary me-2 mb-2" href={`${API}?completed=true`}>
+                Get Completed Todos
+            </a>
         </div>
     );
 }
