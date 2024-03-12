@@ -45,11 +45,28 @@ function WorkingWithArrays() {
             </a>
 
             <h4>Updating an Item in an Array</h4>
-            <input className="form-control mb-2" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
-            <input className="form-control mb-2" type="text" value={todo.title} onChange={(e) => setTodo({ ...todo, title: e.target.value })}/>
-            <a className="btn btn-primary me-2 mb-2" href={`${API}/${todo.id}/title/${todo.title}`} >
-                Update Title to {todo.title}
-            </a>
+            <h5>Updating Todo Title</h5>
+            <div className="row mb-3">
+                <label htmlFor="inputID1" className="col-sm-2 col-form-label">Item ID</label>
+                <div className="col-sm-10">
+                    <input id="inputID1" className="form-control mb-2" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
+                </div>
+            </div>
+            <div className="row">
+                <label htmlFor="inputTodoTitle" className="col-sm-2 col-form-label">New Item Title</label>
+                <div className="col-sm-10">
+                    <input id="inputTodoTitle" className="form-control mb-2" type="text" value={todo.title} onChange={(e) => setTodo({ ...todo, title: e.target.value })}/>
+                </div>
+            </div>
+            <div className="text-center mb-3">
+                <a className="btn btn-primary me-2 mb-2" href={`${API}/${todo.id}/title/${todo.title}`} >
+                    Update Title to {todo.title}
+                </a>
+            </div>
+
+            <h5>Updating Todo Completed</h5>
+
+            <h5>Updating Todo Description</h5>
         </div>
     );
 }
