@@ -42,6 +42,11 @@ function WorkingWithArrays() {
     const createTodo = async () => {
         const response = await axios.get(`${API}/create`);
         setTodos(response.data);
+    };  
+    
+    const fetchTodoById = async (id: number) => {
+        const response = await axios.get(`${API}/${id}`);
+        setTodo(response.data);
     };    
 
     useEffect(() => {
@@ -136,6 +141,7 @@ function WorkingWithArrays() {
             <ul className="list-group mb-3">
                 {todos.map((todo) => (
                     <li key={todo.id} className="list-group-item">
+                        <button className="btn btn-warning float-end ms-2" onClick={() => fetchTodoById(todo.id)}>Edit</button>
                         <button className="btn btn-danger float-end" onClick={() => removeTodo(todo)}>Remove</button>
                         {todo.title}
                     </li>
