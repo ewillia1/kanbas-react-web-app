@@ -45,12 +45,8 @@ function WorkingWithArrays() {
             </a>
 
             <h4>Updating an Item in an Array</h4>
-            <input className="form-control mb-2" type="number" value={todo.id}
-                onChange={(e) => setTodo({
-                ...todo, id: parseInt(e.target.value) })}/>
-            <input className="form-control mb-2" type="text" value={todo.title}
-                onChange={(e) => setTodo({
-                ...todo, title: e.target.value })}/>
+            <input className="form-control mb-2" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
+            <input className="form-control mb-2" type="text" value={todo.title} onChange={(e) => setTodo({ ...todo, title: e.target.value })}/>
             <a className="btn btn-primary me-2 mb-2" href={`${API}/${todo.id}/title/${todo.title}`} >
                 Update Title to {todo.title}
             </a>
