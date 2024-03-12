@@ -27,6 +27,12 @@ function WorkingWithArrays() {
 
     const [todos, setTodos] = useState<any[]>([]);
 
+    const postTodo = async () => {
+        const response = await axios.post(API, todo);   // The second argument contains new todo object sent to server.
+                                                        // Reponse contains the todo instance added to array instead of all todos on server.
+        setTodos([...todos, response.data]);            // Reuse todos already in todos state variable to append new todo from server response at end of todos state variable.
+    };    
+
     const fetchTodos = async () => {
         console.log("in fetchTodos");
         const response = await axios.get(API);
@@ -140,8 +146,39 @@ function WorkingWithArrays() {
                 </a>
             </div>
 
-            <input id="idTodo" className="form-control mb-3" type="text" value={todo.id} readOnly/>
-            <input id="titleTodo" className="form-control mb-3" type="text" value={todo.title} onChange={(e) => setTodo({ ...todo, title: e.target.value })}/>
+            <div className="row">
+                <label htmlFor="idTodo" className="col-sm-2 col-form-label">Todo ID (Read Only)</label>
+                <div className="col-sm-10">
+                    <input id="idTodo" className="form-control mb-3" type="text" value={todo.id} readOnly/>
+                </div>
+            </div>
+            <div className="row">
+                <label htmlFor="titleTodo" className="col-sm-2 col-form-label">Todo Title</label>
+                <div className="col-sm-10">
+                    <input id="titleTodo" className="form-control mb-3" type="text" value={todo.title} onChange={(e) => setTodo({ ...todo, title: e.target.value })}/>
+                </div>
+            </div>
+            <div className="row">
+                <label htmlFor="descriptionTodo" className="col-sm-2 col-form-label">Todo Description</label>
+                <div className="col-sm-10">
+                    <textarea id="descriptionTodo" className="form-control mb-3" value={todo.description} onChange={(e) => setTodo({ ...todo, description: e.target.value })} />
+                </div>
+            </div>
+            <div className="row">
+                <label htmlFor="dueDateTodo" className="col-sm-2 col-form-label">Todo Due Date</label>
+                <div className="col-sm-10">
+                    <input id="dueDateTodo" value={todo.due} className="form-control mb-3" type="date" onChange={(e) => setTodo({ ...todo, due: e.target.value })} />
+                </div>
+            </div>
+
+            <div className="form-check mb-3">
+                <input id="completedCheckBox" className="form-check-input" checked={todo.completed} type="checkbox" onChange={(e) => setTodo({ ...todo, completed: e.target.checked })} />
+                <label className="form-check-label">Completed</label>
+            </div>
+
+            <button className="btn btn-warning mb-3" onClick={postTodo} style={{width: "-webkit-fill-available"}}>
+                Post Todo
+            </button>
             <button className="btn btn-primary mb-3" onClick={createTodo} style={{width: "-webkit-fill-available"}}>
                 Create Todo
             </button>
