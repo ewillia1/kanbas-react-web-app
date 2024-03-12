@@ -9,7 +9,7 @@ function TodoForm() {
     return (
         <li className="list-group-item">
             <div className="form-outline w-25 float-start" data-mdb-input-init>
-                <input className="form-control" value={todo.title} onChange={(e) => dispatch(setTodo({ ...todo, title: e.target.value }))}/>
+                <input id="todoTitle" className="form-control" value={todo.title} onChange={(e) => dispatch(setTodo({ ...todo, title: e.target.value }))}/>
             </div>
 
             <div className="float-end">

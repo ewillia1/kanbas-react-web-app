@@ -7,7 +7,7 @@ function StringStateVariables() {
         <div>
             <h2>String State Variables</h2>
             <p>{firstName}</p>
-            <input className="form-control mb-4" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
+            <input id="stringStateVar" className="form-control mb-4" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
         </div>
     );
 }
