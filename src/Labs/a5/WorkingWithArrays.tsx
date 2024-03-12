@@ -53,7 +53,7 @@ function WorkingWithArrays() {
             <h4>Updating an Item in an Array</h4>
             <h5>Updating Todo Title</h5>
             <div className="row mb-3">
-                <label htmlFor="inputID1" className="col-sm-2 col-form-label">Item ID</label>
+                <label htmlFor="inputID1" className="col-sm-2 col-form-label">Item ID To Update</label>
                 <div className="col-sm-10">
                     <input id="inputID1" className="form-control mb-2" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
                 </div>
@@ -72,7 +72,7 @@ function WorkingWithArrays() {
 
             <h5>Updating Todo Completed</h5>
             <div className="row mb-3">
-                <label htmlFor="inputID2" className="col-sm-2 col-form-label">Item ID</label>
+                <label htmlFor="inputID2" className="col-sm-2 col-form-label">Item ID To Update</label>
                 <div className="col-sm-10">
                     <input id="inputID2" className="form-control mb-2" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
                 </div>
@@ -94,7 +94,7 @@ function WorkingWithArrays() {
 
             <h5>Updating Todo Description</h5>
             <div className="row mb-3">
-                <label htmlFor="inputID3" className="col-sm-2 col-form-label">Item ID</label>
+                <label htmlFor="inputID3" className="col-sm-2 col-form-label">Item ID To Update</label>
                 <div className="col-sm-10">
                     <input id="inputID3" className="form-control mb-2" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
                 </div>
