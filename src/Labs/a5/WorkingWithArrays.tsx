@@ -23,18 +23,6 @@ function WorkingWithArrays() {
                 Get Todos
             </a>
 
-            <h4 className="mt-2">Retrieving an Item from an Array by ID</h4>
-            <div className="mb-3 row">
-                <div className="col-sm-9">
-                <input id="itemIDArray" className="form-control" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
-                </div>
-                <div className="col-sm-3">
-                    <a type="button" className="btn btn-primary ms-2 me-2 mb-2" href={`${API}/${todo.id}`}>
-                        Get Todo by ID
-                    </a>
-                </div>
-            </div>
-
             <h4 className="mt-2">Filtering Array Items</h4>
             <a type="button" className="btn btn-primary me-2 mb-2" href={`${API}?completed=true`}>
                 Get Completed Todos
@@ -45,6 +33,22 @@ function WorkingWithArrays() {
                 Create Todo
             </a>
 
+            <div className="text-center mb-3">
+                <h4>Item ID to Get, Delete, or Update</h4>
+            </div>
+
+            <div className="row mb-3">
+                <label className="col-sm-2 col-form-label">Item ID</label>
+                <div className="col-sm-10">
+                    <input id="inputID" className="form-control" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
+                </div>
+            </div>
+
+            <h4 className="mt-2">Retrieving an Item from an Array by ID</h4>
+            <a type="button" className="btn btn-primary me-2 mb-2" href={`${API}/${todo.id}`}>
+                Get Todo by ID
+            </a>
+
             <h4 className="mt-2">Deleting from an Array</h4>
             <a className="btn btn-primary me-2 mb-2" href={`${API}/${todo.id}/delete`}>
                 Delete Todo with ID = {todo.id}
@@ -52,31 +56,19 @@ function WorkingWithArrays() {
 
             <h4>Updating an Item in an Array</h4>
             <h5>Updating Todo Title</h5>
-            <div className="row mb-3">
-                <label htmlFor="inputID1" className="col-sm-2 col-form-label">Item ID To Update</label>
-                <div className="col-sm-10">
-                    <input id="inputID1" className="form-control mb-2" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
-                </div>
-            </div>
             <div className="row">
                 <label htmlFor="inputTodoTitle" className="col-sm-2 col-form-label">New Item Title</label>
                 <div className="col-sm-10">
                     <input id="inputTodoTitle" className="form-control mb-2" type="text" value={todo.title} onChange={(e) => setTodo({ ...todo, title: e.target.value })}/>
                 </div>
             </div>
-            <div className="text-center mb-3">
+            <div className="mb-3">
                 <a className="btn btn-primary me-2 mb-2" href={`${API}/${todo.id}/title/${todo.title}`} >
                     Update Title to {todo.title}
                 </a>
             </div>
 
             <h5>Updating Todo Completed</h5>
-            <div className="row mb-3">
-                <label htmlFor="inputID2" className="col-sm-2 col-form-label">Item ID To Update</label>
-                <div className="col-sm-10">
-                    <input id="inputID2" className="form-control mb-2" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
-                </div>
-            </div>
             <div className="row ms-1">
                 <div className="form-check float-end">
                     <input className="form-check-input" type="checkbox" id="todoCompleted" onChange={(e) => handleChecked(e.target.checked)} checked={todo.completed}/>
@@ -85,7 +77,7 @@ function WorkingWithArrays() {
                     </label>    
                 </div>
             </div>
-            <div className="text-center mb-3">
+            <div className="mb-3">
                 <a type="button" className="btn btn-primary" href={`${API}/${todo.id}/completed/${todo.completed}`}>
                     Update Completed
                 </a>
@@ -93,19 +85,13 @@ function WorkingWithArrays() {
             
 
             <h5>Updating Todo Description</h5>
-            <div className="row mb-3">
-                <label htmlFor="inputID3" className="col-sm-2 col-form-label">Item ID To Update</label>
-                <div className="col-sm-10">
-                    <input id="inputID3" className="form-control mb-2" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
-                </div>
-            </div>
             <div className="row">
                 <label htmlFor="inputTodoDescription" className="col-sm-2 col-form-label">New Item Description</label>
                 <div className="col-sm-10">
                     <input id="inputTodoDescription" className="form-control mb-2" type="text" value={todo.description} onChange={(e) => setTodo({ ...todo, title: e.target.value })}/>
                 </div>
             </div>
-            <div className="text-center mb-3">
+            <div className="mb-3">
                 <a type="button" className="btn btn-primary me-2 mb-2" href={`${API}/${todo.id}/description/${todo.description}`} >
                     Update Description to {todo.description}
                 </a>
