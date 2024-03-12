@@ -1,12 +1,31 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function EncodingParametersInURLs() {
     const [a, setA] = useState(34);
     const [b, setB] = useState(23);
 
+    const [welcome, setWelcome] = useState("");
+
+    // Asynchronously uses axios to send a GET request to /a5/welcome and returns the response from the server.
+    // The data from tehserver is availble in response.data which we store in state variable welcome.
+    const fetchWelcome = async () => {
+        const response = await axios.get("http://localhost:4000/a5/welcome");
+        setWelcome(response.data);
+    };
+
+    // The useEffect hook configures a function to call when the component first loads.
+    // useEffect invokes the fetchWelcome function when the component loads.
+    useEffect(() => {
+        fetchWelcome();
+    }, []);
+
     return (
         <div>
             <h3 className="mt-2">Encoding Parameters In URLs</h3>
+            <h4>Integrating React with APIs</h4>
+            <h5>Fetching Welcome</h5>
+            <h6>{welcome}</h6>
 
             <h4>Calculator</h4>
 
