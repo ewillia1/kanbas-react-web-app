@@ -13,7 +13,7 @@ function TodoList() {
             <ul className="list-group mb-4">
                 <TodoForm />
                 {todos.map((todo: TodoType) => (
-                <TodoItem key={todo.id} todo={todo} />
+                    <TodoItem key={todo.id} todo={todo} />
                 ))}
             </ul>
         </div>
