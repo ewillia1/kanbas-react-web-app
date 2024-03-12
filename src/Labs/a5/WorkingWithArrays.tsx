@@ -26,7 +26,7 @@ function WorkingWithArrays() {
             <h4 className="mt-2">Retrieving an Item from an Array by ID</h4>
             <div className="mb-3 row">
                 <div className="col-sm-9">
-                <input className="form-control" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
+                <input id="itemIDArray" className="form-control" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
                 </div>
                 <div className="col-sm-3">
                     <a type="button" className="btn btn-primary ms-2 me-2 mb-2" href={`${API}/${todo.id}`}>
