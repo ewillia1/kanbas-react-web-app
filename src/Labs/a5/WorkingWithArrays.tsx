@@ -50,7 +50,7 @@ function WorkingWithArrays() {
             </a>
 
             <h4 className="mt-2">Deleting from an Array</h4>
-            <a className="btn btn-primary me-2 mb-2" href={`${API}/${todo.id}/delete`}>
+            <a className="btn btn-primary me-2 mb-3" href={`${API}/${todo.id}/delete`}>
                 Delete Todo with ID = {todo.id}
             </a>
 
