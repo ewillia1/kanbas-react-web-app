@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function WorkingWithObjects() {
+    // Assignment functions and constants.
     const [assignment, setAssignment] = useState({              // Create a state variable that holds
         id: 1, title: "NodeJS Assignment",                      // default values for the form below.
         description: "Create a NodeJS server with ExpressJS",   // Eventually we will fetch this initial
@@ -8,8 +10,31 @@ function WorkingWithObjects() {
     });                                                         // the form with the remote data so...
     console.log("assignment = " + JSON.stringify(assignment));
 
-    const ASSIGNMENT_URL = "http://localhost:4000/a5/assignment"    // ...we can modify it here in the UI.
+    const ASSIGNMENT_URL = "http://localhost:4000/a5/assignment"    // ...we can modify it here in the UI.    
 
+    const fetchAssignment = async () => {
+        console.log("in fetchAssignment");
+        const response = await axios.get(`${ASSIGNMENT_URL}`);
+        setAssignment(response.data);
+    };
+
+    const updateTitle = async () => {
+        console.log("in updateTitle");
+        const response = await axios.get(`${ASSIGNMENT_URL}/title/${assignment.title}`);
+        setAssignment(response.data);
+    };
+
+    useEffect(() => {
+        fetchAssignment();
+    }, []);   
+    
+    function handleChecked(e: boolean) {
+        console.log("in handleChecked");
+        console.log("e = " + e);
+        setAssignment({ ...assignment, completed: e});
+    }
+
+    // Module functions and constants.
     const [module, setModule] = useState({
         id: "M1A101", name: "Module 1", description: "This is the description for module 1.", course: "A101"
     });
@@ -17,26 +42,34 @@ function WorkingWithObjects() {
 
     const MODULE_URL = "http://localhost:4000/a5/module";
 
-    function handleChecked(e: boolean) {
-        console.log("in handleChecked");
-        console.log("e = " + e);
-        setAssignment({ ...assignment, completed: e});
-    }
-
+    // Return statement.
     return (
         <div>
             <h3>Working With Objects</h3>
             <h4>Modifying Properties</h4>
             <div className="mb-3 row">
-                <div className="col-sm-9">
+                <div className="col-sm-8">
                     <input id="assignmentTitleInput" className="form-control" type="text" onChange={(e) => setAssignment({ ...assignment, title: e.target.value })} value={assignment.title}/>
                 </div>
-                <div className="col-sm-3">
-                    <a type="button" className="btn btn-primary" href={`${ASSIGNMENT_URL}/title/${assignment.title}`}>
+                <div className="col-sm-4">
+                    {/* <a type="button" className="btn btn-primary" href={`${ASSIGNMENT_URL}/title/${assignment.title}`}>
                         Update Title
-                    </a>
+                    </a> */}
+                    <button className="btn btn-primary me-2" onClick={updateTitle}>Update Title to: {assignment.title}</button>
                 </div>
             </div>
+
+            {/* <button className="btn btn-primary mb-3" onClick={fetchAssignment}>Fetch Assignment</button> */}
+
+            <div className="mb-3 row">
+                <div className="col-sm-8">
+                    <input id="fetchedAssignment" className="form-control" type="text" value={JSON.stringify(assignment)} readOnly/>
+                </div>
+                <div className="col-sm-4">
+                    <button className="btn btn-primary mb-3" onClick={() => fetchAssignment()}>Fetch Assignment</button>
+                </div>
+            </div>
+
             <div className="mb-3 row">
                 <div className="col-sm-9">
                     <input id="assignmentScoreInput" className="form-control" type="number" min={0} onChange={(e) => setAssignment({ ...assignment, score: parseInt(e.target.value) })} value={assignment.score}/>
