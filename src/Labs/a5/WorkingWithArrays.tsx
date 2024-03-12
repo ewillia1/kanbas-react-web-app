@@ -31,6 +31,11 @@ function WorkingWithArrays() {
         const response = await axios.post(API, todo);   // The second argument contains new todo object sent to server.
                                                         // Reponse contains the todo instance added to array instead of all todos on server.
         setTodos([...todos, response.data]);            // Reuse todos already in todos state variable to append new todo from server response at end of todos state variable.
+    };  
+    
+    const deleteTodo = async (todo: TodoType) => {
+        const response = await axios.delete(`${API}/${todo.id}`);   // Invoke axios.delete passing the ID of the item to be removed from server array.
+        setTodos(todos.filter((t) => t.id !== todo.id));            // Then filter out item from the local todos state variable.
     };    
 
     const fetchTodos = async () => {
@@ -189,7 +194,8 @@ function WorkingWithArrays() {
                 {todos.map((todo) => (
                     <li key={todo.id} className="list-group-item">
                         <button className="btn btn-warning float-end ms-2" onClick={() => fetchTodoById(todo.id)}>Edit</button>
-                        <button className="btn btn-danger float-end" onClick={() => removeTodo(todo)}>Remove</button>
+                        <button className="btn btn-danger float-end ms-2" onClick={() => deleteTodo(todo)}>Delete</button>
+                        <button className="btn btn-danger float-end ms-2" onClick={() => removeTodo(todo)}>Remove</button>
                         {todo.title}
                     </li>
                 ))}
