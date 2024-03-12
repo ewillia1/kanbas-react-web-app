@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 type TodoType = {
-    id: number,
+    id: number | string,
     title: string,
     description: string,
     due: string,
@@ -11,7 +11,7 @@ type TodoType = {
 
 function WorkingWithArrays() {
     const API = "http://localhost:4000/a5/todos";
-    const [todo, setTodo] = useState({
+    const [todo, setTodo] = useState<TodoType>({
         id: 1,
         title: "New Task",
         description: "Create a NodeJS server with ExpressJS",
@@ -25,7 +25,7 @@ function WorkingWithArrays() {
         setTodo({ ...todo, completed: e});
     }
 
-    const [todos, setTodos] = useState<any[]>([]);
+    const [todos, setTodos] = useState<TodoType[]>([]);
 
     const postTodo = async () => {
         const response = await axios.post(API, todo);   // The second argument contains new todo object sent to server.
@@ -36,7 +36,13 @@ function WorkingWithArrays() {
     const deleteTodo = async (todo: TodoType) => {
         const response = await axios.delete(`${API}/${todo.id}`);   // Invoke axios.delete passing the ID of the item to be removed from server array.
         setTodos(todos.filter((t) => t.id !== todo.id));            // Then filter out item from the local todos state variable.
-    };    
+    }; 
+
+    // const updateTodo = async () => {
+    //     const response = await axios.put(`${API}/${todo.id}`, todo);
+    //     setTodos(todos.map((t) => (t.id === todo.id ? todo : t)));
+    //     setTodo({});
+    // };    
 
     const fetchTodos = async () => {
         console.log("in fetchTodos");
@@ -193,10 +199,17 @@ function WorkingWithArrays() {
             <ul className="list-group mb-3">
                 {todos.map((todo) => (
                     <li key={todo.id} className="list-group-item">
-                        <button className="btn btn-warning float-end ms-2" onClick={() => fetchTodoById(todo.id)}>Edit</button>
+                        <div className="form-check mb-3">
+                            <input checked={todo.completed} type="checkbox" readOnly />
+                            <label className="form-check-label">{todo.title}</label>
+                        </div>
+                        <p><b>Todo Description: </b>{todo.description}</p>
+                        <p><b>Todo Due Date: </b>{todo.due}</p>
+
                         <button className="btn btn-danger float-end ms-2" onClick={() => deleteTodo(todo)}>Delete</button>
-                        <button className="btn btn-danger float-end ms-2" onClick={() => removeTodo(todo)}>Remove</button>
-                        {todo.title}
+                        {/* <button className="btn btn-warning float-end ms-2" onClick={updateTodo}>Update Todo</button> */}
+                        {/* <button className="btn btn-warning float-end ms-2" onClick={() => fetchTodoById(todo.id)}>Edit</button> */}
+                        {/* <button className="btn btn-danger float-end ms-2" onClick={() => removeTodo(todo)}>Remove</button> */}
                     </li>
                 ))}
             </ul>
