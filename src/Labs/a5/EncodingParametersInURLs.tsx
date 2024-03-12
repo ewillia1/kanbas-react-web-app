@@ -60,9 +60,6 @@ function EncodingParametersInURLs() {
                     </div>
                 </div>
                 
-                
-                
-
                 <h3>Fetch Result</h3>
                 <div className="d-grid gap-2">
                     <button onClick={() => fetchSum(a, b)} className="btn btn-primary me-2">Fetch Sum of {a} + {b}</button>
