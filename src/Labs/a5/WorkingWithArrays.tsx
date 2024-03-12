@@ -13,7 +13,7 @@ function WorkingWithArrays() {
     const API = "http://localhost:4000/a5/todos";
     const [todo, setTodo] = useState({
         id: 1,
-        title: "NodeJS Assignment",
+        title: "New Task",
         description: "Create a NodeJS server with ExpressJS",
         due: "2021-09-09",
         completed: false
@@ -44,10 +44,15 @@ function WorkingWithArrays() {
         setTodos(response.data);
     };  
     
-    const fetchTodoById = async (id: number) => {
+    const fetchTodoById = async (id: any) => {
         const response = await axios.get(`${API}/${id}`);
         setTodo(response.data);
-    };    
+    };  
+    
+    const updateTitle = async () => {
+        const response = await axios.get(`${API}/${todo.id}/title/${todo.title}`);
+        setTodos(response.data);
+    };
 
     useEffect(() => {
         fetchTodos();
@@ -135,8 +140,13 @@ function WorkingWithArrays() {
                 </a>
             </div>
 
+            <input id="idTodo" className="form-control mb-3" type="text" value={todo.id} readOnly/>
+            <input id="titleTodo" className="form-control mb-3" type="text" value={todo.title} onChange={(e) => setTodo({ ...todo, title: e.target.value })}/>
             <button className="btn btn-primary mb-3" onClick={createTodo} style={{width: "-webkit-fill-available"}}>
                 Create Todo
+            </button>
+            <button className="btn btn-success mb-3" onClick={updateTitle} style={{width: "-webkit-fill-available"}}>
+                Update Title
             </button>
             <ul className="list-group mb-3">
                 {todos.map((todo) => (
