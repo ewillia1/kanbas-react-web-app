@@ -1,4 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+type TodoType = {
+    id: number,
+    title: string,
+    description: string,
+    due: string,
+    completed: boolean
+};
 
 function WorkingWithArrays() {
     const API = "http://localhost:4000/a5/todos";
@@ -7,7 +16,7 @@ function WorkingWithArrays() {
         title: "NodeJS Assignment",
         description: "Create a NodeJS server with ExpressJS",
         due: "2021-09-09",
-        completed: false,
+        completed: false
     });
 
     function handleChecked(e: boolean) {
@@ -15,6 +24,25 @@ function WorkingWithArrays() {
         console.log("e = " + e);
         setTodo({ ...todo, completed: e});
     }
+
+    const [todos, setTodos] = useState<any[]>([]);
+
+    const fetchTodos = async () => {
+        console.log("in fetchTodos");
+        const response = await axios.get(API);
+        console.log("response = " + JSON.stringify(response));
+        setTodos(response.data);
+    };
+
+    const removeTodo = async (todo: TodoType) => {
+        const response = await axios.get(`${API}/${todo.id}/delete`);
+        setTodos(response.data);
+    };
+
+    useEffect(() => {
+        fetchTodos();
+    }, []);  
+
     return (
         <div>
             <h3>Working with Arrays</h3>
@@ -38,7 +66,7 @@ function WorkingWithArrays() {
             </div>
 
             <div className="row mb-3">
-                <label className="col-sm-2 col-form-label">Item ID</label>
+                <label htmlFor="inputID" className="col-sm-2 col-form-label">Item ID</label>
                 <div className="col-sm-10">
                     <input id="inputID" className="form-control" type="number" min={0} value={todo.id} onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}/>
                 </div>
@@ -96,6 +124,15 @@ function WorkingWithArrays() {
                     Update Description to {todo.description}
                 </a>
             </div>
+
+            <ul className="list-group mb-3">
+                {todos.map((todo) => (
+                    <li key={todo.id} className="list-group-item">
+                        <button className="btn btn-danger float-end" onClick={() => removeTodo(todo)}>Remove</button>
+                        {todo.title}
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 }
