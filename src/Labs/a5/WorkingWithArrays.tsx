@@ -39,6 +39,11 @@ function WorkingWithArrays() {
         setTodos(response.data);
     };
 
+    const createTodo = async () => {
+        const response = await axios.get(`${API}/create`);
+        setTodos(response.data);
+    };    
+
     useEffect(() => {
         fetchTodos();
     }, []);  
@@ -125,6 +130,9 @@ function WorkingWithArrays() {
                 </a>
             </div>
 
+            <button className="btn btn-primary mb-3" onClick={createTodo} style={{width: "-webkit-fill-available"}}>
+                Create Todo
+            </button>
             <ul className="list-group mb-3">
                 {todos.map((todo) => (
                     <li key={todo.id} className="list-group-item">
