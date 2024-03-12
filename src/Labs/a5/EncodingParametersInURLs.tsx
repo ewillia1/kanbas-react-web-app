@@ -41,9 +41,27 @@ function EncodingParametersInURLs() {
             <h4>Calculator</h4>
 
             <div className="mb-3">
-                <input id="valueA" className="form-control mb-2" type="number" value={a} onChange={(e) => setA(parseInt(e.target.value))}/>
-                <input id="valueB" className="form-control mb-2" type="number" value={b} onChange={(e) => setB(parseInt(e.target.value))}/>
-                <input id="resultValue" className="form-control mb-2" value={result} type="number" readOnly />
+                <div className="row">
+                    <label htmlFor="valueA" className="col-sm-2 col-form-label">Number 1</label>
+                    <div className="col-sm-10">
+                        <input id="valueA" className="form-control mb-2" type="number" value={a} onChange={(e) => setA(parseInt(e.target.value))}/>
+                    </div>
+                </div>
+                <div className="row">
+                    <label htmlFor="valueB" className="col-sm-2 col-form-label">Number 2</label>
+                    <div className="col-sm-10">
+                        <input id="valueB" className="form-control mb-2" type="number" value={b} onChange={(e) => setB(parseInt(e.target.value))}/>
+                    </div>
+                </div>
+                <div className="row">
+                    <label htmlFor="resultValue" className="col-sm-2 col-form-label">Result</label>
+                    <div className="col-sm-10">
+                        <input id="resultValue" className="form-control mb-2" value={result} type="number" readOnly />
+                    </div>
+                </div>
+                
+                
+                
 
                 <h3>Fetch Result</h3>
                 <div className="d-grid gap-2">
