@@ -10,8 +10,10 @@ import { CourseType } from "./Util";
 import store from "./store";                // Import the redux store.
 import { Provider } from "react-redux";     // Import the redux store Provider.
 import axios from "axios";
+import { Modal, Button } from "react-bootstrap";
 
 function Kanbas() {
+    const [errorMessage, setErrorMessage] = useState(null);
     const [_courses, setCourses] = useState<CourseType[]>([]);               // Create _courses array state variable. Initialize with courses from the json file.
     const COURSES_API = "http://localhost:4000/api/courses";
     
@@ -31,22 +33,31 @@ function Kanbas() {
     });
 
     const addNewCourse = async () => {                                    // Event handler to add new course.
-        const newCourse = { ...course,  _id: new Date().getTime().toString() };
-        // setCourses([..._courses, { ...course, ...newCourse }]);     // Update _courses.
-        const response = await axios.post(COURSES_API, course);
-        setCourses([ ..._courses, response.data ]);
-        setCourse({                                                 // Clear the course.
-            _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
-            startDate: "2024-09-10", endDate: "2024-12-15",
-            image: "/blueBackground.jpg"
-        });
+        try {
+            const response = await axios.post(COURSES_API, course);
+            setCourses([ ..._courses, response.data ]);
+            setCourse({                                                 // Clear the course.
+                _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
+                startDate: "2024-09-10", endDate: "2024-12-15",
+                image: "/blueBackground.jpg"
+            });
+            setErrorMessage(null);
+            setShow(true);
+        } catch (error: any) {
+            console.log("error = " + error);
+            setErrorMessage(error.response.data.message);
+        }
     };
 
     const deleteCourse = async (courseId: string) => {                    // Event handler to delete a course.
-        // const courseToDelete = _courses.filter((course) => course._id !== courseId);
-        // setCourses(courseToDelete);                                 // Update _courses.
-        const response = await axios.delete(`${COURSES_API}/${courseId}`);
-        setCourses(_courses.filter((c) => c._id !== courseId));      
+        try {
+            setCourses(_courses.filter((c) => c._id !== courseId)); 
+            setErrorMessage(null); 
+        } catch (error: any) {
+            console.log("error = " + error);
+            setErrorMessage(error.response.data.message);
+            setShow(true);
+        } 
     };
     
     const updateCourse = () => {                                    // Event handler to update/edit a course.
@@ -59,8 +70,24 @@ function Kanbas() {
         });
     };
 
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+
     return(
         <Provider store={store}>
+            {/* Error pop-up modal. Will only appear if an error occurs in the try-catch blocks above. */}
+            <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Error Message</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {errorMessage}.
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={handleClose}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+
             <div className="container-fluid wd-main-container">
                 <div className="row wd-main-row">
                     {/* Column 1a: Kanbas Navigation. Hide on screen smaller than medium. */}
