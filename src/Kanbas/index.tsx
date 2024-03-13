@@ -5,14 +5,24 @@ import Dashboard from "./Dashboard";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Courses from "./Courses";
 import "./index.css";
-import { useState } from "react";
-import { courses } from "./Database";
+import { useState, useEffect } from "react";
 import { CourseType } from "./Util";
 import store from "./store";                // Import the redux store.
 import { Provider } from "react-redux";     // Import the redux store Provider.
+import axios from "axios";
 
 function Kanbas() {
-    const [_courses, setCourses] = useState<CourseType[]>(courses);               // Create _courses array state variable. Initialize with courses from the json file.
+    const [_courses, setCourses] = useState<CourseType[]>([]);               // Create _courses array state variable. Initialize with courses from the json file.
+    const COURSES_API = "http://localhost:4000/api/courses";
+    
+    const findAllCourses = async () => {
+        const response = await axios.get(COURSES_API);
+        setCourses(response.data);
+    };
+
+    useEffect(() => {
+        findAllCourses();
+    }, []);  
     
     const [course, setCourse] = useState({                          // Create course state variable object.
         _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
