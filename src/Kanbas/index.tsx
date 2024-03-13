@@ -32,7 +32,6 @@ function Kanbas() {
 
     const addNewCourse = async () => {                                    // Event handler to add new course.
         const newCourse = { ...course,  _id: new Date().getTime().toString() };
-        console.log("newCourse = " + JSON.stringify(newCourse));
         // setCourses([..._courses, { ...course, ...newCourse }]);     // Update _courses.
         const response = await axios.post(COURSES_API, course);
         setCourses([ ..._courses, response.data ]);
@@ -43,15 +42,15 @@ function Kanbas() {
         });
     };
 
-    const deleteCourse = (courseId: string) => {                    // Event handler to delete a course.
-        const courseToDelete = _courses.filter((course) => course._id !== courseId);
-        console.log("courseToDelete = " + JSON.stringify(courseToDelete));
-        setCourses(courseToDelete);                                 // Update _courses.
+    const deleteCourse = async (courseId: string) => {                    // Event handler to delete a course.
+        // const courseToDelete = _courses.filter((course) => course._id !== courseId);
+        // setCourses(courseToDelete);                                 // Update _courses.
+        const response = await axios.delete(`${COURSES_API}/${courseId}`);
+        setCourses(_courses.filter((c) => c._id !== courseId));      
     };
     
     const updateCourse = () => {                                    // Event handler to update/edit a course.
         const updatedCourse = _courses.map((c) => (c._id === course._id ? course : c));
-        console.log("updatedCourse = " + JSON.stringify(updatedCourse));
         setCourses(updatedCourse);                                  // Update _courses.
         setCourse({                                                 // Clear the course.
             _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
