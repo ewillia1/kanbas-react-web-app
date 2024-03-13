@@ -60,14 +60,28 @@ function Kanbas() {
         } 
     };
     
-    const updateCourse = () => {                                    // Event handler to update/edit a course.
-        const updatedCourse = _courses.map((c) => (c._id === course._id ? course : c));
-        setCourses(updatedCourse);                                  // Update _courses.
-        setCourse({                                                 // Clear the course.
-            _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
-            startDate: "2024-09-10", endDate: "2024-12-15",
-            image: "/blueBackground.jpg"
-        });
+    const updateCourse = async () => {                                    // Event handler to update/edit a course.
+        try {
+            const response = await axios.put(`${COURSES_API}/${course._id}`, course);      
+            setCourses(
+                _courses.map((c) => {
+                    if (c._id === course._id) {
+                        return course;
+                    }
+                    return c;
+                })
+            );
+            setCourse({                                                 // Clear the course.
+                _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
+                startDate: "2024-09-10", endDate: "2024-12-15",
+                image: "/blueBackground.jpg"
+            });
+            setErrorMessage(null); 
+        } catch (error: any) {
+            console.log("error = " + error);
+            setErrorMessage(error.response.data.message);
+            setShow(true);
+        }
     };
 
     const [show, setShow] = useState(false);
