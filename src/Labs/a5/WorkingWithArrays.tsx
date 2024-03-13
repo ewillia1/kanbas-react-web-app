@@ -13,10 +13,10 @@ function WorkingWithArrays() {
     const [errorMessage, setErrorMessage] = useState(null);
     const API = "http://localhost:4000/a5/todos";
     const [todo, setTodo] = useState<TodoType>({
-        id: 1,
-        title: "New Task",
-        description: "Create a NodeJS server with ExpressJS",
-        due: "2021-09-09",
+        id: 0,
+        title: "",
+        description: "",
+        due: "",
         completed: false
     });
 
@@ -29,17 +29,22 @@ function WorkingWithArrays() {
     const [todos, setTodos] = useState<TodoType[]>([]);
 
     const postTodo = async () => {
-        const response = await axios.post(API, todo);   // The second argument contains new todo object sent to server.
+        try {
+            const response = await axios.post(API, todo);   // The second argument contains new todo object sent to server.
                                                         // Reponse contains the todo instance added to array instead of all todos on server.
-        setTodos([...todos, response.data]);            // Reuse todos already in todos state variable to append new todo from server response at end of todos state variable.
+            setTodos([...todos, response.data]);            // Reuse todos already in todos state variable to append new todo from server response at end of todos state variable.
+        } catch (error: any) {
+            console.log("error = " + error);      
+        }
     };  
     
     const deleteTodo = async (todo: TodoType) => {
         try {
             const response = await axios.delete(`${API}/${todo.id}`);   // Invoke axios.delete passing the ID of the item to be removed from server array.
             setTodos(todos.filter((t) => t.id !== todo.id));            // Then filter out item from the local todos state variable.
+            setErrorMessage(null);
         } catch (error: any) {
-            console.log(error);
+            console.log("error = " + error);
             setErrorMessage(error.response.data.message);      
         }
     }; 
@@ -50,37 +55,63 @@ function WorkingWithArrays() {
             const response = await axios.put(`${API}/${todo.id}`, todo);    // The second argument contains updated todo object instance sent to server.
                                                                             // Response contains status instead of all the todos on the server.
             setTodos(todos.map((t) => (t.id === todo.id ? todo : t)));      // Reuse todos already in todos state variable to replace corresponding todo with new todo.
+            setTodo({
+                id: 0,
+                title: "",
+                description: "",
+                due: "",
+                completed: false
+            });
+            setErrorMessage(null);
         } catch (error: any) {
-            console.log(error);
+            console.log("error = " + error);
             setErrorMessage(error.response.data.message);      
         }
     };    
 
     const fetchTodos = async () => {
-        console.log("in fetchTodos");
-        const response = await axios.get(API);
-        console.log("response = " + JSON.stringify(response));
-        setTodos(response.data);
+        try {
+            const response = await axios.get(API);
+            setTodos(response.data);
+        } catch (error: any) {
+            console.log("error = " + error);     
+        }
     };
 
     const removeTodo = async (todo: TodoType) => {
-        const response = await axios.get(`${API}/${todo.id}/delete`);
-        setTodos(response.data);
+        try {
+            const response = await axios.get(`${API}/${todo.id}/delete`);
+            setTodos(response.data);
+        } catch (error: any) {
+            console.log("error = " + error);
+        }
     };
 
     const createTodo = async () => {
-        const response = await axios.get(`${API}/create`);
-        setTodos(response.data);
+        try {
+            const response = await axios.get(`${API}/create`);
+            setTodos(response.data);
+        } catch (error: any) {
+            console.log("error = " + error);    
+        }
     };  
     
     const fetchTodoById = async (id: any) => {
-        const response = await axios.get(`${API}/${id}`);
-        setTodo(response.data);
+        try {
+            const response = await axios.get(`${API}/${id}`);
+            setTodo(response.data);
+        } catch (error: any) {
+            console.log("error = " + error);   
+        }
     };  
     
     const updateTitle = async () => {
-        const response = await axios.get(`${API}/${todo.id}/title/${todo.title}`);
-        setTodos(response.data);
+        try {
+            const response = await axios.get(`${API}/${todo.id}/title/${todo.title}`);
+            setTodos(response.data);
+        } catch (error: any) {
+            console.log("error = " + error);
+        }
     };
 
     useEffect(() => {
@@ -196,7 +227,7 @@ function WorkingWithArrays() {
 
             <div className="form-check mb-3">
                 <input id="completedCheckBox" className="form-check-input" checked={todo.completed} type="checkbox" onChange={(e) => setTodo({ ...todo, completed: e.target.checked })} />
-                <label className="form-check-label">Completed</label>
+                <label htmlFor="completedCheckBox" className="form-check-label">Completed</label>
             </div>
 
             <button className="btn btn-warning mb-3" onClick={postTodo} style={{width: "-webkit-fill-available"}}>
@@ -218,8 +249,8 @@ function WorkingWithArrays() {
                 {todos.map((todo) => (
                     <li key={todo.id} className="list-group-item">
                         <div className="form-check mb-3">
-                            <input checked={todo.completed} type="checkbox" readOnly />
-                            <label className="form-check-label ms-2">{todo.title}</label>
+                            <input id={todo.id.toString()} checked={todo.completed} type="checkbox" readOnly />
+                            <label htmlFor={todo.id.toString()} className="form-check-label ms-2">{todo.title}</label>
                         </div>
                         <p><b>Todo Description: </b>{todo.description}</p>
                         <p><b>Todo Due Date: </b>{todo.due}</p>
