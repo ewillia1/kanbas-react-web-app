@@ -30,10 +30,12 @@ function Kanbas() {
         image: "/blueBackground.jpg"
     });
 
-    const addNewCourse = () => {                                    // Event handler to add new course.
+    const addNewCourse = async () => {                                    // Event handler to add new course.
         const newCourse = { ...course,  _id: new Date().getTime().toString() };
         console.log("newCourse = " + JSON.stringify(newCourse));
-        setCourses([..._courses, { ...course, ...newCourse }]);     // Update _courses.
+        // setCourses([..._courses, { ...course, ...newCourse }]);     // Update _courses.
+        const response = await axios.post(COURSES_API, course);
+        setCourses([ ..._courses, response.data ]);
         setCourse({                                                 // Clear the course.
             _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
             startDate: "2024-09-10", endDate: "2024-12-15",
