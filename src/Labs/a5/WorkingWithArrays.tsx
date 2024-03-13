@@ -38,11 +38,12 @@ function WorkingWithArrays() {
         setTodos(todos.filter((t) => t.id !== todo.id));            // Then filter out item from the local todos state variable.
     }; 
 
-    // const updateTodo = async () => {
-    //     const response = await axios.put(`${API}/${todo.id}`, todo);
-    //     setTodos(todos.map((t) => (t.id === todo.id ? todo : t)));
-    //     setTodo({});
-    // };    
+    // Puts updates to the server.
+    const updateTodo = async () => {
+        const response = await axios.put(`${API}/${todo.id}`, todo);    //The second argument contains updated todo object instance sent to server.
+                                                                        // Response contains status instead of all the todos on the server.
+        setTodos(todos.map((t) => (t.id === todo.id ? todo : t)));      // Reuse todos already in todos state variable to replace corresponding todo with new todo.
+    };    
 
     const fetchTodos = async () => {
         console.log("in fetchTodos");
@@ -201,14 +202,14 @@ function WorkingWithArrays() {
                     <li key={todo.id} className="list-group-item">
                         <div className="form-check mb-3">
                             <input checked={todo.completed} type="checkbox" readOnly />
-                            <label className="form-check-label">{todo.title}</label>
+                            <label className="form-check-label ms-2">{todo.title}</label>
                         </div>
                         <p><b>Todo Description: </b>{todo.description}</p>
                         <p><b>Todo Due Date: </b>{todo.due}</p>
 
                         <button className="btn btn-danger float-end ms-2" onClick={() => deleteTodo(todo)}>Delete</button>
-                        {/* <button className="btn btn-warning float-end ms-2" onClick={updateTodo}>Update Todo</button> */}
-                        {/* <button className="btn btn-warning float-end ms-2" onClick={() => fetchTodoById(todo.id)}>Edit</button> */}
+                        <button className="btn btn-warning float-end ms-2" onClick={updateTodo}>Update Todo</button>
+                        <button className="btn btn-warning float-end ms-2" onClick={() => fetchTodoById(todo.id)}>Edit</button>
                         {/* <button className="btn btn-danger float-end ms-2" onClick={() => removeTodo(todo)}>Remove</button> */}
                     </li>
                 ))}
