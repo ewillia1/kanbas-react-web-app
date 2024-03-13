@@ -9,18 +9,29 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 import { CourseType } from "../Util";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-type CoursesProp = {
-    courses: CourseType[]
-};
-
-function Courses({ courses }: CoursesProp) {
+function Courses() {
     const { courseId } = useParams();                                           // Accept courses from Kanbas.
-    const course = courses.find((course) => course._id === courseId);      // Find the course by its ID.
+    const COURSES_API = "http://localhost:4000/api/courses";
+    const [course, setCourse] = useState<CourseType>({
+        _id: "", name: "", number: "", semester: "",
+        startDate: "", endDate: "", image: "" 
+    });
+    
+    const findCourseById = async (courseId?: string) => {
+        const response = await axios.get(`${COURSES_API}/${courseId}`);
+        setCourse(response.data);
+    };
+
+    useEffect(() => {
+        findCourseById(courseId);
+    }, [courseId]);
 
     return (
         <>
-            <Breadcrumb courses={courses}/>
+            <Breadcrumb/>
             <div className="row">
                 <CourseNavigation />
 
