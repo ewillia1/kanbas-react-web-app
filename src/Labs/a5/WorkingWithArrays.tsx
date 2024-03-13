@@ -10,6 +10,7 @@ type TodoType = {
 };
 
 function WorkingWithArrays() {
+    const [errorMessage, setErrorMessage] = useState(null);
     const API = "http://localhost:4000/a5/todos";
     const [todo, setTodo] = useState<TodoType>({
         id: 1,
@@ -34,15 +35,25 @@ function WorkingWithArrays() {
     };  
     
     const deleteTodo = async (todo: TodoType) => {
-        const response = await axios.delete(`${API}/${todo.id}`);   // Invoke axios.delete passing the ID of the item to be removed from server array.
-        setTodos(todos.filter((t) => t.id !== todo.id));            // Then filter out item from the local todos state variable.
+        try {
+            const response = await axios.delete(`${API}/${todo.id}`);   // Invoke axios.delete passing the ID of the item to be removed from server array.
+            setTodos(todos.filter((t) => t.id !== todo.id));            // Then filter out item from the local todos state variable.
+        } catch (error: any) {
+            console.log(error);
+            setErrorMessage(error.response.data.message);      
+        }
     }; 
 
     // Puts updates to the server.
     const updateTodo = async () => {
-        const response = await axios.put(`${API}/${todo.id}`, todo);    //The second argument contains updated todo object instance sent to server.
-                                                                        // Response contains status instead of all the todos on the server.
-        setTodos(todos.map((t) => (t.id === todo.id ? todo : t)));      // Reuse todos already in todos state variable to replace corresponding todo with new todo.
+        try {
+            const response = await axios.put(`${API}/${todo.id}`, todo);    // The second argument contains updated todo object instance sent to server.
+                                                                            // Response contains status instead of all the todos on the server.
+            setTodos(todos.map((t) => (t.id === todo.id ? todo : t)));      // Reuse todos already in todos state variable to replace corresponding todo with new todo.
+        } catch (error: any) {
+            console.log(error);
+            setErrorMessage(error.response.data.message);      
+        }
     };    
 
     const fetchTodos = async () => {
@@ -197,6 +208,12 @@ function WorkingWithArrays() {
             <button className="btn btn-success mb-3" onClick={updateTitle} style={{width: "-webkit-fill-available"}}>
                 Update Title
             </button>
+            {errorMessage && (
+                    <div className="alert alert-danger mb-2 mt-2">
+                        {errorMessage}
+                    </div>
+                )
+            }
             <ul className="list-group mb-3">
                 {todos.map((todo) => (
                     <li key={todo.id} className="list-group-item">
