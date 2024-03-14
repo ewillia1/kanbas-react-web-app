@@ -1,15 +1,27 @@
 import { useParams } from "react-router";
-import { courses } from "../../Database";
 import { Link } from "react-router-dom";
 import { CourseType } from "../../Util";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-type GetBreadcrumbProp = {
-    courses: CourseType[]
-};
-
-function GetBreadcrumb({ courses }: GetBreadcrumbProp) {
+function GetBreadcrumb() {
     const { courseId } = useParams();
-    const course = courses.find((course) => course._id === courseId);
+    const COURSES_API = "http://localhost:4000/api/courses";
+    const [course, setCourse] = useState<CourseType>({
+        _id: "", name: "", number: "", semester: "",
+        startDate: "", endDate: "", image: "" 
+    });
+    
+    const findCourseById = async (courseId?: string) => {
+        const response = await axios.get(
+        `${COURSES_API}/${courseId}`
+        );
+        setCourse(response.data);
+    };
+
+    useEffect(() => {
+        findCourseById(courseId);
+    }, [courseId]);    
 
     let currentURL = (document.URL);
     let webPage = currentURL.split("/");
