@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";     // Import createSlide.
-import { modules } from "../../Database";           // Import modules from database.
 
 const initialState = {                              // Create reducer's initial state with 
-    modules: modules,                               // default modules copied from database.
+    modules: [],
     module: { name: "New Module", description: "New Description" }     // Default module.
 };
 
 const modulesSlice = createSlice({ name: "modules", initialState,   // Create slice. Name the slice. Set initial state.
     reducers: {                                     // Declare reducer functions.
+        setModules: (state, action) => {
+            state.modules = action.payload;
+        },      
 
         // addModule reducer function, action contains new module in action.payload. Overide _id as timestamp
         addModule: (state, action) => {             // New module is in action.payload.
@@ -39,5 +41,5 @@ const modulesSlice = createSlice({ name: "modules", initialState,   // Create sl
     },
 });
 
-export const { addModule, deleteModule, updateModule, setModule } = modulesSlice.actions;   // Export all reducer functions.
+export const { addModule, deleteModule, updateModule, setModule, setModules } = modulesSlice.actions;   // Export all reducer functions.
 export default modulesSlice.reducer;                // Export reducer for store.

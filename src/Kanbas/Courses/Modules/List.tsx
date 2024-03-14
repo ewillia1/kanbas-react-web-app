@@ -1,4 +1,4 @@
-import { useState } from "react";                                   // Import useState to create state variables.
+import { useEffect, useState } from "react";                        // Import useState to create state variables.
 import "./index.css";
 import { modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown, FaCaretRight } from "react-icons/fa";
@@ -6,11 +6,18 @@ import { useParams } from "react-router";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import { KanbasState } from "../../store";
 import { useSelector, useDispatch } from "react-redux";             // Import useSelector and useDispatch.
-import { addModule, deleteModule, updateModule, setModule } from "./modulesReducer";        // Import reducer functions to add, delete, and update modules.
+import { addModule, deleteModule, updateModule, setModule, setModules } from "./modulesReducer";        // Import reducer functions to add, delete, and update modules.
 import { LessonType } from "../../Util";
+import { findModulesForCourse } from "./client";
 
 function ModuleList() {
     const { courseId } = useParams();
+    // const modules = useSelector((state: KanbasState) => state.modulesReducer.modules);  // Retrieve current state variables modules from reducer.
+
+    useEffect(() => {
+        findModulesForCourse(courseId).then((modules) => dispatch(setModules(modules)));
+    }, [courseId]);
+    
     const modulesList = modules.filter((module) => module.course === courseId);
     const [selectedModule, setSelectedModule] = useState(modulesList[0]);
 
