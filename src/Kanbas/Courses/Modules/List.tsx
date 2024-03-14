@@ -1,4 +1,4 @@
-import { useEffect } from "react";                        // Import useState to create state variables.
+import { useEffect, useState } from "react";                        // Import useState to create state variables.
 import "./index.css";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown, FaCaretRight } from "react-icons/fa";
 import { useParams } from "react-router";
@@ -12,15 +12,19 @@ import * as client from "./client";
 function ModuleList() {
     const { courseId } = useParams();
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
-    const moduleList = useSelector((state: KanbasState) => state.modulesReducer.modules);  // Retrieve current state variables modules from reducer.
-    const selectedModule = useSelector((state: KanbasState) => state.modulesReducer.module);
+    const moduleListFromReducer = useSelector((state: KanbasState) => state.modulesReducer.modules);  // Retrieve current state variables modules from reducer.
+    const _module = useSelector((state: KanbasState) => state.modulesReducer.module);
+    const [selectedModule, setSelectedModule] = useState(moduleListFromReducer[0]);
 
     useEffect(() => {
-        client.findModulesForCourse(courseId).then((modules) => dispatch(setModules(modules)));
+        client.findModulesForCourse(courseId).then((modules) =>{ 
+            setSelectedModule(modules[0]); 
+            dispatch(setModules(modules));
+        });
     }, [courseId]);
 
     const handleAddModule = () => {
-        client.createModule(courseId, selectedModule).then((selectedModule) => {dispatch(addModule(selectedModule));});
+        client.createModule(courseId, _module).then((module) => {dispatch(addModule(module));});
     };    
 
     const handleDeleteModule = (moduleId: string) => {
@@ -33,8 +37,8 @@ function ModuleList() {
 
     const handleUpdateModule = async () => {
         try {
-            const status = await client.updateModule(selectedModule);
-            dispatch(updateModule(selectedModule));
+            const status = await client.updateModule(_module);
+            dispatch(updateModule(_module));
         } catch (error: any) {
             console.log("handleUpdateModule error = " + error);  
         }
@@ -60,14 +64,14 @@ function ModuleList() {
 
             <ul className="list-group wd-modules">
                 <li className="list-group-item">
-                    <input className="m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={selectedModule.name} onChange={(e) => dispatch(setModule({ ...selectedModule, name: e.target.value }))}/>        {/* Wrap reducer functions with dispatch. */}
+                    <input id="modTitle" className="m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={_module.name} onChange={(e) => dispatch(setModule({ ..._module, name: e.target.value }))}/>        {/* Wrap reducer functions with dispatch. */}
                     <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={handleAddModule}>Add</button>         {/* Wrap reducer functions with dispatch. */}
                     <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={handleUpdateModule}>Update</button>                           {/* Wrap reducer functions with dispatch. */}
-                    <textarea className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={selectedModule.description} onChange={(e) => dispatch(setModule({ ...selectedModule, description: e.target.value }))}/>   {/* Update module.description for every key stroke. */}
+                    <textarea id="modDescription" className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={_module.description} onChange={(e) => dispatch(setModule({ ..._module, description: e.target.value }))}/>   {/* Update module.description for every key stroke. */}
                 </li>
 
-                {moduleList.filter((module) => module.course === courseId).map((module) => (
-                    <li key={module._id} className="list-group-item" onClick={() => dispatch(setModule(module))} draggable="true">
+                {moduleListFromReducer.filter((module) => module.course === courseId).map((module) => (
+                    <li key={module._id} className="list-group-item" onClick={() => setSelectedModule(module)} draggable="true">
                         <div style={{cursor: "pointer"}}>
                             <RxDragHandleDots2 className="me-2" />
 

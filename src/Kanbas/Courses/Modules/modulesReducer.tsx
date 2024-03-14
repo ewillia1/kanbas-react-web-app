@@ -10,8 +10,8 @@ const initialState = {                              // Create reducer's initial 
     }],
     module: { 
         _id: "",
-        name: "",
-        description: "",
+        name: "New Module",
+        description: "New Description",
         course: "",
         lesson: ""
      }     // Default module.
@@ -21,14 +21,6 @@ const modulesSlice = createSlice({ name: "modules", initialState,   // Create sl
     reducers: {                                     // Declare reducer functions.
         setModules: (state, action) => {
             state.modules = action.payload;
-            // state.module = action.payload[0];
-            // state.module = { 
-            //     _id: "",
-            //     name: "",
-            //     description: "",
-            //     course: "",
-            //     lesson: ""
-            //  };
         },      
 
         // addModule reducer function that appends new module at the beginning of modules state variable.
@@ -49,8 +41,8 @@ const modulesSlice = createSlice({ name: "modules", initialState,   // Create sl
             state.modules = state.modules.map((module) => (module._id === action.payload._id ? action.payload : module));
             state.module = { 
                 _id: "",
-                name: "",
-                description: "",
+                name: "New Module",
+                description: "New Description",
                 course: "",
                 lesson: ""
              };  // Clear module.
