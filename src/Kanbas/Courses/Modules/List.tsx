@@ -8,18 +8,22 @@ import { KanbasState } from "../../store";
 import { useSelector, useDispatch } from "react-redux";             // Import useSelector and useDispatch.
 import { addModule, deleteModule, updateModule, setModule, setModules } from "./modulesReducer";        // Import reducer functions to add, delete, and update modules.
 import { LessonType } from "../../Util";
-import { findModulesForCourse, createModule } from "./client";
+import * as client from "./client";
 
 function ModuleList() {
     const { courseId } = useParams();
     // const modules = useSelector((state: KanbasState) => state.modulesReducer.modules);  // Retrieve current state variables modules from reducer.
 
     useEffect(() => {
-        findModulesForCourse(courseId).then((modules) => dispatch(setModules(modules)));
+        client.findModulesForCourse(courseId).then((modules) => dispatch(setModules(modules)));
     }, [courseId]);
 
     const handleAddModule = () => {
-        createModule(courseId, module).then((module) => {dispatch(addModule(module));});
+        client.createModule(courseId, module).then((module) => {dispatch(addModule(module));});
+    };    
+
+    const handleDeleteModule = (moduleId: string) => {
+        client.deleteModule(moduleId).then((status) => {dispatch(deleteModule(moduleId));});
     };    
     
     const modulesList = modules.filter((module) => module.course === courseId);
@@ -67,7 +71,7 @@ function ModuleList() {
                                 <FaCaretDown style={{paddingLeft: "5px"}} />
                                 <FaPlusCircle className="ms-2" />
                                 <FaEllipsisV className="ms-2" />
-                                <button className="btn btn-danger" style={{borderRadius: "6px"}} onClick={() => dispatch(deleteModule(module._id))}>Delete</button>                 {/* Wrap reducer functions with dispatch. */}
+                                <button className="btn btn-danger" style={{borderRadius: "6px"}} onClick={() => handleDeleteModule(module._id)}>Delete</button>                 {/* Wrap reducer functions with dispatch. */}
                                 <button className="btn btn-success" style={{borderRadius: "6px", marginLeft: "5px"}} onClick={() => dispatch(setModule(module))}>Edit</button>      {/* Wrap reducer functions with dispatch. */}
                             </span>
                         </div>
