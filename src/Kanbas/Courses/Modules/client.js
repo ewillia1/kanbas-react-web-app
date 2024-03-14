@@ -12,7 +12,7 @@ export const updateModule = async (module) => {
     return response.data;
 };  
 
-// deletModule service function that sends an HTTP DELETE request to the server encoding the module's ID in the path.
+// deleteModule service function that sends an HTTP DELETE request to the server encoding the module's ID in the path.
 // Reponse contains a status code.
 export const deleteModule = async (moduleId) => {
     const response = await axios.delete(`${MODULES_API}/${moduleId}`);

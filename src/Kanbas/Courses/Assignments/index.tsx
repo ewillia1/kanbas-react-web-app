@@ -4,41 +4,46 @@ import "./index.css";
 import { TbFilePencil } from "react-icons/tb";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteAssignment, selectAssignment } from "./assignmentsReducer";        // Import reducer functions to add, delete, and update assignments.
+import { deleteAssignment, selectAssignment, selectAssignments } from "./assignmentsReducer";        // Import reducer functions to add, delete, and update assignments.
 import { AssignmentType, KanbasState } from "../../store";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from 'react-bootstrap/Modal';
 import { Button } from "react-bootstrap";
+import * as client from "./client";
 
 function Assignments() {
     const { courseId } = useParams();
-    const navigate = useNavigate();
-    const assignmentList = useSelector((state: KanbasState) => state.assignmentsReducer.assignments);  // Retrieve current state variables assignments from reducer.
-    const [toBeDeleted, setToBeDeleted] = useState<AssignmentType | undefined>();
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
+    const navigate = useNavigate();
+    const assignmentListFromReducer = useSelector((state: KanbasState) => state.assignmentsReducer.assignments);  // Retrieve current state variables assignments from reducer.
+    const [toBeDeleted, setToBeDeleted] = useState<AssignmentType | undefined>();
     const [show, setShow] = useState(false);
 
+    useEffect(() => {
+        client.findAssignmentsForCourse(courseId).then((assignments) => {
+            dispatch(selectAssignments(assignments));
+        });
+    });
+
     function handleCloseYes(assignment: AssignmentType  | undefined) {
-        console.log("In handleCloseYes");
-        console.log("assignment being deleted = " + JSON.stringify(assignment));
-        dispatch(deleteAssignment(assignment?._id));
+        try {
+            client.deleteAssignment(assignment?._id).then((status) => {dispatch(deleteAssignment(assignment?._id));})    
+        } catch (error: any) {
+            console.log("handleCloseYes error = " + error); 
+        }
         setShow(false);
     }
 
     function handleCloseNo() {
-        console.log("In handleCloseNo");
         setShow(false);
     }
 
     function handleShow(assignment: AssignmentType) {
         setToBeDeleted(assignment);
-        console.log(toBeDeleted);
-        console.log("In handleShow");
         setShow(true);
     };
   
     function handleAddAssign() {
-        console.log("In handleAddAssign");
         navigate(`/Kanbas/Courses/${courseId}/Assignments/Editor`);
     }
 
@@ -72,7 +77,7 @@ function Assignments() {
                     </div>
 
                     <ul className="list-group">
-                        {assignmentList.filter((assignment) => assignment.course === courseId).map((assignment) => (
+                        {assignmentListFromReducer.filter((assignment) => assignment.course === courseId).map((assignment) => (
                             <li key={assignment._id} className="list-group-item wd-assignment" onClick={() => selectAssignment(assignment)} draggable="true">
                                 <RxDragHandleDots2 className="me-2" /><TbFilePencil className="wd-pencil-paper " />
                                 <span className="float-end">

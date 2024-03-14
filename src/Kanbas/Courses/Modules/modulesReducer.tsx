@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";     // Import createSlide.
 
-const initialState = {                              // Create reducer's initial state with 
+const initialState = {                              // Create reducer's initial state with default modules copied from database.
     modules: [{
         _id: "",
         name: "",
