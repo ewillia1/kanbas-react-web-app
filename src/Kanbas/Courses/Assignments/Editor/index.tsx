@@ -26,6 +26,12 @@ function AssignmentEditor() {
             if (assignmentId.localeCompare("Editor")) {
                 const a = assignmentList.find((assignment) => assignment._id === assignmentId);
                 dispatch(selectAssignment(a));
+            } else {
+                dispatch(selectAssignment({ 
+                    _id: "", title: "New Title", subtitle: "New Subtitle", 
+                    description: "New Assignment Description", dueDate: "2024-09-19", 
+                    availableFromDate: "2024-09-24", untilDate: "2024-12-01", points: "100"
+                }));
             }
         }
     }, []);
