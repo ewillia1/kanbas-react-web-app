@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";                        // Import useState to create state variables.
+import { useEffect } from "react";                        // Import useState to create state variables.
 import "./index.css";
-import { modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown, FaCaretRight } from "react-icons/fa";
 import { useParams } from "react-router";
 import { RxDragHandleDots2 } from "react-icons/rx";
@@ -12,14 +11,16 @@ import * as client from "./client";
 
 function ModuleList() {
     const { courseId } = useParams();
-    // const modules = useSelector((state: KanbasState) => state.modulesReducer.modules);  // Retrieve current state variables modules from reducer.
+    const dispatch = useDispatch();             // Get dispatch to call reducer functions.
+    const moduleList = useSelector((state: KanbasState) => state.modulesReducer.modules);  // Retrieve current state variables modules from reducer.
+    const selectedModule = useSelector((state: KanbasState) => state.modulesReducer.module);
 
     useEffect(() => {
         client.findModulesForCourse(courseId).then((modules) => dispatch(setModules(modules)));
     }, [courseId]);
 
     const handleAddModule = () => {
-        client.createModule(courseId, module).then((module) => {dispatch(addModule(module));});
+        client.createModule(courseId, selectedModule).then((selectedModule) => {dispatch(addModule(selectedModule));});
     };    
 
     const handleDeleteModule = (moduleId: string) => {
@@ -32,19 +33,12 @@ function ModuleList() {
 
     const handleUpdateModule = async () => {
         try {
-            const status = await client.updateModule(module);
-            dispatch(updateModule(module));
+            const status = await client.updateModule(selectedModule);
+            dispatch(updateModule(selectedModule));
         } catch (error: any) {
             console.log("handleUpdateModule error = " + error);  
         }
-    };    
-    
-    const modulesList = modules.filter((module) => module.course === courseId);
-    const [selectedModule, setSelectedModule] = useState(modulesList[0]);
-
-    const moduleList = useSelector((state: KanbasState) => state.modulesReducer.modules);  // Retrieve current state variables modules and module from reducer.
-    const module = useSelector((state: KanbasState) => state.modulesReducer.module);
-    const dispatch = useDispatch();             // Get dispatch to call reducer functions.
+    };
 
     return (
         <>
@@ -66,14 +60,14 @@ function ModuleList() {
 
             <ul className="list-group wd-modules">
                 <li className="list-group-item">
-                    <input className="m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={module.name} onChange={(e) => dispatch(setModule({ ...module, name: e.target.value }))}/>        {/* Wrap reducer functions with dispatch. */}
+                    <input className="m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={selectedModule.name} onChange={(e) => dispatch(setModule({ ...selectedModule, name: e.target.value }))}/>        {/* Wrap reducer functions with dispatch. */}
                     <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={handleAddModule}>Add</button>         {/* Wrap reducer functions with dispatch. */}
                     <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={handleUpdateModule}>Update</button>                           {/* Wrap reducer functions with dispatch. */}
-                    <textarea className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={module.description} onChange={(e) => dispatch(setModule({ ...module, description: e.target.value }))}/>   {/* Update module.description for every key stroke. */}
+                    <textarea className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={selectedModule.description} onChange={(e) => dispatch(setModule({ ...selectedModule, description: e.target.value }))}/>   {/* Update module.description for every key stroke. */}
                 </li>
 
                 {moduleList.filter((module) => module.course === courseId).map((module) => (
-                    <li key={module._id} className="list-group-item" onClick={() => setSelectedModule(module)} draggable="true">
+                    <li key={module._id} className="list-group-item" onClick={() => dispatch(setModule(module))} draggable="true">
                         <div style={{cursor: "pointer"}}>
                             <RxDragHandleDots2 className="me-2" />
 

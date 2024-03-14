@@ -1,14 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";     // Import createSlide.
 
 const initialState = {                              // Create reducer's initial state with 
-    modules: [],
-    module: { name: "New Module", description: "New Description" }     // Default module.
+    modules: [{
+        _id: "",
+        name: "",
+        description: "",
+        course: "",
+        lesson: ""
+    }],
+    module: { 
+        _id: "",
+        name: "",
+        description: "",
+        course: "",
+        lesson: ""
+     }     // Default module.
 };
 
 const modulesSlice = createSlice({ name: "modules", initialState,   // Create slice. Name the slice. Set initial state.
     reducers: {                                     // Declare reducer functions.
         setModules: (state, action) => {
             state.modules = action.payload;
+            // state.module = action.payload[0];
+            // state.module = { 
+            //     _id: "",
+            //     name: "",
+            //     description: "",
+            //     course: "",
+            //     lesson: ""
+            //  };
         },      
 
         // addModule reducer function that appends new module at the beginning of modules state variable.
@@ -27,7 +47,13 @@ const modulesSlice = createSlice({ name: "modules", initialState,   // Create sl
         updateModule: (state, action) => {          // Module to update is in action.payload.
             // Replace module whose ID matches action.payload._id.
             state.modules = state.modules.map((module) => (module._id === action.payload._id ? action.payload : module));
-            state.module = { name: "New Module", description: "New Description" };  // Clear module.
+            state.module = { 
+                _id: "",
+                name: "",
+                description: "",
+                course: "",
+                lesson: ""
+             };  // Clear module.
         },
 
         // setModule reducer function to update module state variable.
