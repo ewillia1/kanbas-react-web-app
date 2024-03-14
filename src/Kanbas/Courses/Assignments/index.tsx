@@ -13,7 +13,7 @@ import { Button } from "react-bootstrap";
 function Assignments() {
     const { courseId } = useParams();
     const navigate = useNavigate();
-    const assignmentList = useSelector((state: KanbasState) => state.assignmentsReducer.assignments);  // Retrieve current state variables modules and module from reducer.
+    const assignmentList = useSelector((state: KanbasState) => state.assignmentsReducer.assignments);  // Retrieve current state variables assignments from reducer.
     const [toBeDeleted, setToBeDeleted] = useState<AssignmentType | undefined>();
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const [show, setShow] = useState(false);
