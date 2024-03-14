@@ -11,13 +11,9 @@ const modulesSlice = createSlice({ name: "modules", initialState,   // Create sl
             state.modules = action.payload;
         },      
 
-        // addModule reducer function, action contains new module in action.payload. Overide _id as timestamp
+        // addModule reducer function that appends new module at the beginning of modules state variable.
         addModule: (state, action) => {             // New module is in action.payload.
-            state.modules = [                       // Update modules in state adding new module at beginning of array. Update modules.
-                { ...action.payload, _id: new Date().getTime().toString() },        // Override _id with timestamp.
-                ...state.modules,
-            ];
-            state.module = { name: "New Module", description: "New Description" };  // Clear module.
+            state.modules = [action.payload, ...state.modules];
         },
 
         // deleteModule reducer function, action contains module's ID to filter out.

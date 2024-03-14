@@ -8,7 +8,7 @@ import { KanbasState } from "../../store";
 import { useSelector, useDispatch } from "react-redux";             // Import useSelector and useDispatch.
 import { addModule, deleteModule, updateModule, setModule, setModules } from "./modulesReducer";        // Import reducer functions to add, delete, and update modules.
 import { LessonType } from "../../Util";
-import { findModulesForCourse } from "./client";
+import { findModulesForCourse, createModule } from "./client";
 
 function ModuleList() {
     const { courseId } = useParams();
@@ -17,6 +17,10 @@ function ModuleList() {
     useEffect(() => {
         findModulesForCourse(courseId).then((modules) => dispatch(setModules(modules)));
     }, [courseId]);
+
+    const handleAddModule = () => {
+        createModule(courseId, module).then((module) => {dispatch(addModule(module));});
+    };    
     
     const modulesList = modules.filter((module) => module.course === courseId);
     const [selectedModule, setSelectedModule] = useState(modulesList[0]);
@@ -46,7 +50,7 @@ function ModuleList() {
             <ul className="list-group wd-modules">
                 <li className="list-group-item">
                     <input className="m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={module.name} onChange={(e) => dispatch(setModule({ ...module, name: e.target.value }))}/>        {/* Wrap reducer functions with dispatch. */}
-                    <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => dispatch(addModule({ ...module, course: courseId }))}>Add</button>         {/* Wrap reducer functions with dispatch. */}
+                    <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={handleAddModule}>Add</button>         {/* Wrap reducer functions with dispatch. */}
                     <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => dispatch(updateModule(module))}>Update</button>                           {/* Wrap reducer functions with dispatch. */}
                     <textarea className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={module.description} onChange={(e) => setModule({ ...module, description: e.target.value })}/>   {/* Update module.description for every key stroke. */}
                 </li>
