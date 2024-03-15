@@ -40,7 +40,16 @@ function ModuleList() {
             const status = await client.updateModule(_module);
             dispatch(updateModule(_module));
         } catch (error: any) {
-            console.log("handleUpdateModule error = " + error);  
+            console.log("handleUpdateModule error = " + error);
+            
+            // Reset module form.
+            dispatch(setModule({
+                _id: "",
+                name: "New Module",
+                description: "New Description",
+                course: "",
+                lesson: ""
+            }));
         }
     };
 
