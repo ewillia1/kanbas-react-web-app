@@ -1,8 +1,10 @@
 import axios from "axios";
 
-const COURSES_API = "http://localhost:4000/api/courses";
+// const COURSES_API = "http://localhost:4000/api/courses";
+const COURSES_API = "https://kanbas-node-server-app-9c0t.onrender.com/api/courses";
 
-const MODULES_API = "http://localhost:4000/api/modules";
+// const MODULES_API = "http://localhost:4000/api/modules";
+const MODULES_API = "https://kanbas-node-server-app-9c0t.onrender.com/api/modules";
 
 // updateModule service function that sends an HTTP PUT request to the server embedding the module's ID in the path
 // and updates the HTTP body.
