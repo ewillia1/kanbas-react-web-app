@@ -18,8 +18,6 @@ function Kanbas() {
     const [errorMessage, setErrorMessage] = useState(null);
     const [_courses, setCourses] = useState<CourseType[]>([]);               // Create _courses array state variable. Initialize with courses from the json file.
     
-    // const COURSES_API = "http://localhost:4000/api/courses";
-    // const COURSES_API = "https://kanbas-node-server-app-9c0t.onrender.com/api/courses";
     const COURSES_API = `${API_BASE}/api/courses`;
     
     const findAllCourses = async () => {
