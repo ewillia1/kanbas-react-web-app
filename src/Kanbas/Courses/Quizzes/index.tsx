@@ -54,9 +54,17 @@ function Quizzes() {
         setShowForDelete(false);
     }
 
-    function handleEditQuiz() {
+    function handleEditQuiz(quiz: QuizType) {
         console.log("In handleEditQuiz");
-        navigate(`/Kanbas/Courses/${courseId}/Quizzes/QuizDetails/QuizDetails`);
+        navigate(`/Kanbas/Courses/${courseId}/Quizzes/QuizDetails/${quiz._id}`);
+    }
+
+    function handlePublish(quiz: QuizType) {
+        console.log("in handlePublish");
+        console.log("quiz to publish = " + JSON.stringify(quiz));
+        let result = !quiz.published;
+        console.log("result = " + result);
+        dispatch(selectQuiz({ ...quiz, published: result}))
     }
 
     return (
@@ -85,9 +93,6 @@ function Quizzes() {
                             </Button>
                         </Modal.Footer>
                     </Modal>
-
-
-
                     <button type="button" className="btn btn-light btn-outline-dark"><FaEllipsisV /></button>
                 </div>
                 <div className="wd-float-done"></div>
@@ -115,11 +120,11 @@ function Quizzes() {
                                     <button id="threeDotDropdown" data-bs-toggle="dropdown" aria-expanded="false" style={{backgroundColor: "unset"}}><FaEllipsisV className="ms-3 me-2"/></button>
                 
                                     <ul className="dropdown-menu dropdown-menu-end wd-three-dot-menu" aria-labelledby="threeDotDropdown">
-                                        <li><a className="dropdown-item" onClick={() => handleEditQuiz()}>Edit</a></li>
+                                        <li><a className="dropdown-item" onClick={() => handleEditQuiz(quiz)}>Edit</a></li>
                                         <li><a className="dropdown-item" onClick={() => handleShowDelete(quiz)}>Delete</a></li>
 
                                         {/* TODO: Publish functionality. */}
-                                        <li><a className="dropdown-item">Publish</a></li>
+                                        {quiz.published ? <li><a className="dropdown-item" onClick={() => handlePublish(quiz)}>Unpublish</a></li> : <li><a className="dropdown-item" onClick={() => handlePublish(quiz)}>Publish</a></li>}
                                     </ul>
 
                                     <Modal show={showForDelete} backdrop="static" aria-labelledby="contained-modal-title-vcenter2" centered onHide={() => handleCloseNoDelete()}>
@@ -140,7 +145,7 @@ function Quizzes() {
                                     </Modal>
                                 </span>
 
-                                <Link to={`/Kanbas/Courses/${courseId}/Quizzes/QuizDetails/${quiz._id}`} id="OpenAssignment">
+                                <Link id="OpenAssignment" to={`/Kanbas/Courses/${courseId}/Quizzes/QuizDetails/${quiz._id}`} >
                                     <b>{quiz.title}</b><br/>
                                     <span className="wd-week-span"><b>{quiz.availability ? "Available" : "Closed"}</b> | <b>Due: </b>{quiz.dueDate} | {quiz.points} pts | {quiz.numQuestions} {parseInt(quiz.numQuestions) < 2 ? "Question" : "Questions"}</span>
                                 </Link>

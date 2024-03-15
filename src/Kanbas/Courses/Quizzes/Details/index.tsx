@@ -12,7 +12,7 @@ function QuizDetails() {
     console.log("courseId = " + courseId);
     const { quizId } = useParams();
     console.log("quizId = " + quizId);
-    const quizList = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables modules and module from reducer.
+    const quizListFromReducer = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables quizzes from reducer.
     const quiz = useSelector((state: KanbasState) => state.quizzesReducer.quiz);
     console.log("quiz = " + JSON.stringify(quiz));
     console.log("first quiz?.published = " + quiz?.published);
@@ -33,8 +33,9 @@ function QuizDetails() {
     useEffect(() => {
         // Runs only on the first render.
         if ( quizId !== undefined ) {
-            if (quizId.localeCompare("DetailsEditor")) {
-                const a = quizList.find((quiz) => quiz._id === quizId);
+            console.log("quizId = " + quizId);
+            if (quizId.localeCompare("QuizDetails")) {
+                const a = quizListFromReducer.find((quiz) => quiz._id === quizId);
                 dispatch(selectQuiz(a));
                 setPublishQuiz(a?.published);
             }
@@ -69,7 +70,7 @@ function QuizDetails() {
             </div>
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>Points</b></label>
-                <label className="col">{quiz.points}</label>
+                <label className="col">{quiz?.points}</label>
             </div>
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>Assignment Group</b></label>
@@ -127,10 +128,10 @@ function QuizDetails() {
                 </thead>
                 <tbody>
                     <tr>
-                    <td>{quiz.dueDate}</td>
-                    <td>{quiz.forAccess}</td>
-                    <td>{quiz.availableFromDate}</td>
-                    <td>{quiz.untilDate}</td>
+                    <td>{quiz?.dueDate}</td>
+                    <td>{quiz?.forAccess}</td>
+                    <td>{quiz?.availableFromDate}</td>
+                    <td>{quiz?.untilDate}</td>
                     </tr>
                 </tbody>
             </table>

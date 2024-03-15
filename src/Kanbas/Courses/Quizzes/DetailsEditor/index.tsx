@@ -23,7 +23,7 @@ function QuizDetailsEditor(this: any) {
     console.log("courseId = " + courseId);
     const { quizId } = useParams();
     console.log("quizId = " + quizId);
-    const quizList = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables modules and module from reducer.
+    const quizListFromReducer = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables quizzes from reducer.
     const quiz = useSelector((state: KanbasState) => state.quizzesReducer.quiz);
 
     // TODO: Make these usable outside of the component.
@@ -48,7 +48,7 @@ function QuizDetailsEditor(this: any) {
         // Runs only on the first render.
         if ( quizId !== undefined ) {
             if (quizId.localeCompare("DetailsEditor")) {
-                const a = quizList.find((quiz) => quiz._id === quizId);
+                const a = quizListFromReducer.find((quiz) => quiz._id === quizId);
                 dispatch(selectQuiz(a));
             }
         }
