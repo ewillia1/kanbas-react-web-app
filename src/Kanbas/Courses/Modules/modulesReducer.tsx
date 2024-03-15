@@ -26,6 +26,13 @@ const modulesSlice = createSlice({ name: "modules", initialState,   // Create sl
         // addModule reducer function that appends new module at the beginning of modules state variable.
         addModule: (state, action) => {             // New module is in action.payload.
             state.modules = [action.payload, ...state.modules];
+            state.module = { 
+                _id: "",
+                name: "New Module",
+                description: "New Description",
+                course: "",
+                lesson: "" 
+            };  // Clear module.
         },
 
         // deleteModule reducer function, action contains module's ID to filter out.
