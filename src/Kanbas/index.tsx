@@ -12,12 +12,15 @@ import { Provider } from "react-redux";     // Import the redux store Provider.
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
 
+const API_BASE = process.env.REACT_APP_API_BASE;
+
 function Kanbas() {
     const [errorMessage, setErrorMessage] = useState(null);
     const [_courses, setCourses] = useState<CourseType[]>([]);               // Create _courses array state variable. Initialize with courses from the json file.
     
     // const COURSES_API = "http://localhost:4000/api/courses";
-    const COURSES_API = "https://kanbas-node-server-app-9c0t.onrender.com/api/courses";
+    // const COURSES_API = "https://kanbas-node-server-app-9c0t.onrender.com/api/courses";
+    const COURSES_API = `${API_BASE}/api/courses`;
     
     const findAllCourses = async () => {
         const response = await axios.get(COURSES_API);
