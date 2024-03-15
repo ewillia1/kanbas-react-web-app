@@ -1,22 +1,48 @@
-import { useState } from "react";                                   // Import useState to create state variables.
+import { useEffect, useState } from "react";                        // Import useState to create state variables.
 import "./index.css";
-import { modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaPlus, FaCaretDown, FaCaretRight } from "react-icons/fa";
 import { useParams } from "react-router";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import { KanbasState } from "../../store";
 import { useSelector, useDispatch } from "react-redux";             // Import useSelector and useDispatch.
-import { addModule, deleteModule, updateModule, setModule } from "./modulesReducer";        // Import reducer functions to add, delete, and update modules.
+import { addModule, deleteModule, updateModule, setModule, setModules } from "./modulesReducer";        // Import reducer functions to add, delete, and update modules.
 import { LessonType } from "../../Util";
+import * as client from "./client";
 
 function ModuleList() {
     const { courseId } = useParams();
-    const modulesList = modules.filter((module) => module.course === courseId);
-    const [selectedModule, setSelectedModule] = useState(modulesList[0]);
-
-    const moduleList = useSelector((state: KanbasState) => state.modulesReducer.modules);  // Retrieve current state variables modules and module from reducer.
-    const module = useSelector((state: KanbasState) => state.modulesReducer.module);
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
+    const moduleListFromReducer = useSelector((state: KanbasState) => state.modulesReducer.modules);  // Retrieve current state variables modules from reducer.
+    const _module = useSelector((state: KanbasState) => state.modulesReducer.module);
+    const [selectedModule, setSelectedModule] = useState(moduleListFromReducer[0]);
+
+    useEffect(() => {
+        client.findModulesForCourse(courseId).then((modules) => { 
+            setSelectedModule(modules[0]); 
+            dispatch(setModules(modules));
+        });
+    }, [courseId]);
+
+    const handleAddModule = () => {
+        client.createModule(courseId, _module).then((module) => {dispatch(addModule(module));});
+    };    
+
+    const handleDeleteModule = (moduleId: string) => {
+        try {
+            client.deleteModule(moduleId).then((status) => {dispatch(deleteModule(moduleId));});
+        } catch (error: any) {
+            console.log("handleDeleteModule error = " + error);  
+        }
+    };    
+
+    const handleUpdateModule = async () => {
+        try {
+            const status = await client.updateModule(_module);
+            dispatch(updateModule(_module));
+        } catch (error: any) {
+            console.log("handleUpdateModule error = " + error);  
+        }
+    };
 
     return (
         <>
@@ -38,13 +64,13 @@ function ModuleList() {
 
             <ul className="list-group wd-modules">
                 <li className="list-group-item">
-                    <input className="m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={module.name} onChange={(e) => dispatch(setModule({ ...module, name: e.target.value }))}/>        {/* Wrap reducer functions with dispatch. */}
-                    <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => dispatch(addModule({ ...module, course: courseId }))}>Add</button>         {/* Wrap reducer functions with dispatch. */}
-                    <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={() => dispatch(updateModule(module))}>Update</button>                           {/* Wrap reducer functions with dispatch. */}
-                    <textarea className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={module.description} onChange={(e) => dispatch(setModule({ ...module, description: e.target.value }))}/>   {/* Update module.description for every key stroke. */}
+                    <input id="modTitle" className="m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={_module.name} onChange={(e) => dispatch(setModule({ ..._module, name: e.target.value }))}/>        {/* Wrap reducer functions with dispatch. */}
+                    <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={handleAddModule}>Add</button>         {/* Wrap reducer functions with dispatch. */}
+                    <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={handleUpdateModule}>Update</button>                           {/* Wrap reducer functions with dispatch. */}
+                    <textarea id="modDescription" className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={_module.description} onChange={(e) => dispatch(setModule({ ..._module, description: e.target.value }))}/>   {/* Update module.description for every key stroke. */}
                 </li>
 
-                {moduleList.filter((module) => module.course === courseId).map((module) => (
+                {moduleListFromReducer.filter((module) => module.course === courseId).map((module) => (
                     <li key={module._id} className="list-group-item" onClick={() => setSelectedModule(module)} draggable="true">
                         <div style={{cursor: "pointer"}}>
                             <RxDragHandleDots2 className="me-2" />
@@ -56,7 +82,7 @@ function ModuleList() {
                                 <FaCaretDown style={{paddingLeft: "5px"}} />
                                 <FaPlusCircle className="ms-2" />
                                 <FaEllipsisV className="ms-2" />
-                                <button className="btn btn-danger" style={{borderRadius: "6px"}} onClick={() => dispatch(deleteModule(module._id))}>Delete</button>                 {/* Wrap reducer functions with dispatch. */}
+                                <button className="btn btn-danger" style={{borderRadius: "6px"}} onClick={() => handleDeleteModule(module._id)}>Delete</button>                 {/* Wrap reducer functions with dispatch. */}
                                 <button className="btn btn-success" style={{borderRadius: "6px", marginLeft: "5px"}} onClick={() => dispatch(setModule(module))}>Edit</button>      {/* Wrap reducer functions with dispatch. */}
                             </span>
                         </div>
