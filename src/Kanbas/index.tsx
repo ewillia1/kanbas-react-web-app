@@ -5,14 +5,26 @@ import Dashboard from "./Dashboard";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Courses from "./Courses";
 import "./index.css";
-import { useState } from "react";
-import { courses } from "./Database";
+import { useState, useEffect } from "react";
 import { CourseType } from "./Util";
 import store from "./store";                // Import the redux store.
 import { Provider } from "react-redux";     // Import the redux store Provider.
+import axios from "axios";
+import { Modal, Button } from "react-bootstrap";
 
 function Kanbas() {
-    const [_courses, setCourses] = useState<CourseType[]>(courses);               // Create _courses array state variable. Initialize with courses from the json file.
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [_courses, setCourses] = useState<CourseType[]>([]);               // Create _courses array state variable. Initialize with courses from the json file.
+    const COURSES_API = "http://localhost:4000/api/courses";
+    
+    const findAllCourses = async () => {
+        const response = await axios.get(COURSES_API);
+        setCourses(response.data);
+    };
+
+    useEffect(() => {
+        findAllCourses();
+    }, []);  
     
     const [course, setCourse] = useState({                          // Create course state variable object.
         _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
@@ -20,36 +32,76 @@ function Kanbas() {
         image: "/blueBackground.jpg"
     });
 
-    const addNewCourse = () => {                                    // Event handler to add new course.
-        const newCourse = { ...course,  _id: new Date().getTime().toString() };
-        console.log("newCourse = " + JSON.stringify(newCourse));
-        setCourses([..._courses, { ...course, ...newCourse }]);     // Update _courses.
-        setCourse({                                                 // Clear the course.
-            _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
-            startDate: "2024-09-10", endDate: "2024-12-15",
-            image: "/blueBackground.jpg"
-        });
+    const addNewCourse = async () => {                                    // Event handler to add new course.
+        try {
+            const response = await axios.post(COURSES_API, course);
+            setCourses([ ..._courses, response.data ]);
+            setCourse({                                                 // Clear the course.
+                _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
+                startDate: "2024-09-10", endDate: "2024-12-15",
+                image: "/blueBackground.jpg"
+            });
+            setErrorMessage(null);
+            setShow(true);
+        } catch (error: any) {
+            console.log("error = " + error);
+            setErrorMessage(error.response.data.message);
+        }
     };
 
-    const deleteCourse = (courseId: string) => {                    // Event handler to delete a course.
-        const courseToDelete = _courses.filter((course) => course._id !== courseId);
-        console.log("courseToDelete = " + JSON.stringify(courseToDelete));
-        setCourses(courseToDelete);                                 // Update _courses.
+    const deleteCourse = async (courseId: string) => {                    // Event handler to delete a course.
+        try {
+            setCourses(_courses.filter((c) => c._id !== courseId)); 
+            setErrorMessage(null); 
+        } catch (error: any) {
+            console.log("error = " + error);
+            setErrorMessage(error.response.data.message);
+            setShow(true);
+        } 
     };
     
-    const updateCourse = () => {                                    // Event handler to update/edit a course.
-        const updatedCourse = _courses.map((c) => (c._id === course._id ? course : c));
-        console.log("updatedCourse = " + JSON.stringify(updatedCourse));
-        setCourses(updatedCourse);                                  // Update _courses.
-        setCourse({                                                 // Clear the course.
-            _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
-            startDate: "2024-09-10", endDate: "2024-12-15",
-            image: "/blueBackground.jpg"
-        });
+    const updateCourse = async () => {                                    // Event handler to update/edit a course.
+        try {
+            const response = await axios.put(`${COURSES_API}/${course._id}`, course);      
+            setCourses(
+                _courses.map((c) => {
+                    if (c._id === course._id) {
+                        return course;
+                    }
+                    return c;
+                })
+            );
+            setCourse({                                                 // Clear the course.
+                _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
+                startDate: "2024-09-10", endDate: "2024-12-15",
+                image: "/blueBackground.jpg"
+            });
+            setErrorMessage(null); 
+        } catch (error: any) {
+            console.log("error = " + error);
+            setErrorMessage(error.response.data.message);
+            setShow(true);
+        }
     };
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
 
     return(
         <Provider store={store}>
+            {/* Error pop-up modal. Will only appear if an error occurs in the try-catch blocks above. */}
+            <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Error Message</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {errorMessage}.
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={handleClose}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+
             <div className="container-fluid wd-main-container">
                 <div className="row wd-main-row">
                     {/* Column 1a: Kanbas Navigation. Hide on screen smaller than medium. */}
@@ -72,7 +124,7 @@ function Kanbas() {
                                     updateCourse={updateCourse}
                                 />
                             } />
-                            <Route path="Courses/:courseId/*" element={<Courses courses={_courses}/>} />
+                            <Route path="Courses/:courseId/*" element={<Courses/>} />
                             <Route path="Calendar" element={<h1>Calendar</h1>} />
                             <Route path="Inbox" element={<h1>Inbox</h1>} />
                             <Route path="History" element={<h1>History</h1>} />
