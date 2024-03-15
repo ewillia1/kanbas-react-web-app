@@ -46,7 +46,7 @@ function AssignmentEditor() {
     function handleSave() {
         if (assignmentId !== undefined) {
             if (!assignmentId.localeCompare("Editor")) {
-                client.createAssignment(assignmentId, assignment).then((assignment) => {dispatch(addAssignment({ ...assignment, course: courseId }));})
+                client.createAssignment(courseId, assignment).then((assignment) => {dispatch(addAssignment({ ...assignment, course: courseId }));})
             } else {
                 handleUpdateAssignment();
             }
