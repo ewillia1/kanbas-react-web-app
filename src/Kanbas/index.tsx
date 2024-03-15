@@ -142,4 +142,4 @@ function Kanbas() {
         </Provider>
     );
 }
-export default Kanbas
+export default Kanbas;
