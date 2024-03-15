@@ -16,6 +16,7 @@ import { CgArrowsVAlt, CgShapeHalfCircle } from "react-icons/cg";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import React from "react";
 import ReactQuill from 'react-quill';
+import Modal from 'react-bootstrap/Modal';
 
 function QuizDetailsEditor(this: any) {
     const { courseId } = useParams();
@@ -135,6 +136,10 @@ function QuizDetailsEditor(this: any) {
         }
     }
 
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <div>
             <button type="button" className="wd-float-right btn btn-light btn-outline-dark mt-1"><FaEllipsisV /></button>
@@ -160,9 +165,96 @@ function QuizDetailsEditor(this: any) {
                             <span style={{color: "buttonborder"}}>
                                 p
                                 <span className="float-end mt-2">
-                                    <FaRegKeyboard style={{color: "red"}}/> | <span style={{color: "red"}}>{numOfWords} words</span> | <IoCodeSlashOutline style={{color: "red"}}/> | <CgArrowsVAlt style = {{transform: 'rotate(45deg)', color: "red"}}/>  <button style={{borderRadius: "8px", borderWidth: "thin", borderColor: "red", backgroundColor: "unset"}}><RxDragHandleDots2 /></button>
+                                    <FaRegKeyboard style={{color: "red", cursor: "pointer"}} onClick={handleShow}/> | <span style={{color: "red"}}>{numOfWords} words</span> | <IoCodeSlashOutline style={{color: "red", cursor: "pointer"}}/> | <CgArrowsVAlt style = {{transform: 'rotate(45deg)', color: "red", cursor: "pointer"}}/>  <button style={{borderRadius: "8px", borderWidth: "thin", borderColor: "red", backgroundColor: "unset"}}><RxDragHandleDots2 /></button>
                                 </span>
                             </span>
+
+                            <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Keyboard Shortcuts</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    <hr/>
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col">
+                                                <b>OPTION+F8</b>
+                                            </div>
+                                            <div className="col">
+                                                Open this keyboard shortcuts dialog
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col">
+                                                <b>SHIFT+Arrows</b>
+                                            </div>
+                                            <div className="col">
+                                                Highlight an element to activate the element options toolbar
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col">
+                                                <b>CTRL+F9</b>
+                                            </div>
+                                            <div className="col">
+                                                Focus element options toolbar
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col">
+                                                <b>OPTION+F9</b>
+                                            </div>
+                                            <div className="col">
+                                                Go to the editor's menubar
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col">
+                                                <b>OPTION+F10</b>
+                                            </div>
+                                            <div className="col">
+                                                Go to the editor's toolbar
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col">
+                                                <b>ESC</b>
+                                            </div>
+                                            <div className="col">
+                                                Close a menu or dialog. Also returns you to the editor
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col">
+                                                <b>TAB/Arrows</b>
+                                            </div>
+                                            <div className="col">
+                                                Navigate through the menu or toolbar
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <p>Other editor shortcuts may be found at <a href="https://www.tiny.cloud/docs/advanced/keyboard-shortcuts/" style={{color: "red", textDecoration: "none"}}>https://www.tiny.cloud/docs/advanced/keyboard-shortcuts/</a></p>
+                                </Modal.Body>
+                            </Modal>
                         </div>
 
                         <div className="wd-bottom-section">
