@@ -42,15 +42,16 @@ function Kanbas() {
                 image: "/blueBackground.jpg"
             });
             setErrorMessage(null);
-            setShow(true);
         } catch (error: any) {
             console.log("error = " + error);
             setErrorMessage(error.response.data.message);
+            setShow(true);
         }
     };
 
     const deleteCourse = async (courseId: string) => {                    // Event handler to delete a course.
         try {
+            const response = await axios.delete(`${COURSES_API}/${courseId}`);          
             setCourses(_courses.filter((c) => c._id !== courseId)); 
             setErrorMessage(null); 
         } catch (error: any) {
