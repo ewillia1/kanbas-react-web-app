@@ -64,7 +64,7 @@ function ModuleList() {
 
             <ul className="list-group wd-modules">
                 <li className="list-group-item">
-                    <input id="modTitle" className="m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={_module.name} onChange={(e) => dispatch(setModule({ ..._module, name: e.target.value }))}/>        {/* Wrap reducer functions with dispatch. */}
+                    <input id="modName" className="m-2 p-2" style={{borderRadius: "6px", width: "30vw"}} value={_module.name} onChange={(e) => dispatch(setModule({ ..._module, name: e.target.value }))}/>        {/* Wrap reducer functions with dispatch. */}
                     <button type="button" className="btn btn-success m-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={handleAddModule}>Add</button>         {/* Wrap reducer functions with dispatch. */}
                     <button type="button" className="btn btn-primary mt-2 p-2 float-end" style={{borderRadius: "6px"}} onClick={handleUpdateModule}>Update</button>                           {/* Wrap reducer functions with dispatch. */}
                     <textarea id="modDescription" className="form-control m-2 p-2" style={{width: "-webkit-fill-available", borderRadius: "6px"}} value={_module.description} onChange={(e) => dispatch(setModule({ ..._module, description: e.target.value }))}/>   {/* Update module.description for every key stroke. */}
