@@ -1,13 +1,8 @@
 import { HiMiniBars3 } from "react-icons/hi2";
 import "./index.css";
 import GetBreadcrumb from "./util";
-import { CourseType } from "../../Util";
 
-type BreadCrumbProp = {
-    courses: CourseType[]
-};
-
-function Breadcrumb({ courses }: BreadCrumbProp) {
+function Breadcrumb() {
     function enableCourseNav() {
         let x = document.getElementById("courseNav");
         console.log("clicked course nav menu button");
@@ -30,7 +25,7 @@ function Breadcrumb({ courses }: BreadCrumbProp) {
                     <nav className="navbar wd-breadcrumb-navbar" aria-label="Small site nav bar">
                         <div className="container-fluid">
                             <button className="wd-three-bar-menu" onClick={() => enableCourseNav()}><HiMiniBars3 /></button>
-                            <GetBreadcrumb courses={courses}/>
+                            <GetBreadcrumb/>
                             <button className="btn btn-light btn-outline-dark" style={{marginTop: "14px"}}>
                                 <i className="fa-solid fa-glasses"></i> Student View
                             </button>

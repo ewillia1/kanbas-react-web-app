@@ -1,30 +1,28 @@
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { FaCheckCircle, FaEllipsisV } from "react-icons/fa";
 import "./index.css";
-import { addAssignment, selectAssignment, updateAssignment } from "../assignmentsReducer";        // Import reducer functions to add, delete, and update assignments.
+import { addAssignment, selectAssignment, updateAssignment, selectAssignments } from "../assignmentsReducer";        // Import reducer functions to add, delete, and update assignments.
 import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../../store";
 import { useEffect } from "react";
+import * as client from "./../client";
 
 function AssignmentEditor() {
     const { courseId } = useParams();
-    console.log("courseId = " + courseId);
     const { assignmentId } = useParams();
-    console.log("assignmentId = " + assignmentId);
-    const assignmentList = useSelector((state: KanbasState) => state.assignmentsReducer.assignments);  // Retrieve current state variables modules and module from reducer.
-    const assignment = useSelector((state: KanbasState) => state.assignmentsReducer.assignment);
-    
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const navigate = useNavigate();
+    const assignmentListFromReducer = useSelector((state: KanbasState) => state.assignmentsReducer.assignments);  // Retrieve current state variables modules and module from reducer.
+    const assignment = useSelector((state: KanbasState) => state.assignmentsReducer.assignment);
     
     // If user is coming from clicking add assignment, set values to default values.
     // Else the user is coming from clicking an olf assignemt, so set values to the values of the assignment clicked.
     // Only run the effect on the initial render.
     useEffect(() => {
         // Runs only on the first render.
-        if ( assignmentId !== undefined ) {
+        if (assignmentId !== undefined) {
             if (assignmentId.localeCompare("Editor")) {
-                const a = assignmentList.find((assignment) => assignment._id === assignmentId);
+                const a = assignmentListFromReducer.find((assignment) => assignment._id === assignmentId);
                 dispatch(selectAssignment(a));
             } else {
                 dispatch(selectAssignment({ 
@@ -35,17 +33,33 @@ function AssignmentEditor() {
             }
         }
     }, []);
+
+    const handleUpdateAssignment = async () => {
+        try {
+            const status = await client.updateAssignment(assignment);
+            dispatch(updateAssignment(assignment));
+        } catch (error: any) {
+            console.log("handleUpdateAssignment error = " + error);  
+        }
+    };
     
     function handleSave() {
-        console.log("In handleSave.");
-        console.log("assignment being added/edited = " + JSON.stringify(assignment));
         if (assignmentId !== undefined) {
             if (!assignmentId.localeCompare("Editor")) {
-                dispatch(addAssignment({ ...assignment, course: courseId }));
+                client.createAssignment(assignmentId, assignment).then((assignment) => {dispatch(addAssignment({ ...assignment, course: courseId }));})
             } else {
-                dispatch(updateAssignment(assignment));
+                handleUpdateAssignment();
             }
         }
+        navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+    }
+
+    function handleCancel() {
+        dispatch(selectAssignment({ 
+            _id: "", title: "New Title", subtitle: "New Subtitle", 
+            description: "New Assignment Description", dueDate: "2024-09-19", 
+            availableFromDate: "2024-09-24", untilDate: "2024-12-01", points: "100"
+        }));
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     }
 
@@ -172,7 +186,8 @@ function AssignmentEditor() {
             </form>
 
             <button onClick={handleSave} className="btn btn-light btn-outline-dark wd-save-button ms-2 float-end">Save</button>
-            <Link to={`/Kanbas/Courses/${courseId}/Assignments`} className="btn btn-light btn-outline-dark wd-cancel-button float-end">Cancel</Link>
+            <button onClick={handleCancel} className="btn btn-light btn-outline-dark wd-cancel-button float-end">Cancel</button>
+            {/* <Link to={`/Kanbas/Courses/${courseId}/Assignments`} className="btn btn-light btn-outline-dark wd-cancel-button float-end">Cancel</Link> */}
         </div>
     );
 }
