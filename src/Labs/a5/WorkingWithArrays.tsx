@@ -138,6 +138,7 @@ function WorkingWithArrays() {
 
             <div className="text-center mb-3">
                 <h4>Item ID to Get, Delete, or Update</h4>
+                <h5>Note: Change number to be non-0 for this to work!</h5>
             </div>
 
             <div className="row mb-3">
@@ -186,12 +187,11 @@ function WorkingWithArrays() {
                 </a>
             </div>
             
-
             <h5>Updating Todo Description</h5>
             <div className="row">
                 <label htmlFor="inputTodoDescription" className="col-sm-2 col-form-label">New Item Description</label>
                 <div className="col-sm-10">
-                    <input id="inputTodoDescription" className="form-control mb-2" type="text" value={todo.description} onChange={(e) => setTodo({ ...todo, title: e.target.value })}/>
+                    <input id="inputTodoDescription" className="form-control mb-2" type="text" value={todo.description} onChange={(e) => setTodo({ ...todo, description: e.target.value })}/>
                 </div>
             </div>
             <div className="mb-3">
