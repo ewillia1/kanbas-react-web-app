@@ -22,11 +22,11 @@ function Dashboard( { courses, course, setCourse, addNewCourse, deleteCourse, up
             
             <div className="wd-dashboard-component">
                 <h5>Course Form</h5>
-                <input value={course.name} className="form-control" onChange={(e) => setCourse({ ...course, name: e.target.value }) } />
-                <input value={course.number} className="form-control" onChange={(e) => setCourse({ ...course, number: e.target.value }) } />
-                <input value={course.semester} className="form-control" onChange={(e) => setCourse({ ...course, semester: e.target.value }) } />
-                <input value={course.startDate} className="form-control" type="date" onChange={(e) => setCourse({ ...course, startDate: e.target.value }) }/>
-                <input value={course.endDate} className="form-control" type="date" onChange={(e) => setCourse({ ...course, endDate: e.target.value }) } />
+                <input id="courseName" value={course.name} className="form-control" onChange={(e) => setCourse({ ...course, name: e.target.value }) } />
+                <input id="courseNumber" value={course.number} className="form-control" onChange={(e) => setCourse({ ...course, number: e.target.value }) } />
+                <input id="courseSemester" value={course.semester} className="form-control" onChange={(e) => setCourse({ ...course, semester: e.target.value }) } />
+                <input id="courseStartDate" value={course.startDate} className="form-control" type="date" onChange={(e) => setCourse({ ...course, startDate: e.target.value }) }/>
+                <input id="courseEndDate" value={course.endDate} className="form-control" type="date" onChange={(e) => setCourse({ ...course, endDate: e.target.value }) } />
                 <button className="btn btn-light btn-outline-dark me-2 mt-2" onClick={addNewCourse}>Add</button>
                 <button className="btn btn-light btn-outline-dark mt-2" onClick={updateCourse}>Update</button>
                 <hr />

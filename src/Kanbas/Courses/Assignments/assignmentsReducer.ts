@@ -1,23 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";     // Import createSlide.
+import { assignments } from "../../Database";           // Import assignments from database.
 
-export const initialState = {   // Create reducer's initial state with default assignments copied from database.
-    assignments: [{
-        _id: "", title: "", subtitle: "", 
-        description: "", dueDate: "", 
-        availableFromDate: "", untilDate: "", points: "" 
-    }],
-    assignment: { 
-        _id: "", title: "New Title", subtitle: "New Subtitle", 
-        description: "New Assignment Description", dueDate: "2024-09-19", 
-        availableFromDate: "2024-09-24", untilDate: "2024-12-01", points: "100" 
-    }     // Default assignment.
+export const initialState = {                              // Create reducer's initial state with 
+    assignments: assignments,                               // default assignments copied from database.
+    assignment: { title: "New Title", subtitle: "New Subtitle", description: "New Assignment Description", dueDate: "2024-09-19", 
+                  availableFromDate: "2024-09-24", untilDate: "2024-12-01", points: "100" }     // Default assignment.
 };
 
 const assignmentsSlice = createSlice({ name: "assignments", initialState,   // Create slice. Name the slice. Set initial state.
     reducers: {                                     // Declare reducer functions.
-        selectAssignments: (state, action) => {
-            state.assignments = action.payload;
-        },  
 
         // addAssignment reducer function, action contains new assignment in action.payload. Overide _id as timestamp
         addAssignment: (state, action) => {             // New assignment is in action.payload.
@@ -25,17 +16,14 @@ const assignmentsSlice = createSlice({ name: "assignments", initialState,   // C
                 { ...action.payload, _id: new Date().getTime().toString() },        // Override _id with timestamp.
                 ...state.assignments,
             ];
-            state.assignment = { 
-                _id: "", title: "New Title", subtitle: "New Subtitle", 
-                description: "New Assignment Description", dueDate: "2024-09-19", 
-                availableFromDate: "2024-09-24", untilDate: "2024-12-01", points: "100"
-            };  // Clear assignment.
+            state.assignment = { title: "New Title", subtitle: "New Subtitle", description: "New Assignment Description", dueDate: "2024-09-19", 
+                                 availableFromDate: "2024-09-24", untilDate: "2024-12-01", points: "100" };  // Clear assignment.
         },
 
         // deleteAssignment reducer function, action contains assignment's ID to filter out.
         deleteAssignment: (state, action) => {              // Assignment ID to delete is in action.payload.
             console.log("In deleteAssignment");
-                state.assignments = state.assignments.filter(   // Filter out assignment to delete.
+            state.assignments = state.assignments.filter(   // Filter out assignment to delete.
                 (assignment) => assignment._id !== action.payload
             );
             console.log(state);
@@ -45,11 +33,8 @@ const assignmentsSlice = createSlice({ name: "assignments", initialState,   // C
         updateAssignment: (state, action) => {          // Assignment to update is in action.payload.
             // Replace assignment whose ID matches action.payload._id.
             state.assignments = state.assignments.map((assignment) => (assignment._id === action.payload._id ? action.payload : assignment));
-            state.assignment = { 
-                _id: "", title: "New Title", subtitle: "New Subtitle", 
-                description: "New Assignment Description", dueDate: "2024-09-19", 
-                availableFromDate: "2024-09-24", untilDate: "2024-12-01", points: "100" 
-            };  // Clear assignment.
+            state.assignment = { title: "New Title", subtitle: "New Subtitle", description: "New Assignment Description", dueDate: "2024-09-19", 
+                                 availableFromDate: "2024-09-24", untilDate: "2024-12-01", points: "100" };  // Clear assignment.
         },
 
         // selectAssignment reducer function to update assignment state variable.
@@ -59,5 +44,5 @@ const assignmentsSlice = createSlice({ name: "assignments", initialState,   // C
     },
 });
 
-export const { addAssignment, deleteAssignment, updateAssignment, selectAssignment, selectAssignments } = assignmentsSlice.actions;   // Export all reducer functions.
+export const { addAssignment, deleteAssignment, updateAssignment, selectAssignment } = assignmentsSlice.actions;   // Export all reducer functions.
 export default assignmentsSlice.reducer;                // Export reducer for store.

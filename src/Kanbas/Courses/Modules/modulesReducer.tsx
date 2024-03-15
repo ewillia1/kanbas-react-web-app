@@ -1,31 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";     // Import createSlide.
+import { modules } from "../../Database";           // Import modules from database.
 
-const initialState = {                              // Create reducer's initial state with default modules copied from database.
-    modules: [{
-        _id: "",
-        name: "",
-        description: "",
-        course: "",
-        lesson: ""
-    }],
-    module: { 
-        _id: "",
-        name: "New Module",
-        description: "New Description",
-        course: "",
-        lesson: ""
-     }     // Default module.
+const initialState = {                              // Create reducer's initial state with 
+    modules: modules,                               // default modules copied from database.
+    module: { name: "New Module", description: "New Description" }     // Default module.
 };
 
 const modulesSlice = createSlice({ name: "modules", initialState,   // Create slice. Name the slice. Set initial state.
     reducers: {                                     // Declare reducer functions.
-        setModules: (state, action) => {
-            state.modules = action.payload;
-        },      
 
-        // addModule reducer function that appends new module at the beginning of modules state variable.
+        // addModule reducer function, action contains new module in action.payload. Overide _id as timestamp
         addModule: (state, action) => {             // New module is in action.payload.
-            state.modules = [action.payload, ...state.modules];
+            state.modules = [                       // Update modules in state adding new module at beginning of array. Update modules.
+                { ...action.payload, _id: new Date().getTime().toString() },        // Override _id with timestamp.
+                ...state.modules,
+            ];
+            state.module = { name: "New Module", description: "New Description" };  // Clear module.
         },
 
         // deleteModule reducer function, action contains module's ID to filter out.
@@ -39,13 +29,7 @@ const modulesSlice = createSlice({ name: "modules", initialState,   // Create sl
         updateModule: (state, action) => {          // Module to update is in action.payload.
             // Replace module whose ID matches action.payload._id.
             state.modules = state.modules.map((module) => (module._id === action.payload._id ? action.payload : module));
-            state.module = { 
-                _id: "",
-                name: "New Module",
-                description: "New Description",
-                course: "",
-                lesson: ""
-             };  // Clear module.
+            state.module = { name: "New Module", description: "New Description" };  // Clear module.
         },
 
         // setModule reducer function to update module state variable.
@@ -55,5 +39,5 @@ const modulesSlice = createSlice({ name: "modules", initialState,   // Create sl
     },
 });
 
-export const { addModule, deleteModule, updateModule, setModule, setModules } = modulesSlice.actions;   // Export all reducer functions.
+export const { addModule, deleteModule, updateModule, setModule } = modulesSlice.actions;   // Export all reducer functions.
 export default modulesSlice.reducer;                // Export reducer for store.
