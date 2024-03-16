@@ -5,10 +5,13 @@ import { quizzes } from "../../Database";           // Import quizzes from datab
 
 // TODO: Availability: Closed, Available, Not Available.
 
-export const initialState = {                              // Create reducer's initial state with 
-    quizzes: quizzes,                               // default quizzes copied from database.
-    quiz: { title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", forAccess: "Everyone", dueDate: "", 
-                  availableFromDate: "", untilDate: "", points: "0" }     // Default quiz.
+export const initialState = {                               // Create reducer's initial state with 
+    quizzes: quizzes,                                       // default quizzes copied from database.
+    quiz: { 
+        title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", 
+        forAccess: "Everyone", dueDate: "", availableFromDate: "", 
+        untilDate: "", points: "0", availability: "", published: "", course: ""
+    }     // Default quiz.
 };
 
 const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create slice. Name the slice. Set initial state.
@@ -16,16 +19,19 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
 
         // addQuiz reducer function, action contains new quiz in action.payload. Overide _id as timestamp
         addQuiz: (state, action) => {             // New quiz is in action.payload.
-            state.quizzes = [                       // Update quizzes in state adding new quiz at beginning of array. Update quizzes.
+            state.quizzes = [                     // Update quizzes in state adding new quiz at beginning of array. Update quizzes.
                 { ...action.payload, _id: new Date().getTime().toString() },        // Override _id with timestamp.
                 ...state.quizzes,
             ];
-            state.quiz = { title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", forAccess: "Everyone", dueDate: "", 
-                                 availableFromDate: "", untilDate: "", points: "0" };  // Clear quiz.
+            state.quiz = { 
+                title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", 
+                forAccess: "Everyone", dueDate: "", availableFromDate: "", 
+                untilDate: "", points: "0", availability: "", published: "", course: ""
+            };  // Clear quiz.
         },
 
         // deleteQuiz reducer function, action contains quiz's ID to filter out.
-        deleteQuiz: (state, action) => {              // Assignment ID to delete is in action.payload.
+        deleteQuiz: (state, action) => {            // Assignment ID to delete is in action.payload.
             console.log("In deleteQuiz");
             state.quizzes = state.quizzes.filter(   // Filter out quiz to delete.
                 (quiz) => quiz._id !== action.payload
@@ -37,15 +43,15 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
         updateQuiz: (state, action) => {          // Quiz to update is in action.payload.
             // Replace quiz whose ID matches action.payload._id.
             state.quizzes = state.quizzes.map((quiz) => (quiz._id === action.payload._id ? action.payload : quiz));
-            state.quiz = { title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", forAccess: "Everyone", dueDate: "", 
-                                 availableFromDate: "", untilDate: "", points: "0" };  // Clear quiz.
+            state.quiz = { 
+                title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", 
+                forAccess: "Everyone", dueDate: "", availableFromDate: "", 
+                untilDate: "", points: "0", availability: "", published: "", course: ""
+            };  // Clear quiz.
         },
 
         // selectQuiz reducer function to update quiz state variable.
         selectQuiz: (state, action) => {             // Select the quiz to edit.
-            // console.log("in selectQuiz");
-            // console.log("state = " + JSON.stringify(state));
-            // console.log("action = " + JSON.stringify(action));
             state.quiz = action.payload;
         },
     },
