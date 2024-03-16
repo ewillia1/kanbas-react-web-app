@@ -2,29 +2,22 @@ import { FaCheckCircle, FaEllipsisV } from "react-icons/fa";
 import { PiPencilLight } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
-import { KanbasState } from "../../../store";
+import { KanbasState, QuizType } from "../../../store";
 import { FiSlash } from "react-icons/fi";
-import { useEffect, useState } from "react";
-import { selectQuiz } from "../quizzesReducer";        // Import reducer functions to add, delete, and update quizzes.
+import { useEffect } from "react";
+import { selectQuiz, updateQuiz } from "../quizzesReducer";        // Import reducer functions to add, delete, and update quizzes.
 
 function QuizDetails() {
     const { courseId } = useParams();
-    console.log("courseId = " + courseId);
     const { quizId } = useParams();
-    console.log("quizId = " + quizId);
     const quizListFromReducer = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables quizzes from reducer.
     const quiz = useSelector((state: KanbasState) => state.quizzesReducer.quiz);
-    console.log("quiz = " + JSON.stringify(quiz));
-    console.log("first quiz?.published = " + quiz?.published);
-    const [publishQuiz, setPublishQuiz] = useState<boolean | undefined>(quiz?.published);
-    console.log("first publishQuiz = " + publishQuiz);
 
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const navigate = useNavigate();
 
     function handleEditQuiz() {
-        console.log("In handleEditQuiz");
-        navigate(`/Kanbas/Courses/${courseId}/Quizzes/DetailsEditor/DetailsEditor`);
+        navigate(`/Kanbas/Courses/${courseId}/Quizzes/DetailsEditor/${quiz._id}`);
     }
 
     // If user is coming from clicking add quiz, set values to default values.
@@ -37,22 +30,19 @@ function QuizDetails() {
             if (quizId.localeCompare("QuizDetails")) {
                 const a = quizListFromReducer.find((quiz) => quiz._id === quizId);
                 dispatch(selectQuiz(a));
-                setPublishQuiz(a?.published);
             }
         }
     }, []);
 
-    function pubUnpub() {
-        setPublishQuiz(!publishQuiz);
-        console.log("Clicked publish/unpublish button -- publishQuiz = " + publishQuiz);
+    function pubUnpub(quiz: QuizType) {
+        const updatedQuiz = {...quiz, published: !quiz.published};  
+        dispatch(updateQuiz(updatedQuiz));
     }
     
     return(
         <>
             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-
-                {/* TODO: Clicking Publish button changes Unpublished to Published, etc. */}
-                {publishQuiz ? <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={pubUnpub} style={{backgroundColor: "green", color: "white"}}><FaCheckCircle />Published</button> : <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={pubUnpub}><FiSlash />Unpublished</button>}
+                {quiz.published ? <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={() => pubUnpub(quiz)} style={{backgroundColor: "green", color: "white"}}><FaCheckCircle />Published</button> : <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={() => pubUnpub(quiz)}><FiSlash />Unpublished</button>}
 
                 {/* TODO: Click Preview button to navigate to Quiz Preview. */}
                 <button type="button" className="btn btn-light btn-outline-dark mt-1">Preview</button>
@@ -138,4 +128,4 @@ function QuizDetails() {
         </>
     );
 }
-export default QuizDetails
+export default QuizDetails;
