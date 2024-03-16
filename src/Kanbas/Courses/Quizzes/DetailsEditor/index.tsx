@@ -54,7 +54,7 @@ function QuizDetailsEditor(this: any) {
                 dispatch(selectQuiz({ 
                     title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", 
                     forAccess: "Everyone", dueDate: "", availableFromDate: "", 
-                    untilDate: "", points: "0", availability: "", published: "", course: ""
+                    untilDate: "", points: "0", published: "", course: ""
                 }));
             }
         }
@@ -356,24 +356,11 @@ function QuizDetailsEditor(this: any) {
                                 </div>
                             </div>
                             <div className="row mb-3">
-                                <div className="col-sm-12 offset-sm-4">
-                                    <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="accessCodeCheckbox" defaultChecked={accessCodeCheck} onChange={() => {setAccessCodeChecked((state) => !state); createAccessCode();}}/>
-                                        <label className="form-check-label" htmlFor="accessCodeCheckbox">
-                                            Access Code
-                                        </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                        <input type="text" className="form-control" id="accessCodeText" value={accessCodeText} onChange={(e) => setAccessCodeText(e.target.value)} disabled/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
                                         <input className="form-check-input" type="checkbox" id="oneQatTime" defaultChecked={oneQatTimeCheck} onChange={() => setOneQatTimeChecked((state) => !state)}/>
                                         <label className="form-check-label" htmlFor="oneQatTime">
-                                            One Question at a Time
+                                            Show One Question at a Time
                                         </label>
                                     </div>
                                 </div>
@@ -395,6 +382,24 @@ function QuizDetailsEditor(this: any) {
                                         <label className="form-check-label" htmlFor="lockQuestions">
                                             Lock Questions After Answering
                                         </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row mb-3">
+                                <div className="col-sm-12 offset-sm-4">
+                                    <b>Quiz Restrictions</b>
+                                </div>
+                            </div>
+                            <div className="row mb-3">
+                                <div className="col-sm-12 offset-sm-4">
+                                    <div className="form-check form-check-inline">
+                                        <input className="form-check-input" type="checkbox" id="accessCodeCheckbox" defaultChecked={accessCodeCheck} onChange={() => {setAccessCodeChecked((state) => !state); createAccessCode();}}/>
+                                        <label className="form-check-label" htmlFor="accessCodeCheckbox">
+                                            Access Code
+                                        </label>
+                                    </div>
+                                    <div className="form-check form-check-inline">
+                                        <input type="text" className="form-control" id="accessCodeText" value={accessCodeText} onChange={(e) => setAccessCodeText(e.target.value)} disabled/>
                                     </div>
                                 </div>
                             </div>
