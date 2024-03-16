@@ -10,7 +10,7 @@ export const initialState = {                               // Create reducer's 
     quiz: { 
         title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", 
         forAccess: "Everyone", dueDate: "", availableFromDate: "", 
-        untilDate: "", points: "0", availability: "", published: "", course: ""
+        untilDate: "", points: "0", published: "", course: ""
     }     // Default quiz.
 };
 
@@ -26,7 +26,7 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
             state.quiz = { 
                 title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", 
                 forAccess: "Everyone", dueDate: "", availableFromDate: "", 
-                untilDate: "", points: "0", availability: "", published: "", course: ""
+                untilDate: "", points: "0", published: "", course: ""
             };  // Clear quiz.
         },
 
@@ -46,7 +46,7 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
             state.quiz = { 
                 title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", 
                 forAccess: "Everyone", dueDate: "", availableFromDate: "", 
-                untilDate: "", points: "0", availability: "", published: "", course: ""
+                untilDate: "", points: "0", published: "", course: ""
             };  // Clear quiz.
         },
 
