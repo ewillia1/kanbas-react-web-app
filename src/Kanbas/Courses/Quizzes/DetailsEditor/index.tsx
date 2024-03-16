@@ -50,19 +50,37 @@ function QuizDetailsEditor(this: any) {
             if (quizId.localeCompare("DetailsEditor")) {
                 const a = quizListFromReducer.find((quiz) => quiz._id === quizId);
                 dispatch(selectQuiz(a));
+            } else {
+                dispatch(selectQuiz({ 
+                    title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", 
+                    forAccess: "Everyone", dueDate: "", availableFromDate: "", 
+                    untilDate: "", points: "0", availability: "", published: "", course: ""
+                }));
             }
         }
     }, []);
     
     // Function to handle saving a quiz.
     function handleSave() {
-        console.log("In handleSave.");
-        console.log("quiz being added/edited = " + JSON.stringify(quiz));
         if (quizId !== undefined) {
             if (!quizId.localeCompare("DetailsEditor")) {
                 dispatch(addQuiz({ ...quiz, course: courseId }));
             } else {
                 dispatch(updateQuiz(quiz));
+            }
+        }
+        navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
+    };
+
+     // Function to handle saving a quiz and publishing it.
+     function handleSaveAndPub() {
+        if (quizId !== undefined) {
+            if (!quizId.localeCompare("DetailsEditor")) {
+                const updatedQuiz = {...quiz, published: "true"};  
+                dispatch(addQuiz({ ...updatedQuiz, course: courseId }));
+            } else {
+                const updatedQuiz = {...quiz, published: "true"};  
+                dispatch(updateQuiz(updatedQuiz));
             }
         }
         navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
@@ -423,11 +441,11 @@ function QuizDetailsEditor(this: any) {
                     Notify users this quiz has changed
                 </label>
                 <button onClick={handleSave} className="col-3 btn btn-light btn-outline-dark wd-save-button ms-2 float-end" style={{width: "max-content"}}>Save</button>
-                <button onClick={handleSave} className="col-3 btn btn-light btn-outline-dark wd-cancel-savepub-button ms-2 float-end" style={{width: "max-content"}}>Save & Publish</button>
+                <button onClick={handleSaveAndPub} className="col-3 btn btn-light btn-outline-dark wd-cancel-savepub-button ms-2 float-end" style={{width: "max-content"}}>Save & Publish</button>
                 <Link to={`/Kanbas/Courses/${courseId}/Quizzes`} className="col-3 btn btn-light btn-outline-dark wd-cancel-savepub-button float-end" style={{width: "max-content"}}>Cancel</Link>
             </div>
             <hr style={{marginTop: "30px"}}/>
         </div>
     );
 }
-export default QuizDetailsEditor
+export default QuizDetailsEditor;
