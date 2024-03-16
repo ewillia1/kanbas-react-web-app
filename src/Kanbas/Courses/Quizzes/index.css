@@ -34,6 +34,9 @@
 .wd-quizSection > li > ul > li {
     padding: 5px;
     border-top: 1px solid gray !important;
+}
+
+.wd-publishedQuiz {
     border-left: 2px solid green;
 }
 
