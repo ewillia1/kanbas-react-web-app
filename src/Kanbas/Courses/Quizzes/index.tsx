@@ -2,7 +2,7 @@ import { FaCaretDown, FaCheckCircle, FaEllipsisV, FaPlus, FaPlusCircle } from "r
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./index.css";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteQuiz, selectQuiz, updateQuiz } from "./quizzesReducer";        // Import reducer functions to add, delete, and update quizs.
+import { deleteQuiz, selectQuiz, updateQuiz } from "./quizzesReducer";        // Import reducer functions to add, delete, and update quizzes.
 import { QuizType, KanbasState } from "../../store";
 import { useState } from "react";
 import Modal from 'react-bootstrap/Modal';
@@ -13,13 +13,11 @@ import { FiSlash } from "react-icons/fi";
 function Quizzes() {
     const { courseId } = useParams();
     const navigate = useNavigate();
-    const quizzesList = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables modules and module from reducer.
+    const quizzesListFromReducer = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables modules and module from reducer.
     const [toBeDeleted, setToBeDeleted] = useState<QuizType | undefined>();
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const [showForDelete, setShowForDelete] = useState(false);
     const [showForAdd, setShowForAdd] = useState(false);
-
-    console.log("quizzesList = " + JSON.stringify(quizzesList));
 
     function handleShowAdd() {
         console.log("In handleAddQuiz");
@@ -57,7 +55,6 @@ function Quizzes() {
     }
 
     function handleEditQuiz(quiz: QuizType) {
-        console.log("In handleEditQuiz");
         navigate(`/Kanbas/Courses/${courseId}/Quizzes/QuizDetails/${quiz._id}`);
     }
 
@@ -105,15 +102,11 @@ function Quizzes() {
                     </div>
 
                     <ul className="list-group">
-                        {quizzesList.filter((quiz) => quiz.course === courseId).map((quiz) => (
+                        {quizzesListFromReducer.filter((quiz) => quiz.course === courseId).map((quiz) => (
                             <li key={quiz._id} className="list-group-item wd-quiz" onClick={() => selectQuiz(quiz)} draggable="true">
-                                
-                                {/* TODO: When quiz is published make color green. When quiz is not published make color grey (this can be because value is initially set to published and if the publish buttons are clicked). */}
-                                {quiz.published ?  <IoRocketOutline className="ms-2 me-3" style={{color: "green"}}/> : <IoRocketOutline className="ms-2 me-3" style={{color: "grey"}}/>}
+                                {quiz.published ? <IoRocketOutline className="ms-2 me-3" style={{color: "green"}}/> : <IoRocketOutline className="ms-2 me-3" style={{color: "grey"}}/>}
 
                                 <span className="float-end">
-
-                                    {/* TODO: When FiSlash button is clicked, change quiz.published to true and change icon to FaCheckCircle. When FaCheckCircle button is clicked, change quiz.published to false and change icon to FiSlash. */}
                                     {quiz.published ? <button style={{backgroundColor: "unset"}} onClick={() => handlePublish(quiz)}><FaCheckCircle className="text-success"/></button> : <button style={{backgroundColor: "unset"}} onClick={() => handlePublish(quiz)}><FiSlash/></button>}
                                     
                                     <button id="threeDotDropdown" data-bs-toggle="dropdown" aria-expanded="false" style={{backgroundColor: "unset"}}><FaEllipsisV className="ms-3 me-2"/></button>
@@ -121,8 +114,6 @@ function Quizzes() {
                                     <ul className="dropdown-menu dropdown-menu-end wd-three-dot-menu" aria-labelledby="threeDotDropdown">
                                         <li><a className="dropdown-item" onClick={() => handleEditQuiz(quiz)}>Edit</a></li>
                                         <li><a className="dropdown-item" onClick={() => handleShowDelete(quiz)}>Delete</a></li>
-
-                                        {/* TODO: Publish functionality. */}
                                         {quiz.published ? <li><a className="dropdown-item" onClick={() => handlePublish(quiz)}>Unpublish</a></li> : <li><a className="dropdown-item" onClick={() => handlePublish(quiz)}>Publish</a></li>}
                                     </ul>
 
