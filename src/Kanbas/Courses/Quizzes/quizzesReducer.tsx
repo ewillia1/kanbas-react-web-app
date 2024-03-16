@@ -43,6 +43,9 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
 
         // selectQuiz reducer function to update quiz state variable.
         selectQuiz: (state, action) => {             // Select the quiz to edit.
+            // console.log("in selectQuiz");
+            // console.log("state = " + JSON.stringify(state));
+            // console.log("action = " + JSON.stringify(action));
             state.quiz = action.payload;
         },
     },

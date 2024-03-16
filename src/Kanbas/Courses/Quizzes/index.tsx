@@ -2,7 +2,7 @@ import { FaCaretDown, FaCheckCircle, FaEllipsisV, FaPlus, FaPlusCircle } from "r
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./index.css";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteQuiz, selectQuiz } from "./quizzesReducer";        // Import reducer functions to add, delete, and update quizs.
+import { deleteQuiz, selectQuiz, updateQuiz } from "./quizzesReducer";        // Import reducer functions to add, delete, and update quizs.
 import { QuizType, KanbasState } from "../../store";
 import { useState } from "react";
 import Modal from 'react-bootstrap/Modal';
@@ -61,10 +61,13 @@ function Quizzes() {
 
     function handlePublish(quiz: QuizType) {
         console.log("in handlePublish");
-        console.log("quiz to publish = " + JSON.stringify(quiz));
+        console.log("before quiz to publish = " + JSON.stringify(quiz));
         let result = !quiz.published;
         console.log("result = " + result);
-        dispatch(selectQuiz({ ...quiz, published: result}))
+        dispatch(selectQuiz({ ...quiz, published: result}));
+        console.log("after 1 quiz to publish = " + JSON.stringify(quiz));
+        dispatch(updateQuiz(quiz));
+        console.log("after 2 quiz to publish = " + JSON.stringify(quiz));
     }
 
     return (
@@ -115,7 +118,7 @@ function Quizzes() {
                                 <span className="float-end">
 
                                     {/* TODO: When FiSlash button is clicked, change quiz.published to true and change icon to FaCheckCircle. When FaCheckCircle button is clicked, change quiz.published to false and change icon to FiSlash. */}
-                                    {quiz.published ? <button style={{backgroundColor: "unset"}}><FaCheckCircle className="text-success"/></button> : <button style={{backgroundColor: "unset"}}><FiSlash/></button>}
+                                    {quiz.published ? <button style={{backgroundColor: "unset"}} onClick={() => handlePublish(quiz)}><FaCheckCircle className="text-success"/></button> : <button style={{backgroundColor: "unset"}} onClick={() => handlePublish(quiz)}><FiSlash/></button>}
                                     
                                     <button id="threeDotDropdown" data-bs-toggle="dropdown" aria-expanded="false" style={{backgroundColor: "unset"}}><FaEllipsisV className="ms-3 me-2"/></button>
                 
