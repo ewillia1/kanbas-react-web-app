@@ -19,6 +19,8 @@ function Quizzes() {
     const [showForDelete, setShowForDelete] = useState(false);
     const [showForAdd, setShowForAdd] = useState(false);
 
+    console.log("quizzesList = " + JSON.stringify(quizzesList));
+
     function handleShowAdd() {
         console.log("In handleAddQuiz");
         setShowForAdd(true);
@@ -60,14 +62,8 @@ function Quizzes() {
     }
 
     function handlePublish(quiz: QuizType) {
-        console.log("in handlePublish");
-        console.log("before quiz to publish = " + JSON.stringify(quiz));
-        let result = !quiz.published;
-        console.log("result = " + result);
-        dispatch(selectQuiz({ ...quiz, published: result}));
-        console.log("after 1 quiz to publish = " + JSON.stringify(quiz));
-        dispatch(updateQuiz(quiz));
-        console.log("after 2 quiz to publish = " + JSON.stringify(quiz));
+        const updatedQuiz = {...quiz, published: !quiz.published};  
+        dispatch(updateQuiz(updatedQuiz));
     }
 
     return (
@@ -113,7 +109,7 @@ function Quizzes() {
                             <li key={quiz._id} className="list-group-item wd-quiz" onClick={() => selectQuiz(quiz)} draggable="true">
                                 
                                 {/* TODO: When quiz is published make color green. When quiz is not published make color grey (this can be because value is initially set to published and if the publish buttons are clicked). */}
-                                {quiz.published ?  <IoRocketOutline className="ms-2 me-2" style={{color: "green"}}/> : <IoRocketOutline className="ms-2 me-3" style={{color: "grey"}}/>}
+                                {quiz.published ?  <IoRocketOutline className="ms-2 me-3" style={{color: "green"}}/> : <IoRocketOutline className="ms-2 me-3" style={{color: "grey"}}/>}
 
                                 <span className="float-end">
 
