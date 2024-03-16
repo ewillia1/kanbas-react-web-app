@@ -9,6 +9,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Button } from "react-bootstrap";
 import { IoRocketOutline } from "react-icons/io5";
 import { FiSlash } from "react-icons/fi";
+import { availableText } from "../../Util/dateUtil";
 
 function Quizzes() {
     const { courseId } = useParams();
@@ -103,7 +104,7 @@ function Quizzes() {
 
                     <ul className="list-group">
                         {quizzesListFromReducer.filter((quiz) => quiz.course === courseId).map((quiz) => (
-                            <li key={quiz._id} className="list-group-item wd-quiz" onClick={() => selectQuiz(quiz)} draggable="true">
+                            <li id={quiz._id} key={quiz._id} className={quiz.published ? "list-group-item wd-quiz wd-publishedQuiz" : "list-group-item wd-quiz" } onClick={() => selectQuiz(quiz)} draggable="true">
                                 {quiz.published ? <IoRocketOutline className="ms-2 me-3" style={{color: "green"}}/> : <IoRocketOutline className="ms-2 me-3" style={{color: "grey"}}/>}
 
                                 <span className="float-end">
@@ -137,7 +138,8 @@ function Quizzes() {
 
                                 <Link id="OpenAssignment" to={`/Kanbas/Courses/${courseId}/Quizzes/QuizDetails/${quiz._id}`} >
                                     <b>{quiz.title}</b><br/>
-                                    <span className="wd-week-span"><b>{quiz.availability ? "Available" : "Closed"}</b> | <b>Due: </b>{quiz.dueDate} | {quiz.points} pts | {quiz.numQuestions} {parseInt(quiz.numQuestions) < 2 ? "Question" : "Questions"}</span>
+                                    <span className="wd-week-span">
+                                        {availableText(quiz) === 1 ? <b>Closed</b> : availableText(quiz) === 2 ? <span><b>Not available until</b> {quiz.availableFromDate}</span> : <b>Available</b>} | <b>Due: </b>{quiz.dueDate} | {quiz.points} pts | {quiz.numQuestions} {parseInt(quiz.numQuestions) < 2 ? "Question" : "Questions"}</span>
                                 </Link>
                             </li>
                         ))}
