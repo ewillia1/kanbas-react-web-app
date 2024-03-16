@@ -86,7 +86,7 @@ function Grades() {
                                         const grade = grades.find((grade) => grade.student === enrollment.user && grade.assignment === assignment._id);
                                         return(
                                             <td key={index} className="wd-table-cell">
-                                                <input className="wd-table-cell" defaultValue={grade?.grade} size={4} type="number" min="0" max={assignment.points} step=".01"/>
+                                                <input id={index.toString() + grade?.student.toString()} className="wd-table-cell" defaultValue={grade?.grade} size={4} type="number" min="0" max={assignment.points} step=".01"/>
                                             </td>
                                         );
                                     })}

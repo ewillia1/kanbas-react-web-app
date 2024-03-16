@@ -176,4 +176,4 @@ function AssignmentEditor() {
         </div>
     );
 }
-export default AssignmentEditor
+export default AssignmentEditor;
