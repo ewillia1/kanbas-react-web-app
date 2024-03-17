@@ -139,7 +139,7 @@ function Quizzes() {
                                 <Link id="OpenAssignment" to={`/Kanbas/Courses/${courseId}/Quizzes/QuizDetails/${quiz._id}`} >
                                     <b>{quiz.title}</b><br/>
                                     <span className="wd-week-span">
-                                        {availableText(quiz) === 1 ? <b>Closed</b> : availableText(quiz) === 2 ? <span><b>Not available until</b> {quiz.availableFromDate}</span> : <b>Available</b>} | <b>Due: </b>{quiz.dueDate} | {quiz.points} pts | {quiz.numQuestions} {parseInt(quiz.numQuestions) < 2 ? "Question" : "Questions"}</span>
+                                        {availableText(quiz) === 1 ? <b>Closed</b> : availableText(quiz) === 2 ? <span><b>Not available until</b> {quiz.availableFromDate}</span> : availableText(quiz) === 3 ? <b>Available</b> : <b>ERROR</b>} | <b>Due: </b>{quiz.dueDate} | {quiz.points} pts | {quiz.numQuestions} {parseInt(quiz.numQuestions) < 2 ? "Question" : "Questions"}</span>
                                 </Link>
                             </li>
                         ))}
