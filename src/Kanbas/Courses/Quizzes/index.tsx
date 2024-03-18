@@ -9,7 +9,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Button } from "react-bootstrap";
 import { IoRocketOutline } from "react-icons/io5";
 import { FiSlash } from "react-icons/fi";
-import { availableText } from "../../Util/dateUtil";
+import { availableText, getDateObject } from "../../Util/dateUtil";
 
 function Quizzes() {
     const { courseId } = useParams();
@@ -139,7 +139,7 @@ function Quizzes() {
                                 <Link id="OpenAssignment" to={`/Kanbas/Courses/${courseId}/Quizzes/QuizDetails/${quiz._id}`} >
                                     <b>{quiz.title}</b><br/>
                                     <span className="wd-week-span">
-                                        {availableText(quiz) === 1 ? <b>Closed</b> : availableText(quiz) === 2 ? <span><b>Not available until</b> {quiz.availableFromDate}</span> : availableText(quiz) === 3 ? <b>Available</b> : <b>ERROR</b>} | <b>Due: </b>{quiz.dueDate} | {quiz.points} pts | {quiz.numQuestions} {parseInt(quiz.numQuestions) < 2 ? "Question" : "Questions"}</span>
+                                        {availableText(quiz) === 1 ? <b>Closed</b> : availableText(quiz) === 2 ? <span><b>Not available until</b> {getDateObject(quiz.availableFromDate).toDateString()}</span> : availableText(quiz) === 3 ? <b>Available</b> : <b>ERROR</b>} | <b>Due: </b>{getDateObject(quiz.dueDate).toDateString()} | {quiz.points} pts | {quiz.numQuestions} {parseInt(quiz.numQuestions) < 2 ? "Question" : "Questions"}</span>
                                 </Link>
                             </li>
                         ))}
