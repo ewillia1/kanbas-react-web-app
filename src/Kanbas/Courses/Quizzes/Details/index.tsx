@@ -20,6 +20,10 @@ function QuizDetails() {
         navigate(`/Kanbas/Courses/${courseId}/Quizzes/DetailsEditor/${quiz._id}`);
     }
 
+    function viewPreview() {
+        navigate(`/Kanbas/Courses/${courseId}/Quizzes/Preview/${quiz._id}`);
+    }
+
     // If user is coming from clicking add quiz, set values to default values.
     // Else the user is coming from clicking an old quiz, so set values to the values of the quiz clicked.
     // Only run the effect on the initial render.
@@ -45,8 +49,7 @@ function QuizDetails() {
                 {quiz.published ? <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={() => pubUnpub(quiz)} style={{backgroundColor: "green", color: "white"}}><FaCheckCircle />Published</button> : <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={() => pubUnpub(quiz)}><FiSlash />Unpublished</button>}
 
                 {/* TODO: Click Preview button to navigate to Quiz Preview. */}
-                <button type="button" className="btn btn-light btn-outline-dark mt-1">Preview</button>
-
+                <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={viewPreview}>Preview</button>
                 <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={handleEditQuiz}><PiPencilLight style = {{transform: 'rotate(270deg)'}} />Edit</button>
                 <button type="button" className="btn btn-light btn-outline-dark mt-1"><FaEllipsisV /></button>
             </div>
