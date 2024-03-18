@@ -8,9 +8,14 @@ import { quizzes } from "../../Database";           // Import quizzes from datab
 export const initialState = {                               // Create reducer's initial state with 
     quizzes: quizzes,                                       // default quizzes copied from database.
     quiz: { 
-        title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", 
+        title: "Unnamed Quiz", subtitle: "New Subtitle", 
+        description: "", quizType: "Graded Quiz", 
+        assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
+        multipleAttempts: false, showCorrectAnswers: true,
+        showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
+        viewResponses: true, oneQuestion: true, webCam: false, lockedQuestions: false,
         forAccess: "Everyone", dueDate: "", availableFromDate: "", 
-        untilDate: "", points: "0", published: "", course: ""
+        untilDate: "", points: "0", numQuestions: "0", published: false
     }     // Default quiz.
 };
 
@@ -24,9 +29,14 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
                 ...state.quizzes,
             ];
             state.quiz = { 
-                title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", 
+                title: "Unnamed Quiz", subtitle: "New Subtitle", 
+                description: "", quizType: "Graded Quiz", 
+                assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
+                multipleAttempts: false, showCorrectAnswers: true,
+                showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
+                viewResponses: true, oneQuestion: true, webCam: false, lockedQuestions: false,
                 forAccess: "Everyone", dueDate: "", availableFromDate: "", 
-                untilDate: "", points: "0", published: "", course: ""
+                untilDate: "", points: "0", numQuestions: "0", published: false
             };  // Clear quiz.
         },
 
@@ -44,9 +54,14 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
             // Replace quiz whose ID matches action.payload._id.
             state.quizzes = state.quizzes.map((quiz) => (quiz._id === action.payload._id ? action.payload : quiz));
             state.quiz = { 
-                title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", 
+                title: "Unnamed Quiz", subtitle: "New Subtitle", 
+                description: "", quizType: "Graded Quiz", 
+                assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
+                multipleAttempts: false, showCorrectAnswers: true,
+                showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
+                viewResponses: true, oneQuestion: true, webCam: false, lockedQuestions: false,
                 forAccess: "Everyone", dueDate: "", availableFromDate: "", 
-                untilDate: "", points: "0", published: "", course: ""
+                untilDate: "", points: "0", numQuestions: "0", published: false
             };  // Clear quiz.
         },
 
