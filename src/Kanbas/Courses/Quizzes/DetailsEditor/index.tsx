@@ -52,9 +52,14 @@ function QuizDetailsEditor(this: any) {
                 dispatch(selectQuiz(a));
             } else {
                 dispatch(selectQuiz({ 
-                    title: "Unnamed Quiz", subtitle: "New Subtitle", description: "", 
+                    title: "Unnamed Quiz", subtitle: "New Subtitle", 
+                    description: "", quizType: "Graded Quiz", 
+                    assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
+                    multipleAttempts: false, showCorrectAnswers: true,
+                    showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
+                    viewResponses: true, oneQuestion: true, webCam: false, lockedQuestions: false,
                     forAccess: "Everyone", dueDate: "", availableFromDate: "", 
-                    untilDate: "", points: "0", published: "", course: ""
+                    untilDate: "", points: "0", numQuestions: "0", published: false
                 }));
             }
         }
@@ -277,6 +282,12 @@ function QuizDetailsEditor(this: any) {
 
                         <div className="wd-bottom-section">
                             <div className="row mb-3">
+                                <label htmlFor="points" className="col-sm-4 col-form-label wd-assign-edit-label">Points</label>
+                                <div className="col-sm-8">
+                                    <input type="number" min="0" className="form-control" id="points" value={quiz?.points} onChange={(e) => dispatch(selectQuiz({ ...quiz, points: e.target.value }))}/>
+                                </div>
+                            </div>
+                            <div className="row mb-3">
                                 <label htmlFor="quizType" className="col-sm-4 col-form-label wd-assign-edit-label">Quiz Type</label>
                                 <div className="col-sm-8">
                                     <select className="form-select" id="quizType" name="quizType">
@@ -285,12 +296,6 @@ function QuizDetailsEditor(this: any) {
                                         <option>Graded Survey</option>
                                         <option>Ungraded Survey</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div className="row mb-3">
-                                <label htmlFor="points" className="col-sm-4 col-form-label wd-assign-edit-label">Points</label>
-                                <div className="col-sm-8">
-                                    <input type="number" min="0" className="form-control" id="points" value={quiz?.points} onChange={(e) => dispatch(selectQuiz({ ...quiz, points: e.target.value }))}/>
                                 </div>
                             </div>
                             <div className="row mb-3">
@@ -348,10 +353,38 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
+                                        {/* TODO: Add onclick and defaultChecked value. */}
+                                        <input className="form-check-input" type="checkbox" id="seeQuizReponses"/>
+                                        <label className="form-check-label" htmlFor="seeQuizReponses">
+                                            Let Students See Their Quiz Responses (Incorrect Questions Will Be Marked in Student Feedback)
+                                        </label>
+                                    </div>
+                                    <div className="form-check" style={{marginLeft: "25px"}}>
+                                        {/* TODO: Add onclick and defaultChecked value. */}
+                                        <input className="form-check-input" type="checkbox" id="onlyOnce"/>
+                                        <label className="form-check-label" htmlFor="onlyOnce">
+                                            Only Once After Each Attempt
+                                        </label>
+                                    </div>
+                                    <div className="form-check" style={{marginLeft: "25px"}}>
                                         <input className="form-check-input" type="checkbox" id="correctAnswer" defaultChecked={correctAnswerCheck} onChange={() => setCorrectAnswerChecked((state) => !state)}/>
                                         <label className="form-check-label" htmlFor="correctAnswer">
                                             Show Correct Answers
                                         </label>
+                                    </div>
+                                    <div className="row mb-3" style={{marginLeft: "37px"}}>
+                                        <label htmlFor="points" className="col-sm-5 col-form-label">Show Correct Answers at</label>
+                                        <div className="col-sm-7">
+                                            {/* TODO: value and onChange */}
+                                            <input id="showCorrectAnswersDate" className="form-control" type="date"/>
+                                        </div>
+                                    </div>
+                                    <div className="row mb-3" style={{marginLeft: "37px"}}>
+                                        <label htmlFor="points" className="col-sm-5 col-form-label">Hide Correct Answers at</label>
+                                        <div className="col-sm-7">
+                                            {/* TODO: value and onChange */}
+                                            <input id="hideCorrectAnswersDate" className="form-control" type="date"/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -363,21 +396,7 @@ function QuizDetailsEditor(this: any) {
                                             Show One Question at a Time
                                         </label>
                                     </div>
-                                </div>
-                            </div>
-                            <div className="row mb-3">
-                                <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" id="webcamReq" defaultChecked={webcamReqCheck} onChange={() => setWebcamReqChecked((state) => !state)}/>
-                                        <label className="form-check-label" htmlFor="webcamReq">
-                                            Webcam Required
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row mb-3">
-                                <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
-                                    <div className="form-check">
+                                    <div className="form-check" style={{marginLeft: "25px"}}>
                                         <input className="form-check-input" type="checkbox" id="lockQuestions" defaultChecked={lockQuestionsCheck} onChange={() => setLockQuestionsChecked((state) => !state)}/>
                                         <label className="form-check-label" htmlFor="lockQuestions">
                                             Lock Questions After Answering
@@ -388,6 +407,16 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4">
                                     <b>Quiz Restrictions</b>
+                                </div>
+                            </div>
+                            <div className="row mb-3">
+                                <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="checkbox" id="webcamReq" defaultChecked={webcamReqCheck} onChange={() => setWebcamReqChecked((state) => !state)}/>
+                                        <label className="form-check-label" htmlFor="webcamReq">
+                                            Webcam Required
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <div className="row mb-3">
