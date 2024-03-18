@@ -12,6 +12,7 @@ import { CourseType } from "../Util";
 import Quizzes from "./Quizzes";
 import QuizDetails from "./Quizzes/Details";
 import QuizDetailsEditor from "./Quizzes/DetailsEditor";
+import QuizPreview from "./Quizzes/Preview";
 
 type CoursesProp = {
     courses: CourseType[]
@@ -43,6 +44,7 @@ function Courses({ courses }: CoursesProp) {
                         <Route path="Quizzes" element={<Quizzes/>} />
                         <Route path="Quizzes/DetailsEditor/:quizId" element={<QuizDetailsEditor/>}/>
                         <Route path="Quizzes/QuizDetails/:quizId" element={<QuizDetails/>}/>
+                        <Route path="Quizzes/Preview/:quizId" element={<QuizPreview/>}/>
                         <Route path="People" element={<h1>People</h1>} />
                         <Route path="Panopto Video" element={<h1>Panopto Video</h1>} />
                         <Route path="Discussions" element={<h1>Discussions</h1>} />
