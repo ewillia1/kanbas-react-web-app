@@ -10,10 +10,15 @@ export type AssignmentType = {
 };
 
 export type QuizType = {
-    _id: string, title: string, subtitle: string, description: string, forAccess: string,
-    dueDate: string, availableFromDate: string, untilDate: string, 
-    points: string, numQuestions: string, availability: boolean, 
-    published: boolean, course: string;
+    _id: string, title: string, subtitle: string, 
+    description: string, quizType: string, 
+    assignmentGroup: string, shuffle: boolean, timeLimit: boolean, time?: string, 
+    multipleAttempts: boolean, showCorrectAnswers: boolean,
+    showCorrectAnswersDate?: string, hideCorrectAnswersDate?: string, accessCodeOn: boolean, 
+    accessCode?: string, viewResponses: boolean,
+    oneQuestion: boolean, webCam: boolean, lockedQuestions: boolean,
+    forAccess: string, dueDate: string, availableFromDate: string, 
+    untilDate: string, points: string, numQuestions: string, published: boolean, course: string;
 };
 
 export interface KanbasState {
