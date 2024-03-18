@@ -6,6 +6,7 @@ import { KanbasState, QuizType } from "../../../store";
 import { FiSlash } from "react-icons/fi";
 import { useEffect } from "react";
 import { selectQuiz, updateQuiz } from "../quizzesReducer";        // Import reducer functions to add, delete, and update quizzes.
+import { getDateObject } from "../../../Util/dateUtil";
 
 function QuizDetails() {
     const { courseId } = useParams();
@@ -47,67 +48,67 @@ function QuizDetails() {
         <>
             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
                 {quiz.published ? <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={() => pubUnpub(quiz)} style={{backgroundColor: "green", color: "white"}}><FaCheckCircle />Published</button> : <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={() => pubUnpub(quiz)}><FiSlash />Unpublished</button>}
-
-                {/* TODO: Click Preview button to navigate to Quiz Preview. */}
                 <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={viewPreview}>Preview</button>
                 <button type="button" className="btn btn-light btn-outline-dark mt-1" onClick={handleEditQuiz}><PiPencilLight style = {{transform: 'rotate(270deg)'}} />Edit</button>
                 <button type="button" className="btn btn-light btn-outline-dark mt-1"><FaEllipsisV /></button>
             </div>
             <hr/>
 
-            <h1>{quiz?.title}</h1>
+            <h1>{quiz.title}</h1>
 
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>Quiz Type</b></label>
-                <label className="col">Graded Quiz</label>
+                <label className="col">{quiz.quizType}</label>
             </div>
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>Points</b></label>
-                <label className="col">{quiz?.points}</label>
+                <label className="col">{quiz.points}</label>
             </div>
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>Assignment Group</b></label>
-                <label className="col">QUIZZES</label>
+                <label className="col">{quiz.assignmentGroup}</label>
             </div>
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>Shuffle Answers</b></label>
-                <label className="col">No</label>
+                <label className="col">{quiz.shuffle ? "Yes" : "No"}</label>
             </div>
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>Time Limit</b></label>
-                <label className="col">30 Minutes</label>
+                <label className="col">{quiz.timeLimit ? quiz?.time : "None"} {quiz.timeLimit && quiz?.time !== undefined ? parseInt(quiz?.time) < 2 ? "Minute" : "Minutes" : ""}</label>
             </div>
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>Multiple Attempts</b></label>
-                <label className="col">No</label>
+                <label className="col">{quiz.multipleAttempts ? "Yes" : "No"}</label>
             </div>
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>View Responses</b></label>
-                <label className="col">Always</label>
+                <label className="col">{quiz.viewResponses ? "Always" : "Never"}</label>
             </div>
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>Show Correct Answers</b></label>
-                <label className="col">Immediately</label>
+                <label className="col">{quiz.showCorrectAnswers ? getDateObject(quiz.showCorrectAnswersDate).toDateString() : "No"}</label>
             </div>
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>One Question at a Time</b></label>
-                <label className="col">Yes</label>
+                <label className="col">{quiz.oneQuestion ? "Yes" : "No"}</label>
             </div>
+            {/* This value is not assigned. So it is always going to show No. */}
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>Require Respondus LockDown Browser</b></label>
                 <label className="col">No</label>
             </div>
+            {/* This value is not assigned. So it is always going to show No. */}
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>Required to View Quiz Results</b></label>
                 <label className="col">No</label>
             </div>
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>Webcam Required</b></label>
-                <label className="col">No</label>
+                <label className="col">{quiz.webCam ? "Yes" : "No"}</label>
             </div>
             <div className="row mb-3">
                 <label className="col" style={{textAlign: "right"}}><b>Lock Questions After Answering</b></label>
-                <label className="col">No</label>
+                <label className="col">{quiz.lockedQuestions ? "Yes" : "No"}</label>
             </div>
 
             <table className="table" style={{marginTop: "40px"}}>
@@ -121,10 +122,10 @@ function QuizDetails() {
                 </thead>
                 <tbody>
                     <tr>
-                    <td>{quiz?.dueDate}</td>
-                    <td>{quiz?.forAccess}</td>
-                    <td>{quiz?.availableFromDate}</td>
-                    <td>{quiz?.untilDate}</td>
+                    <td>{getDateObject(quiz.dueDate).toDateString()}</td>
+                    <td>{quiz.forAccess}</td>
+                    <td>{getDateObject(quiz.availableFromDate).toDateString()}</td>
+                    <td>{getDateObject(quiz.untilDate).toDateString()}</td>
                     </tr>
                 </tbody>
             </table>
