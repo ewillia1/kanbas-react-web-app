@@ -15,3 +15,17 @@ export function availableText(quiz) {
         return 4;
     }
 }
+
+export function getCurrentTime(date) {
+    let hours = date.getHours();
+    console.log("hours = " + hours);
+    let minutes = date.getMinutes();
+    console.log("minutes = " + minutes);
+    let ampm = (hours >= 12) ? "pm" : "am";
+    hours = hours % 12;
+    hours = hours ? hours : 12;                 // The hour '0' should be '12'.
+    minutes = minutes < 10 ? '0'+ minutes : minutes;
+    let timeStatement = hours + ":" + minutes + ampm;
+    console.log("timeStatement = " + timeStatement);
+    return timeStatement;
+}
