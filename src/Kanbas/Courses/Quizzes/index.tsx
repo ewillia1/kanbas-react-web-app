@@ -14,7 +14,7 @@ import { availableText, getDateObject } from "../../Util/dateUtil";
 function Quizzes() {
     const { courseId } = useParams();
     const navigate = useNavigate();
-    const quizzesListFromReducer = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables modules and module from reducer.
+    const quizzesListFromReducer = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables quizzes from reducer.
     const [toBeDeleted, setToBeDeleted] = useState<QuizType | undefined>();
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const [showForDelete, setShowForDelete] = useState(false);
