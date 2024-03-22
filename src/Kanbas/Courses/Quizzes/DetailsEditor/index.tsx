@@ -40,6 +40,10 @@ function QuizDetailsEditor(this: any) {
     
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const navigate = useNavigate();
+
+    const reactQuillRef = React.useRef<ReactQuill>(null);
+    const editor = reactQuillRef.current?.getEditor();
+    console.log("editor = " + editor);
     
     // If user is coming from clicking add quiz, set values to default values.
     // Else the user is coming from clicking an old quiz, so set values to the values of the quiz clicked.
@@ -53,7 +57,7 @@ function QuizDetailsEditor(this: any) {
             } else {
                 dispatch(selectQuiz({ 
                     title: "Unnamed Quiz", subtitle: "New Subtitle", 
-                    description: "", quizType: "Graded Quiz", 
+                    instructions: "", quizType: "Graded Quiz", 
                     assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
                     multipleAttempts: false, showCorrectAnswers: true,
                     showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
@@ -138,13 +142,8 @@ function QuizDetailsEditor(this: any) {
             ["link", "image", "video"]
         ],
     }
-    const [instructions, setQuizInstructions] =  useState("");
-    console.log(instructions);
 
     // Determining the word count for the quiz instructions.
-    const reactQuillRef = React.useRef<ReactQuill>(null);
-    const editor = reactQuillRef.current?.getEditor();
-    console.log("editor = " + editor);
     let numOfWords = 0;
     if (editor !== undefined) {
         const unprivilegedEditor = reactQuillRef.current?.makeUnprivilegedEditor(editor);
@@ -162,6 +161,12 @@ function QuizDetailsEditor(this: any) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    // Function to handle editting the text/elements in the quiz instructions' rich editor.
+    function handleInstructionEdit(e: string) {
+        console.log("in handleInstructionEdit. e = " + e);
+        dispatch(selectQuiz({ ...quiz, instructions: e}));
+    }
 
     return (
         <div>
@@ -182,7 +187,7 @@ function QuizDetailsEditor(this: any) {
                             Quiz Instructions: <span className="float-end"><CgShapeHalfCircle style = {{color:"green", transform: 'rotate(90deg)', fontSize: "2em"}}/> 100%</span>
                             
                             <React.StrictMode>
-                                <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" onChange={setQuizInstructions}/>
+                                <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" value={quiz?.instructions} onChange={(e) => handleInstructionEdit(e)}/>
                             </React.StrictMode>
 
                             <span style={{color: "buttonborder"}}>
@@ -317,7 +322,7 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4">
                                     <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" id="shuffleAnswersId" defaultChecked={shuffleAnswersCheck} onChange={() => setShuffleAnswersChecked((state) => !state)}/>
+                                        <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={shuffleAnswersCheck} onChange={() => setShuffleAnswersChecked((state) => !state)}/>
                                         <label className="form-check-label" htmlFor="shuffleAnswersId">
                                             Shuffle Answers
                                         </label>
@@ -327,7 +332,7 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4">
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="timeLimitCheckbox" defaultChecked={timeLimitCheck} onChange={() => {setTimeLimitChecked((state) => !state); enableMinTextArea();}}/>
+                                        <input className="form-check-input" type="checkbox" id="timeLimitCheckbox" checked={timeLimitCheck} onChange={() => {setTimeLimitChecked((state) => !state); enableMinTextArea();}}/>
                                         <label className="form-check-label" htmlFor="timeLimitCheckbox">
                                             Time Limit
                                         </label>
@@ -343,7 +348,7 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" id="multipleAttemptsId" defaultChecked={multipleAttemptsCheck} onChange={() => setMultipleAttemptsChecked((state) => !state)}/>
+                                        <input className="form-check-input" type="checkbox" id="multipleAttemptsId" checked={multipleAttemptsCheck} onChange={() => setMultipleAttemptsChecked((state) => !state)}/>
                                         <label className="form-check-label" htmlFor="multipleAttemptsId">
                                             Allow Multiple Attempts
                                         </label>
@@ -367,7 +372,7 @@ function QuizDetailsEditor(this: any) {
                                         </label>
                                     </div>
                                     <div className="form-check" style={{marginLeft: "25px"}}>
-                                        <input className="form-check-input" type="checkbox" id="correctAnswer" defaultChecked={correctAnswerCheck} onChange={() => setCorrectAnswerChecked((state) => !state)}/>
+                                        <input className="form-check-input" type="checkbox" id="correctAnswer" checked={correctAnswerCheck} onChange={() => setCorrectAnswerChecked((state) => !state)}/>
                                         <label className="form-check-label" htmlFor="correctAnswer">
                                             Show Correct Answers
                                         </label>
@@ -391,13 +396,13 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" id="oneQatTime" defaultChecked={oneQatTimeCheck} onChange={() => setOneQatTimeChecked((state) => !state)}/>
+                                        <input className="form-check-input" type="checkbox" id="oneQatTime" checked={oneQatTimeCheck} onChange={() => setOneQatTimeChecked((state) => !state)}/>
                                         <label className="form-check-label" htmlFor="oneQatTime">
                                             Show One Question at a Time
                                         </label>
                                     </div>
                                     <div className="form-check" style={{marginLeft: "25px"}}>
-                                        <input className="form-check-input" type="checkbox" id="lockQuestions" defaultChecked={lockQuestionsCheck} onChange={() => setLockQuestionsChecked((state) => !state)}/>
+                                        <input className="form-check-input" type="checkbox" id="lockQuestions" checked={lockQuestionsCheck} onChange={() => setLockQuestionsChecked((state) => !state)}/>
                                         <label className="form-check-label" htmlFor="lockQuestions">
                                             Lock Questions After Answering
                                         </label>
@@ -412,7 +417,7 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" id="webcamReq" defaultChecked={webcamReqCheck} onChange={() => setWebcamReqChecked((state) => !state)}/>
+                                        <input className="form-check-input" type="checkbox" id="webcamReq" checked={webcamReqCheck} onChange={() => setWebcamReqChecked((state) => !state)}/>
                                         <label className="form-check-label" htmlFor="webcamReq">
                                             Webcam Required
                                         </label>
@@ -422,7 +427,7 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4">
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="accessCodeCheckbox" defaultChecked={accessCodeCheck} onChange={() => {setAccessCodeChecked((state) => !state); createAccessCode();}}/>
+                                        <input className="form-check-input" type="checkbox" id="accessCodeCheckbox" checked={accessCodeCheck} onChange={() => {setAccessCodeChecked((state) => !state); createAccessCode();}}/>
                                         <label className="form-check-label" htmlFor="accessCodeCheckbox">
                                             Access Code
                                         </label>
