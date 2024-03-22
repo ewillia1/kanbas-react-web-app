@@ -3,8 +3,6 @@ import { quizzes } from "../../Database";           // Import quizzes from datab
 
 // TODO: Use database and not JSON file. quizzes needs to be empty by default!
 
-// TODO: Availability: Closed, Available, Not Available.
-
 export const initialState = {                               // Create reducer's initial state with 
     quizzes: quizzes,                                       // default quizzes copied from database.
     quiz: { 
@@ -28,7 +26,7 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
                 { ...action.payload, _id: new Date().getTime().toString() },        // Override _id with timestamp.
                 ...state.quizzes,
             ];
-            state.quiz = { 
+            state.quiz = {
                 title: "Unnamed Quiz", subtitle: "New Subtitle", 
                 instructions: "", quizType: "Graded Quiz", 
                 assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
@@ -67,6 +65,7 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
 
         // selectQuiz reducer function to update quiz state variable.
         selectQuiz: (state, action) => {             // Select the quiz to edit.
+            console.log("in selectQuiz");
             state.quiz = action.payload;
         },
     },

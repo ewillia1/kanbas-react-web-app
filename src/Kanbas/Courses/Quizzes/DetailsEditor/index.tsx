@@ -52,11 +52,14 @@ function QuizDetailsEditor(this: any) {
         // Runs only on the first render.
         if ( quizId !== undefined ) {
             if (quizId.localeCompare("DetailsEditor")) {
+                console.log("Coming from editing an old quiz");
                 const a = quizListFromReducer.find((quiz) => quiz._id === quizId);
                 dispatch(selectQuiz(a));
+                console.log("quiz?.time = " + quiz?.time);
             } else {
+                console.log("1 Coming from adding a new quiz");
                 dispatch(selectQuiz({ 
-                    title: "Unnamed Quiz", subtitle: "New Subtitle", 
+                    _id: "", title: "Unnamed Quiz", subtitle: "New Subtitle", 
                     instructions: "", quizType: "Graded Quiz", 
                     assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
                     multipleAttempts: false, showCorrectAnswers: true,
@@ -65,6 +68,7 @@ function QuizDetailsEditor(this: any) {
                     forAccess: "Everyone", dueDate: "", availableFromDate: "", 
                     untilDate: "", points: "0", numQuestions: "0", published: false
                 }));
+                console.log("2 Coming from adding a new quiz");
             }
         }
     }, []);
@@ -180,7 +184,7 @@ function QuizDetailsEditor(this: any) {
                 <Tab eventKey="details" title="Details">
                     <form>
                         <div className="mb-3">
-                            <input type="text" className="form-control" id="quizName" value={quiz?.title} onChange={(e) => dispatch(selectQuiz({ ...quiz, title: e.target.value }))}/>
+                            <input type="text" className="form-control" id="quizName" value={quiz.title} onChange={(e) => dispatch(selectQuiz({ ...quiz, title: e.target.value }))}/>
                         </div>
 
                         <div className="mb-5">
@@ -289,7 +293,7 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <label htmlFor="points" className="col-sm-4 col-form-label wd-assign-edit-label">Points</label>
                                 <div className="col-sm-8">
-                                    <input type="number" min="0" className="form-control" id="points" value={quiz?.points} onChange={(e) => dispatch(selectQuiz({ ...quiz, points: e.target.value }))}/>
+                                    <input type="number" min="0" className="form-control" id="points" value={quiz.points} onChange={(e) => dispatch(selectQuiz({ ...quiz, points: e.target.value }))}/>
                                 </div>
                             </div>
                             <div className="row mb-3">
@@ -338,7 +342,7 @@ function QuizDetailsEditor(this: any) {
                                         </label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        <input type="number" className="form-control" id="quizMinutesText" value={quizMinText} onChange={(e) => setQuizMinText(e.target.value)} min="0"/>
+                                        <input type="number" className="form-control" id="quizMinutesText" value={quiz?.time} onChange={(e) => setQuizMinText(e.target.value)} min="0"/>
                                     </div>
                                     <div className="form-check form-check-inline" style={{padding: "0"}}>
                                         <label className="form-check-label" htmlFor="quizMinutesText">Minutes</label>
