@@ -9,7 +9,7 @@ export const initialState = {                               // Create reducer's 
     quizzes: quizzes,                                       // default quizzes copied from database.
     quiz: { 
         title: "Unnamed Quiz", subtitle: "New Subtitle", 
-        description: "", quizType: "Graded Quiz", 
+        instructions: "", quizType: "Graded Quiz", 
         assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
         multipleAttempts: false, showCorrectAnswers: true,
         showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
@@ -30,7 +30,7 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
             ];
             state.quiz = { 
                 title: "Unnamed Quiz", subtitle: "New Subtitle", 
-                description: "", quizType: "Graded Quiz", 
+                instructions: "", quizType: "Graded Quiz", 
                 assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
                 multipleAttempts: false, showCorrectAnswers: true,
                 showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
@@ -55,7 +55,7 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
             state.quizzes = state.quizzes.map((quiz) => (quiz._id === action.payload._id ? action.payload : quiz));
             state.quiz = { 
                 title: "Unnamed Quiz", subtitle: "New Subtitle", 
-                description: "", quizType: "Graded Quiz", 
+                instructions: "", quizType: "Graded Quiz", 
                 assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
                 multipleAttempts: false, showCorrectAnswers: true,
                 showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 

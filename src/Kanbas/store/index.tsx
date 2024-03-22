@@ -11,7 +11,7 @@ export type AssignmentType = {
 
 export type QuizType = {
     _id: string, title: string, subtitle: string, 
-    description: string, quizType: string, 
+    instructions: string, quizType: string, 
     assignmentGroup: string, shuffle: boolean, timeLimit: boolean, time?: string, 
     multipleAttempts: boolean, showCorrectAnswers: boolean,
     showCorrectAnswersDate?: string, hideCorrectAnswersDate?: string, accessCodeOn: boolean, 
