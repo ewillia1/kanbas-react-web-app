@@ -4,7 +4,7 @@ import "./index.css";
 import { addQuiz, selectQuiz, updateQuiz } from "../quizzesReducer";        // Import reducer functions to add, delete, and update quizzes.
 import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../../store";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { FiSlash } from "react-icons/fi";
@@ -25,18 +25,6 @@ function QuizDetailsEditor(this: any) {
     console.log("quizId = " + quizId);
     const quizListFromReducer = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables quizzes from reducer.
     const quiz = useSelector((state: KanbasState) => state.quizzesReducer.quiz);
-
-    // TODO: Make these usable outside of the component.
-    // const [shuffleAnswersCheck, setShuffleAnswersChecked] = useState(true);
-    // const [timeLimitCheck, setTimeLimitChecked] = useState(true);
-    // const [multipleAttemptsCheck, setMultipleAttemptsChecked] = useState(false);
-    // const [quizMinText, setQuizMinText] = useState("20");
-    // const [correctAnswerCheck, setCorrectAnswerChecked] = useState(false);
-    // const [accessCodeCheck, setAccessCodeChecked] = useState(false);
-    // const [accessCodeText, setAccessCodeText] = useState("");
-    // const [oneQatTimeCheck, setOneQatTimeChecked] = useState(true);
-    // const [webcamReqCheck, setWebcamReqChecked] = useState(false);
-    // const [lockQuestionsCheck, setLockQuestionsChecked] = useState(false);
     
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const navigate = useNavigate();
@@ -169,19 +157,6 @@ function QuizDetailsEditor(this: any) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    // // Function to handle editting the text/elements in the quiz instructions' rich editor.
-    // function handleInstructionEdit(e: any) {
-    //     console.log("in handleInstructionEdit. e = " + e);
-    //     // console.log("unprivilegedEditor.getHTML() = " + unprivilegedEditor.getHTML());
-    //     // dispatch(selectQuiz({ ...quiz, instructions: editor?.getText()}));
-    //     // dispatch(selectQuiz({ ...quiz, instructions: e}));
-    // }
-
-    // function handleShuffle(e: any) {
-    //     console.log("e.target.checked = " + e.target.checked);
-    //     dispatch(selectQuiz({ ...quiz, shuffle: e.target.checked }));
-    // }
-
     return (
         <div>
             <button type="button" className="wd-float-right btn btn-light btn-outline-dark mt-1"><FaEllipsisV /></button>
@@ -201,9 +176,7 @@ function QuizDetailsEditor(this: any) {
                             Quiz Instructions: <span className="float-end"><CgShapeHalfCircle style = {{color:"green", transform: 'rotate(90deg)', fontSize: "2em"}}/> 100%</span>
                             
                             <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" value={quiz.instructions} onChange={(e) => dispatch(selectQuiz({ ...quiz, instructions: e}))}/>
-                            {/* <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" value={quiz.instructions} onChange={(e) => handleInstructionEdit(e)}/> */}
-                            {/* <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" value={quiz.instructions} onKeyUp={(e) => handleInstructionEdit(e)}/> */}
-
+                            
                             <span style={{color: "buttonborder"}}>
                                 p
                                 <span className="float-end mt-2">
@@ -336,9 +309,6 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4">
                                     <div className="form-check">
-                                        {/* <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={shuffleAnswersCheck} onChange={() => setShuffleAnswersChecked((state) => !state)}/> */}
-                                        {/* <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={quiz.shuffle} onChange={(e) => dispatch(selectQuiz({ ...quiz, shuffle: e.target.checked }))}/> */}
-                                        {/* <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={quiz.shuffle} onChange={(e) => handleShuffle(e)}/> */}
                                         <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={quiz.shuffle} onChange={(e) => dispatch(selectQuiz({ ...quiz, shuffle: e.target.checked }))}/>
                                         <label className="form-check-label" htmlFor="shuffleAnswersId">
                                             Shuffle Answers
@@ -349,14 +319,12 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4">
                                     <div className="form-check form-check-inline">
-                                        {/* <input className="form-check-input" type="checkbox" id="timeLimitCheckbox" checked={timeLimitCheck} onChange={() => {setTimeLimitChecked((state) => !state); enableMinTextArea();}}/> */}
                                         <input className="form-check-input" type="checkbox" id="timeLimitCheckbox" checked={quiz.timeLimit} onChange={(e) => {dispatch(selectQuiz({ ...quiz, timeLimit: e.target.checked })); enableMinTextArea();}}/>
                                         <label className="form-check-label" htmlFor="timeLimitCheckbox">
                                             Time Limit
                                         </label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        {/* <input type="number" className="form-control" id="quizMinutesText" value={quizMinText} onChange={(e) => setQuizMinText(e.target.value)} min="0"/> */}
                                         <input type="number" className="form-control" id="quizMinutesText" value={quiz.time} onChange={(e) => dispatch(selectQuiz({ ...quiz, time: e.target.value }))} min="0"/>
                                     </div>
                                     <div className="form-check form-check-inline" style={{padding: "0"}}>
@@ -367,7 +335,6 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
-                                        {/* <input className="form-check-input" type="checkbox" id="multipleAttemptsId" checked={multipleAttemptsCheck} onChange={() => setMultipleAttemptsChecked((state) => !state)}/> */}
                                         <input className="form-check-input" type="checkbox" id="multipleAttemptsId" checked={quiz.multipleAttempts} onChange={(e) => dispatch(selectQuiz({ ...quiz, multipleAttempts: e.target.checked }))}/>
                                         <label className="form-check-label" htmlFor="multipleAttemptsId">
                                             Allow Multiple Attempts
@@ -392,7 +359,6 @@ function QuizDetailsEditor(this: any) {
                                         </label>
                                     </div>
                                     <div className="form-check" style={{marginLeft: "25px"}}>
-                                        {/* <input className="form-check-input" type="checkbox" id="correctAnswer" checked={correctAnswerCheck} onChange={() => setCorrectAnswerChecked((state) => !state)}/> */}
                                         <input className="form-check-input" type="checkbox" id="correctAnswer" checked={quiz.showCorrectAnswers} onChange={(e) => {dispatch(selectQuiz({ ...quiz, showCorrectAnswers: e.target.checked })); enableShowCorrectAnswers();}}/>
                                         <label className="form-check-label" htmlFor="correctAnswer">
                                             Show Correct Answers
@@ -415,14 +381,12 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
-                                        {/* <input className="form-check-input" type="checkbox" id="oneQatTime" checked={oneQatTimeCheck} onChange={() => setOneQatTimeChecked((state) => !state)}/> */}
                                         <input className="form-check-input" type="checkbox" id="oneQatTime" checked={quiz.oneQuestion} onChange={(e) => dispatch(selectQuiz({ ...quiz, oneQuestion: e.target.checked }))}/>
                                         <label className="form-check-label" htmlFor="oneQatTime">
                                             Show One Question at a Time
                                         </label>
                                     </div>
                                     <div className="form-check" style={{marginLeft: "25px"}}>
-                                        {/* <input className="form-check-input" type="checkbox" id="lockQuestions" checked={lockQuestionsCheck} onChange={() => setLockQuestionsChecked((state) => !state)}/> */}
                                         <input className="form-check-input" type="checkbox" id="lockQuestions" checked={quiz.lockedQuestions} onChange={(e) => dispatch(selectQuiz({ ...quiz, lockedQuestions: e.target.value }))}/>
                                         <label className="form-check-label" htmlFor="lockQuestions">
                                             Lock Questions After Answering
@@ -438,7 +402,6 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
-                                        {/* <input className="form-check-input" type="checkbox" id="webcamReq" checked={webcamReqCheck} onChange={() => setWebcamReqChecked((state) => !state)}/> */}
                                         <input className="form-check-input" type="checkbox" id="webcamReq" checked={quiz.webCam} onChange={(e) => dispatch(selectQuiz({ ...quiz, webCam: e.target.value}))}/>
                                         <label className="form-check-label" htmlFor="webcamReq">
                                             Webcam Required
@@ -449,14 +412,12 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4">
                                     <div className="form-check form-check-inline">
-                                        {/* <input className="form-check-input" type="checkbox" id="accessCodeCheckbox" checked={accessCodeCheck} onChange={() => {setAccessCodeChecked((state) => !state); createAccessCode();}}/> */}
                                         <input className="form-check-input" type="checkbox" id="accessCodeCheckbox" checked={quiz.accessCodeOn} onChange={(e) => {dispatch(selectQuiz({ ...quiz, accessCodeOn: e.target.checked })); createAccessCode();}}/>
                                         <label className="form-check-label" htmlFor="accessCodeCheckbox">
                                             Access Code
                                         </label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        {/* <input type="text" className="form-control" id="accessCodeText" value={accessCodeText} onChange={(e) => setAccessCodeText(e.target.value)} disabled/> */}
                                         <input type="text" className="form-control" id="accessCodeText" value={quiz.accessCode} onChange={(e) => dispatch(selectQuiz({ ...quiz, accessCode: e.target.value}))} disabled/>
                                     </div>
                                 </div>
