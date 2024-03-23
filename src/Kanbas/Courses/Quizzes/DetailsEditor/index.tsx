@@ -325,7 +325,7 @@ function QuizDetailsEditor(this: any) {
                                         </label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        <input type="number" className="form-control" id="quizMinutesText" value={quiz.time} onChange={(e) => dispatch(selectQuiz({ ...quiz, time: e.target.value }))} min="0"/>
+                                        <input type="number" className="form-control" id="quizMinutesText" value={quiz.time} onChange={(e) => dispatch(selectQuiz({ ...quiz, time: e.target.value }))} min="0" disabled={!quiz.timeLimit}/>
                                     </div>
                                     <div className="form-check form-check-inline" style={{padding: "0"}}>
                                         <label className="form-check-label" htmlFor="quizMinutesText">Minutes</label>
@@ -367,7 +367,7 @@ function QuizDetailsEditor(this: any) {
                                     <div className="row mb-3" style={{marginLeft: "37px"}}>
                                         <label htmlFor="points" className="col-sm-5 col-form-label">Show Correct Answers at</label>
                                         <div className="col-sm-7">
-                                            <input id="showCorrectAnswersDate" className="form-control" type="date" value={quiz.showCorrectAnswersDate} onChange={(e) => dispatch(selectQuiz({ ...quiz, showCorrectAnswersDate: e.target.value }))}/>
+                                            <input id="showCorrectAnswersDate" className="form-control" type="date" value={quiz.showCorrectAnswersDate} onChange={(e) => dispatch(selectQuiz({ ...quiz, showCorrectAnswersDate: e.target.value }))} disabled={!quiz.showCorrectAnswers}/>
                                         </div>
                                     </div>
                                     <div className="row mb-3" style={{marginLeft: "37px"}}>
@@ -387,7 +387,7 @@ function QuizDetailsEditor(this: any) {
                                         </label>
                                     </div>
                                     <div className="form-check" style={{marginLeft: "25px"}}>
-                                        <input className="form-check-input" type="checkbox" id="lockQuestions" checked={quiz.lockedQuestions} onChange={(e) => dispatch(selectQuiz({ ...quiz, lockedQuestions: e.target.value }))}/>
+                                        <input className="form-check-input" type="checkbox" id="lockQuestions" checked={quiz.lockedQuestions} onChange={(e) => dispatch(selectQuiz({ ...quiz, lockedQuestions: e.target.checked }))}/>
                                         <label className="form-check-label" htmlFor="lockQuestions">
                                             Lock Questions After Answering
                                         </label>
@@ -402,7 +402,7 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" id="webcamReq" checked={quiz.webCam} onChange={(e) => dispatch(selectQuiz({ ...quiz, webCam: e.target.value}))}/>
+                                        <input className="form-check-input" type="checkbox" id="webcamReq" checked={quiz.webCam} onChange={(e) => dispatch(selectQuiz({ ...quiz, webCam: e.target.checked }))}/>
                                         <label className="form-check-label" htmlFor="webcamReq">
                                             Webcam Required
                                         </label>
@@ -418,7 +418,7 @@ function QuizDetailsEditor(this: any) {
                                         </label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        <input type="text" className="form-control" id="accessCodeText" value={quiz.accessCode} onChange={(e) => dispatch(selectQuiz({ ...quiz, accessCode: e.target.value}))} disabled/>
+                                        <input type="text" className="form-control" id="accessCodeText" value={quiz.accessCode} onChange={(e) => dispatch(selectQuiz({ ...quiz, accessCode: e.target.value}))} disabled={!quiz.accessCodeOn}/>
                                     </div>
                                 </div>
                             </div>

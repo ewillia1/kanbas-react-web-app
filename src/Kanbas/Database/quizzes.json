@@ -2,9 +2,9 @@
     { 
         "_id": "Q1", "title": "Quiz 1", "subtitle": "Week 0 - Quiz", 
         "instructions": "<p>Quiz instructions<p>", "quizType": "Practice Quiz", 
-        "assignmentGroup": "QUIZZES", "shuffle": false, "timeLimit": true, "time": "30", "multipleAttempts": false, "showCorrectAnswers": true,
+        "assignmentGroup": "QUIZZES", "shuffle": false, "timeLimit": false, "time": "30", "multipleAttempts": false, "showCorrectAnswers": false,
         "showCorrectAnswersDate": "2024-03-20", "hideCorrectAnswersDate": "2024-01-01", "accessCodeOn": false, "accessCode": "", "viewResponses": false,
-        "oneQuestion": true, "webCam": false, "lockedQuestions": true,
+        "oneQuestion": false, "webCam": false, "lockedQuestions": false,
         "forAccess": "Everyone", "dueDate": "2024-03-19", "availableFromDate": "2024-03-05", 
         "untilDate": "2024-04-01", "points": "100", "numQuestions": "11", "published": false, "course": "RS101" 
     },
