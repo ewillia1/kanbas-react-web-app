@@ -27,16 +27,16 @@ function QuizDetailsEditor(this: any) {
     const quiz = useSelector((state: KanbasState) => state.quizzesReducer.quiz);
 
     // TODO: Make these usable outside of the component.
-    const [shuffleAnswersCheck, setShuffleAnswersChecked] = useState(true);
-    const [timeLimitCheck, setTimeLimitChecked] = useState(true);
-    const [multipleAttemptsCheck, setMultipleAttemptsChecked] = useState(false);
-    const [quizMinText, setQuizMinText] = useState("20");
-    const [correctAnswerCheck, setCorrectAnswerChecked] = useState(false);
-    const [accessCodeCheck, setAccessCodeChecked] = useState(false);
-    const [accessCodeText, setAccessCodeText] = useState("");
-    const [oneQatTimeCheck, setOneQatTimeChecked] = useState(true);
-    const [webcamReqCheck, setWebcamReqChecked] = useState(false);
-    const [lockQuestionsCheck, setLockQuestionsChecked] = useState(false);
+    // const [shuffleAnswersCheck, setShuffleAnswersChecked] = useState(true);
+    // const [timeLimitCheck, setTimeLimitChecked] = useState(true);
+    // const [multipleAttemptsCheck, setMultipleAttemptsChecked] = useState(false);
+    // const [quizMinText, setQuizMinText] = useState("20");
+    // const [correctAnswerCheck, setCorrectAnswerChecked] = useState(false);
+    // const [accessCodeCheck, setAccessCodeChecked] = useState(false);
+    // const [accessCodeText, setAccessCodeText] = useState("");
+    // const [oneQatTimeCheck, setOneQatTimeChecked] = useState(true);
+    // const [webcamReqCheck, setWebcamReqChecked] = useState(false);
+    // const [lockQuestionsCheck, setLockQuestionsChecked] = useState(false);
     
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const navigate = useNavigate();
@@ -81,7 +81,8 @@ function QuizDetailsEditor(this: any) {
                     assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
                     multipleAttempts: false, showCorrectAnswers: true,
                     showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
-                    viewResponses: true, oneQuestion: true, webCam: false, lockedQuestions: false,
+                    accessCode: "", viewResponses: true,
+                    oneQuestion: true, webCam: false, lockedQuestions: false,
                     forAccess: "Everyone", dueDate: "", availableFromDate: "", 
                     untilDate: "", points: "0", numQuestions: "0", published: false
                 }));
@@ -124,15 +125,20 @@ function QuizDetailsEditor(this: any) {
         let chkbox = document.getElementById("timeLimitCheckbox") as HTMLInputElement;
         if (textBox !== null) {
             if (chkbox !== null) {
-                if (chkbox.checked) {
-                    setQuizMinText("20");
-                } else {
-                    setQuizMinText("");
-                }
                 textBox.disabled = !(chkbox.checked);
             }
         }
     };
+
+    function enableShowCorrectAnswers() {
+        let textBox = document.getElementById("showCorrectAnswersDate") as HTMLInputElement;
+        let chkbox = document.getElementById("correctAnswer") as HTMLInputElement;
+        if (textBox !== null) {
+            if (chkbox !== null) {
+                textBox.disabled = !(chkbox.checked);
+            }
+        }
+    }
 
     // Function that enables and disables the creating of an access code.
     function createAccessCode() {
@@ -140,11 +146,6 @@ function QuizDetailsEditor(this: any) {
         let chkbox = document.getElementById("accessCodeCheckbox") as HTMLInputElement;
         if (textBox !== null) {
             if (chkbox !== null) {
-                if (chkbox.checked) {
-                    setAccessCodeText("Temp Access Code");
-                } else {
-                    setAccessCodeText("");
-                }
                 textBox.disabled = !(chkbox.checked);
             }
         }
@@ -176,10 +177,10 @@ function QuizDetailsEditor(this: any) {
     //     // dispatch(selectQuiz({ ...quiz, instructions: e}));
     // }
 
-    function handleShuffle(e: any) {
-        console.log("e.target.checked = " + e.target.checked);
-        dispatch(selectQuiz({ ...quiz, shuffle: e.target.checked }));
-    }
+    // function handleShuffle(e: any) {
+    //     console.log("e.target.checked = " + e.target.checked);
+    //     dispatch(selectQuiz({ ...quiz, shuffle: e.target.checked }));
+    // }
 
     return (
         <div>
@@ -337,7 +338,8 @@ function QuizDetailsEditor(this: any) {
                                     <div className="form-check">
                                         {/* <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={shuffleAnswersCheck} onChange={() => setShuffleAnswersChecked((state) => !state)}/> */}
                                         {/* <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={quiz.shuffle} onChange={(e) => dispatch(selectQuiz({ ...quiz, shuffle: e.target.checked }))}/> */}
-                                        <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={quiz.shuffle} onChange={(e) => handleShuffle(e)}/>
+                                        {/* <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={quiz.shuffle} onChange={(e) => handleShuffle(e)}/> */}
+                                        <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={quiz.shuffle} onChange={(e) => dispatch(selectQuiz({ ...quiz, shuffle: e.target.checked }))}/>
                                         <label className="form-check-label" htmlFor="shuffleAnswersId">
                                             Shuffle Answers
                                         </label>
@@ -347,13 +349,15 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4">
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="timeLimitCheckbox" checked={timeLimitCheck} onChange={() => {setTimeLimitChecked((state) => !state); enableMinTextArea();}}/>
+                                        {/* <input className="form-check-input" type="checkbox" id="timeLimitCheckbox" checked={timeLimitCheck} onChange={() => {setTimeLimitChecked((state) => !state); enableMinTextArea();}}/> */}
+                                        <input className="form-check-input" type="checkbox" id="timeLimitCheckbox" checked={quiz.timeLimit} onChange={(e) => {dispatch(selectQuiz({ ...quiz, timeLimit: e.target.checked })); enableMinTextArea();}}/>
                                         <label className="form-check-label" htmlFor="timeLimitCheckbox">
                                             Time Limit
                                         </label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        <input type="number" className="form-control" id="quizMinutesText" value={quiz?.time} onChange={(e) => setQuizMinText(e.target.value)} min="0"/>
+                                        {/* <input type="number" className="form-control" id="quizMinutesText" value={quizMinText} onChange={(e) => setQuizMinText(e.target.value)} min="0"/> */}
+                                        <input type="number" className="form-control" id="quizMinutesText" value={quiz.time} onChange={(e) => dispatch(selectQuiz({ ...quiz, time: e.target.value }))} min="0"/>
                                     </div>
                                     <div className="form-check form-check-inline" style={{padding: "0"}}>
                                         <label className="form-check-label" htmlFor="quizMinutesText">Minutes</label>
@@ -363,7 +367,8 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" id="multipleAttemptsId" checked={multipleAttemptsCheck} onChange={() => setMultipleAttemptsChecked((state) => !state)}/>
+                                        {/* <input className="form-check-input" type="checkbox" id="multipleAttemptsId" checked={multipleAttemptsCheck} onChange={() => setMultipleAttemptsChecked((state) => !state)}/> */}
+                                        <input className="form-check-input" type="checkbox" id="multipleAttemptsId" checked={quiz.multipleAttempts} onChange={(e) => dispatch(selectQuiz({ ...quiz, multipleAttempts: e.target.checked }))}/>
                                         <label className="form-check-label" htmlFor="multipleAttemptsId">
                                             Allow Multiple Attempts
                                         </label>
@@ -373,21 +378,22 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
-                                        {/* TODO: Add onclick and defaultChecked value. */}
+                                        {/* Did not handle a default value or onChange since this is not a project requirement. */}
                                         <input className="form-check-input" type="checkbox" id="seeQuizReponses"/>
                                         <label className="form-check-label" htmlFor="seeQuizReponses">
                                             Let Students See Their Quiz Responses (Incorrect Questions Will Be Marked in Student Feedback)
                                         </label>
                                     </div>
                                     <div className="form-check" style={{marginLeft: "25px"}}>
-                                        {/* TODO: Add onclick and defaultChecked value. */}
+                                        {/* Did not handle a default value or onChange since this is not a project requirement. */}
                                         <input className="form-check-input" type="checkbox" id="onlyOnce"/>
                                         <label className="form-check-label" htmlFor="onlyOnce">
                                             Only Once After Each Attempt
                                         </label>
                                     </div>
                                     <div className="form-check" style={{marginLeft: "25px"}}>
-                                        <input className="form-check-input" type="checkbox" id="correctAnswer" checked={correctAnswerCheck} onChange={() => setCorrectAnswerChecked((state) => !state)}/>
+                                        {/* <input className="form-check-input" type="checkbox" id="correctAnswer" checked={correctAnswerCheck} onChange={() => setCorrectAnswerChecked((state) => !state)}/> */}
+                                        <input className="form-check-input" type="checkbox" id="correctAnswer" checked={quiz.showCorrectAnswers} onChange={(e) => {dispatch(selectQuiz({ ...quiz, showCorrectAnswers: e.target.checked })); enableShowCorrectAnswers();}}/>
                                         <label className="form-check-label" htmlFor="correctAnswer">
                                             Show Correct Answers
                                         </label>
@@ -395,15 +401,13 @@ function QuizDetailsEditor(this: any) {
                                     <div className="row mb-3" style={{marginLeft: "37px"}}>
                                         <label htmlFor="points" className="col-sm-5 col-form-label">Show Correct Answers at</label>
                                         <div className="col-sm-7">
-                                            {/* TODO: value and onChange */}
-                                            <input id="showCorrectAnswersDate" className="form-control" type="date"/>
+                                            <input id="showCorrectAnswersDate" className="form-control" type="date" value={quiz.showCorrectAnswersDate} onChange={(e) => dispatch(selectQuiz({ ...quiz, showCorrectAnswersDate: e.target.value }))}/>
                                         </div>
                                     </div>
                                     <div className="row mb-3" style={{marginLeft: "37px"}}>
                                         <label htmlFor="points" className="col-sm-5 col-form-label">Hide Correct Answers at</label>
                                         <div className="col-sm-7">
-                                            {/* TODO: value and onChange */}
-                                            <input id="hideCorrectAnswersDate" className="form-control" type="date"/>
+                                            <input id="hideCorrectAnswersDate" className="form-control" type="date" value={quiz.hideCorrectAnswersDate} onChange={(e) => dispatch(selectQuiz({ ...quiz, hideCorrectAnswersDate: e.target.value }))}/>
                                         </div>
                                     </div>
                                 </div>
@@ -411,13 +415,15 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" id="oneQatTime" checked={oneQatTimeCheck} onChange={() => setOneQatTimeChecked((state) => !state)}/>
+                                        {/* <input className="form-check-input" type="checkbox" id="oneQatTime" checked={oneQatTimeCheck} onChange={() => setOneQatTimeChecked((state) => !state)}/> */}
+                                        <input className="form-check-input" type="checkbox" id="oneQatTime" checked={quiz.oneQuestion} onChange={(e) => dispatch(selectQuiz({ ...quiz, oneQuestion: e.target.checked }))}/>
                                         <label className="form-check-label" htmlFor="oneQatTime">
                                             Show One Question at a Time
                                         </label>
                                     </div>
                                     <div className="form-check" style={{marginLeft: "25px"}}>
-                                        <input className="form-check-input" type="checkbox" id="lockQuestions" checked={lockQuestionsCheck} onChange={() => setLockQuestionsChecked((state) => !state)}/>
+                                        {/* <input className="form-check-input" type="checkbox" id="lockQuestions" checked={lockQuestionsCheck} onChange={() => setLockQuestionsChecked((state) => !state)}/> */}
+                                        <input className="form-check-input" type="checkbox" id="lockQuestions" checked={quiz.lockedQuestions} onChange={(e) => dispatch(selectQuiz({ ...quiz, lockedQuestions: e.target.value }))}/>
                                         <label className="form-check-label" htmlFor="lockQuestions">
                                             Lock Questions After Answering
                                         </label>
@@ -432,7 +438,8 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" id="webcamReq" checked={webcamReqCheck} onChange={() => setWebcamReqChecked((state) => !state)}/>
+                                        {/* <input className="form-check-input" type="checkbox" id="webcamReq" checked={webcamReqCheck} onChange={() => setWebcamReqChecked((state) => !state)}/> */}
+                                        <input className="form-check-input" type="checkbox" id="webcamReq" checked={quiz.webCam} onChange={(e) => dispatch(selectQuiz({ ...quiz, webCam: e.target.value}))}/>
                                         <label className="form-check-label" htmlFor="webcamReq">
                                             Webcam Required
                                         </label>
@@ -442,13 +449,15 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4">
                                     <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="accessCodeCheckbox" checked={accessCodeCheck} onChange={() => {setAccessCodeChecked((state) => !state); createAccessCode();}}/>
+                                        {/* <input className="form-check-input" type="checkbox" id="accessCodeCheckbox" checked={accessCodeCheck} onChange={() => {setAccessCodeChecked((state) => !state); createAccessCode();}}/> */}
+                                        <input className="form-check-input" type="checkbox" id="accessCodeCheckbox" checked={quiz.accessCodeOn} onChange={(e) => {dispatch(selectQuiz({ ...quiz, accessCodeOn: e.target.checked })); createAccessCode();}}/>
                                         <label className="form-check-label" htmlFor="accessCodeCheckbox">
                                             Access Code
                                         </label>
                                     </div>
                                     <div className="form-check form-check-inline">
-                                        <input type="text" className="form-control" id="accessCodeText" value={accessCodeText} onChange={(e) => setAccessCodeText(e.target.value)} disabled/>
+                                        {/* <input type="text" className="form-control" id="accessCodeText" value={accessCodeText} onChange={(e) => setAccessCodeText(e.target.value)} disabled/> */}
+                                        <input type="text" className="form-control" id="accessCodeText" value={quiz.accessCode} onChange={(e) => dispatch(selectQuiz({ ...quiz, accessCode: e.target.value}))} disabled/>
                                     </div>
                                 </div>
                             </div>
@@ -463,16 +472,16 @@ function QuizDetailsEditor(this: any) {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="dueDate" className="form-label"><b>Due</b></label>
-                                        <input id="dueDate" className="form-control" type="date" value={quiz?.dueDate} onChange={(e) => dispatch(selectQuiz({ ...quiz, dueDate: e.target.value }))}/>
+                                        <input id="dueDate" className="form-control" type="date" value={quiz.dueDate} onChange={(e) => dispatch(selectQuiz({ ...quiz, dueDate: e.target.value }))}/>
                                     </div>
                                     <div className="row g-2">
                                         <div className="col-sm">
                                             <label htmlFor="availableFrom" className="form-label"><b>Available from</b></label>
-                                            <input id="availableFrom" className="form-control" type="date" value={quiz?.availableFromDate} onChange={(e) => dispatch(selectQuiz({ ...quiz, availableFromDate: e.target.value }))}/>
+                                            <input id="availableFrom" className="form-control" type="date" value={quiz.availableFromDate} onChange={(e) => dispatch(selectQuiz({ ...quiz, availableFromDate: e.target.value }))}/>
                                         </div>
                                         <div className="col-sm">
                                             <label htmlFor="untilDate" className="form-label"><b>Until</b></label>
-                                            <input id="untilDate" className="form-control" type="date" value={quiz?.untilDate} onChange={(e) => dispatch(selectQuiz({ ...quiz, untilDate: e.target.value }))}/>
+                                            <input id="untilDate" className="form-control" type="date" value={quiz.untilDate} onChange={(e) => dispatch(selectQuiz({ ...quiz, untilDate: e.target.value }))}/>
                                         </div>
                                     </div>
                                     <div className="mb-3">
@@ -491,6 +500,7 @@ function QuizDetailsEditor(this: any) {
             <hr/>
             <div className="row form-check">
                 <label className="col-3 form-check-label" htmlFor="gridCheck2">
+                    {/* Did not handle a default value or onChange since this is not a project requirement. */}
                     <input className="form-check-input" type="checkbox" id="gridCheck2"/>
                     Notify users this quiz has changed
                 </label>

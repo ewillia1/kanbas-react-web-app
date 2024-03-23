@@ -12,10 +12,10 @@ export type AssignmentType = {
 export type QuizType = {
     _id: string, title: string, subtitle: string, 
     instructions: string, quizType: string, 
-    assignmentGroup: string, shuffle: boolean, timeLimit: boolean, time?: string, 
+    assignmentGroup: string, shuffle: boolean, timeLimit: boolean, time: string, 
     multipleAttempts: boolean, showCorrectAnswers: boolean,
-    showCorrectAnswersDate?: string, hideCorrectAnswersDate?: string, accessCodeOn: boolean, 
-    accessCode?: string, viewResponses: boolean,
+    showCorrectAnswersDate: string, hideCorrectAnswersDate: string, accessCodeOn: boolean,
+    accessCode: string, viewResponses: boolean,
     oneQuestion: boolean, webCam: boolean, lockedQuestions: boolean,
     forAccess: string, dueDate: string, availableFromDate: string, 
     untilDate: string, points: string, numQuestions: string, published: boolean, course: string;

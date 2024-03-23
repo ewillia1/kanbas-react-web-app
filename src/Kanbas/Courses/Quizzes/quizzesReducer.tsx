@@ -5,13 +5,14 @@ import { quizzes } from "../../Database";           // Import quizzes from datab
 
 export const initialState = {                               // Create reducer's initial state with 
     quizzes: quizzes,                                       // default quizzes copied from database.
-    quiz: { 
+    quiz: {
         title: "Unnamed Quiz", subtitle: "New Subtitle", 
         instructions: "", quizType: "Graded Quiz", 
         assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
         multipleAttempts: false, showCorrectAnswers: true,
         showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
-        viewResponses: true, oneQuestion: true, webCam: false, lockedQuestions: false,
+        accessCode: "", viewResponses: true,
+        oneQuestion: true, webCam: false, lockedQuestions: false,
         forAccess: "Everyone", dueDate: "", availableFromDate: "", 
         untilDate: "", points: "0", numQuestions: "0", published: false
     }     // Default quiz.
@@ -32,7 +33,8 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
                 assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
                 multipleAttempts: false, showCorrectAnswers: true,
                 showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
-                viewResponses: true, oneQuestion: true, webCam: false, lockedQuestions: false,
+                accessCode: "", viewResponses: true,
+                oneQuestion: true, webCam: false, lockedQuestions: false,
                 forAccess: "Everyone", dueDate: "", availableFromDate: "", 
                 untilDate: "", points: "0", numQuestions: "0", published: false
             };  // Clear quiz.
@@ -57,7 +59,8 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
                 assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
                 multipleAttempts: false, showCorrectAnswers: true,
                 showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
-                viewResponses: true, oneQuestion: true, webCam: false, lockedQuestions: false,
+                accessCode: "", viewResponses: true,
+                oneQuestion: true, webCam: false, lockedQuestions: false,
                 forAccess: "Everyone", dueDate: "", availableFromDate: "", 
                 untilDate: "", points: "0", numQuestions: "0", published: false
             };  // Clear quiz.
