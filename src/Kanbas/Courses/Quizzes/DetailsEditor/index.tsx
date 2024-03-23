@@ -35,16 +35,18 @@ function QuizDetailsEditor(this: any) {
 
     // Determining the word count for the quiz instructions.
     let numOfWords = 0;
-    if (editor !== undefined) {
-        const unprivilegedEditor = reactQuillRef.current?.makeUnprivilegedEditor(editor);
-        console.log("getText() = " + unprivilegedEditor?.getText());
-        console.log("getLength() = " + unprivilegedEditor?.getLength());
-        var input = unprivilegedEditor?.getText();
-        var words = input?.match(/\b[-?(\w+)?]+\b/gi);
-        console.log("words = " + words);
-        console.log("number of words = " + words?.length);
-        if (words?.length !== undefined) {
-            numOfWords = words?.length;
+    function findNumberOfWords() {
+        if (editor !== undefined) {
+            const unprivilegedEditor = reactQuillRef.current?.makeUnprivilegedEditor(editor);
+            console.log("getText() = " + unprivilegedEditor?.getText());
+            console.log("getLength() = " + unprivilegedEditor?.getLength());
+            var input = unprivilegedEditor?.getText();
+            var words = input?.match(/\b[-?(\w+)?]+\b/gi);
+            console.log("words = " + words);
+            console.log("number of words = " + words?.length);
+            if (words?.length !== undefined) {
+                numOfWords = words?.length;
+            }
         }
     }
     
@@ -158,6 +160,18 @@ function QuizDetailsEditor(this: any) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    function handleEditInstructions(content: string, delta: string, source: string, editor: any) {
+        console.log("handleEditInstructions");
+        console.log("content = " + content);
+        console.log("delta = " + JSON.stringify(delta));
+        console.log("source = " + source);
+        console.log("editor = " + JSON.stringify(editor));
+        console.log("editor.getContents() = " + JSON.stringify(editor.getContents()));
+        console.log("editor.getContents().ops[0].insert = " + editor.getContents().ops[0].insert);
+        // findNumberOfWords();
+        // dispatch(selectQuiz({ ...quiz, instructions: content}));
+    }
+
     return (
         <div>
             <button type="button" className="wd-float-right btn btn-light btn-outline-dark mt-1"><FaEllipsisV /></button>
@@ -176,7 +190,8 @@ function QuizDetailsEditor(this: any) {
                         <div className="mb-5">
                             Quiz Instructions: <span className="float-end"><CgShapeHalfCircle style = {{color:"green", transform: 'rotate(90deg)', fontSize: "2em"}}/> 100%</span>
                             
-                            <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" value={quiz.instructions} onChange={(e) => dispatch(selectQuiz({ ...quiz, instructions: e}))}/>
+                            {/* <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" value={quiz.instructions} onChange={(e) => dispatch(selectQuiz({ ...quiz, instructions: e}))}/> */}
+                            <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" value={quiz.instructions} onChange={(content, delta, source, editor) => handleEditInstructions(content, delta, source, editor)}/>
                             
                             <span style={{color: "buttonborder"}}>
                                 p
