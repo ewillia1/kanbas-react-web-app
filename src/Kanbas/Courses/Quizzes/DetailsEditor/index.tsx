@@ -25,6 +25,7 @@ function QuizDetailsEditor(this: any) {
     console.log("quizId = " + quizId);
     const quizListFromReducer = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables quizzes from reducer.
     const quiz = useSelector((state: KanbasState) => state.quizzesReducer.quiz);
+    console.log("QUIZ = " + JSON.stringify(quiz));
     
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const navigate = useNavigate();
@@ -60,8 +61,8 @@ function QuizDetailsEditor(this: any) {
                 console.log("Coming from editing an old quiz");
                 console.log("IF quizId = " + quizId);
                 const a = quizListFromReducer.find((quiz) => quiz._id === quizId);
+                console.log("The quiz I selected!!! a = " + JSON.stringify(a));
                 dispatch(selectQuiz(a));
-                console.log("quiz.time = " + quiz.time);
             } else {                                                    // Else quizID === "DetailsEditor".
                 console.log("1 Coming from adding a new quiz");
                 console.log("ELSE quizId = " + quizId);
@@ -154,6 +155,8 @@ function QuizDetailsEditor(this: any) {
         console.log("content = " + content);
         console.log("editor.getContents().ops[0].insert = " + editor.getContents().ops[0].insert);
         findNumberOfWords(editor.getContents().ops[0].insert);
+        console.log("quiz in handleEditInstructions = " + JSON.stringify(quiz));
+        
         // dispatch(selectQuiz({ ...quiz, instructions: content}));
     }
 
