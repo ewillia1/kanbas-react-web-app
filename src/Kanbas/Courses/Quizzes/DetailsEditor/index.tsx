@@ -152,12 +152,7 @@ function QuizDetailsEditor(this: any) {
     function handleEditInstructions(content: string, delta: string, source: string, editor: any) {
         console.log("handleEditInstructions");
         console.log("content = " + content);
-        console.log("delta = " + JSON.stringify(delta));
-        console.log("source = " + source);
-        console.log("editor = " + JSON.stringify(editor));
-        console.log("editor.getContents() = " + JSON.stringify(editor.getContents()));
         console.log("editor.getContents().ops[0].insert = " + editor.getContents().ops[0].insert);
-        console.log("numberOfWords = " + numOfWords);
         findNumberOfWords(editor.getContents().ops[0].insert);
         // dispatch(selectQuiz({ ...quiz, instructions: content}));
     }
