@@ -30,26 +30,26 @@ function QuizDetailsEditor(this: any) {
     const navigate = useNavigate();
 
     const reactQuillRef = React.useRef<ReactQuill>(null);
-    const editor = reactQuillRef.current?.getEditor();
-    console.log("editor = " + editor);
+    const [numOfWords, setNumOfWords] = useState(0);
+    const [key, setKey] = useState('details');
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
-    // Determining the word count for the quiz instructions.
-    let numOfWords = 0;
-    function findNumberOfWords() {
-        if (editor !== undefined) {
-            const unprivilegedEditor = reactQuillRef.current?.makeUnprivilegedEditor(editor);
-            console.log("getText() = " + unprivilegedEditor?.getText());
-            console.log("getLength() = " + unprivilegedEditor?.getLength());
-            var input = unprivilegedEditor?.getText();
-            var words = input?.match(/\b[-?(\w+)?]+\b/gi);
-            console.log("words = " + words);
-            console.log("number of words = " + words?.length);
-            if (words?.length !== undefined) {
-                numOfWords = words?.length;
-            }
-        }
+    // ReactQuill quiz instruction's rich text editor code.
+    const modules = {
+        toolbar: [
+            [{ size: [] }],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            ["bold", "italic", "underline", "strike"],
+            [{ color: [] }, { background: [] }],
+            [{ script:  "sub" }, { script:  "super" }],
+            ["blockquote", "code-block"],
+            [{ list:  "ordered" }, { list:  "bullet" }],
+            ["link", "image", "video"]
+        ],
     }
-    
+
     // If user is coming from clicking add quiz, set values to default values.
     // Else the user is coming from clicking an old quiz, so set values to the values of the quiz clicked.
     // Only run the effect on the initial render.
@@ -107,8 +107,6 @@ function QuizDetailsEditor(this: any) {
         navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
     };
 
-    const [key, setKey] = useState('details');
-
     // Function that enables and disables the number of minutes a quiz can be taken.
     function enableMinTextArea() {
         let textBox = document.getElementById("quizMinutesText") as HTMLInputElement;
@@ -142,24 +140,15 @@ function QuizDetailsEditor(this: any) {
         }
     };
 
-    // ReactQuill quiz instruction's rich text editor code.
-    const modules = {
-        toolbar: [
-            [{ size: [] }],
-            [{ header: [1, 2, 3, 4, 5, 6, false] }],
-            ["bold", "italic", "underline", "strike"],
-            [{ color: [] }, { background: [] }],
-            [{ script:  "sub" }, { script:  "super" }],
-            ["blockquote", "code-block"],
-            [{ list:  "ordered" }, { list:  "bullet" }],
-            ["link", "image", "video"]
-        ],
+    // Determine the word count for the quiz instructions.
+    function findNumberOfWords(text: string) {
+        var words = text.match(/\b[-?(\w+)?]+\b/gi);
+        if (words?.length !== undefined) {
+            setNumOfWords(words?.length);
+        }
     }
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+    // Function to handle editing the rich text editor.
     function handleEditInstructions(content: string, delta: string, source: string, editor: any) {
         console.log("handleEditInstructions");
         console.log("content = " + content);
@@ -168,7 +157,8 @@ function QuizDetailsEditor(this: any) {
         console.log("editor = " + JSON.stringify(editor));
         console.log("editor.getContents() = " + JSON.stringify(editor.getContents()));
         console.log("editor.getContents().ops[0].insert = " + editor.getContents().ops[0].insert);
-        // findNumberOfWords();
+        console.log("numberOfWords = " + numOfWords);
+        findNumberOfWords(editor.getContents().ops[0].insert);
         // dispatch(selectQuiz({ ...quiz, instructions: content}));
     }
 
@@ -190,7 +180,6 @@ function QuizDetailsEditor(this: any) {
                         <div className="mb-5">
                             Quiz Instructions: <span className="float-end"><CgShapeHalfCircle style = {{color:"green", transform: 'rotate(90deg)', fontSize: "2em"}}/> 100%</span>
                             
-                            {/* <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" value={quiz.instructions} onChange={(e) => dispatch(selectQuiz({ ...quiz, instructions: e}))}/> */}
                             <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" value={quiz.instructions} onChange={(content, delta, source, editor) => handleEditInstructions(content, delta, source, editor)}/>
                             
                             <span style={{color: "buttonborder"}}>
