@@ -1,7 +1,7 @@
 [
     { 
         "_id": "Q1", "title": "Quiz 1", "subtitle": "Week 0 - Quiz", 
-        "instructions": "<p>Quiz instructions<p>", "quizType": "Graded Quiz", 
+        "instructions": "<p>Quiz instructions<p>", "quizType": "Practice Quiz", 
         "assignmentGroup": "QUIZZES", "shuffle": false, "timeLimit": true, "time": "30", "multipleAttempts": false, "showCorrectAnswers": true,
         "showCorrectAnswersDate": "2024-03-20", "accessCodeOn": false, "viewResponses": false,
         "oneQuestion": true, "webCam": false, "lockedQuestions": true,

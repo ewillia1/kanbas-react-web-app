@@ -4,7 +4,7 @@ import "./index.css";
 import { addQuiz, selectQuiz, updateQuiz } from "../quizzesReducer";        // Import reducer functions to add, delete, and update quizzes.
 import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../../store";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { FiSlash } from "react-icons/fi";
@@ -44,6 +44,21 @@ function QuizDetailsEditor(this: any) {
     const reactQuillRef = React.useRef<ReactQuill>(null);
     const editor = reactQuillRef.current?.getEditor();
     console.log("editor = " + editor);
+
+    // Determining the word count for the quiz instructions.
+    let numOfWords = 0;
+    if (editor !== undefined) {
+        const unprivilegedEditor = reactQuillRef.current?.makeUnprivilegedEditor(editor);
+        console.log("getText() = " + unprivilegedEditor?.getText());
+        console.log("getLength() = " + unprivilegedEditor?.getLength());
+        var input = unprivilegedEditor?.getText();
+        var words = input?.match(/\b[-?(\w+)?]+\b/gi);
+        console.log("words = " + words);
+        console.log("number of words = " + words?.length);
+        if (words?.length !== undefined) {
+            numOfWords = words?.length;
+        }
+    }
     
     // If user is coming from clicking add quiz, set values to default values.
     // Else the user is coming from clicking an old quiz, so set values to the values of the quiz clicked.
@@ -60,7 +75,6 @@ function QuizDetailsEditor(this: any) {
             } else {                                                    // Else quizID === "DetailsEditor".
                 console.log("1 Coming from adding a new quiz");
                 console.log("ELSE quizId = " + quizId);
-                // alert("ALERT!");
                 dispatch(selectQuiz({ 
                     _id: "", title: "Unnamed Quiz", subtitle: "New Subtitle", 
                     instructions: "", quizType: "Graded Quiz", 
@@ -88,8 +102,8 @@ function QuizDetailsEditor(this: any) {
         navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
     };
 
-     // Function to handle saving a quiz and publishing it.
-     function handleSaveAndPub() {
+    // Function to handle saving a quiz and publishing it.
+    function handleSaveAndPub() {
         if (quizId !== undefined) {
             if (!quizId.localeCompare("DetailsEditor")) {
                 const updatedQuiz = {...quiz, published: "true"};  
@@ -150,29 +164,21 @@ function QuizDetailsEditor(this: any) {
         ],
     }
 
-    // Determining the word count for the quiz instructions.
-    let numOfWords = 0;
-    if (editor !== undefined) {
-        const unprivilegedEditor = reactQuillRef.current?.makeUnprivilegedEditor(editor);
-        console.log("getText() = " + unprivilegedEditor?.getText());
-        console.log("getLength() = " + unprivilegedEditor?.getLength());
-        var input = unprivilegedEditor?.getText();
-        var words = input?.match(/\b[-?(\w+)?]+\b/gi);
-        console.log("words = " + words);
-        console.log("number of words = " + words?.length);
-        if (words?.length !== undefined) {
-            numOfWords = words?.length;
-        }
-    }
-
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    // Function to handle editting the text/elements in the quiz instructions' rich editor.
-    function handleInstructionEdit(e: string) {
-        console.log("in handleInstructionEdit. e = " + e);
-        dispatch(selectQuiz({ ...quiz, instructions: e}));
+    // // Function to handle editting the text/elements in the quiz instructions' rich editor.
+    // function handleInstructionEdit(e: any) {
+    //     console.log("in handleInstructionEdit. e = " + e);
+    //     // console.log("unprivilegedEditor.getHTML() = " + unprivilegedEditor.getHTML());
+    //     // dispatch(selectQuiz({ ...quiz, instructions: editor?.getText()}));
+    //     // dispatch(selectQuiz({ ...quiz, instructions: e}));
+    // }
+
+    function handleShuffle(e: any) {
+        console.log("e.target.checked = " + e.target.checked);
+        dispatch(selectQuiz({ ...quiz, shuffle: e.target.checked }));
     }
 
     return (
@@ -193,9 +199,9 @@ function QuizDetailsEditor(this: any) {
                         <div className="mb-5">
                             Quiz Instructions: <span className="float-end"><CgShapeHalfCircle style = {{color:"green", transform: 'rotate(90deg)', fontSize: "2em"}}/> 100%</span>
                             
-                            <React.StrictMode>
-                                <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" value={quiz?.instructions} onChange={(e) => handleInstructionEdit(e)}/>
-                            </React.StrictMode>
+                            <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" value={quiz.instructions} onChange={(e) => dispatch(selectQuiz({ ...quiz, instructions: e}))}/>
+                            {/* <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" value={quiz.instructions} onChange={(e) => handleInstructionEdit(e)}/> */}
+                            {/* <ReactQuill ref={reactQuillRef} id="quizInstructions" modules={modules} theme="snow" value={quiz.instructions} onKeyUp={(e) => handleInstructionEdit(e)}/> */}
 
                             <span style={{color: "buttonborder"}}>
                                 p
@@ -302,11 +308,11 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <label htmlFor="quizType" className="col-sm-4 col-form-label wd-assign-edit-label">Quiz Type</label>
                                 <div className="col-sm-8">
-                                    <select className="form-select" id="quizType" name="quizType">
-                                        <option>Graded Quiz</option>
-                                        <option>Practice Quiz</option>
-                                        <option>Graded Survey</option>
-                                        <option>Ungraded Survey</option>
+                                    <select className="form-select" id="quizType" name="quizType" defaultValue={quiz.quizType} onChange={(e) => dispatch(selectQuiz({ ...quiz, quizType: e.target.value}))}>
+                                        <option value="Graded Quiz">Graded Quiz</option>
+                                        <option value="Practice Quiz">Practice Quiz</option>
+                                        <option value="Graded Survey">Graded Survey</option>
+                                        <option value="Ungraded Survey">Ungraded Survey</option>
                                     </select>
                                 </div>
                             </div>
@@ -329,7 +335,9 @@ function QuizDetailsEditor(this: any) {
                             <div className="row mb-3">
                                 <div className="col-sm-12 offset-sm-4">
                                     <div className="form-check">
-                                        <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={shuffleAnswersCheck} onChange={() => setShuffleAnswersChecked((state) => !state)}/>
+                                        {/* <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={shuffleAnswersCheck} onChange={() => setShuffleAnswersChecked((state) => !state)}/> */}
+                                        {/* <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={quiz.shuffle} onChange={(e) => dispatch(selectQuiz({ ...quiz, shuffle: e.target.checked }))}/> */}
+                                        <input className="form-check-input" type="checkbox" id="shuffleAnswersId" checked={quiz.shuffle} onChange={(e) => handleShuffle(e)}/>
                                         <label className="form-check-label" htmlFor="shuffleAnswersId">
                                             Shuffle Answers
                                         </label>
