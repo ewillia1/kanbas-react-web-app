@@ -51,13 +51,16 @@ function QuizDetailsEditor(this: any) {
     useEffect(() => {
         // Runs only on the first render.
         if ( quizId !== undefined ) {
-            if (quizId.localeCompare("DetailsEditor")) {
+            if (quizId.localeCompare("DetailsEditor")) {                // If quizID !== "DetailsEditor".
                 console.log("Coming from editing an old quiz");
+                console.log("IF quizId = " + quizId);
                 const a = quizListFromReducer.find((quiz) => quiz._id === quizId);
                 dispatch(selectQuiz(a));
                 console.log("quiz?.time = " + quiz?.time);
-            } else {
+            } else {                                                    // Else quizID === "DetailsEditor".
                 console.log("1 Coming from adding a new quiz");
+                console.log("ELSE quizId = " + quizId);
+                // alert("ALERT!");
                 dispatch(selectQuiz({ 
                     _id: "", title: "Unnamed Quiz", subtitle: "New Subtitle", 
                     instructions: "", quizType: "Graded Quiz", 

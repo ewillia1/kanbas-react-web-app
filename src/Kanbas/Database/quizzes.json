@@ -2,7 +2,7 @@
     { 
         "_id": "Q1", "title": "Quiz 1", "subtitle": "Week 0 - Quiz", 
         "instructions": "<p>Quiz instructions<p>", "quizType": "Graded Quiz", 
-        "assignmentGroup": "QUIZZES", "shuffle": true, "timeLimit": true, "time": "30", "multipleAttempts": false, "showCorrectAnswers": true,
+        "assignmentGroup": "QUIZZES", "shuffle": false, "timeLimit": true, "time": "30", "multipleAttempts": false, "showCorrectAnswers": true,
         "showCorrectAnswersDate": "2024-03-20", "accessCodeOn": false, "viewResponses": false,
         "oneQuestion": true, "webCam": false, "lockedQuestions": true,
         "forAccess": "Everyone", "dueDate": "2024-03-19", "availableFromDate": "2024-03-05", 
