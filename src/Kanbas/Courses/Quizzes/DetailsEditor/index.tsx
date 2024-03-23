@@ -59,7 +59,7 @@ function QuizDetailsEditor(this: any) {
                 console.log("IF quizId = " + quizId);
                 const a = quizListFromReducer.find((quiz) => quiz._id === quizId);
                 dispatch(selectQuiz(a));
-                console.log("quiz?.time = " + quiz?.time);
+                console.log("quiz.time = " + quiz.time);
             } else {                                                    // Else quizID === "DetailsEditor".
                 console.log("1 Coming from adding a new quiz");
                 console.log("ELSE quizId = " + quizId);
@@ -118,6 +118,7 @@ function QuizDetailsEditor(this: any) {
         }
     };
 
+    // Function that enables and disables the input for the show correct answers date.
     function enableShowCorrectAnswers() {
         let textBox = document.getElementById("showCorrectAnswersDate") as HTMLInputElement;
         let chkbox = document.getElementById("correctAnswer") as HTMLInputElement;
