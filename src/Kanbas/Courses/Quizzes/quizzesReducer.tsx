@@ -7,7 +7,7 @@ export const initialState = {                               // Create reducer's 
     quizzes: quizzes,                                       // default quizzes copied from database.
     quiz: {
         title: "Unnamed Quiz", subtitle: "New Subtitle", 
-        instructions: "", quizType: "Graded Quiz", 
+        instructions: "<p><br></p>", quizType: "Graded Quiz", 
         assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
         multipleAttempts: false, showCorrectAnswers: true,
         showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
@@ -27,9 +27,10 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
                 { ...action.payload, _id: new Date().getTime().toString() },        // Override _id with timestamp.
                 ...state.quizzes,
             ];
+            console.log("ADDED QUIZ: state.quizzes = " + JSON.stringify(state.quizzes));
             state.quiz = {
                 title: "Unnamed Quiz", subtitle: "New Subtitle", 
-                instructions: "", quizType: "Graded Quiz", 
+                instructions: "<p><br></p>", quizType: "Graded Quiz", 
                 assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
                 multipleAttempts: false, showCorrectAnswers: true,
                 showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
@@ -51,9 +52,10 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
         updateQuiz: (state, action) => {          // Quiz to update is in action.payload.
             // Replace quiz whose ID matches action.payload._id.
             state.quizzes = state.quizzes.map((quiz) => (quiz._id === action.payload._id ? action.payload : quiz));
+            console.log("UPDATED QUIZ: state.quizzes = " + JSON.stringify(state.quizzes));
             state.quiz = { 
                 title: "Unnamed Quiz", subtitle: "New Subtitle", 
-                instructions: "", quizType: "Graded Quiz", 
+                instructions: "<p><br></p>", quizType: "Graded Quiz", 
                 assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
                 multipleAttempts: false, showCorrectAnswers: true,
                 showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
@@ -66,6 +68,9 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
 
         // selectQuiz reducer function to update quiz state variable.
         selectQuiz: (state, action) => {             // Select the quiz to edit.
+            console.log("IN SELECTQUIZ");
+            console.log("state = " + JSON.stringify(state));
+            console.log("action = " + JSON.stringify(action));
             state.quiz = action.payload;
         },
     },

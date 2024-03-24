@@ -25,6 +25,7 @@ function QuizDetailsEditor(this: any) {
     console.log("quizId = " + quizId);
     const quizListFromReducer = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables quizzes from reducer.
     const quiz = useSelector((state: KanbasState) => state.quizzesReducer.quiz);
+    console.log("QUIZ = " + JSON.stringify(quiz));
     
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const navigate = useNavigate();
@@ -35,6 +36,7 @@ function QuizDetailsEditor(this: any) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [previousContent, setPreviousContent] = useState(quiz.instructions);
 
     // ReactQuill quiz instruction's rich text editor code.
     const modules = {
@@ -56,13 +58,11 @@ function QuizDetailsEditor(this: any) {
     useEffect(() => {
         // Runs only on the first render.
         if ( quizId !== undefined ) {
-            if (quizId.localeCompare("DetailsEditor")) {                // If quizID !== "DetailsEditor".
-                const a = quizListFromReducer.find((quiz) => quiz._id === quizId);
-                dispatch(selectQuiz(a));
-            } else {                                                    // Else quizID === "DetailsEditor".
+            if (quizId.localeCompare("DetailsEditor") === 0) {                // If quizID is the same as "DetailsEditor".
+                console.log("IF useEffect");
                 dispatch(selectQuiz({ 
                     _id: "", title: "Unnamed Quiz", subtitle: "New Subtitle", 
-                    instructions: "", quizType: "Graded Quiz", 
+                    instructions: "<p><br></p>", quizType: "Graded Quiz", 
                     assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
                     multipleAttempts: false, showCorrectAnswers: true,
                     showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
@@ -71,6 +71,14 @@ function QuizDetailsEditor(this: any) {
                     forAccess: "Everyone", dueDate: "", availableFromDate: "", 
                     untilDate: "", points: "0", numQuestions: "0", published: false
                 }));
+                console.log("IF QUIZ INSTRUCTIONS = " + quiz.instructions);
+                setPreviousContent("");
+                console.log("IN USEEFFECT previousContent = " + previousContent);
+            } else {                                                    // Else quizID is different than "DetailsEditor".
+                console.log("ELSE useEffect");
+                const a = quizListFromReducer.find((quiz) => quiz._id === quizId);
+                dispatch(selectQuiz(a));
+                console.log("ELSE QUIZ INSTRUCTIONS = " + quiz.instructions);
             }
         }
     }, []);
@@ -78,9 +86,11 @@ function QuizDetailsEditor(this: any) {
     // Function to handle saving a quiz.
     function handleSave() {
         if (quizId !== undefined) {
-            if (!quizId.localeCompare("DetailsEditor")) {
+            if (quizId.localeCompare("DetailsEditor") === 0) {
+                console.log("handle save. quizId equal to DetailsEditor");
                 dispatch(addQuiz({ ...quiz, course: courseId }));
             } else {
+                console.log("handle save. quizId NOT equal to DetailsEditor");
                 dispatch(updateQuiz(quiz));
             }
         }
@@ -90,10 +100,12 @@ function QuizDetailsEditor(this: any) {
     // Function to handle saving a quiz and publishing it.
     function handleSaveAndPub() {
         if (quizId !== undefined) {
-            if (!quizId.localeCompare("DetailsEditor")) {
-                const updatedQuiz = {...quiz, published: "true"};  
-                dispatch(addQuiz({ ...updatedQuiz, course: courseId }));
+            if (quizId.localeCompare("DetailsEditor") === 0) {
+                console.log("handle save pub. quizId equal to DetailsEditor");
+                const newQuiz = {...quiz, published: "true"};  
+                dispatch(addQuiz({ ...newQuiz, course: courseId }));
             } else {
+                console.log("handle save pub. quizId NOT equal to DetailsEditor");
                 const updatedQuiz = {...quiz, published: "true"};  
                 dispatch(updateQuiz(updatedQuiz));
             }
@@ -136,25 +148,31 @@ function QuizDetailsEditor(this: any) {
 
     // Determine the word count for the quiz instructions.
     function findNumberOfWords(text: string) {
-        var words = text.match(/\b[-?(\w+)?]+\b/gi);
+        const words = text.match(/\b[-?(\w+)?]+\b/gi);
         if (words?.length !== undefined) {
             setNumOfWords(words?.length);
         }
     }
 
-    const [previousContent, setPreviousContent] = useState(quiz.instructions);
     // Function to handle editing the rich text editor.
     function handleEditInstructions(content: string, delta: string, source: string, editor: any) {
         console.log("handleEditInstructions");
         console.log("content = " + content);
-        var stringContent = editor.getContents().ops[0].insert;
+        console.log("previousContent = " + previousContent);
+        
+        const stringContent = editor.getContents().ops[0].insert;
         console.log("stringContent = " + stringContent);
         findNumberOfWords(stringContent);
 
-        if (!previousContent.localeCompare(stringContent)) {
-            console.log("The contents of the editor have changed.");
+        console.log("previousContent.localeCompare(content) = " + previousContent.localeCompare(content));
+        
+        if (previousContent.localeCompare(content) === 0) {
+            console.log("THE CONTENTS OF THE EDITOR NOT HAVE CHANGED.");
+        } else {
+            console.log("THE CONTENTS OF THE EDITOR HAVE CHANGED.");
+            // console.log("quiz = " + JSON.stringify(quiz));
             dispatch(selectQuiz({ ...quiz, instructions: content}));
-            setPreviousContent(stringContent);
+            setPreviousContent(content);
         }
     }
 
