@@ -42,11 +42,9 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
 
         // deleteQuiz reducer function, action contains quiz's ID to filter out.
         deleteQuiz: (state, action) => {            // Assignment ID to delete is in action.payload.
-            console.log("In deleteQuiz");
             state.quizzes = state.quizzes.filter(   // Filter out quiz to delete.
                 (quiz) => quiz._id !== action.payload
             );
-            console.log(state);
         },
 
         // updateQuiz function, replacing old quiz in action.payload update quizzes.
@@ -68,12 +66,7 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
 
         // selectQuiz reducer function to update quiz state variable.
         selectQuiz: (state, action) => {             // Select the quiz to edit.
-            console.log("in selectQuiz");
-            console.log("state = " + JSON.stringify(state));
-            console.log("action = " + JSON.stringify(action));
-            // console.log("state.quiz before = " + JSON.stringify(state.quiz));
             state.quiz = action.payload;
-            // console.log("state.quiz after = " + JSON.stringify(state.quiz));
         },
     },
 });

@@ -25,7 +25,6 @@ function QuizDetailsEditor(this: any) {
     console.log("quizId = " + quizId);
     const quizListFromReducer = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables quizzes from reducer.
     const quiz = useSelector((state: KanbasState) => state.quizzesReducer.quiz);
-    console.log("QUIZ = " + JSON.stringify(quiz));
     
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const navigate = useNavigate();
@@ -58,14 +57,9 @@ function QuizDetailsEditor(this: any) {
         // Runs only on the first render.
         if ( quizId !== undefined ) {
             if (quizId.localeCompare("DetailsEditor")) {                // If quizID !== "DetailsEditor".
-                console.log("Coming from editing an old quiz");
-                console.log("IF quizId = " + quizId);
                 const a = quizListFromReducer.find((quiz) => quiz._id === quizId);
-                console.log("The quiz I selected!!! a = " + JSON.stringify(a));
                 dispatch(selectQuiz(a));
             } else {                                                    // Else quizID === "DetailsEditor".
-                console.log("1 Coming from adding a new quiz");
-                console.log("ELSE quizId = " + quizId);
                 dispatch(selectQuiz({ 
                     _id: "", title: "Unnamed Quiz", subtitle: "New Subtitle", 
                     instructions: "", quizType: "Graded Quiz", 
@@ -77,7 +71,6 @@ function QuizDetailsEditor(this: any) {
                     forAccess: "Everyone", dueDate: "", availableFromDate: "", 
                     untilDate: "", points: "0", numQuestions: "0", published: false
                 }));
-                console.log("2 Coming from adding a new quiz");
             }
         }
     }, []);
@@ -154,14 +147,14 @@ function QuizDetailsEditor(this: any) {
     function handleEditInstructions(content: string, delta: string, source: string, editor: any) {
         console.log("handleEditInstructions");
         console.log("content = " + content);
-        console.log("editor.getContents().ops[0].insert = " + editor.getContents().ops[0].insert);
-        findNumberOfWords(editor.getContents().ops[0].insert);
-        console.log("quiz in handleEditInstructions = " + JSON.stringify(quiz));
+        var stringContent = editor.getContents().ops[0].insert;
+        console.log("stringContent = " + stringContent);
+        findNumberOfWords(stringContent);
 
-        if (!previousContent.localeCompare(editor.getContents().ops[0].insert)) {
+        if (!previousContent.localeCompare(stringContent)) {
             console.log("The contents of the editor have changed.");
             dispatch(selectQuiz({ ...quiz, instructions: content}));
-            setPreviousContent(editor.getContents().ops[0].insert);
+            setPreviousContent(stringContent);
         }
     }
 
