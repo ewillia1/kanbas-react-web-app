@@ -32,7 +32,19 @@ function QuizDetails() {
         // Runs only on the first render.
         if ( quizId !== undefined ) {
             console.log("quizId = " + quizId);
-            if (quizId.localeCompare("QuizDetails")) {
+            if (quizId.localeCompare("QuizDetails") === 0) {
+                dispatch(selectQuiz({ 
+                    _id: "", title: "Unnamed Quiz", subtitle: "New Subtitle", 
+                    instructions: "", quizType: "Graded Quiz", 
+                    assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
+                    multipleAttempts: false, showCorrectAnswers: true,
+                    showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
+                    accessCode: "", viewResponses: true,
+                    oneQuestion: true, webCam: false, lockedQuestions: false,
+                    forAccess: "Everyone", dueDate: "", availableFromDate: "", 
+                    untilDate: "", points: "0", numQuestions: "0", published: false
+                }));
+            } else {
                 const a = quizListFromReducer.find((quiz) => quiz._id === quizId);
                 dispatch(selectQuiz(a));
             }

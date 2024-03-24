@@ -23,7 +23,7 @@ function KanbasNavigation() {
             <li><a href="http://northeastern.edu"><img src="/images/northeastern_logo.png" alt="Northeastern University Logo" width="50"/></a></li>
             {links.map((link, index) => (
                 <li key={index} className={pathname.includes(link.label) ? "wd-active " + link.label : ""}>
-                    {!link.label.localeCompare("Labs") ? <Link to={`/${link.label}`}> {link.icon} <div className="wd-label">{link.label}</div> </Link> : <Link to={`/Kanbas/${link.label}`}> {link.icon} <div className="wd-label">{link.label}</div> </Link>}
+                    {link.label.localeCompare("Labs") === 0 ? <Link to={`/${link.label}`}> {link.icon} <div className="wd-label">{link.label}</div> </Link> : <Link to={`/Kanbas/${link.label}`}> {link.icon} <div className="wd-label">{link.label}</div> </Link>}
                 </li>
             ))}
         </ul>

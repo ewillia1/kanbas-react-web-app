@@ -15,35 +15,35 @@ function GetBreadcrumb({ courses }: GetBreadcrumbProp) {
     let webPage = currentURL.split("/");
     let pageName = webPage[webPage.length - 1];
 
-    if (!pageName.localeCompare("Panopto%20Video")) {
+    if (pageName.localeCompare("Panopto%20Video") === 0) {
         pageName = "Panopto Video";
     }
 
-    if (!pageName.localeCompare("Zoom%20Meetings")) {
+    if (pageName.localeCompare("Zoom%20Meetings") === 0) {
         pageName = "Zoom Meetings";
     }
 
-    if (!pageName.localeCompare("Progress%20Reports%20(EAB%20Navigate)")) {
+    if (pageName.localeCompare("Progress%20Reports%20(EAB%20Navigate)") === 0) {
         pageName = "Progress Reports (EAB Navigate)";
     }
 
-    if (!pageName.localeCompare("DetailsEditor")) {
+    if (pageName.localeCompare("DetailsEditor") === 0) {
         pageName = "Details Editor";
     }
 
-    if (!pageName.localeCompare("QuizDetails")) {
+    if (pageName.localeCompare("QuizDetails") === 0) {
         pageName = "Quiz Details";
     }
 
     let secondToLast = webPage[webPage.length - 2];
     let inAssignments = false;
-    if (!secondToLast.localeCompare("Assignments")) {
+    if (secondToLast.localeCompare("Assignments") === 0) {
         inAssignments = true;
     }
 
     let thirdToLast = webPage[webPage.length - 3];
     let inQuizzes = false;
-    if (!thirdToLast.localeCompare("Quizzes")) {
+    if (thirdToLast.localeCompare("Quizzes") === 0) {
         inQuizzes = true;
     }
     

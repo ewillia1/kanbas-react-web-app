@@ -24,15 +24,15 @@ function AssignmentEditor() {
     useEffect(() => {
         // Runs only on the first render.
         if ( assignmentId !== undefined ) {
-            if (assignmentId.localeCompare("Editor")) {
-                const a = assignmentList.find((assignment) => assignment._id === assignmentId);
-                dispatch(selectAssignment(a));
-            } else {
+            if (assignmentId.localeCompare("Editor") === 0) {
                 dispatch(selectAssignment({ 
                     _id: "", title: "New Title", subtitle: "New Subtitle", 
                     description: "New Assignment Description", dueDate: "2024-09-19", 
                     availableFromDate: "2024-09-24", untilDate: "2024-12-01", points: "100"
                 }));
+            } else {
+                const a = assignmentList.find((assignment) => assignment._id === assignmentId);
+                dispatch(selectAssignment(a));
             }
         }
     }, []);
@@ -41,7 +41,7 @@ function AssignmentEditor() {
         console.log("In handleSave.");
         console.log("assignment being added/edited = " + JSON.stringify(assignment));
         if (assignmentId !== undefined) {
-            if (!assignmentId.localeCompare("Editor")) {
+            if (assignmentId.localeCompare("Editor") === 0) {
                 dispatch(addAssignment({ ...assignment, course: courseId }));
             } else {
                 dispatch(updateAssignment(assignment));

@@ -15,19 +15,19 @@ function Status() {
         let unpub_element= document.getElementById("unpublishbtn");
         let pub_element = document.getElementById("publishbtn");
 
-        if (str.localeCompare("unpub")) {
-            if (unpub_element!== null && pub_element !== null) {
-                pub_element.classList.toggle("wd-enabled-btn");
-                unpub_element.classList.remove("wd-enabled-btn");
-                setPubBtn(true);
-                setUnpubBtn(false);
-            }
-        } else {
-            if (unpub_element!== null && pub_element !== null) {
+        if (str.localeCompare("unpub") === 0) {
+            if (unpub_element !== null && pub_element !== null) {
                 pub_element.classList.remove("wd-enabled-btn");
                 unpub_element.classList.toggle("wd-enabled-btn");
                 setPubBtn(false);
                 setUnpubBtn(true);
+            }
+        } else {
+            if (unpub_element !== null && pub_element !== null) {
+                pub_element.classList.toggle("wd-enabled-btn");
+                unpub_element.classList.remove("wd-enabled-btn");
+                setPubBtn(true);
+                setUnpubBtn(false);
             }
         }
     }

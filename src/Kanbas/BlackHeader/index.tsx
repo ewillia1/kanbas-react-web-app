@@ -57,7 +57,7 @@ function BlackHeader() {
     let pageName = webPage[webPage.length - 1];
     let onDashboard = false;
 
-    if (!pageName.localeCompare("Dashboard")) {
+    if (pageName.localeCompare("Dashboard") === 0) {
         onDashboard = true;
     }
 
