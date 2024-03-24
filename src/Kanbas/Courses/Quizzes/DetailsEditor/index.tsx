@@ -149,6 +149,7 @@ function QuizDetailsEditor(this: any) {
         }
     }
 
+    const [previousContent, setPreviousContent] = useState(quiz.instructions);
     // Function to handle editing the rich text editor.
     function handleEditInstructions(content: string, delta: string, source: string, editor: any) {
         console.log("handleEditInstructions");
@@ -156,8 +157,12 @@ function QuizDetailsEditor(this: any) {
         console.log("editor.getContents().ops[0].insert = " + editor.getContents().ops[0].insert);
         findNumberOfWords(editor.getContents().ops[0].insert);
         console.log("quiz in handleEditInstructions = " + JSON.stringify(quiz));
-        
-        // dispatch(selectQuiz({ ...quiz, instructions: content}));
+
+        if (!previousContent.localeCompare(editor.getContents().ops[0].insert)) {
+            console.log("The contents of the editor have changed.");
+            dispatch(selectQuiz({ ...quiz, instructions: content}));
+            setPreviousContent(editor.getContents().ops[0].insert);
+        }
     }
 
     return (
