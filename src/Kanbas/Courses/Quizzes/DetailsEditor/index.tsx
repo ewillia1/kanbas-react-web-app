@@ -17,6 +17,8 @@ import { RxDragHandleDots2 } from "react-icons/rx";
 import React from "react";
 import ReactQuill from 'react-quill';
 import Modal from 'react-bootstrap/Modal';
+import { validDates } from "../../../Util/dateUtil";
+import { Button } from "react-bootstrap";
 
 function QuizDetailsEditor(this: any) {
     const { courseId } = useParams();
@@ -37,6 +39,8 @@ function QuizDetailsEditor(this: any) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [previousContent, setPreviousContent] = useState(quiz.instructions);
+    const [showSaveErrorMsg, setShowSaveErrorMsg] = useState(false);
+    const handleCloseSaveErrorMsg = () => setShowSaveErrorMsg(false);
 
     // ReactQuill quiz instruction's rich text editor code.
     const modules = {
@@ -59,7 +63,6 @@ function QuizDetailsEditor(this: any) {
         // Runs only on the first render.
         if ( quizId !== undefined ) {
             if (quizId.localeCompare("DetailsEditor") === 0) {                // If quizID is the same as "DetailsEditor".
-                console.log("IF useEffect");
                 dispatch(selectQuiz({ 
                     _id: "", title: "Unnamed Quiz", subtitle: "New Subtitle", 
                     instructions: "<p><br></p>", quizType: "Graded Quiz", 
@@ -71,46 +74,52 @@ function QuizDetailsEditor(this: any) {
                     forAccess: "Everyone", dueDate: "", availableFromDate: "", 
                     untilDate: "", points: "0", numQuestions: "0", published: false
                 }));
-                console.log("IF QUIZ INSTRUCTIONS = " + quiz.instructions);
                 setPreviousContent("");
-                console.log("IN USEEFFECT previousContent = " + previousContent);
             } else {                                                    // Else quizID is different than "DetailsEditor".
-                console.log("ELSE useEffect");
                 const a = quizListFromReducer.find((quiz) => quiz._id === quizId);
                 dispatch(selectQuiz(a));
-                console.log("ELSE QUIZ INSTRUCTIONS = " + quiz.instructions);
             }
         }
     }, []);
     
     // Function to handle saving a quiz.
     function handleSave() {
-        if (quizId !== undefined) {
-            if (quizId.localeCompare("DetailsEditor") === 0) {
-                console.log("handle save. quizId equal to DetailsEditor");
-                dispatch(addQuiz({ ...quiz, course: courseId }));
-            } else {
-                console.log("handle save. quizId NOT equal to DetailsEditor");
-                dispatch(updateQuiz(quiz));
+        // Check to see if the dates are valid. If they aren't don't save or navigate away from the screen.
+        // Send a pop-up modal to tell the user they need to go back and reissue correct dates.
+        var hasValidDates = validDates(quiz.dueDate, quiz.availableFromDate, quiz.untilDate, quiz.showCorrectAnswersDate);
+        if (hasValidDates) {
+            if (quizId !== undefined) {
+                if (quizId.localeCompare("DetailsEditor") === 0) {
+                    dispatch(addQuiz({ ...quiz, course: courseId }));
+                } else {
+                    dispatch(updateQuiz(quiz));
+                }
             }
+            navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
+        } else {
+            setShowSaveErrorMsg(true);
         }
-        navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
     };
 
     // Function to handle saving a quiz and publishing it.
     function handleSaveAndPub() {
-        if (quizId !== undefined) {
-            if (quizId.localeCompare("DetailsEditor") === 0) {
-                console.log("handle save pub. quizId equal to DetailsEditor");
-                const newQuiz = {...quiz, published: "true"};  
-                dispatch(addQuiz({ ...newQuiz, course: courseId }));
-            } else {
-                console.log("handle save pub. quizId NOT equal to DetailsEditor");
-                const updatedQuiz = {...quiz, published: "true"};  
-                dispatch(updateQuiz(updatedQuiz));
+        // Check to see if the dates are valid. If they aren't don't save or navigate away from the screen.
+        // Send a pop-up modal to tell the user they need to go back and reissue correct dates.
+        var hasValidDates = validDates(quiz.dueDate, quiz.availableFromDate, quiz.untilDate, quiz.showCorrectAnswersDate);
+        if (hasValidDates) {
+            if (quizId !== undefined) {
+                if (quizId.localeCompare("DetailsEditor") === 0) {
+                    const newQuiz = {...quiz, published: "true"};  
+                    dispatch(addQuiz({ ...newQuiz, course: courseId }));
+                } else {
+                    const updatedQuiz = {...quiz, published: "true"};  
+                    dispatch(updateQuiz(updatedQuiz));
+                }
             }
+            navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
+        } else {
+            setShowSaveErrorMsg(true);
         }
-        navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
     };
 
     // Function that enables and disables the number of minutes a quiz can be taken.
@@ -156,21 +165,13 @@ function QuizDetailsEditor(this: any) {
 
     // Function to handle editing the rich text editor.
     function handleEditInstructions(content: string, delta: string, source: string, editor: any) {
-        console.log("handleEditInstructions");
-        console.log("content = " + content);
-        console.log("previousContent = " + previousContent);
-        
         const stringContent = editor.getContents().ops[0].insert;
-        console.log("stringContent = " + stringContent);
         findNumberOfWords(stringContent);
 
-        console.log("previousContent.localeCompare(content) = " + previousContent.localeCompare(content));
-        
         if (previousContent.localeCompare(content) === 0) {
             console.log("THE CONTENTS OF THE EDITOR NOT HAVE CHANGED.");
         } else {
             console.log("THE CONTENTS OF THE EDITOR HAVE CHANGED.");
-            console.log("quiz = " + JSON.stringify(quiz));
             dispatch(selectQuiz({ ...quiz, instructions: content}));
             setPreviousContent(content);
         }
@@ -392,6 +393,7 @@ function QuizDetailsEditor(this: any) {
                                     <div className="row mb-3" style={{marginLeft: "37px"}}>
                                         <label htmlFor="points" className="col-sm-5 col-form-label">Hide Correct Answers at</label>
                                         <div className="col-sm-7">
+                                            {/* Not validating this date since it is not required. */}
                                             <input id="hideCorrectAnswersDate" className="form-control" type="date" value={quiz.hideCorrectAnswersDate} onChange={(e) => dispatch(selectQuiz({ ...quiz, hideCorrectAnswersDate: e.target.value }))}/>
                                         </div>
                                     </div>
@@ -487,6 +489,26 @@ function QuizDetailsEditor(this: any) {
                 <button onClick={handleSave} className="col-3 btn btn-light btn-outline-dark wd-save-button ms-2 float-end" style={{width: "max-content"}}>Save</button>
                 <button onClick={handleSaveAndPub} className="col-3 btn btn-light btn-outline-dark wd-cancel-savepub-button ms-2 float-end" style={{width: "max-content"}}>Save & Publish</button>
                 <Link to={`/Kanbas/Courses/${courseId}/Quizzes`} className="col-3 btn btn-light btn-outline-dark wd-cancel-savepub-button float-end" style={{width: "max-content"}}>Cancel</Link>
+
+                <Modal show={showSaveErrorMsg} onHide={handleCloseSaveErrorMsg} backdrop="static" keyboard={false}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Date Error</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        There is an error with your dates!
+                        <br/><br/>
+                        "Show Correct Answers at" date, "Due" date, "Available from" date, and "Until" date are required fields.
+                        <br/><br/>
+                        Helpful hints:
+                        <br/>
+                        The available from date has to be equal or before the available until date. The due date has to be equal to or between the available from date and the available to date. The show correct answers date has to be after the available until date.
+                        <br/><br/>
+                        Please make look over your dates and make sure they are following these rules before saving.
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="primary" onClick={handleCloseSaveErrorMsg}>Understood</Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
             <hr style={{marginTop: "30px"}}/>
         </div>
