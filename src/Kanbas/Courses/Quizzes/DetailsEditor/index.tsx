@@ -170,7 +170,7 @@ function QuizDetailsEditor(this: any) {
             console.log("THE CONTENTS OF THE EDITOR NOT HAVE CHANGED.");
         } else {
             console.log("THE CONTENTS OF THE EDITOR HAVE CHANGED.");
-            // console.log("quiz = " + JSON.stringify(quiz));
+            console.log("quiz = " + JSON.stringify(quiz));
             dispatch(selectQuiz({ ...quiz, instructions: content}));
             setPreviousContent(content);
         }
@@ -352,7 +352,7 @@ function QuizDetailsEditor(this: any) {
                                 </div>
                             </div>
                             <div className="row mb-3">
-                                <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
+                                <div className="col-sm-8 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
                                         <input className="form-check-input" type="checkbox" id="multipleAttemptsId" checked={quiz.multipleAttempts} onChange={(e) => dispatch(selectQuiz({ ...quiz, multipleAttempts: e.target.checked }))}/>
                                         <label className="form-check-label" htmlFor="multipleAttemptsId">
@@ -362,7 +362,7 @@ function QuizDetailsEditor(this: any) {
                                 </div>
                             </div>
                             <div className="row mb-3">
-                                <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
+                                <div className="col-sm-8 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
                                         {/* Did not handle a default value or onChange since this is not a project requirement. */}
                                         <input className="form-check-input" type="checkbox" id="seeQuizReponses"/>
@@ -398,7 +398,7 @@ function QuizDetailsEditor(this: any) {
                                 </div>
                             </div>
                             <div className="row mb-3">
-                                <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
+                                <div className="col-sm-8 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
                                         <input className="form-check-input" type="checkbox" id="oneQatTime" checked={quiz.oneQuestion} onChange={(e) => dispatch(selectQuiz({ ...quiz, oneQuestion: e.target.checked }))}/>
                                         <label className="form-check-label" htmlFor="oneQatTime">
@@ -419,7 +419,7 @@ function QuizDetailsEditor(this: any) {
                                 </div>
                             </div>
                             <div className="row mb-3">
-                                <div className="col-sm-12 offset-sm-4 border wd-border-radius-8px">
+                                <div className="col-sm-8 offset-sm-4 border wd-border-radius-8px">
                                     <div className="form-check">
                                         <input className="form-check-input" type="checkbox" id="webcamReq" checked={quiz.webCam} onChange={(e) => dispatch(selectQuiz({ ...quiz, webCam: e.target.checked }))}/>
                                         <label className="form-check-label" htmlFor="webcamReq">
