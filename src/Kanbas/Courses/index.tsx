@@ -17,7 +17,22 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Courses() {
+function Courses() {
     const { courseId } = useParams();                                           // Accept courses from Kanbas.
+    const COURSES_API = "http://localhost:4000/api/courses";
+    const [course, setCourse] = useState<CourseType>({
+        _id: "", name: "", number: "", semester: "",
+        startDate: "", endDate: "", image: "" 
+    });
+    
+    const findCourseById = async (courseId?: string) => {
+        const response = await axios.get(`${COURSES_API}/${courseId}`);
+        setCourse(response.data);
+    };
+
+    useEffect(() => {
+        findCourseById(courseId);
+    }, [courseId]);
     const COURSES_API = "http://localhost:4000/api/courses";
     const [course, setCourse] = useState<CourseType>({
         _id: "", name: "", number: "", semester: "",
@@ -66,7 +81,7 @@ function Courses() {
                         <Route path="Outcomes" element={<h1>Outcomes</h1>} />
                         <Route path="Collaborations" element={<h1>Collaborations</h1>} />
                         <Route path="Syllabus" element={<h1>Syllabus</h1>} />
-                        <Route path="Settings" element={<h1>Settings</h1>} />
+                        <Route path="Settings" element={<Settings/>} />
 
                         <Route path="Zoom Meetings" element={<h1>Zoom Meetings</h1>} />
                         <Route path="Progress Reports (EAB Navigate)" element={<h1>Progress Reports (EAB Navigate)</h1>} />

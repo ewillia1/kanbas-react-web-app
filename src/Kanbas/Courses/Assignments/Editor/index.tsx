@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../../store";
 import { useEffect } from "react";
 import * as client from "./../client";
+import * as client from "./../client";
 
 function AssignmentEditor() {
     const { courseId } = useParams();
@@ -45,6 +46,15 @@ function AssignmentEditor() {
             console.log("handleUpdateAssignment error = " + error);  
         }
     };
+
+    const handleUpdateAssignment = async () => {
+        try {
+            const status = await client.updateAssignment(assignment);
+            dispatch(updateAssignment(assignment));
+        } catch (error: any) {
+            console.log("handleUpdateAssignment error = " + error);  
+        }
+    };
     
     function handleSave() {
         if (assignmentId !== undefined) {
@@ -52,8 +62,18 @@ function AssignmentEditor() {
                 dispatch(addAssignment({ ...assignment, course: courseId }));
             } else {
                 handleUpdateAssignment();
+                handleUpdateAssignment();
             }
         }
+        navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+    }
+
+    function handleCancel() {
+        dispatch(selectAssignment({ 
+            _id: "", title: "New Title", subtitle: "New Subtitle", 
+            description: "New Assignment Description", dueDate: "2024-09-19", 
+            availableFromDate: "2024-09-24", untilDate: "2024-12-01", points: "100"
+        }));
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     }
 
@@ -189,6 +209,8 @@ function AssignmentEditor() {
             </form>
 
             <button onClick={handleSave} className="btn btn-light btn-outline-dark wd-save-button ms-2 float-end">Save</button>
+            <button onClick={handleCancel} className="btn btn-light btn-outline-dark wd-cancel-button float-end">Cancel</button>
+            {/* <Link to={`/Kanbas/Courses/${courseId}/Assignments`} className="btn btn-light btn-outline-dark wd-cancel-button float-end">Cancel</Link> */}
             <button onClick={handleCancel} className="btn btn-light btn-outline-dark wd-cancel-button float-end">Cancel</button>
             {/* <Link to={`/Kanbas/Courses/${courseId}/Assignments`} className="btn btn-light btn-outline-dark wd-cancel-button float-end">Cancel</Link> */}
         </div>

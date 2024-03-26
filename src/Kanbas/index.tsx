@@ -28,6 +28,19 @@ function Kanbas() {
     useEffect(() => {
         findAllCourses();
     }, []);  
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [_courses, setCourses] = useState<CourseType[]>([]);               // Create _courses array state variable. Initialize with courses from the json file.
+    
+    const COURSES_API = `${API_BASE}/api/courses`;
+    
+    const findAllCourses = async () => {
+        const response = await axios.get(COURSES_API);
+        setCourses(response.data);
+    };
+
+    useEffect(() => {
+        findAllCourses();
+    }, []);  
     
     const [course, setCourse] = useState({                          // Create course state variable object.
         _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
@@ -35,6 +48,22 @@ function Kanbas() {
         image: "/blueBackground.jpg"
     });
 
+    const addNewCourse = async () => {                                    // Event handler to add new course.
+        try {
+            const response = await axios.post(COURSES_API, course);
+            setCourses([ ..._courses, response.data ]);
+            setCourse({                                                 // Clear the course.
+                _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
+                startDate: "2024-09-10", endDate: "2024-12-15",
+                image: "/blueBackground.jpg"
+            });
+            setErrorMessage(null);
+        } catch (error: any) {
+            console.log("error = " + error);
+            setErrorMessage(error.response.data.message);
+            setShow(true);
+        }
+    };
     const addNewCourse = async () => {                                    // Event handler to add new course.
         try {
             const response = await axios.post(COURSES_API, course);
@@ -62,8 +91,44 @@ function Kanbas() {
             setErrorMessage(error.response.data.message);
             setShow(true);
         } 
+    const deleteCourse = async (courseId: string) => {                    // Event handler to delete a course.
+        try {
+            const response = await axios.delete(`${COURSES_API}/${courseId}`);          
+            setCourses(_courses.filter((c) => c._id !== courseId)); 
+            setErrorMessage(null); 
+        } catch (error: any) {
+            console.log("error = " + error);
+            setErrorMessage(error.response.data.message);
+            setShow(true);
+        } 
     };
     
+    const updateCourse = async () => {                                    // Event handler to update/edit a course.
+        try {
+            const response = await axios.put(`${COURSES_API}/${course._id}`, course);      
+            setCourses(
+                _courses.map((c) => {
+                    if (c._id === course._id) {
+                        return course;
+                    }
+                    return c;
+                })
+            );
+            setCourse({                                                 // Clear the course.
+                _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
+                startDate: "2024-09-10", endDate: "2024-12-15",
+                image: "/blueBackground.jpg"
+            });
+            setErrorMessage(null); 
+        } catch (error: any) {
+            console.log("error = " + error);
+            setErrorMessage(error.response.data.message);
+            setShow(true);
+        }
+    };
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
     const updateCourse = async () => {                                    // Event handler to update/edit a course.
         try {
             const response = await axios.put(`${COURSES_API}/${course._id}`, course);      
@@ -106,6 +171,19 @@ function Kanbas() {
                 </Modal.Footer>
             </Modal>
 
+            {/* Error pop-up modal. Will only appear if an error occurs in the try-catch blocks above. */}
+            <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Error Message</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {errorMessage}.
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={handleClose}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+
             <div className="container-fluid wd-main-container">
                 <div className="row wd-main-row">
                     {/* Column 1a: Kanbas Navigation. Hide on screen smaller than medium. */}
@@ -117,7 +195,7 @@ function Kanbas() {
                     <div className="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-11 col-xxl-11">
                         <Routes>
                             <Route path="/" element={<Navigate to="Dashboard" />} />
-                            <Route path="Account" element={<h1>Account</h1>} />
+                            <Route path="Account/*" element={<Account/>} />
                             <Route path="Dashboard" element={
                                 <Dashboard 
                                     courses={_courses} 

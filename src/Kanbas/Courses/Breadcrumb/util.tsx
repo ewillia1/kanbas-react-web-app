@@ -3,9 +3,28 @@ import { Link } from "react-router-dom";
 import { CourseType } from "../../Util";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function GetBreadcrumb() {
+function GetBreadcrumb() {
     const { courseId } = useParams();
+    const COURSES_API = "http://localhost:4000/api/courses";
+    const [course, setCourse] = useState<CourseType>({
+        _id: "", name: "", number: "", semester: "",
+        startDate: "", endDate: "", image: "" 
+    });
+    
+    const findCourseById = async (courseId?: string) => {
+        const response = await axios.get(
+        `${COURSES_API}/${courseId}`
+        );
+        setCourse(response.data);
+    };
+
+    useEffect(() => {
+        findCourseById(courseId);
+    }, [courseId]);    
     const COURSES_API = "http://localhost:4000/api/courses";
     const [course, setCourse] = useState<CourseType>({
         _id: "", name: "", number: "", semester: "",

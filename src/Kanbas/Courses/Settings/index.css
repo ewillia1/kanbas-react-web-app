@@ -1,0 +1,7 @@
+.nav-tabs .nav-link {
+    color: red !important;
+}
+
+.nav-tabs .nav-link.active {
+    color: black !important;
+}
