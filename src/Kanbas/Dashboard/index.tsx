@@ -16,7 +16,7 @@ function Dashboard( { courses, course, setCourse, addNewCourse, deleteCourse, up
             </div>
 
             <div className="d-block d-sm-none wd-dashboard-component">
-                <p className="wd-three-dot-menu"><FaEllipsisV /></p>
+                <p className="wd-three-dot-menu-dash"><FaEllipsisV /></p>
                 <hr />
             </div>
             
