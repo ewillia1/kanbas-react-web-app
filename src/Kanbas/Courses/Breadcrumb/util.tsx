@@ -70,4 +70,4 @@ function GetBreadcrumb() {
         </nav>
     );
 }
-export default GetBreadcrumb
+export default GetBreadcrumb;
