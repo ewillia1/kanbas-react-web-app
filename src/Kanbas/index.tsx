@@ -11,6 +11,7 @@ import store from "./store";                // Import the redux store.
 import { Provider } from "react-redux";     // Import the redux store Provider.
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
+import Account from "./Account";
 
 const API_BASE = process.env.REACT_APP_API_BASE;
 
@@ -117,7 +118,7 @@ function Kanbas() {
                     <div className="col-12 col-sm-12 col-md-11 col-lg-11 col-xl-11 col-xxl-11">
                         <Routes>
                             <Route path="/" element={<Navigate to="Dashboard" />} />
-                            <Route path="Account" element={<h1>Account</h1>} />
+                            <Route path="Account/*" element={<Account/>} />
                             <Route path="Dashboard" element={
                                 <Dashboard 
                                     courses={_courses} 

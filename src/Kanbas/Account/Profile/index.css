@@ -1,0 +1,96 @@
+.wd-always-vis-col-profile {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+/* For the section of the screen that is not the Kanbas Navigation bar. */
+.wd-profile-col-num2 {
+    padding-left: 40px;
+}
+
+/* Change the padding of a wd-col-num2 element when the browser window is 767px wide or less. */
+@media only screen and (max-width: 767px) {
+    .wd-profile-col-num2 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.wd-profile-hyperlink {
+    text-decoration: none;
+    color: red;
+}
+
+.wd-save-button-profile {
+    background-color: red;
+    border-color: red;
+    color: white;
+}
+
+.wd-cancel-button-profile {
+    background-color: buttonface;
+    border-color: buttonborder;
+    color: black;
+}
+
+.wd-image-block {
+    flex-direction: row;
+}
+
+@media only screen and (min-width: 992px) {
+    .wd-image-block {
+        flex-direction: row;
+    }
+}
+
+.wd-flex-container {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+    background-color: white;
+}
+  
+.wd-flex-container > .wd-flex-item-left {
+    background-color: white;
+    padding: 10px;
+    flex: 30%;
+    color: grey;
+}
+  
+.wd-flex-container > .wd-flex-item-right {
+    background-color: white;
+    padding: 10px;
+    flex: 70%;
+    color: black;
+    text-align: left;
+}
+
+.wd-flex-item-right p {
+    font-size: initial;
+}
+
+.wd-flex-item-right label {
+    font-size: initial;
+}
+
+.wd-flex-item-right button {
+    font-size: initial;
+}
+  
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 1199px) {
+    .wd-flex-container {
+      flex-direction: column;
+    }
+}
+
+.wd-user-avatar {
+    border: none;
+    color: grey;
+    background-color: white;
+}
+
+.wd-width-165px {
+    width: 165px;
+}
