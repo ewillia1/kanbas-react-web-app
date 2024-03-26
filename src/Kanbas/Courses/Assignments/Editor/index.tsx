@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../../store";
 import { useEffect } from "react";
 import * as client from "./../client";
-import * as client from "./../client";
 
 function AssignmentEditor() {
     const { courseId } = useParams();
@@ -46,15 +45,6 @@ function AssignmentEditor() {
             console.log("handleUpdateAssignment error = " + error);  
         }
     };
-
-    const handleUpdateAssignment = async () => {
-        try {
-            const status = await client.updateAssignment(assignment);
-            dispatch(updateAssignment(assignment));
-        } catch (error: any) {
-            console.log("handleUpdateAssignment error = " + error);  
-        }
-    };
     
     function handleSave() {
         if (assignmentId !== undefined) {
@@ -65,15 +55,6 @@ function AssignmentEditor() {
                 handleUpdateAssignment();
             }
         }
-        navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-    }
-
-    function handleCancel() {
-        dispatch(selectAssignment({ 
-            _id: "", title: "New Title", subtitle: "New Subtitle", 
-            description: "New Assignment Description", dueDate: "2024-09-19", 
-            availableFromDate: "2024-09-24", untilDate: "2024-12-01", points: "100"
-        }));
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     }
 

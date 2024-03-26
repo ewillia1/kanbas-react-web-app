@@ -11,26 +11,16 @@ import store from "./store";                // Import the redux store.
 import { Provider } from "react-redux";     // Import the redux store Provider.
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
+import Account from "./Account";
 
 const API_BASE = process.env.REACT_APP_API_BASE;
 
 function Kanbas() {
     const [errorMessage, setErrorMessage] = useState(null);
     const [_courses, setCourses] = useState<CourseType[]>([]);               // Create _courses array state variable. Initialize with courses from the json file.
-    
-    const COURSES_API = `${API_BASE}/api/courses`;
-    
-    const findAllCourses = async () => {
-        const response = await axios.get(COURSES_API);
-        setCourses(response.data);
-    };
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
 
-    useEffect(() => {
-        findAllCourses();
-    }, []);  
-    const [errorMessage, setErrorMessage] = useState(null);
-    const [_courses, setCourses] = useState<CourseType[]>([]);               // Create _courses array state variable. Initialize with courses from the json file.
-    
     const COURSES_API = `${API_BASE}/api/courses`;
     
     const findAllCourses = async () => {
@@ -64,22 +54,6 @@ function Kanbas() {
             setShow(true);
         }
     };
-    const addNewCourse = async () => {                                    // Event handler to add new course.
-        try {
-            const response = await axios.post(COURSES_API, course);
-            setCourses([ ..._courses, response.data ]);
-            setCourse({                                                 // Clear the course.
-                _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
-                startDate: "2024-09-10", endDate: "2024-12-15",
-                image: "/blueBackground.jpg"
-            });
-            setErrorMessage(null);
-        } catch (error: any) {
-            console.log("error = " + error);
-            setErrorMessage(error.response.data.message);
-            setShow(true);
-        }
-    };
 
     const deleteCourse = async (courseId: string) => {                    // Event handler to delete a course.
         try {
@@ -91,18 +65,8 @@ function Kanbas() {
             setErrorMessage(error.response.data.message);
             setShow(true);
         } 
-    const deleteCourse = async (courseId: string) => {                    // Event handler to delete a course.
-        try {
-            const response = await axios.delete(`${COURSES_API}/${courseId}`);          
-            setCourses(_courses.filter((c) => c._id !== courseId)); 
-            setErrorMessage(null); 
-        } catch (error: any) {
-            console.log("error = " + error);
-            setErrorMessage(error.response.data.message);
-            setShow(true);
-        } 
     };
-    
+
     const updateCourse = async () => {                                    // Event handler to update/edit a course.
         try {
             const response = await axios.put(`${COURSES_API}/${course._id}`, course);      
@@ -126,35 +90,6 @@ function Kanbas() {
             setShow(true);
         }
     };
-
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const updateCourse = async () => {                                    // Event handler to update/edit a course.
-        try {
-            const response = await axios.put(`${COURSES_API}/${course._id}`, course);      
-            setCourses(
-                _courses.map((c) => {
-                    if (c._id === course._id) {
-                        return course;
-                    }
-                    return c;
-                })
-            );
-            setCourse({                                                 // Clear the course.
-                _id: "0", name: "New Course", number: "New Number", semester: "New Semester",
-                startDate: "2024-09-10", endDate: "2024-12-15",
-                image: "/blueBackground.jpg"
-            });
-            setErrorMessage(null); 
-        } catch (error: any) {
-            console.log("error = " + error);
-            setErrorMessage(error.response.data.message);
-            setShow(true);
-        }
-    };
-
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
 
     return(
         <Provider store={store}>
