@@ -27,7 +27,7 @@ function GetBreadcrumb() {
     let webPage = currentURL.split("/");
     let pageName = webPage[webPage.length - 1];
 
-    if (!pageName.localeCompare("Panopto%20Video")) {
+    if (!pageName.localeCompare("Panopto_Video")) {
         pageName = "Panopto Video";
     }
 
