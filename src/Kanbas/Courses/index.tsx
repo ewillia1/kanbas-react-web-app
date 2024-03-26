@@ -46,7 +46,7 @@ function Courses({ courses }: CoursesProp) {
                         <Route path="Quizzes/QuizDetails/:quizId" element={<QuizDetails/>}/>
                         <Route path="Quizzes/Preview/:quizId" element={<QuizPreview/>}/>
                         <Route path="People" element={<h1>People</h1>} />
-                        <Route path="Panopto Video" element={<h1>Panopto Video</h1>} />
+                        <Route path="Panopto_Video" element={<h1>Panopto Video</h1>} />
                         <Route path="Discussions" element={<h1>Discussions</h1>} />
                         <Route path="Announcements" element={<h1>Announcements</h1>} />
                         <Route path="Pages" element={<h1>Pages</h1>} />

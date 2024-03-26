@@ -15,7 +15,7 @@ function GetBreadcrumb({ courses }: GetBreadcrumbProp) {
     let webPage = currentURL.split("/");
     let pageName = webPage[webPage.length - 1];
 
-    if (pageName.localeCompare("Panopto%20Video") === 0) {
+    if (pageName.localeCompare("Panopto_Video") === 0) {
         pageName = "Panopto Video";
     }
 
