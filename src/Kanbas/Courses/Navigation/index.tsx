@@ -4,7 +4,7 @@ import { courses } from "../../Database";
 
 function CourseNavigation() {
     const links = [ "Home", "Modules", "Piazza", "Grades", "Assignments", "Quizzes", "People", 
-                    "Panopto Video","Discussions","Announcements", "Pages", "Files", "Rubrics",
+                    "Panopto_Video","Discussions","Announcements", "Pages", "Files", "Rubrics",
                     "Outcomes","Collaborations", "Syllabus", "Settings"];
     const { pathname } = useLocation();
     const { courseId } = useParams();
@@ -17,7 +17,7 @@ function CourseNavigation() {
                     <li className="wd-nowrap">{course?.startDate} {course?.name}</li>
                     {links.map((link, index) => (
                         <li key={index} className={pathname.includes(link) ? "wd-active wd-nowrap" : "wd-nowrap"}>
-                            <Link to={link}>{link}</Link>
+                            <Link to={link}>{link.replace("_", " ")}</Link>
                         </li>
                     ))}
                 </ul>
