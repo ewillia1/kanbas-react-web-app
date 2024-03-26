@@ -11,6 +11,7 @@ import Grades from "./Grades";
 import { CourseType } from "../Util";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Settings from "./Settings";
 
 function Courses() {
     const { courseId } = useParams();                                           // Accept courses from Kanbas.
@@ -59,7 +60,7 @@ function Courses() {
                         <Route path="Outcomes" element={<h1>Outcomes</h1>} />
                         <Route path="Collaborations" element={<h1>Collaborations</h1>} />
                         <Route path="Syllabus" element={<h1>Syllabus</h1>} />
-                        <Route path="Settings" element={<h1>Settings</h1>} />
+                        <Route path="Settings" element={<Settings/>} />
 
                         <Route path="Zoom Meetings" element={<h1>Zoom Meetings</h1>} />
                         <Route path="Progress Reports (EAB Navigate)" element={<h1>Progress Reports (EAB Navigate)</h1>} />
