@@ -3,7 +3,7 @@ import { FaEllipsisV } from "react-icons/fa";
 import "./index.css";
 import { addQuiz, selectQuiz, updateQuiz } from "../quizzesReducer";        // Import reducer functions to add, delete, and update quizzes.
 import { useDispatch, useSelector } from "react-redux";
-import { KanbasState } from "../../../store";
+import { KanbasState, QuizType } from "../../../store";
 import { useEffect, useState } from "react";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -19,15 +19,15 @@ import ReactQuill from 'react-quill';
 import Modal from 'react-bootstrap/Modal';
 import { validDates } from "../../../Util/dateUtil";
 import { Button } from "react-bootstrap";
+import * as client from "./../client";
 
-function QuizDetailsEditor(this: any) {
+function QuizDetailsEditor() {
     const { courseId } = useParams();
-    console.log("courseId = " + courseId);
     const { quizId } = useParams();
     console.log("quizId = " + quizId);
     const quizListFromReducer = useSelector((state: KanbasState) => state.quizzesReducer.quizzes);  // Retrieve current state variables quizzes from reducer.
     const quiz = useSelector((state: KanbasState) => state.quizzesReducer.quiz);
-    console.log("QUIZ = " + JSON.stringify(quiz));
+    console.log("quiz = " + JSON.stringify(quiz));
     
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const navigate = useNavigate();
@@ -72,7 +72,7 @@ function QuizDetailsEditor(this: any) {
                     accessCode: "", viewResponses: true,
                     oneQuestion: true, webCam: false, lockedQuestions: false,
                     forAccess: "Everyone", dueDate: "", availableFromDate: "", 
-                    untilDate: "", points: "0", numQuestions: "0", published: false
+                    untilDate: "", points: "0", numQuestions: "0", published: false, course: ""
                 }));
                 setPreviousContent("");
             } else {                                                    // Else quizID is different than "DetailsEditor".
@@ -81,6 +81,15 @@ function QuizDetailsEditor(this: any) {
             }
         }
     }, []);
+
+    const handleUpdateQuiz = async (quizToUpdate: QuizType) => {
+        try {
+            const status = await client.updateQuiz(quizToUpdate);
+            dispatch(updateQuiz(quizToUpdate));
+        } catch (error: any) {
+            console.log("handleUpdateQuiz error = " + error);  
+        }
+    };
     
     // Function to handle saving a quiz.
     function handleSave() {
@@ -90,9 +99,9 @@ function QuizDetailsEditor(this: any) {
         if (hasValidDates) {
             if (quizId !== undefined) {
                 if (quizId.localeCompare("DetailsEditor") === 0) {
-                    dispatch(addQuiz({ ...quiz, course: courseId }));
+                    client.createQuiz(courseId, quiz).then((quiz) => {dispatch(addQuiz({ ...quiz, course: courseId }));});
                 } else {
-                    dispatch(updateQuiz(quiz));
+                    handleUpdateQuiz(quiz);
                 }
             }
             navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
@@ -109,11 +118,11 @@ function QuizDetailsEditor(this: any) {
         if (hasValidDates) {
             if (quizId !== undefined) {
                 if (quizId.localeCompare("DetailsEditor") === 0) {
-                    const newQuiz = {...quiz, published: "true"};  
-                    dispatch(addQuiz({ ...newQuiz, course: courseId }));
+                    const newQuiz = {...quiz, published: true};  
+                    client.createQuiz(courseId, quiz).then((quiz) => {dispatch(addQuiz({ ...newQuiz, course: courseId }));});
                 } else {
-                    const updatedQuiz = {...quiz, published: "true"};  
-                    dispatch(updateQuiz(updatedQuiz));
+                    const updatedQuiz = {...quiz, published: true};  
+                    handleUpdateQuiz(updatedQuiz);
                 }
             }
             navigate(`/Kanbas/Courses/${courseId}/Quizzes`);

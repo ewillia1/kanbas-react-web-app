@@ -2,14 +2,15 @@ import { FaCaretDown, FaCheckCircle, FaEllipsisV, FaPlus, FaPlusCircle } from "r
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./index.css";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteQuiz, selectQuiz, updateQuiz } from "./quizzesReducer";        // Import reducer functions to add, delete, and update quizzes.
+import { deleteQuiz, selectQuiz, selectQuizzes, updateQuiz } from "./quizzesReducer";        // Import reducer functions to add, delete, and update quizzes.
 import { QuizType, KanbasState } from "../../store";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from 'react-bootstrap/Modal';
 import { Button } from "react-bootstrap";
 import { IoRocketOutline } from "react-icons/io5";
 import { FiSlash } from "react-icons/fi";
 import { availableText, getDateObject } from "../../Util/dateUtil";
+import * as client from "./client";
 
 function Quizzes() {
     const { courseId } = useParams();
@@ -19,6 +20,12 @@ function Quizzes() {
     const dispatch = useDispatch();             // Get dispatch to call reducer functions.
     const [showForDelete, setShowForDelete] = useState(false);
     const [showForAdd, setShowForAdd] = useState(false);
+
+    useEffect(() => {
+        client.findQuizzesForCourse(courseId).then((quizzes) => {
+            dispatch(selectQuizzes(quizzes));
+        });
+    });
 
     function handleShowAdd() {
         console.log("In handleAddQuiz");
@@ -31,27 +38,25 @@ function Quizzes() {
     }
 
     function handleCloseYesAdd() {
-        console.log("In handleCloseYesAdd");
         setShowForAdd(false);
         navigate(`/Kanbas/Courses/${courseId}/Quizzes/DetailsEditor/DetailsEditor`);
     }
 
     function handleShowDelete(quiz: QuizType) {
         setToBeDeleted(quiz);
-        console.log(toBeDeleted);
-        console.log("In handleShowDelete");
         setShowForDelete(true);
     };
 
     function handleCloseYesDelete(quiz: QuizType  | undefined) {
-        console.log("In handleCloseYesDelete");
-        console.log("quiz being deleted = " + JSON.stringify(quiz));
-        dispatch(deleteQuiz(quiz?._id));
+        try {
+            client.deleteQuiz(quiz?._id).then((status) => {dispatch(deleteQuiz(quiz?._id));});
+        } catch (error: any) {
+            console.log("handleCloseYesDelete error = " + error); 
+        }
         setShowForDelete(false);
     }
 
     function handleCloseNoDelete() {
-        console.log("In handleCloseNoDelete");
         setShowForDelete(false);
     }
 

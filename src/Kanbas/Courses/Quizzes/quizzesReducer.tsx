@@ -1,12 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";     // Import createSlide.
-import { quizzes } from "../../Database";           // Import quizzes from database.
 
 // TODO: Use database and not JSON file. quizzes needs to be empty by default!
 
 export const initialState = {                               // Create reducer's initial state with 
-    quizzes: quizzes,                                       // default quizzes copied from database.
+    quizzes: [{
+        _id: "", title: "", subtitle: "", 
+        instructions: "", quizType: "", 
+        assignmentGroup: "", shuffle: true, timeLimit: true, time: "", 
+        multipleAttempts: false, showCorrectAnswers: true,
+        showCorrectAnswersDate: "", hideCorrectAnswersDate: "", accessCodeOn: false, 
+        accessCode: "", viewResponses: true,
+        oneQuestion: true, webCam: false, lockedQuestions: false,
+        forAccess: "", dueDate: "", availableFromDate: "", 
+        untilDate: "", points: "", numQuestions: "", published: false
+    }],                                       // default quizzes copied from database.
     quiz: {
-        title: "Unnamed Quiz", subtitle: "New Subtitle", 
+        _id: "", title: "Unnamed Quiz", subtitle: "New Subtitle", 
         instructions: "<p><br></p>", quizType: "Graded Quiz", 
         assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
         multipleAttempts: false, showCorrectAnswers: true,
@@ -20,6 +29,9 @@ export const initialState = {                               // Create reducer's 
 
 const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create slice. Name the slice. Set initial state.
     reducers: {                                     // Declare reducer functions.
+        selectQuizzes: (state, action) => {
+            state.quizzes = action.payload;
+        },
 
         // addQuiz reducer function, action contains new quiz in action.payload. Overide _id as timestamp
         addQuiz: (state, action) => {             // New quiz is in action.payload.
@@ -29,7 +41,7 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
             ];
             console.log("ADDED QUIZ: state.quizzes = " + JSON.stringify(state.quizzes));
             state.quiz = {
-                title: "Unnamed Quiz", subtitle: "New Subtitle", 
+                _id: "", title: "Unnamed Quiz", subtitle: "New Subtitle", 
                 instructions: "<p><br></p>", quizType: "Graded Quiz", 
                 assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
                 multipleAttempts: false, showCorrectAnswers: true,
@@ -54,7 +66,7 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
             state.quizzes = state.quizzes.map((quiz) => (quiz._id === action.payload._id ? action.payload : quiz));
             console.log("UPDATED QUIZ: state.quizzes = " + JSON.stringify(state.quizzes));
             state.quiz = { 
-                title: "Unnamed Quiz", subtitle: "New Subtitle", 
+                _id: "", title: "Unnamed Quiz", subtitle: "New Subtitle", 
                 instructions: "<p><br></p>", quizType: "Graded Quiz", 
                 assignmentGroup: "Quizzes", shuffle: true, timeLimit: true, time: "20", 
                 multipleAttempts: false, showCorrectAnswers: true,
@@ -68,13 +80,10 @@ const quizzesSlice = createSlice({ name: "quizzes", initialState,   // Create sl
 
         // selectQuiz reducer function to update quiz state variable.
         selectQuiz: (state, action) => {             // Select the quiz to edit.
-            console.log("IN SELECTQUIZ");
-            console.log("state = " + JSON.stringify(state));
-            console.log("action = " + JSON.stringify(action));
             state.quiz = action.payload;
         },
     },
 });
 
-export const { addQuiz, deleteQuiz, updateQuiz, selectQuiz } = quizzesSlice.actions;   // Export all reducer functions.
+export const { addQuiz, deleteQuiz, updateQuiz, selectQuiz, selectQuizzes } = quizzesSlice.actions;   // Export all reducer functions.
 export default quizzesSlice.reducer;                // Export reducer for store.
