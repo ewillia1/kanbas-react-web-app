@@ -17,7 +17,7 @@ function ModuleList() {
     const [selectedModule, setSelectedModule] = useState(moduleListFromReducer[0]);
 
     useEffect(() => {
-        client.findModulesForCourse(courseId).then((modules) => { 
+        client.findModulesForCourse(courseId).then((modules: any[]) => { 
             setSelectedModule(modules[0]); 
             dispatch(setModules(modules));
         });
