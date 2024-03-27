@@ -27,7 +27,7 @@ function Assignments() {
 
     function handleCloseYes(assignment: AssignmentType  | undefined) {
         try {
-            client.deleteAssignment(assignment?._id).then((status) => {dispatch(deleteAssignment(assignment?._id));})    
+            client.deleteAssignment(assignment?._id).then((status) => {dispatch(deleteAssignment(assignment?._id));});    
         } catch (error: any) {
             console.log("handleCloseYes error = " + error); 
         }
